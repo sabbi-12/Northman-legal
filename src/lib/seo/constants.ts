@@ -1,0 +1,26 @@
+export const SITE_URL = "https://northmansterling.legal";
+export const SITE_NAME = "Northman Sterling";
+export const CLIENT_PORTAL_URL = "https://northmansterling.app";
+
+export const ORGANIZATION = {
+  legalName: "Northman Sterling Legal",
+  addressLocality: "Riyadh",
+  addressCountry: "SA",
+  streetAddress: "Level 18, Al Faisaliah Tower, King Fahad Road, Olaya District",
+  telephone: "+966570011966",
+  telephoneDisplay: "00966 57 0011 966",
+  fax: "+966112978293",
+  faxDisplay: "00966 112 978 293",
+  email: "ksa@northmansterling.legal",
+  // Social profile URLs — placeholders until the firm shares the live
+  // accounts; swap these before launch rather than leaving them pointed
+  // at "#".
+  facebookUrl: "",
+  twitterUrl: "",
+  linkedinUrl: "",
+  get sameAs(): string[] {
+    return [this.facebookUrl, this.twitterUrl, this.linkedinUrl].filter(Boolean);
+  },
+};
+
+export const TWITTER_HANDLE = "@northmansterling";

@@ -1,0 +1,346 @@
+{
+  "meta": {
+    "siteName": "Northman Sterling",
+    "defaultTitle": "Northman Sterling | Legal Services in Saudi Arabia",
+    "defaultDescription": "Legal services for all your legal support needs in Saudi Arabia — global immigration, commercial disputes, court enforcement, and notary services."
+  },
+  "nav": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "regions": "Regions",
+    "newsUpdates": "News & Updates",
+    "contactUs": "Contact Us",
+    "clientPortal": "Client Portal",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleLight": "Switch to light mode",
+    "toggleDark": "Switch to dark mode"
+  },
+  "topBar": {
+    "updatesLabel": "Current Updates",
+    "clientPortal": "Client Portal",
+    "tickerItems": [
+      { "id": "tb-1", "text": "How Government Relations Services Support Iqama Processing and Workforce Mobility in Saudi Arabia" },
+      { "id": "tb-2", "text": "Northman Sterling advises on cross-border enforcement matters across the GCC." },
+      { "id": "tb-3", "text": "New Power of Attorney notarization guidelines now in effect for foreign investors." },
+      { "id": "tb-4", "text": "Northman Sterling opens dedicated commercial disputes desk in Riyadh." }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Legal Services for all your legal support needs in Saudi Arabia",
+    "headline": "Ensuring legal compliance in Saudi Arabia",
+    "subheadline": "Trusted counsel for global immigration, commercial disputes, court enforcement, and notarial services — serving clients from over 35 countries.",
+    "cta": "Learn More"
+  },
+  "complianceHighlights": {
+    "title": "Complete Compliance & Legal Support",
+    "items": [
+      {
+        "id": "immigration",
+        "title": "Global Immigration Solutions",
+        "description": "We can assist with all your corporate support needs in the Kingdom"
+      },
+      {
+        "id": "partnerships",
+        "title": "Expertise and Partnerships",
+        "description": "We can assist with your commercial disputes and court orders enforcement needs."
+      },
+      {
+        "id": "mobility",
+        "title": "Strategic Mobility Optimization",
+        "description": "We are authorised notary and POA issuance service providers in KSA"
+      }
+    ]
+  },
+  "trustBanner": {
+    "countriesTitle": "We Are Proud to Support Clients from 35+ Countries",
+    "hqNote": "Headquartered in Riyadh, Saudi Arabia",
+    "badges": ["Legal Disputes", "Court Orders", "Notary Service"]
+  },
+  "coreServices": {
+    "title": "We can help solve all your Legal disputes in Saudi Arabia",
+    "description": "Expertly steering your organization through the intricacies of immigration law and regulations. We focus on streamlining your global workforce mobility with accuracy and operational excellence.",
+    "exploreAll": "Explore All",
+    "learnMore": "Learn More",
+    "items": [
+      {
+        "id": "corporate-immigration",
+        "title": "Corporate Immigration",
+        "description": "When it comes to corporate immigration matters, we assist businesses, corporations, and individuals seeking to relocate employees, expand operations internationally, or hire foreign talent needed for international projects while staying compliant with immigration laws and policies. We align immigration strategies with your business goals to optimize talent acquisition and mobility.",
+        "imageSrc": "/images/services/corporate-immigration.png",
+        "imageAlt": "Corporate Immigration icon"
+      },
+      {
+        "id": "company-incorporation",
+        "title": "Company Incorporation",
+        "description": "Northman Sterling is dedicated to assisting its global clients at every stage of their company setup journey. We lead companies looking to expand through the entire process of business incorporation and provide guidance on compliance matters, such as corporate registration, licensing, permits, and annual reporting to maintain your business status.",
+        "imageSrc": "/images/services/company-incorporation.png",
+        "imageAlt": "Company Incorporation icon"
+      },
+      {
+        "id": "outbound-visas",
+        "title": "Outbound Visas",
+        "description": "Northman Sterling offers assistance with immigration matters for the UK, Canada, USA and Australia from the UAE and Saudi Arabia. Depending on our client's choice of visa, they can collaborate with us to procure necessary documents, review application materials for quality assurance prior to submission, and monitor the status and progress of the case.",
+        "imageSrc": "/images/services/outbound-visas.png",
+        "imageAlt": "Outbound Visas icon"
+      },
+      {
+        "id": "document-attestation",
+        "title": "Document Attestation",
+        "description": "Managing documents effectively is crucial for businesses and organizations to maintain efficiency, compliance, and security. We ensure that you meet all regulatory requirements whether you are a professional, a corporate entity, or a small business, our comprehensive solution is tailored to your specific needs.",
+        "imageSrc": "/images/services/document-attestation.png",
+        "imageAlt": "Document Attestation icon"
+      }
+    ]
+  },
+  "whyChooseUs": {
+    "title": "Why Choose Us?",
+    "imageAlt": "A legal advisor reviewing documents at a laptop",
+    "paragraphs": [
+      "Northman Sterling Legal serves as a central hub for legal services in Saudi Arabia, providing comprehensive solutions that help businesses navigate complex legal, regulatory, and compliance landscapes.",
+      "We are dedicated to supporting organizations across diverse industries, empowering them to operate confidently within the Saudi legal framework while focusing on their strategic growth and core objectives.",
+      "Guiding you through the complexities of commercial litigation, dispute resolution, and court order enforcement in Saudi Arabia with clarity, expertise, and precision.",
+      "We are committed to making every legal process seamless, ensuring that each stage is handled efficiently, transparently, and with your best interests at the forefront."
+    ],
+    "cta": "Learn More"
+  },
+  "legalAdvisors": {
+    "title": "Your Legal Advisors",
+    "imageAlt": "A Northman Sterling legal advisor consulting with a client",
+    "paragraphs": [
+      "We proudly serve as your trusted legal services partner in Saudi Arabia, guiding clients through the complexities of local laws and regulatory frameworks. Our team collaborates with leading legal and compliance experts to deliver practical, results-driven solutions.",
+      "Businesses of all sizes rely on us for our commitment to precision, professionalism, and excellence. We approach every matter with diligence and urgency, ensuring that our legal support is both strategic and effective in protecting your interests and achieving your goals."
+    ],
+    "cta": "Learn More"
+  },
+  "eventGallery": {
+    "title": "Event Gallery",
+    "events": [
+      {
+        "title": "SME London Business Awards 2024",
+        "description": "We were honored to have our team present at the SME London Business Awards, hosted by the London Chamber of Commerce and Industry. It was a valuable occasion to connect with industry professionals, share insights, and celebrate the remarkable achievements within the SME community.",
+        "imageSrc": "/images/events/sme-london-business-awards-2024.png",
+        "imageAlt": "The Northman Sterling team at the SME London Business Awards 2024"
+      },
+      {
+        "title": "FEM – EMEA Summit 2023",
+        "description": "We had an outstanding experience at The Forum for Expatriate Management EMEA Summit, winning Best Stand with our robot Pepper. We were also honored with nominations for Immigration Provider of the Year and Global Mobility Professional of the Year. The event was full of valuable insights and networking with industry leaders.",
+        "imageSrc": "/images/events/fem-emea-summit-2023.png",
+        "imageAlt": "The Northman Sterling stand at the FEM EMEA Summit 2023, featuring the robot Pepper"
+      },
+      {
+        "title": "HR Leaders Conference 2024",
+        "description": "Northman Sterling had a valuable presence at the HRL Conference in Riyadh. Our participation reflected our commitment to staying at the forefront of industry development. We appreciate the ongoing support from our Riyadh management team in making this event a success.",
+        "imageSrc": "/images/events/hr-leaders-conference-2024.png",
+        "imageAlt": "The Northman Sterling team at the HR Leaders Conference 2024 in Riyadh"
+      },
+      {
+        "title": "PIF Private Sector Forum",
+        "description": "At the prestigious PIF forum, our team was honored to be represented and connected with Chief Commercial Officer Mr. Vivek Bachhawat and other inspiring leaders.",
+        "imageSrc": "/images/events/pif-private-sector-forum.png",
+        "imageAlt": "Northman Sterling representatives at the PIF Private Sector Forum"
+      }
+    ]
+  },
+  "latestInsights": {
+    "title": "Read our latest Insights",
+    "author": "Northman marketing",
+    "readMore": "Read more",
+    "next": "Next",
+    "posts": [
+      { "title": "Compliance Considerations for Foreign Companies Expanding into Saudi Arabia", "date": "2026-08-03" },
+      { "title": "The First Five Strategic Hires for Companies Expanding into Saudi Arabia", "date": "2026-07-31" },
+      { "title": "The Wrong Legal Structure Can Limit Business Expansion in Saudi Arabia", "date": "2026-07-28" },
+      { "title": "How Are Digital Government Services Changing the Way Businesses Operate in Saudi Arabia?", "date": "2026-07-21" }
+    ]
+  },
+  "letsConnect": {
+    "title": "Let's Connect!",
+    "subtitle": "We can assist with all your legal and notary needs in KSA.",
+    "submit": "Submit Enquiry"
+  },
+  "firmIdentity": {
+    "heading": "Northman Sterling Legal",
+    "body": "Northman Sterling Legal is a division of Northman & Sterling focused on legal services in Saudi Arabia as a registered law firm."
+  },
+  "newsletter": {
+    "title": "Subscribe to our Newsletter",
+    "placeholder": "Your Email Address",
+    "submit": "Submit",
+    "submitting": "Submitting…",
+    "success": "Thank you for subscribing.",
+    "error": "Something went wrong. Please try again."
+  },
+  "pillars": {
+    "title": "Core Pillars",
+    "subtitle": "Focused practice areas built around the legal support enterprises and individuals need most in the Kingdom.",
+    "items": [
+      {
+        "id": "immigration",
+        "title": "Global Immigration Solutions",
+        "description": "Corporate support in KSA covering work visas, residency permits, and cross-border relocation for enterprises and their people."
+      },
+      {
+        "id": "disputes",
+        "title": "Commercial Disputes & Court Enforcement",
+        "description": "Representation through negotiation, arbitration, and litigation, with dedicated support for enforcing judgments and awards."
+      },
+      {
+        "id": "notary",
+        "title": "Authorized Notary & Power of Attorney (POA) Issuance",
+        "description": "Certified notarization and POA issuance for individuals and businesses operating in or with Saudi Arabia."
+      }
+    ]
+  },
+  "certifications": {
+    "title": "We Are Certified",
+    "subtitle": "Independently audited and certified to internationally recognized standards.",
+    "items": [
+      { "id": "iso-27001", "name": "ISO 27001 — Information Security Management", "imageSrc": "/images/certifications/iso-27001.png" },
+      { "id": "iso-37001", "name": "ISO 37001 — Anti-Bribery Management", "imageSrc": "/images/certifications/iso-37001.png" },
+      { "id": "iso-9001", "name": "ISO 9001:2015 — Quality Management", "imageSrc": "/images/certifications/iso-9001-2015.jpg" }
+    ]
+  },
+  "globalPresence": {
+    "eyebrow": "Global Presence",
+    "tagline": "Supporting clients from 35+ countries, headquartered in Riyadh.",
+    "countriesValue": "35+",
+    "countriesLabel": "Countries served",
+    "hqValue": "Riyadh",
+    "hqLabel": "Headquarters"
+  },
+  "newsSection": {
+    "title": "News & Updates",
+    "subtitle": "The latest from Northman Sterling — regulatory updates, firm news, and legal insight.",
+    "readMore": "Read more",
+    "viewAll": "View all updates",
+    "empty": "No updates are published yet. Check back soon.",
+    "backToNews": "Back to News & Updates",
+    "publishedOn": "Published"
+  },
+  "aboutPage": {
+    "title": "About Us",
+    "intro": "Northman Sterling is a Riyadh-headquartered legal practice supporting enterprises and individuals across Saudi Arabia and internationally, with clients drawn from more than 35 countries.",
+    "missionTitle": "Our Approach",
+    "mission": "We combine deep familiarity with Saudi regulatory practice with the responsiveness international clients expect — from initial licensing and immigration matters through to contentious enforcement proceedings.",
+    "practiceAreasTitle": "Practice Areas",
+    "faqTitle": "Frequently Asked Questions",
+    "faqItems": [
+      {
+        "question": "What areas does Northman Sterling practice in?",
+        "answer": "We focus on three core areas: global immigration solutions for corporates and individuals, commercial disputes and court enforcement, and authorized notary and Power of Attorney issuance."
+      },
+      {
+        "question": "Do you work with clients based outside Saudi Arabia?",
+        "answer": "Yes. We regularly support clients from more than 35 countries on matters connected to Saudi Arabia, coordinating remotely and through our Riyadh office as needed."
+      },
+      {
+        "question": "How do I get in touch about a matter?",
+        "answer": "Use the contact form on our Contact Us page with a short description of your matter, and our team will respond promptly to arrange next steps."
+      },
+      {
+        "question": "Can you notarize documents for use outside the Kingdom?",
+        "answer": "We provide authorized notarization and Power of Attorney issuance for documents used both within Saudi Arabia and internationally — get in touch with the specifics of your document and destination country for guidance."
+      }
+    ]
+  },
+  "regionsPage": {
+    "title": "Regions We Serve",
+    "intro": "Headquartered in Riyadh, Northman Sterling supports clients operating across Saudi Arabia and coordinates cross-border matters throughout the GCC and internationally.",
+    "hqTitle": "Headquarters",
+    "hqDescription": "Riyadh, Saudi Arabia — serving as the base for all licensing, notarial, and enforcement matters within the Kingdom.",
+    "reachTitle": "International Reach",
+    "reachDescription": "We regularly act for clients based outside Saudi Arabia, coordinating immigration, commercial, and notarial matters across more than 35 countries."
+  },
+  "contactPage": {
+    "title": "Contact Us",
+    "intro": "Send us a few details about your matter and our team will respond promptly.",
+    "formName": "Full name",
+    "formEmail": "Email address",
+    "formPhone": "Phone number",
+    "formService": "Area of interest",
+    "formServiceOptions": [
+      "Company Incorporation",
+      "Immigration Services",
+      "Work Permits",
+      "Business Visas",
+      "Work Visas",
+      "Letter of Invitation",
+      "Documents Legalisation",
+      "Compliance Management",
+      "Other"
+    ],
+    "formMessage": "Message",
+    "formSubmit": "Send Message",
+    "formSubmitting": "Sending…",
+    "formSuccess": "Thank you — your message has been sent. Our team will be in touch shortly.",
+    "formError": "Something went wrong sending your message. Please try again or email us directly.",
+    "officeTitle": "Our Office"
+  },
+  "cookieConsent": {
+    "message": "We use cookies to run analytics that help us understand how visitors use this site. You can accept all cookies or continue with only the essential ones.",
+    "acceptAll": "Accept All",
+    "necessaryOnly": "Necessary Only",
+    "privacyLink": "Privacy Policy"
+  },
+  "legalPages": {
+    "lastUpdated": "Last updated",
+    "privacyPolicy": {
+      "title": "Privacy Policy",
+      "intro": "This Privacy Policy explains how Northman Sterling collects, uses, and protects information submitted through this website.",
+      "sections": [
+        {
+          "heading": "Information We Collect",
+          "body": "We collect information you provide directly, such as your name, email address, phone number, and message content when you use our contact form, along with standard technical data (such as browser type and pages visited) collected automatically through analytics tools."
+        },
+        {
+          "heading": "How We Use Your Information",
+          "body": "We use the information you provide to respond to your inquiry, and we use aggregated analytics data to understand how visitors use this site and to improve it. We do not sell your personal information."
+        },
+        {
+          "heading": "Cookies & Analytics",
+          "body": "This site uses cookies for analytics purposes. You can choose whether to allow analytics cookies through the consent banner shown on your first visit."
+        },
+        {
+          "heading": "Contact",
+          "body": "If you have questions about this Privacy Policy or how your information is handled, please contact us using the details on our Contact Us page."
+        }
+      ]
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "intro": "The content on this website is provided for general informational purposes only and does not constitute legal advice.",
+      "sections": [
+        {
+          "heading": "No Attorney-Client Relationship",
+          "body": "Viewing or interacting with this website, including submitting the contact form, does not create an attorney-client relationship between you and Northman Sterling."
+        },
+        {
+          "heading": "No Guarantee of Outcome",
+          "body": "Legal outcomes depend on the specific facts of each matter. Nothing on this site should be taken as a guarantee or prediction of the outcome of any legal matter."
+        },
+        {
+          "heading": "Seek Professional Advice",
+          "body": "For advice on a specific legal matter, please contact us directly so we can assess your circumstances individually."
+        }
+      ]
+    }
+  },
+  "footer": {
+    "description": "We are a registered law firm in Saudi Arabia as a division of Northman & Sterling global mobility services.",
+    "quickLinksTitle": "Quick Links",
+    "contactTitle": "Contact",
+    "officeName": "Northman Sterling Legal",
+    "officeAddress": "Level 18, Al Faisaliah Tower, King Fahad Road, Olaya District, Riyadh",
+    "phoneLabel": "Phone",
+    "faxLabel": "Fax",
+    "rights": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "blogs": "Blogs",
+    "immigrationUpdates": "Immigration Updates",
+    "keyEvents": "Key Events",
+    "followUs": "Follow us",
+    "manageConsent": "Manage consent"
+  }
+}

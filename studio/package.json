@@ -1,0 +1,19 @@
+{
+  "name": "northman-sterling-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Content editor for Northman Sterling News & Updates. Deployed independently of the Next.js site — see README.md.",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "start": "sanity start"
+  },
+  "dependencies": {
+    "sanity": "^6.6.0",
+    "@sanity/vision": "^6.6.0",
+    "react": "^19.2.2",
+    "react-dom": "^19.2.2",
+    "styled-components": "^6.1.15"
+  }
+}
