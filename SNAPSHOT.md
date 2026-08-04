@@ -16,7 +16,12 @@ the time this was written.
 > coverage — see `CLAUDE.md`'s "Rebrand" section for the full account). The
 > structural facts here (section order, component list, asset manifest,
 > dictionary key set) are still accurate; only the specific color/logo
-> details predate the rebrand.
+> details predate the rebrand. One asset-manifest entry is now wrong, not
+> just recolored: the Hero background photo was swapped a second time
+> during the rebrand pass, from `images/hero/london-eye.png` (below) to
+> `images/hero/westminster-sunset.jpg` — the old file no longer exists on
+> disk. Commit `46feef9` ("website design changes") is the checkpoint that
+> carries the rebrand + this hero swap; treat it as current, not this file.
 
 ## What's built
 

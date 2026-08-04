@@ -45,7 +45,7 @@ this is not a greenfield start. Verified present and wired correctly:
 | Booking conversion tracking | ❌ no booking flow exists yet | build once we know the booking tool (Calendly? HubSpot meetings?) |
 | Dark mode (UX only, default light) | ✅ correctly deprioritized — `ThemeProvider` defaults light, toggle is optional | `ui/ThemeProvider.tsx`, `layout/DarkModeToggle.tsx` |
 | Language switcher | ✅ | `layout/LanguageSwitcher.tsx` |
-| Restrained/institutional visual style | ✅ direction set — Cinzel/Amiri serif headings, navy/cream/gold palette, no startup-gradient aesthetic | `[lang]/layout.tsx` fonts, `tailwind.config.js` |
+| Restrained/institutional visual style | ✅ direction set — Cinzel/Amiri serif headings, navy/cream/accent(slate-blue) palette, no startup-gradient aesthetic | `[lang]/layout.tsx` fonts, `tailwind.config.js` |
 
 **Bottom line:** the architecture and SEO plumbing are sound and mostly
 already match the brief. What's missing is (a) real content per page,
@@ -98,8 +98,9 @@ Decisions worth knowing about before touching this again:
   gradient-plus-icon tiles for services/events, since the brief asked for
   photos but didn't supply any at the time. The user has since been sending
   real assets one at a time — as of 2026-08-04: the hero background is now
-  the real London Eye/Thames photo (`public/images/hero/london-eye.png`,
-  1519×700, good resolution), all 4 Event Gallery photos are real, all 4
+  a real photo (`public/images/hero/westminster-sunset.jpg` — superseded
+  the earlier London Eye/Thames photo, see the rebrand-era Hero note
+  below), all 4 Event Gallery photos are real, all 4
   Core Services icons are real, the Why Choose Us and Legal Advisors photos
   are real (though both of those are small WordPress-thumbnail exports,
   ~300px wide — capped their display size accordingly, flagged to the user
@@ -161,12 +162,15 @@ using framer-motion's AnimatePresence for the slide transition rather than
 a scroll-snap track. Section anchor `#event-gallery` (linked from the
 footer's "Key Events") is preserved.
 
-**Still on placeholders, waiting on real assets:** the real logo files
-(`Northman-Legal-Logo*.png` in the media folder — check these against
-`public/images/logo.svg`/`logo-dark.svg` used in the Navbar/Footer), team
+**Still on placeholders, waiting on real assets:** team
 headshots (could support a future "Our Team" section — don't invent one
-unprompted), and blog thumbnails (`LatestInsights.tsx` still uses
-gradient-plus-icon tiles).
+unprompted), and blog thumbnails (`LatestInsights.tsx` still uses an
+accent-tinted icon tile, no photo). The real logo is done — see the
+Rebrand section below. `public/images/logo-mark-square.png` (the square
+logo variant the client also sent) is copied into `public/images/` but
+**not wired into any component yet** — `BrandLogo.tsx` only renders the
+horizontal wordmark. Decide if/where the square mark is needed (favicon?
+a compact mobile navbar mark?) before it goes stale as an orphaned asset.
 
 **Compliance Highlights split out of Hero (2026-08-04).** The 3-item
 checklist (Global Immigration Solutions / Expertise and Partnerships /
@@ -189,6 +193,17 @@ photo entirely) — fixed by removing the flat layer and using a single
 lighter gradient (`from-navy/60 via-navy/25 to-navy/55`), with drop-shadows
 added to the text elements instead to keep legibility without needing a
 heavy overlay to do it.
+
+**Hero photo swapped again, same session, during the rebrand pass
+(2026-08-04).** `london-eye.png` was replaced by
+`public/images/hero/westminster-sunset.jpg` (deleted the old file). The
+gradient was also darkened a second time — `from-navy/60 via-navy/25
+to-navy/55` → `from-navy/70 via-navy/40 to-navy/65` — since the new photo
+runs brighter/warmer than the London Eye shot and needed more navy over it
+to hold text legibility. The eyebrow text also moved off the old gold
+token onto plain `text-white` (drop-shadow strengthened to compensate) as
+part of the same pass — see the Rebrand section below for the full color
+rename.
 
 **Core Services icons are real (2026-08-04).** `CoreServices.tsx` no longer
 uses lucide icons — each card now renders its matching real icon from
@@ -257,6 +272,16 @@ phase. Applied site-wide, not just on Home:
   monogram SVGs (`logo.svg`, `logo-dark.svg`) are deleted; all 4 SEO schema
   builders (`Organization`, `LegalService`, `Attorney`, `Article`) now point
   at the real logo too.
+- **Dedicated CTA-button color added, separate from `accent`.** The client
+  gave a direct color instruction for buttons specifically: a bright
+  sky-blue (`#27AAE1`) default, dropping to the slate-blue `accent` tone
+  (`#2E5B88`) on hover. Added as its own `button`/`button-hover` token in
+  `tailwind.config.js` rather than overloading `accent` — `accent` stays
+  reserved for icons/borders/links/section labels, `button` is CTA-only
+  (Hero's primary CTA, `Newsletter.tsx`'s submit button, `ContactForm.tsx`,
+  `WhyChooseUs.tsx`, `LegalAdvisors.tsx`). CTA text is plain white on both
+  states, not navy — check contrast if the client ever revises the button
+  hex.
 - **Framer-motion coverage extended.** `FirmIdentity.tsx`, `Newsletter.tsx`,
   `LetsConnect.tsx`, and `LatestInsights.tsx`'s post cards had no entrance
   animation before this pass (everything else already did) — added the same
@@ -275,6 +300,31 @@ phase. Applied site-wide, not just on Home:
   its brief-wins/refinement principles), not by invoking `/impeccable`
   itself. A fresh session should be able to run `/impeccable audit` or
   `/impeccable critique` against this if a second opinion is wanted.
+
+## Session checkpoint (2026-08-04, end of day)
+
+Everything described above through the Rebrand section is committed —
+`46feef9` ("website design changes") on `main`, working tree clean at the
+close of this session. Picking this back up tomorrow, start here:
+
+- **`/impeccable` is now usable.** It was installed/initialized in an
+  earlier session but not picked up mid-session; this session's fresh
+  start confirmed the skill loads (`context.mjs` and `context-signals.mjs`
+  both ran successfully). Nothing has been critiqued or audited yet —
+  `critique.latest` is `null`. A first `/impeccable critique` or
+  `/impeccable document` pass (to generate the still-missing `DESIGN.md`)
+  is queued but not started.
+- **No code changes were made this session** — this session was
+  docs-only, reconciling `CLAUDE.md`/`PRODUCT.md`/`SNAPSHOT.md` against
+  what the *previous* session's rebrand commit actually shipped (the hero
+  photo's second swap to `westminster-sunset.jpg`, the new dedicated
+  `button` CTA-color token, and the still-unwired `logo-mark-square.png`
+  asset weren't written down until now).
+- **Open threads carried forward, unchanged:** the Page log (About Us,
+  Regions, Contact Us, Privacy Policy, Disclaimer all still placeholder
+  content), FAQ schema still not emitted, `logo-mark-square.png` needs a
+  decision on where/whether it's used, footer social URLs still `#`, and
+  the full pre-launch migration checklist below is untouched.
 
 ## Pre-launch migration checklist (do NOT skip — live site is indexed)
 
