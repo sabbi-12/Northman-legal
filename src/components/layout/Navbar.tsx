@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -9,6 +8,7 @@ import { Menu, X } from "lucide-react";
 
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { DarkModeToggle } from "@/components/layout/DarkModeToggle";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 import type { NavLink } from "@/types";
@@ -33,22 +33,8 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
     <header className="sticky top-0 z-50 border-b border-navy/10 bg-cream/90 backdrop-blur-md dark:border-cream/10 dark:bg-navy-dark/90">
       <nav className="container-institutional flex h-20 items-center justify-between">
         <Link href={`/${lang}`} className="shrink-0" aria-label={dict.meta.siteName}>
-          <Image
-            src="/images/logo.svg"
-            alt={dict.meta.siteName}
-            width={180}
-            height={32}
-            className="h-8 w-auto dark:hidden"
-            priority
-          />
-          <Image
-            src="/images/logo-dark.svg"
-            alt={dict.meta.siteName}
-            width={180}
-            height={32}
-            className="hidden h-8 w-auto dark:block"
-            priority
-          />
+          <BrandLogo height={36} className="dark:hidden" />
+          <BrandLogo height={36} onDark className="hidden dark:inline-flex" />
         </Link>
 
         <div className="hidden items-center gap-10 lg:flex">
@@ -60,7 +46,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
                   className={cn(
                     "text-sm font-medium uppercase tracking-wide transition-colors",
                     isActive(link.href)
-                      ? "text-gold"
+                      ? "text-accent"
                       : "text-navy/80 hover:text-navy dark:text-cream/80 dark:hover:text-cream"
                   )}
                   aria-current={isActive(link.href) ? "page" : undefined}
@@ -106,8 +92,8 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
               onClick={(event) => event.stopPropagation()}
             >
               <div className="flex items-center justify-between">
-                <Image src="/images/logo.svg" alt={dict.meta.siteName} width={160} height={28} className="h-7 w-auto dark:hidden" />
-                <Image src="/images/logo-dark.svg" alt={dict.meta.siteName} width={160} height={28} className="hidden h-7 w-auto dark:block" />
+                <BrandLogo height={30} className="dark:hidden" />
+                <BrandLogo height={30} onDark className="hidden dark:inline-flex" />
                 <button
                   type="button"
                   onClick={() => setMobileOpen(false)}
@@ -126,7 +112,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
                       onClick={() => setMobileOpen(false)}
                       className={cn(
                         "text-base font-medium uppercase tracking-wide",
-                        isActive(link.href) ? "text-gold" : "text-navy dark:text-cream"
+                        isActive(link.href) ? "text-accent" : "text-navy dark:text-cream"
                       )}
                     >
                       {link.label}

@@ -14,7 +14,7 @@ export function TrustBanner({ dict, lang }: { dict: Dictionary; lang: Locale }) 
   return (
     <section className="border-y border-navy/10 bg-cream py-20 dark:border-cream/10 dark:bg-navy-dark">
       <div className="container-institutional text-center">
-        <motion.h3
+        <motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -22,10 +22,10 @@ export function TrustBanner({ dict, lang }: { dict: Dictionary; lang: Locale }) 
           className="mx-auto max-w-3xl text-3xl font-medium leading-snug text-slate-dark md:text-4xl dark:text-cream"
         >
           {dict.trustBanner.countriesTitle}
-        </motion.h3>
+        </motion.h2>
 
         <p className="mt-4 flex items-center justify-center gap-2 text-sm text-slate-mid dark:text-cream/70">
-          <MapPin size={15} strokeWidth={1.75} className="text-gold" aria-hidden="true" />
+          <MapPin size={15} strokeWidth={1.75} className="text-accent" aria-hidden="true" />
           {dict.trustBanner.hqNote}
         </p>
 
@@ -36,7 +36,7 @@ export function TrustBanner({ dict, lang }: { dict: Dictionary; lang: Locale }) 
               <Link
                 key={badge}
                 href={`/${lang}/about-us#${BADGE_ANCHORS[index] ?? "core-pillars"}`}
-                className="flex items-center gap-2 rounded-institutional border border-navy/15 px-5 py-2.5 text-sm font-medium text-navy transition-colors hover:border-gold hover:text-gold dark:border-cream/15 dark:text-cream"
+                className="flex items-center gap-2 rounded-institutional border border-navy/15 px-5 py-2.5 text-sm font-medium text-navy transition-colors hover:border-accent hover:text-accent dark:border-cream/15 dark:text-cream"
               >
                 <Icon size={16} strokeWidth={1.75} aria-hidden="true" />
                 {badge}

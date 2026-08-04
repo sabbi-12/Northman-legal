@@ -1,6 +1,0 @@
-<svg width="220" height="40" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Northman Sterling">
-  <rect x="0" y="8" width="24" height="24" rx="1" fill="none" stroke="#C5A059" stroke-width="1.5"/>
-  <path d="M6 26 L12 12 L18 26 M8.5 21 H15.5" fill="none" stroke="#FAF9F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="34" y="17" font-family="Cinzel, Georgia, serif" font-size="13" letter-spacing="1.5" fill="#FAF9F6">NORTHMAN</text>
-  <text x="34" y="32" font-family="Cinzel, Georgia, serif" font-size="13" letter-spacing="1.5" fill="#C5A059">STERLING</text>
-</svg>

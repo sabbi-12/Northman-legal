@@ -61,7 +61,7 @@ export default async function RegionsPage({ params }: { params: { lang: string }
       <section className="bg-cream py-20 dark:bg-navy-dark">
         <div className="container-institutional grid gap-8 md:grid-cols-2">
           <div className="rounded-institutional border border-navy/10 bg-white p-8 shadow-institutional dark:border-cream/10 dark:bg-navy/40">
-            <div className="flex h-12 w-12 items-center justify-center rounded-institutional bg-navy/5 text-navy dark:bg-cream/10 dark:text-gold">
+            <div className="flex h-12 w-12 items-center justify-center rounded-institutional bg-navy/5 text-navy dark:bg-cream/10 dark:text-accent">
               <Building2 size={22} strokeWidth={1.5} />
             </div>
             <h2 className="mt-6 text-xl font-medium text-slate-dark dark:text-cream">
@@ -73,7 +73,7 @@ export default async function RegionsPage({ params }: { params: { lang: string }
           </div>
 
           <div className="rounded-institutional border border-navy/10 bg-white p-8 shadow-institutional dark:border-cream/10 dark:bg-navy/40">
-            <div className="flex h-12 w-12 items-center justify-center rounded-institutional bg-navy/5 text-navy dark:bg-cream/10 dark:text-gold">
+            <div className="flex h-12 w-12 items-center justify-center rounded-institutional bg-navy/5 text-navy dark:bg-cream/10 dark:text-accent">
               <Globe2 size={22} strokeWidth={1.5} />
             </div>
             <h2 className="mt-6 text-xl font-medium text-slate-dark dark:text-cream">

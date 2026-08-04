@@ -31,7 +31,7 @@ export function LanguageSwitcher({ currentLang }: { currentLang: Locale }) {
             className={cn(
               "px-1 py-0.5 font-medium uppercase tracking-wide transition-colors",
               locale === currentLang
-                ? "text-gold"
+                ? "text-accent"
                 : "text-navy/60 hover:text-navy dark:text-cream/60 dark:hover:text-cream"
             )}
             aria-current={locale === currentLang ? "true" : undefined}

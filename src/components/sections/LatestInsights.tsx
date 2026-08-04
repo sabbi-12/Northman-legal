@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ShieldCheck, Users, Building2, Landmark, CalendarDays, ArrowRight } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
@@ -29,7 +32,7 @@ export function LatestInsights({ dict, lang }: { dict: Dictionary; lang: Locale 
           </h2>
           <Link
             href={`/${lang}/news-updates`}
-            className="shrink-0 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:text-gold dark:text-cream"
+            className="shrink-0 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:text-accent dark:text-cream"
           >
             {dict.newsSection.viewAll}
           </Link>
@@ -39,13 +42,17 @@ export function LatestInsights({ dict, lang }: { dict: Dictionary; lang: Locale 
           {dict.latestInsights.posts.map((post, index) => {
             const Icon = POST_ICONS[index] ?? ShieldCheck;
             return (
-              <article
+              <motion.article
                 key={post.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
                 className="group flex flex-col overflow-hidden rounded-institutional border border-navy/10 bg-cream transition-shadow hover:shadow-institutional dark:border-cream/10 dark:bg-navy/40"
               >
                 <Link
                   href={`/${lang}/news-updates`}
-                  className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-gold-gradient"
+                  className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-accent/10"
                 >
                   <Icon size={34} strokeWidth={1.25} className="text-navy transition-transform duration-500 group-hover:scale-110" />
                 </Link>
@@ -63,7 +70,7 @@ export function LatestInsights({ dict, lang }: { dict: Dictionary; lang: Locale 
                     </span>
                   </div>
                 </div>
-              </article>
+              </motion.article>
             );
           })}
         </div>
@@ -76,7 +83,7 @@ export function LatestInsights({ dict, lang }: { dict: Dictionary; lang: Locale 
               aria-current={page === 1 ? "page" : undefined}
               className={
                 page === 1
-                  ? "flex h-9 w-9 items-center justify-center rounded-institutional bg-navy font-medium text-cream dark:bg-gold dark:text-navy"
+                  ? "flex h-9 w-9 items-center justify-center rounded-institutional bg-navy font-medium text-cream dark:bg-accent dark:text-navy"
                   : "flex h-9 w-9 items-center justify-center rounded-institutional text-slate-mid transition-colors hover:text-navy dark:text-cream/60 dark:hover:text-cream"
               }
             >
@@ -92,7 +99,7 @@ export function LatestInsights({ dict, lang }: { dict: Dictionary; lang: Locale 
           </Link>
           <Link
             href={`/${lang}/news-updates`}
-            className="ms-2 flex items-center gap-1 font-medium text-navy transition-colors hover:text-gold dark:text-cream"
+            className="ms-2 flex items-center gap-1 font-medium text-navy transition-colors hover:text-accent dark:text-cream"
           >
             {dict.latestInsights.next}
             <ArrowRight size={14} strokeWidth={2} className="rtl:hidden" />

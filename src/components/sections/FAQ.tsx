@@ -35,7 +35,7 @@ export function FAQ({ dict }: { dict: Dictionary }) {
                   <ChevronDown
                     size={18}
                     strokeWidth={1.75}
-                    className={`shrink-0 text-gold transition-transform ${isOpen ? "rotate-180" : ""}`}
+                    className={`shrink-0 text-accent transition-transform ${isOpen ? "rotate-180" : ""}`}
                   />
                 </button>
                 {isOpen && (

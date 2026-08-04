@@ -20,7 +20,7 @@ export function ManageConsentButton({ label }: { label: string }) {
       onClick={requestConsentReopen}
       aria-label={label}
       title={label}
-      className="fixed bottom-5 start-5 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-navy text-cream shadow-institutional transition-colors hover:bg-navy/90 dark:bg-gold dark:text-navy dark:hover:bg-gold/90"
+      className="fixed bottom-5 start-5 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-navy text-cream shadow-institutional transition-colors hover:bg-navy/90 dark:bg-accent dark:text-navy dark:hover:bg-accent/90"
     >
       <Cookie size={18} strokeWidth={1.75} />
     </button>

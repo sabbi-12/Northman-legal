@@ -18,7 +18,7 @@ export function DarkModeToggle({
       onClick={toggleTheme}
       aria-label={isDark ? labels.light : labels.dark}
       title={isDark ? labels.light : labels.dark}
-      className="flex h-9 w-9 items-center justify-center rounded-institutional border border-navy/15 text-navy transition-colors hover:border-gold hover:text-gold dark:border-cream/15 dark:text-cream dark:hover:border-gold dark:hover:text-gold"
+      className="flex h-9 w-9 items-center justify-center rounded-institutional border border-navy/15 text-navy transition-colors hover:border-accent hover:text-accent dark:border-cream/15 dark:text-cream dark:hover:border-accent dark:hover:text-accent"
     >
       {isDark ? <Sun size={16} strokeWidth={1.75} /> : <Moon size={16} strokeWidth={1.75} />}
     </button>

@@ -29,7 +29,7 @@ export function ComplianceHighlights({ dict }: { dict: Dictionary }) {
               transition={{ duration: 0.5, delay: index * 0.08 }}
               className="rounded-institutional border border-navy/10 bg-white p-7 shadow-institutional dark:border-cream/10 dark:bg-navy/40"
             >
-              <CheckCircle2 size={20} strokeWidth={1.75} className="text-gold" aria-hidden="true" />
+              <CheckCircle2 size={20} strokeWidth={1.75} className="text-accent" aria-hidden="true" />
               <h3 className="mt-4 text-base font-medium text-slate-dark dark:text-cream">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-mid dark:text-cream/70">{item.description}</p>
             </motion.div>

@@ -47,7 +47,7 @@ export function EventGallery({ dict }: { dict: Dictionary }) {
               type="button"
               onClick={() => go(index - 1, -1)}
               aria-label="Previous event"
-              className="flex h-10 w-10 items-center justify-center rounded-institutional border border-cream/20 transition-colors hover:border-gold hover:text-gold"
+              className="flex h-10 w-10 items-center justify-center rounded-institutional border border-cream/20 transition-colors hover:border-accent hover:text-accent"
             >
               <ChevronLeft size={18} strokeWidth={1.75} />
             </button>
@@ -55,7 +55,7 @@ export function EventGallery({ dict }: { dict: Dictionary }) {
               type="button"
               onClick={() => go(index + 1, 1)}
               aria-label="Next event"
-              className="flex h-10 w-10 items-center justify-center rounded-institutional border border-cream/20 transition-colors hover:border-gold hover:text-gold"
+              className="flex h-10 w-10 items-center justify-center rounded-institutional border border-cream/20 transition-colors hover:border-accent hover:text-accent"
             >
               <ChevronRight size={18} strokeWidth={1.75} />
             </button>
@@ -109,7 +109,7 @@ export function EventGallery({ dict }: { dict: Dictionary }) {
               aria-current={i === index ? "true" : undefined}
               className={cn(
                 "h-1.5 rounded-full transition-all",
-                i === index ? "w-8 bg-gold" : "w-4 bg-cream/25 hover:bg-cream/45"
+                i === index ? "w-8 bg-accent" : "w-4 bg-cream/25 hover:bg-cream/45"
               )}
             />
           ))}

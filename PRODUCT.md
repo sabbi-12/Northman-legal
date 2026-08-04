@@ -37,7 +37,7 @@ Serves clients from 35+ countries out of a single Riyadh base, combining deep fa
 ## Brand Commitments
 
 - Name: Northman Sterling Legal, a division of Northman & Sterling.
-- Visual identity is confirmed and already implemented: deep navy (#0C1E38) + metallic gold (#C5A059) + cream, Cinzel (EN heading) / Amiri (AR heading) serif type, near-square "institutional" corners — deliberately restrained and institutional, explicitly not a tech-startup aesthetic.
+- Visual identity is confirmed and already implemented, per the client's official color-code summary (2026-08-04): dark navy #0B192C (primary/CTA), white/off-white #FFFFFF-#F8F9FA (backgrounds), slate-blue #2E5B88 (accent/icons), charcoal #3E4856 (body text), light-gray borders. Cinzel (EN heading) / Amiri (AR heading) serif type and near-square "institutional" corners carry over from the earlier direction — deliberately restrained and institutional, explicitly not a tech-startup aesthetic. Real logo confirmed (`public/images/logo-real.png`); no light/inverted logo variant exists yet.
 - Dark mode exists as an optional UX toggle only; light is the default. Dark mode carries no direct SEO value and should never be treated as a priority feature.
 - Confirmed real Riyadh office address, phone, fax, and email (Level 18, Al Faisaliah Tower, King Fahad Road, Olaya District, Riyadh; ksa@northmansterling.legal).
 

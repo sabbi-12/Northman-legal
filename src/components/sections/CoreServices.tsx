@@ -32,7 +32,7 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
           </div>
           <Link
             href={`/${lang}/about-us`}
-            className="shrink-0 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:text-gold dark:text-cream"
+            className="shrink-0 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:text-accent dark:text-cream"
           >
             {dict.coreServices.exploreAll}
           </Link>
@@ -48,7 +48,7 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
               transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group flex flex-col rounded-institutional border border-navy/10 bg-white p-7 shadow-institutional transition-shadow hover:shadow-lg dark:border-cream/10 dark:bg-navy/40"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-institutional bg-gold-gradient p-2.5">
+              <div className="flex h-14 w-14 items-center justify-center rounded-institutional bg-accent/10 p-2.5">
                 <Image
                   src={item.imageSrc}
                   alt={item.imageAlt}
@@ -63,7 +63,7 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
               </p>
               <Link
                 href={`/${lang}/about-us#${ANCHORS[item.id] ?? "core-pillars"}`}
-                className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors hover:text-gold dark:text-cream"
+                className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors hover:text-accent dark:text-cream"
               >
                 {dict.coreServices.learnMore}
                 <ArrowIcon size={14} strokeWidth={2} className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />

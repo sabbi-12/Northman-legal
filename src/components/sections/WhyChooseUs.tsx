@@ -61,7 +61,7 @@ export function WhyChooseUs({ dict, lang }: { dict: Dictionary; lang: Locale }) 
 
           <Link
             href={`/${lang}/about-us`}
-            className="group mt-10 inline-flex items-center gap-3 rounded-institutional bg-navy px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-cream transition-colors hover:bg-navy/90 dark:bg-gold dark:text-navy dark:hover:bg-gold/90"
+            className="group mt-10 inline-flex items-center gap-3 rounded-institutional bg-button px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-button-hover"
           >
             {dict.whyChooseUs.cta}
             <ArrowIcon size={16} strokeWidth={2} className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />

@@ -43,7 +43,7 @@ export function ContactForm({ dict, submitLabel }: { dict: Dictionary; submitLab
   }
 
   const fieldClasses =
-    "w-full rounded-institutional border border-navy/15 bg-white px-4 py-3 text-sm text-slate-dark placeholder:text-navy/40 transition-colors focus:border-gold focus:outline-none dark:border-cream/15 dark:bg-navy/40 dark:text-cream dark:placeholder:text-cream/30";
+    "w-full rounded-institutional border border-navy/15 bg-white px-4 py-3 text-sm text-slate-dark placeholder:text-navy/40 transition-colors focus:border-accent focus:outline-none dark:border-cream/15 dark:bg-navy/40 dark:text-cream dark:placeholder:text-cream/30";
 
   return (
     <form onSubmit={handleSubmit} data-ns-track="contact-form" className="space-y-5">
@@ -101,7 +101,7 @@ export function ContactForm({ dict, submitLabel }: { dict: Dictionary; submitLab
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="flex items-center gap-2 rounded-institutional bg-gold px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:bg-gold/90 disabled:cursor-not-allowed disabled:opacity-60"
+        className="flex items-center gap-2 rounded-institutional bg-button px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-button-hover disabled:cursor-not-allowed disabled:opacity-60"
       >
         <Send size={16} strokeWidth={2} />
         {status === "submitting" ? dict.contactPage.formSubmitting : submitLabel ?? dict.contactPage.formSubmit}

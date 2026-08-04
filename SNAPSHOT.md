@@ -7,6 +7,17 @@ find what changed. Everything below was verified working (`npm run
 typecheck` clean, home page returning HTTP 200 on both `/en` and `/ar`) at
 the time this was written.
 
+> **Superseded for anything color/logo/motion-related.** A git repository
+> was initialized right after this was written — commit `ad5dded` on
+> `main` (pushed to `github.com/sabbi-12/Northman-legal`) is the actual,
+> literal restore point for everything described below, more reliable than
+> this document. A rebrand pass landed on top of that commit shortly after
+> (new navy/white/slate/charcoal palette, real logo, extended framer-motion
+> coverage — see `CLAUDE.md`'s "Rebrand" section for the full account). The
+> structural facts here (section order, component list, asset manifest,
+> dictionary key set) are still accurate; only the specific color/logo
+> details predate the rebrand.
+
 ## What's built
 
 The Home page (`src/app/[lang]/page.tsx`) — the only page whose content has

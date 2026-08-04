@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Mail, Phone, Printer, Facebook, Twitter, Linkedin } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 import { ORGANIZATION } from "@/lib/seo/constants";
+import { BrandLogo } from "@/components/ui/BrandLogo";
 
 export function Footer({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const year = new Date().getFullYear();
@@ -30,7 +30,7 @@ export function Footer({ dict, lang }: { dict: Dictionary; lang: Locale }) {
     <footer className="border-t border-navy/10 bg-navy text-cream">
       <div className="container-institutional grid gap-12 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
-          <Image src="/images/logo-dark.svg" alt={dict.meta.siteName} width={180} height={32} className="h-8 w-auto" />
+          <BrandLogo height={36} onDark />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-cream/70">{dict.footer.description}</p>
 
           <div className="mt-6 flex items-center gap-3">
@@ -41,7 +41,7 @@ export function Footer({ dict, lang }: { dict: Dictionary; lang: Locale }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="flex h-9 w-9 items-center justify-center rounded-institutional border border-cream/15 transition-colors hover:border-gold hover:text-gold"
+                className="flex h-9 w-9 items-center justify-center rounded-institutional border border-cream/15 transition-colors hover:border-accent hover:text-accent"
               >
                 <social.icon size={16} strokeWidth={1.75} />
               </a>
@@ -50,7 +50,7 @@ export function Footer({ dict, lang }: { dict: Dictionary; lang: Locale }) {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-gold">
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-accent">
             {dict.footer.quickLinksTitle}
           </h3>
           <ul className="mt-5 space-y-3">
@@ -65,30 +65,30 @@ export function Footer({ dict, lang }: { dict: Dictionary; lang: Locale }) {
         </div>
 
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-gold">
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-accent">
             {dict.footer.contactTitle}
           </h3>
           <ul className="mt-5 space-y-3 text-sm text-cream/70">
             <li className="flex items-start gap-2.5">
-              <MapPin size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
+              <MapPin size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
               <span>
                 {dict.footer.officeName}, {dict.footer.officeAddress}
               </span>
             </li>
             <li className="flex items-start gap-2.5">
-              <Phone size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
+              <Phone size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
               <a href={`tel:${ORGANIZATION.telephone}`} className="transition-colors hover:text-cream">
                 {ORGANIZATION.telephoneDisplay}
               </a>
             </li>
             <li className="flex items-start gap-2.5">
-              <Printer size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
+              <Printer size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
               <span>
                 {dict.footer.faxLabel}: {ORGANIZATION.faxDisplay}
               </span>
             </li>
             <li className="flex items-start gap-2.5">
-              <Mail size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
+              <Mail size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
               <a href={`mailto:${ORGANIZATION.email}`} className="transition-colors hover:text-cream">
                 {ORGANIZATION.email}
               </a>

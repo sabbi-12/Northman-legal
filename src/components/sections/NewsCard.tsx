@@ -44,7 +44,7 @@ export function NewsCard({
 
       <div className="flex flex-1 flex-col p-6">
         {post.categories.length > 0 && (
-          <span className="text-xs font-semibold uppercase tracking-wide text-gold">
+          <span className="text-xs font-semibold uppercase tracking-wide text-accent">
             {post.categories[0]}
           </span>
         )}
@@ -66,7 +66,7 @@ export function NewsCard({
           </span>
           <Link
             href={`/${lang}/news-updates/${post.slug}`}
-            className="flex items-center gap-1 font-medium text-navy transition-colors hover:text-gold dark:text-cream dark:hover:text-gold"
+            className="flex items-center gap-1 font-medium text-navy transition-colors hover:text-accent dark:text-cream dark:hover:text-accent"
           >
             {readMoreLabel}
             <ArrowIcon size={13} strokeWidth={2} />

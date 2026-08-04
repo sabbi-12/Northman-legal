@@ -14,7 +14,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   return (
     <section className="relative overflow-hidden bg-navy pb-24 pt-28 text-cream md:pb-32 md:pt-36">
       <Image
-        src="/images/hero/london-eye.png"
+        src="/images/hero/westminster-sunset.jpg"
         alt=""
         fill
         priority
@@ -22,13 +22,13 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
         quality={90}
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/25 to-navy/55" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/40 to-navy/65" />
 
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage:
-            "linear-gradient(90deg, transparent 0, transparent 39px, #C5A059 39px, #C5A059 40px, transparent 40px), linear-gradient(180deg, transparent 0, transparent 39px, #C5A059 39px, #C5A059 40px, transparent 40px)",
+            "linear-gradient(90deg, transparent 0, transparent 39px, #2E5B88 39px, #2E5B88 40px, transparent 40px), linear-gradient(180deg, transparent 0, transparent 39px, #2E5B88 39px, #2E5B88 40px, transparent 40px)",
           backgroundSize: "40px 40px",
         }}
         aria-hidden="true"
@@ -39,7 +39,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-sm font-medium uppercase tracking-[0.2em] text-gold drop-shadow-[0_1px_6px_rgba(8,18,32,0.65)]"
+          className="text-sm font-medium uppercase tracking-[0.2em] text-white drop-shadow-[0_1px_6px_rgba(8,18,32,0.75)]"
         >
           {dict.hero.eyebrow}
         </motion.p>
@@ -70,7 +70,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
         >
           <Link
             href={`/${lang}/about-us`}
-            className="group inline-flex items-center gap-3 rounded-institutional bg-gold px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:bg-gold/90"
+            className="group inline-flex items-center gap-3 rounded-institutional bg-button px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-button-hover"
           >
             {dict.hero.cta}
             <ArrowIcon size={16} strokeWidth={2} className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />

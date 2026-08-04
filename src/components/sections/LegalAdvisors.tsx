@@ -38,7 +38,7 @@ export function LegalAdvisors({ dict, lang }: { dict: Dictionary; lang: Locale }
           </div>
           <Link
             href={`/${lang}/about-us`}
-            className="group mt-8 inline-flex items-center gap-3 rounded-institutional bg-gold px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:bg-gold/90"
+            className="group mt-8 inline-flex items-center gap-3 rounded-institutional bg-button px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-button-hover"
           >
             {dict.legalAdvisors.cta}
             <ArrowIcon size={16} strokeWidth={2} className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
@@ -65,7 +65,7 @@ export function LegalAdvisors({ dict, lang }: { dict: Dictionary; lang: Locale }
           <div className="mt-6 grid grid-cols-3 gap-6 rounded-institutional border border-navy/10 bg-white p-6 shadow-institutional dark:border-cream/10 dark:bg-navy/40">
             {stats.map((stat) => (
               <div key={stat.label}>
-                <stat.icon size={18} strokeWidth={1.5} className="text-gold" aria-hidden="true" />
+                <stat.icon size={18} strokeWidth={1.5} className="text-accent" aria-hidden="true" />
                 <p className="mt-3 text-xl font-medium text-slate-dark dark:text-cream">{stat.value}</p>
                 <p className="mt-1 text-xs uppercase tracking-wide text-slate-mid dark:text-cream/60">{stat.label}</p>
               </div>

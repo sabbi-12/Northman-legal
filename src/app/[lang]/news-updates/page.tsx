@@ -97,8 +97,8 @@ export default async function NewsUpdatesPage({
                     aria-current={pageNumber === currentPage ? "page" : undefined}
                     className={`flex h-9 w-9 items-center justify-center rounded-institutional border text-sm font-medium transition-colors ${
                       pageNumber === currentPage
-                        ? "border-gold bg-gold text-navy"
-                        : "border-navy/15 text-navy hover:border-gold dark:border-cream/15 dark:text-cream"
+                        ? "border-accent bg-accent text-navy"
+                        : "border-navy/15 text-navy hover:border-accent dark:border-cream/15 dark:text-cream"
                     }`}
                   >
                     {pageNumber}

@@ -43,7 +43,7 @@ export function CorePillars({ dict }: { dict: Dictionary }) {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 className="rounded-institutional border border-navy/10 bg-white p-8 shadow-institutional dark:border-cream/10 dark:bg-navy/40"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-institutional bg-navy/5 text-navy dark:bg-cream/10 dark:text-gold">
+                <div className="flex h-12 w-12 items-center justify-center rounded-institutional bg-navy/5 text-navy dark:bg-cream/10 dark:text-accent">
                   <Icon size={22} strokeWidth={1.5} />
                 </div>
                 <h3 className="mt-6 text-xl font-medium text-slate-dark dark:text-cream">{item.title}</h3>

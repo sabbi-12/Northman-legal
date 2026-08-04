@@ -222,6 +222,60 @@ root plus `.impeccable/live/config.json` (live-mode config, points at
 patched). Once a new session picks up the skill, `/impeccable audit`,
 `/impeccable critique`, etc. become available for reviewing this build.
 
+## Rebrand: new color palette + real logo (2026-08-04)
+
+The client supplied an official color-code summary and 4 real logo variants,
+superseding the improvised navy/gold/cream direction from the earlier build
+phase. Applied site-wide, not just on Home:
+
+- **Palette remapped in `tailwind.config.js`, not rewritten per-component.**
+  Every component already consumed shared token names (`navy`, `gold`,
+  `cream`, `slate.dark`, `slate.mid`) — updating the hex values (and
+  renaming `gold` → `accent`, since a token literally named "gold" that
+  resolves to blue would be a confusing, dishonest name for the next person
+  who touches this code) re-themed the entire site in one file. New values:
+  `navy` → #0B192C, `accent` → #2E5B88 (was gold #C5A059), `cream` → #F8F9FA
+  (was #FAF9F6), `slate.dark` → #3E4856 (charcoal body text, was #1A202C),
+  `slate.mid` → #5C6B7A (derived secondary tone), `navy-dark` → #04080F.
+  `slate.mid` and the navy/accent shade ramps beyond the base value weren't
+  in the client's brief — they're derived to keep the existing ramp-based
+  classes (`accent-100`, `navy-700`, etc.) working, not literal client specs.
+  Confirm with the client if a specific mid-tone or extended ramp matters
+  before this goes further.
+- **Real logo wired in.** Client sent 4 exported logo variants (all in the
+  media folder, transparent PNG, navy ink only — no light/inverted variant
+  supplied). Picked the horizontal wordmark with the "LEGAL" sub-mark
+  (`Northman-Legal-Logo-3-e1761052736538-300x89.png`, copied to
+  `public/images/logo-real.png`) over the square version and the plain
+  no-"LEGAL" mark, since this site is specifically the Legal division and
+  needs that distinction visible. New `components/ui/BrandLogo.tsx` renders
+  it; since the logo only has dark ink, anywhere it must sit on a navy
+  surface (footer, dark-mode navbar) it's wrapped in a small cream card via
+  `onDark` instead of guessing at an inverted colorway that doesn't exist
+  yet — **ask the client for a real white/light logo variant** so that
+  wrapper can be retired for a proper inverted mark. The old placeholder
+  monogram SVGs (`logo.svg`, `logo-dark.svg`) are deleted; all 4 SEO schema
+  builders (`Organization`, `LegalService`, `Attorney`, `Article`) now point
+  at the real logo too.
+- **Framer-motion coverage extended.** `FirmIdentity.tsx`, `Newsletter.tsx`,
+  `LetsConnect.tsx`, and `LatestInsights.tsx`'s post cards had no entrance
+  animation before this pass (everything else already did) — added the same
+  `whileInView` fade/slide-up pattern used everywhere else, so the whole
+  page now animates consistently on scroll.
+- **Scope note:** this pass re-themes colors/logo/motion across every page
+  (they all share the same Tailwind config and layout), but does not
+  redesign layouts, copy, or structure — About Us/Regions/Contact/legal
+  pages still have placeholder content per the Page log below. "Redesign
+  the whole website" was interpreted as "apply the new brand system
+  everywhere," not as a from-scratch layout rebuild of unbuilt pages.
+- **`/impeccable` still not usable this session** — installed and
+  initialized two sessions ago but never picked up by the harness mid-session
+  (see the earlier note below). This rebrand was done by hand-following the
+  skill's own reference docs (its `craft-floor.md` quality-floor guidance,
+  its brief-wins/refinement principles), not by invoking `/impeccable`
+  itself. A fresh session should be able to run `/impeccable audit` or
+  `/impeccable critique` against this if a second opinion is wanted.
+
 ## Pre-launch migration checklist (do NOT skip — live site is indexed)
 
 - [ ] Export every currently-indexed URL from the live WP site (WP sitemap.xml

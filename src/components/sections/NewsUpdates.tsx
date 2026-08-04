@@ -23,7 +23,7 @@ export async function NewsUpdates({ dict, lang }: { dict: Dictionary; lang: Loca
           {posts.length > 0 && (
             <Link
               href={`/${lang}/news-updates`}
-              className="shrink-0 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:text-gold dark:text-cream"
+              className="shrink-0 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:text-accent dark:text-cream"
             >
               {dict.newsSection.viewAll}
             </Link>

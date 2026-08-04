@@ -99,7 +99,7 @@ export default async function NewsArticlePage({
       <div className="container-institutional max-w-3xl">
         <Link
           href={`/${lang}/news-updates`}
-          className="inline-flex items-center gap-2 text-sm font-medium text-navy transition-colors hover:text-gold dark:text-cream"
+          className="inline-flex items-center gap-2 text-sm font-medium text-navy transition-colors hover:text-accent dark:text-cream"
         >
           <BackIcon size={15} strokeWidth={2} />
           {dict.newsSection.backToNews}
@@ -107,7 +107,7 @@ export default async function NewsArticlePage({
 
         <div className="mt-8">
           {post.categories.length > 0 && (
-            <span className="text-xs font-semibold uppercase tracking-wide text-gold">
+            <span className="text-xs font-semibold uppercase tracking-wide text-accent">
               {post.categories[0]}
             </span>
           )}

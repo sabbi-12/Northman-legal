@@ -14,7 +14,7 @@ export function Ticker({ items }: { items: TickerItem[] }) {
         {loopItems.map((item, index) => (
           <span key={`${item.id}-${index}`} className="text-sm text-cream/90">
             {item.href ? (
-              <a href={item.href} className="transition-colors hover:text-gold">
+              <a href={item.href} className="transition-colors hover:text-accent">
                 {item.text}
               </a>
             ) : (

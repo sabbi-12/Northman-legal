@@ -8,7 +8,7 @@ export function buildOrganizationSchema(lang: Locale) {
     "@id": `${SITE_URL}/${lang}#organization`,
     name: ORGANIZATION.legalName,
     url: `${SITE_URL}/${lang}`,
-    logo: `${SITE_URL}/images/logo.svg`,
+    logo: `${SITE_URL}/images/logo-real.png`,
     email: ORGANIZATION.email,
     ...(ORGANIZATION.telephone ? { telephone: ORGANIZATION.telephone } : {}),
     address: {

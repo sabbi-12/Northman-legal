@@ -18,7 +18,7 @@ export function buildArticleSchema(post: NewsPost, lang: Locale) {
     publisher: {
       "@type": "Organization",
       name: ORGANIZATION.legalName,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo.svg` },
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/images/logo-real.png` },
     },
     mainEntityOfPage: {
       "@type": "WebPage",

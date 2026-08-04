@@ -34,7 +34,7 @@ const components: PortableTextComponents = {
 
 export function PortableTextContent({ value }: { value: PortableTextBlock[] }) {
   return (
-    <div className="prose prose-slate mt-10 max-w-none dark:prose-invert prose-headings:font-medium prose-a:text-navy prose-a:no-underline hover:prose-a:text-gold dark:prose-a:text-gold">
+    <div className="prose prose-slate mt-10 max-w-none dark:prose-invert prose-headings:font-medium prose-a:text-navy prose-a:no-underline hover:prose-a:text-accent dark:prose-a:text-accent">
       <PortableText value={value} components={components} />
     </div>
   );

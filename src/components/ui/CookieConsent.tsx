@@ -43,7 +43,7 @@ export function CookieConsent({ dict, lang }: { dict: Dictionary; lang: Locale }
     >
       <div className="container-institutional flex flex-col items-center gap-4 py-5 sm:flex-row sm:justify-between">
         <p className="flex items-start gap-2.5 text-sm text-slate-mid dark:text-cream/70">
-          <Cookie size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
+          <Cookie size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
           <span>
             {dict.cookieConsent.message}{" "}
             <Link href={`/${lang}/privacy-policy`} className="font-medium text-navy underline dark:text-cream">
@@ -62,7 +62,7 @@ export function CookieConsent({ dict, lang }: { dict: Dictionary; lang: Locale }
           <button
             type="button"
             onClick={() => decide("granted")}
-            className="rounded-institutional bg-gold px-4 py-2 text-xs font-semibold uppercase tracking-wide text-navy transition-colors hover:bg-gold/90"
+            className="rounded-institutional bg-accent px-4 py-2 text-xs font-semibold uppercase tracking-wide text-navy transition-colors hover:bg-accent/90"
           >
             {dict.cookieConsent.acceptAll}
           </button>

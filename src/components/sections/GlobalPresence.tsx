@@ -10,7 +10,7 @@ export function GlobalPresence({ dict }: { dict: Dictionary }) {
     <section className="bg-navy py-20 text-cream">
       <div className="container-institutional flex flex-col items-start justify-between gap-10 md:flex-row md:items-center">
         <div className="max-w-xl">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
             {dict.globalPresence.eyebrow}
           </p>
           <p className="mt-4 text-2xl font-medium leading-relaxed md:text-3xl">
@@ -26,7 +26,7 @@ export function GlobalPresence({ dict }: { dict: Dictionary }) {
             transition={{ duration: 0.5 }}
             className="flex items-center gap-3"
           >
-            <Globe size={28} strokeWidth={1.5} className="text-gold" aria-hidden="true" />
+            <Globe size={28} strokeWidth={1.5} className="text-accent" aria-hidden="true" />
             <div>
               <p className="text-2xl font-medium">{dict.globalPresence.countriesValue}</p>
               <p className="text-xs uppercase tracking-wide text-cream/60">
@@ -42,7 +42,7 @@ export function GlobalPresence({ dict }: { dict: Dictionary }) {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="flex items-center gap-3"
           >
-            <Building2 size={28} strokeWidth={1.5} className="text-gold" aria-hidden="true" />
+            <Building2 size={28} strokeWidth={1.5} className="text-accent" aria-hidden="true" />
             <div>
               <p className="text-2xl font-medium">{dict.globalPresence.hqValue}</p>
               <p className="text-xs uppercase tracking-wide text-cream/60">{dict.globalPresence.hqLabel}</p>

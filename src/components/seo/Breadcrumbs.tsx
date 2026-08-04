@@ -38,7 +38,7 @@ export function Breadcrumbs({ items, lang }: { items: BreadcrumbItem[]; lang: Lo
                     {item.name}
                   </span>
                 ) : (
-                  <Link href={item.href} className="transition-colors hover:text-gold">
+                  <Link href={item.href} className="transition-colors hover:text-accent">
                     {item.name}
                   </Link>
                 )}

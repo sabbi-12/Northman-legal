@@ -72,18 +72,18 @@ export default async function ContactUsPage({ params }: { params: { lang: string
           </h2>
           <ul className="mt-6 space-y-4 text-sm text-slate-mid dark:text-cream/70">
             <li className="flex items-start gap-3">
-              <MapPin size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
+              <MapPin size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
               <span>{dict.footer.officeAddress}</span>
             </li>
             <li className="flex items-start gap-3">
-              <Mail size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
+              <Mail size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
               <a href={`mailto:${ORGANIZATION.email}`} className="transition-colors hover:text-navy dark:hover:text-cream">
                 {ORGANIZATION.email}
               </a>
             </li>
             {ORGANIZATION.telephone && (
               <li className="flex items-start gap-3">
-                <Phone size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />
+                <Phone size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
                 <a href={`tel:${ORGANIZATION.telephone}`} className="transition-colors hover:text-navy dark:hover:text-cream">
                   {ORGANIZATION.telephone}
                 </a>

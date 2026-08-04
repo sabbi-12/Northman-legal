@@ -9,38 +9,56 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Brand palette per the client's technical color-code summary
+        // (2026-08-04): dark navy primary, white/off-white backgrounds,
+        // slate-blue accent, charcoal body text. Replaces the earlier
+        // navy/gold/cream direction site-wide — every component reads
+        // these same token names, so this remap alone re-themes the
+        // whole site without touching per-component classes.
         navy: {
-          DEFAULT: "#0C1E38", // Primary — Deep Navy
-          50: "#EAEDF1",
-          100: "#C7CFDA",
-          200: "#9DAAC0",
-          300: "#6E7FA0",
-          400: "#405682",
-          500: "#0C1E38", // base
-          600: "#0A1930",
-          700: "#081426",
-          800: "#060F1C",
-          900: "#040A12",
+          DEFAULT: "#0B192C", // Primary — Dark Navy Blue
+          50: "#EAEDF0",
+          100: "#C6CCD4",
+          200: "#9CA6B4",
+          300: "#6D7A8E",
+          400: "#405166",
+          500: "#0B192C", // base
+          600: "#0A1526",
+          700: "#08111F",
+          800: "#060D17",
+          900: "#04080F",
         },
-        gold: {
-          DEFAULT: "#C5A059", // Accent — Metallic Gold
-          50: "#FBF6EC",
-          100: "#F2E5C9",
-          200: "#E6CE9E",
-          300: "#D9B77D",
-          400: "#CFA96A",
-          500: "#C5A059", // base
-          600: "#A8823F",
-          700: "#856633",
-          800: "#634B26",
-          900: "#41321A",
+        // NOTE: token key stays `accent` — this used to be a metallic gold
+        // ("gold" everywhere in class names), now the client's slate-blue.
+        // Renamed the key (not just the hex) so `text-accent`/`bg-accent`
+        // reads honestly instead of a "gold" utility resolving to blue.
+        accent: {
+          DEFAULT: "#2E5B88", // Accent & Icons — Slate/Blue
+          50: "#EBF0F5",
+          100: "#C9D8E5",
+          200: "#A3BDD2",
+          300: "#7A9FBD",
+          400: "#547FA3",
+          500: "#2E5B88", // base
+          600: "#254A6E",
+          700: "#1C3854",
+          800: "#13273A",
+          900: "#0A1620",
+        },
+        // Dedicated CTA-button color, distinct from `accent` (which stays
+        // on icons/borders/links). Bright sky-blue by default, drops to the
+        // slate-blue accent tone on hover — set 2026-08-04 per the client's
+        // direct color instruction.
+        button: {
+          DEFAULT: "#27AAE1",
+          hover: "#2E5B88",
         },
         slate: {
-          dark: "#1A202C", // Neutral / Text
-          mid: "#2C3E50", // Neutral / Text (secondary)
+          dark: "#3E4856", // Body Text — Charcoal / Dark Gray
+          mid: "#5C6B7A", // Secondary / muted text, derived from the charcoal
         },
-        cream: "#FAF9F6", // Light Background (default)
-        "navy-dark": "#081220", // Dark Mode Background
+        cream: "#F8F9FA", // Background Light — Off-White
+        "navy-dark": "#04080F", // Dark Mode Background
       },
       fontFamily: {
         // Headings — English
@@ -51,9 +69,6 @@ module.exports = {
         "body-en": ["var(--font-body-en)", "Inter", "system-ui", "sans-serif"],
         // Body — Arabic
         "body-ar": ["var(--font-body-ar)", "Readex Pro", "system-ui", "sans-serif"],
-      },
-      backgroundImage: {
-        "gold-gradient": "linear-gradient(135deg, #C5A059 0%, #E6CE9E 50%, #C5A059 100%)",
       },
       boxShadow: {
         institutional: "0 4px 24px -4px rgba(12, 30, 56, 0.12)",
