@@ -7,6 +7,7 @@ import { ArrowRight, ArrowLeft, Stamp, UsersRound } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
+import { SERVICE_DETAIL_SLUGS } from "@/lib/data/serviceSlugs";
 
 // The two newer services in the client's brief (Consular Visa, Employee
 // Outsourcing) don't have a real icon asset yet, unlike the other four —
@@ -65,7 +66,11 @@ export function ServicesGrid({ dict, lang }: { dict: Dictionary; lang: Locale })
                 {item.description}
               </p>
               <Link
-                href={`/${lang}/contact-us`}
+                href={
+                  SERVICE_DETAIL_SLUGS.has(item.id)
+                    ? `/${lang}/services/${item.id}`
+                    : `/${lang}/contact-us`
+                }
                 className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors hover:text-accent dark:text-cream"
               >
                 {dict.servicesPage.learnMore}

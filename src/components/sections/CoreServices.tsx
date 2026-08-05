@@ -7,6 +7,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
+import { SERVICE_DETAIL_SLUGS } from "@/lib/data/serviceSlugs";
 
 const ANCHORS: Record<string, string> = {
   "corporate-immigration": "global-immigration",
@@ -23,6 +24,12 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
   const entrance = reduceMotion ? false : undefined;
 
   const [featured, ...rest] = dict.coreServices.items;
+
+  function learnMoreHref(id: string) {
+    return SERVICE_DETAIL_SLUGS.has(id)
+      ? `/${lang}/services/${id}`
+      : `/${lang}/about-us#${ANCHORS[id] ?? "core-pillars"}`;
+  }
 
   return (
     <section className="bg-cream py-24 dark:bg-navy-dark">
@@ -75,7 +82,7 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
                 {featured.description}
               </p>
               <Link
-                href={`/${lang}/about-us#${ANCHORS[featured.id] ?? "core-pillars"}`}
+                href={learnMoreHref(featured.id)}
                 className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors hover:text-accent dark:text-cream"
               >
                 {dict.coreServices.learnMore}
@@ -111,7 +118,7 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
                 </p>
               </div>
               <Link
-                href={`/${lang}/about-us#${ANCHORS[item.id] ?? "core-pillars"}`}
+                href={learnMoreHref(item.id)}
                 className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-navy transition-colors hover:text-accent dark:text-cream sm:self-center"
               >
                 {dict.coreServices.learnMore}

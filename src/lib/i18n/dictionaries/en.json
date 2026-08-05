@@ -315,6 +315,83 @@
       }
     ]
   },
+  "serviceDetails": {
+    "corporate-immigration": {
+      "title": "Corporate Immigration",
+      "intro": "Expert guidance on corporate immigration policy, compliance, visas, and tracking for organizations relocating and managing a global workforce.",
+      "imageSrc": "/images/services/corporate-immigration-hero.jpg",
+      "imageAlt": "A passport and a toy airplane on a two-tone background, representing corporate immigration and travel",
+      "solutions": {
+        "heading": "Immigration Solutions",
+        "pillars": [
+          {
+            "id": "consultation",
+            "title": "Consultation",
+            "description": "We offer expert advice on immigration policies, procedures, and regulations, helping individuals and organizations understand their options and requirements.",
+            "items": [
+              "Immigration Policy Consultation of different countries and regions",
+              "Document and Visa Consultation",
+              "Immigration Planning including timelines and required steps",
+              "Visa Eligibility Assessment for specific visas and immigration programs",
+              "Immigration Options Analysis"
+            ]
+          },
+          {
+            "id": "compliance",
+            "title": "Compliance",
+            "description": "We ensure maintaining compliance with immigration regulations, including work permits and visa renewals.",
+            "items": [
+              "Validating the authenticity and accuracy of immigration-related documents",
+              "Regulatory Updates",
+              "Compliance Audits",
+              "Protect sensitive immigration-related data and ensure data privacy compliance",
+              "Risk mitigation related to non-compliance with immigration laws"
+            ]
+          },
+          {
+            "id": "visas",
+            "title": "Visas",
+            "description": "We offer assistance for a wide array of visa and work permit applications and related services, such as:",
+            "cards": [
+              "Applications for permanent residency and citizenship",
+              "Consular services and cross-border assistance",
+              "Document procurement and authentication services",
+              "Support tailored for private clients"
+            ]
+          },
+          {
+            "id": "tracking",
+            "title": "Tracking and Reporting",
+            "description": "Our exclusive tracking tools keep a close watch on your visa applicants, delivering valuable insights:",
+            "items": [
+              "Monitoring work permit and visa expiration, tracking, and renewal",
+              "Tracking business travelers",
+              "Providing a management dashboard with analytics"
+            ]
+          }
+        ]
+      },
+      "distinctApproach": {
+        "heading": "How Our Distinct Approach Benefits You",
+        "body": "When it comes to immigration, it's not just about relocating people across borders; it's about skillfully navigating the challenges of visas, permits, and cross-border compliance. Our unwavering focus, both in our people and our expertise, is dedicated to assisting you with all your mobility requirements, including immigration."
+      },
+      "highlights": [
+        {
+          "title": "Team Presence",
+          "description": "With a global presence, our operations span time zones around the world. Wherever you are located and whatever time zone you're in, you can count on us to have experts available who understand your immigration needs."
+        },
+        {
+          "title": "Adaptability and Swiftness",
+          "description": "Our teams are designed for speed. In the face of sudden global events that demand rapid action, we can swiftly assemble specialized teams to respond. Our independence from regulatory constraints enables us to act promptly and establish innovative practices as the situation requires."
+        },
+        {
+          "title": "A Global Perspective",
+          "description": "We take pride in being at the forefront of the industry, offering valuable insights into immigration trends and their broader implications in the field of global mobility."
+        }
+      ],
+      "cta": "Get in touch"
+    }
+  },
   "servicesPage": {
     "title": "Services",
     "intro": "Corporate immigration, incorporation, visas, and document attestation support for organizations operating in Saudi Arabia.",

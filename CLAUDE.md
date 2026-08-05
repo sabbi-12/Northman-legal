@@ -514,6 +514,57 @@ components: `ServicesValueProp`, `ServicesGrid`. Decisions worth knowing:
   `OfficeContact` — the last one already built for About Us and reused
   again on Contact Us) — identical real content, no new components built.
 
+## Service detail pages started: Corporate Immigration (2026-08-05)
+
+The client's brief for individual service detail pages arrived styled in a
+completely different system (raw `bg-[#0E1E38]`, `text-blue-600`,
+`rounded-full` pill buttons, `01/ 02/ 03` numeral badges) — the client
+explicitly asked to carry this site's own design language instead, so the
+content/structure was kept but every style translated to our existing
+tokens (navy/accent/cream, `rounded-institutional`, our button/CTA
+pattern, our signature accent-rule motif). Built as a dynamic route,
+`src/app/[lang]/services/[slug]/page.tsx`, seeded so far with only
+`corporate-immigration` — the other 5 services will populate the same
+route once their content arrives, not five new page files.
+
+- **New dictionary namespace `serviceDetails.<slug>`** holds each detail
+  page's full content (solutions pillars, distinct-approach copy,
+  highlights, CTA label). `src/lib/data/serviceSlugs.ts` exports
+  `SERVICE_DETAIL_SLUGS`, the single source of truth for which slugs have
+  a real page — both `ServicesGrid.tsx` (Services page) and
+  `CoreServices.tsx` (Home page) check it to decide whether a service's
+  "Learn More" links to its new detail page or falls back to Contact Us.
+  Corporate Immigration's "Learn More" now points to
+  `/services/corporate-immigration` on both pages; the other 5 still fall
+  back to Contact Us (or the About Us anchor, for the 3 that had one)
+  until they get real content.
+- **The brief's `01/ 02/ 03` numbered highlight cards were NOT
+  reproduced literally.** Those 3 items (Team Presence, Adaptability,
+  Global Perspective) are parallel strengths, not a meaningful sequence —
+  numbering them violates this project's own design-quality floor
+  ("section numbers unless the sequence itself carries information the
+  reader needs"). Built as a 3-column divided strip with the accent-rule
+  motif instead (reusing the device from About Us's Vision/Mission/Purpose
+  section), no numerals. The 4 solution *pillars* above it, by contrast,
+  do get a small accent numeral (01–04) — that sequence is a real
+  methodology order (consult → stay compliant → get visas → track), so
+  numbering earns its place there.
+- **Real featured image wired in (2026-08-05).** The passport + toy
+  airplane photo landed in the client's media folder as
+  `immigration-solution.jpg` (not pasted-and-saved by hand — the client
+  drops new assets into
+  `C:\Users\sabbi\OneDrive\Desktop\Northman legal next.js\files (4)\northmanlegal media\`
+  and a fresh file-timestamp check finds them; check there first before
+  asking for a re-upload). Copied to
+  `public/images/services/corporate-immigration-hero.jpg`, wired via
+  `serviceDetails["corporate-immigration"].imageSrc/imageAlt` in both
+  dictionaries. `ServiceFeaturedImage.tsx`'s navy→accent gradient +
+  passport/plane lucide-icon fallback still exists in the component for
+  the other 5 services, which don't have a real photo yet.
+- Registration Statement, Newsletter, and the KSA office spotlight reuse
+  `FirmIdentity`/`Newsletter`/`OfficeContact` again — same components,
+  fourth page now sharing them.
+
 ## Session checkpoint (2026-08-04, end of day)
 
 Everything described above through the Rebrand section is committed —
