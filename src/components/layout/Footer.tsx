@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Mail, Phone, Printer, Facebook, Twitter, Linkedin } from "lucide-react";
+import { MapPin, Mail, Phone, PhoneCall, Facebook, Twitter, Linkedin } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
@@ -82,10 +82,10 @@ export function Footer({ dict, lang }: { dict: Dictionary; lang: Locale }) {
               </a>
             </li>
             <li className="flex items-start gap-2.5">
-              <Printer size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
-              <span>
-                {dict.footer.faxLabel}: {ORGANIZATION.faxDisplay}
-              </span>
+              <PhoneCall size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
+              <a href={`tel:${ORGANIZATION.landline}`} className="transition-colors hover:text-cream">
+                {ORGANIZATION.landlineDisplay}
+              </a>
             </li>
             <li className="flex items-start gap-2.5">
               <Mail size={16} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />

@@ -220,10 +220,81 @@
   },
   "aboutPage": {
     "title": "About Us",
-    "intro": "Northman Sterling is a Riyadh-headquartered legal practice supporting enterprises and individuals across Saudi Arabia and internationally, with clients drawn from more than 35 countries.",
-    "missionTitle": "Our Approach",
-    "mission": "We combine deep familiarity with Saudi regulatory practice with the responsiveness international clients expect — from initial licensing and immigration matters through to contentious enforcement proceedings.",
-    "practiceAreasTitle": "Practice Areas",
+    "intro": "Northman Sterling Legal is a registered law firm in Saudi Arabia, providing legal advisory and compliance services for enterprises and individuals operating in the Kingdom.",
+    "companyOverview": {
+      "subheading": "About Our Company",
+      "heading": "Northman & Sterling is the Leading Provider of Legal Advisory & Compliance Services in Saudi Arabia",
+      "paragraphs": [
+        "We assist companies operating and expanding in Saudi Arabia by managing their legal and compliance requirements. We ensure businesses remain aligned with Saudi regulations while focusing on growth and operational efficiency.",
+        "Our team assists with legal documentation, regulatory approvals, and risk management, making corporate expansion in the Kingdom structured and secure."
+      ],
+      "featureListTitle": "As your strategic legal partner in Saudi Arabia, Northman Sterling Legal offers:",
+      "features": [
+        "Legal & Regulatory Compliance",
+        "Commercial Disputes & Litigation",
+        "Court Order Execution",
+        "Notary & POA Services"
+      ],
+      "cta": "Learn More"
+    },
+    "values": {
+      "items": [
+        {
+          "id": "vision",
+          "title": "Vision",
+          "description": "To be the trusted strategic partner for Corporate and Immigration Services that drive excellence and client satisfaction."
+        },
+        {
+          "id": "mission",
+          "title": "Mission",
+          "description": "Our company is committed to simplify complex processes, facilitating global mobility, and fostering compliance for international business ventures."
+        },
+        {
+          "id": "purpose",
+          "title": "Purpose",
+          "description": "To work closely with our partners while enabling seamless global business operations and international mobility."
+        }
+      ]
+    },
+    "team": {
+      "heading": "Global Team, Local Expertise",
+      "body": "At Northman & Sterling, our experts are committed to understanding your unique goals and simplifying the immigration process. With a global presence, we deliver strategic solutions and comprehensive support for your business.",
+      "members": [
+        { "name": "Murtaza Shah", "role": "Partner - EMEA Region", "location": "London, UK", "imageSrc": "/images/team/murtaza-shah.png" },
+        { "name": "Manisha Gami", "role": "Manager - Global Immigration", "location": "Dubai, UAE", "imageSrc": "/images/team/manisha-gami.png" },
+        { "name": "Mohammad Qadri", "role": "Assistant Manager", "location": "Dubai, UAE", "imageSrc": "/images/team/mohammad-qadri.png" },
+        { "name": "Owais Ali", "role": "Manager - Outbound Immigration", "location": "London, UK", "imageSrc": "/images/team/owais-ali.png" },
+        { "name": "Noor Nadeem", "role": "Manager - Business Development and Marketing", "location": "Dubai, UAE", "imageSrc": "/images/team/noor-nadeem.png" }
+      ]
+    },
+    "belief": {
+      "heading": "What we believe",
+      "body": "We adopt a flexible and collaborative legal approach to ensure your organization achieves full regulatory compliance in Saudi Arabia. Our team remains accessible and responsive, guiding you through every stage of legal procedures, documentation, and regulatory requirements with clarity and precision, regardless of jurisdiction.",
+      "cta": "Learn More"
+    },
+    "ownership": {
+      "heading": "We Embrace Ownership",
+      "body": "We believe that effective legal representation goes beyond advice, it requires responsibility and measurable impact. Our performance is defined by the outcomes we help our clients achieve.",
+      "items": [
+        "Taking the time to fully understand your commercial objectives and legal priorities",
+        "Communicating with clarity, honesty, and procedural transparency",
+        "Recommending solutions that are both legally robust and commercially practical",
+        "Executing matters efficiently and within agreed timelines and budgets",
+        "Ensuring that our legal strategies deliver tangible value"
+      ]
+    },
+    "ctaBanner": {
+      "eyebrow": "Speak To",
+      "heading": "Our Experts!",
+      "subheading": "Connect with us today for consultation from our experts.",
+      "cta": "Contact Us"
+    },
+    "office": {
+      "heading": "Saudi Arabia",
+      "mobileLabel": "Mobile",
+      "landlineLabel": "Landline",
+      "emailLabel": "Email"
+    },
     "faqTitle": "Frequently Asked Questions",
     "faqItems": [
       {
@@ -333,7 +404,6 @@
     "officeName": "Northman Sterling Legal",
     "officeAddress": "Level 18, Al Faisaliah Tower, King Fahad Road, Olaya District, Riyadh",
     "phoneLabel": "Phone",
-    "faxLabel": "Fax",
     "rights": "All rights reserved.",
     "privacyPolicy": "Privacy Policy",
     "termsConditions": "Terms & Conditions",

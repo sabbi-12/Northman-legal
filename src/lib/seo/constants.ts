@@ -9,8 +9,8 @@ export const ORGANIZATION = {
   streetAddress: "Level 18, Al Faisaliah Tower, King Fahad Road, Olaya District",
   telephone: "+966570011966",
   telephoneDisplay: "00966 57 0011 966",
-  fax: "+966112978293",
-  faxDisplay: "00966 112 978 293",
+  landline: "+966112978293",
+  landlineDisplay: "00966 112 978 293",
   email: "ksa@northmansterling.legal",
   // Social profile URLs — placeholders until the firm shares the live
   // accounts; swap these before launch rather than leaving them pointed

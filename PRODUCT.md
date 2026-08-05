@@ -39,7 +39,7 @@ Serves clients from 35+ countries out of a single Riyadh base, combining deep fa
 - Name: Northman Sterling Legal, a division of Northman & Sterling.
 - Visual identity is confirmed and already implemented, per the client's official color-code summary (2026-08-04): dark navy #0B192C (primary/section backgrounds), white/off-white #FFFFFF-#F8F9FA (backgrounds), slate-blue #2E5B88 (accent/icons/links), charcoal #3E4856 (body text), light-gray borders. CTA buttons specifically use a dedicated sky-blue #27AAE1 (hover: the slate-blue accent #2E5B88), per a later direct client instruction — kept separate from `accent` in `tailwind.config.js`'s `button` token rather than overloading it. Cinzel (EN heading) / Amiri (AR heading) serif type and near-square "institutional" corners carry over from the earlier direction — deliberately restrained and institutional, explicitly not a tech-startup aesthetic. Real logo confirmed (`public/images/logo-real.png`); no light/inverted logo variant exists yet. A square logo variant (`public/images/logo-mark-square.png`) has also been supplied but is not yet wired into any component.
 - Dark mode exists as an optional UX toggle only; light is the default. Dark mode carries no direct SEO value and should never be treated as a priority feature.
-- Confirmed real Riyadh office address, phone, fax, and email (Level 18, Al Faisaliah Tower, King Fahad Road, Olaya District, Riyadh; ksa@northmansterling.legal).
+- Confirmed real Riyadh office address, mobile, landline, and email (Level 18, Al Faisaliah Tower, King Fahad Road, Olaya District, Riyadh; ksa@northmansterling.legal). The number previously on file as a fax line (00966 112 978 293) was corrected to a second phone/landline number per the client's About Us brief (2026-08-05) — it is clickable (`tel:`) everywhere now, not fax.
 
 ## Evidence on Hand
 
@@ -47,7 +47,7 @@ Serves clients from 35+ countries out of a single Riyadh base, combining deep fa
 - Real photos for all four named events in the Event Gallery — SME Awards, FEM EMEA Summit, HR Leaders Conference, PIF Forum (`public/images/events/`).
 - Real icons for the four Core Services cards (`public/images/services/`).
 - Real hero background photo (London Eye/Thames) and two supporting section photos ("Why Choose Us", "Legal Advisors"), the latter two at low native resolution (`public/images/hero/`, `public/images/about/`).
-- Individual team headshots exist in the client's local media folder but are not placed on the live site — do not build a team section unprompted.
+- The About Us page now has a real Team section (5 named members, roles, locations) per the client's brief (2026-08-05). No headshots or LinkedIn URLs were supplied with it — each member renders as an initials avatar, and the LinkedIn icon is decorative (no href) until real photos/URLs arrive. Individual team headshots exist in the client's local media folder but have not been matched to these 5 names or placed on the live site yet.
 - No case studies, testimonials, pricing, or press mentions beyond the four named events are confirmed. Do not fabricate any.
 
 ## Product Principles

@@ -4,6 +4,15 @@ import { notFound } from "next/navigation";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n/config";
 import { SITE_URL } from "@/lib/seo/constants";
+import { CompanyOverview } from "@/components/sections/CompanyOverview";
+import { ValuesGrid } from "@/components/sections/ValuesGrid";
+import { Team } from "@/components/sections/Team";
+import { WhatWeBelieve } from "@/components/sections/WhatWeBelieve";
+import { Ownership } from "@/components/sections/Ownership";
+import { AboutCtaBanner } from "@/components/sections/AboutCtaBanner";
+import { FirmIdentity } from "@/components/sections/FirmIdentity";
+import { Newsletter } from "@/components/sections/Newsletter";
+import { OfficeContact } from "@/components/sections/OfficeContact";
 import { CorePillars } from "@/components/sections/CorePillars";
 import { FAQ } from "@/components/sections/FAQ";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
@@ -52,24 +61,22 @@ export default async function AboutUsPage({ params }: { params: { lang: string }
           { name: dict.aboutPage.title, href: `/${lang}/about-us` },
         ]}
       />
+
       <section className="bg-navy py-20 text-cream md:py-28">
         <div className="container-institutional max-w-3xl">
           <h1 className="text-4xl font-medium md:text-5xl">{dict.aboutPage.title}</h1>
-          <p className="mt-6 text-lg leading-relaxed text-cream/80">{dict.aboutPage.intro}</p>
         </div>
       </section>
 
-      <section className="bg-cream py-20 dark:bg-navy-dark">
-        <div className="container-institutional max-w-3xl">
-          <h2 className="text-2xl font-medium text-slate-dark md:text-3xl dark:text-cream">
-            {dict.aboutPage.missionTitle}
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-mid dark:text-cream/70">
-            {dict.aboutPage.mission}
-          </p>
-        </div>
-      </section>
-
+      <CompanyOverview dict={dict} lang={lang} />
+      <ValuesGrid dict={dict} />
+      <Team dict={dict} />
+      <WhatWeBelieve dict={dict} lang={lang} />
+      <Ownership dict={dict} />
+      <AboutCtaBanner dict={dict} lang={lang} />
+      <FirmIdentity dict={dict} />
+      <Newsletter dict={dict} />
+      <OfficeContact dict={dict} />
       <CorePillars dict={dict} />
       <FAQ dict={dict} />
     </>

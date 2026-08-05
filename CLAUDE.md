@@ -71,7 +71,7 @@ pre-launch migration data (full WP crawl, real OG images, credentials).
 | Page | Content received | Metadata finalized | Schema wired | Notes |
 |---|---|---|---|---|
 | Home | ✅ 2026-08-04, full 10-section brief | ✅ (existing root layout metadata covers it) | Org/LegalService/Attorney (sitewide) | See "Home page build" below |
-| About Us | — | — | FAQ schema still owed | |
+| About Us | ✅ 2026-08-05, full 10-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide), Core Pillars anchors, FAQPage (pre-existing) | See "About Us page build" below |
 | Regions | — | — | | |
 | News & Updates (list + detail) | — | — | Article ✅ | Sanity-backed, ISR |
 | Contact Us | — | — | | |
@@ -300,6 +300,133 @@ phase. Applied site-wide, not just on Home:
   its brief-wins/refinement principles), not by invoking `/impeccable`
   itself. A fresh session should be able to run `/impeccable audit` or
   `/impeccable critique` against this if a second opinion is wanted.
+
+## Home page bolder pass (2026-08-05)
+
+The Home page previously repeated one pattern — same-size `icon + heading +
+text` cards on nearly every section, all using the identical staggered
+fade-up entrance — which is exactly the "lazy container" default the design
+skill's craft-floor flags. Reworked for real layout variety, no new colors/
+fonts/tokens, same real copy and images throughout:
+
+- **Compliance Highlights** — 3 equal cards → asymmetric split (heading
+  left, divided clause-style list right, no boxes).
+- **Core Services** — 4-up grid → first service gets a featured two-column
+  treatment (bigger icon/type), the other three become a divided list.
+- **Certifications** — kept as a quiet trust strip (real ISO evidence,
+  not decoration) but gave the heading real display weight and added
+  dividers between the seals.
+- **Trust & Global Reach** — the real "35+ Countries" fact now renders as
+  a large serif numeral callout instead of being buried in a sentence.
+- **Why Choose Us** — 2×2 paragraph grid → lead statement + supporting
+  copy; added a thin offset accent-rule frame behind the photo (a new
+  reusable device, not a one-off).
+- **Legal Advisors** — same offset-frame device on its photo; the 3 stats
+  (35+/Riyadh/24-7) became large serif numerals in a divided row instead
+  of small icon-topped boxes.
+- **Latest Insights** — icon-tile placeholder cards → an editorial list
+  (date · title · arrow). There are still no real blog photos, so a list
+  reads as intentional rather than another fake-photo card.
+- A single signature motif — the thin accent rule introduced on the Hero's
+  "letterhead seal" entrance — now opens most section headings site-wide,
+  giving the page one consistent identity mark instead of the repeated
+  card as its only visual idea.
+- Event Gallery, Let's Connect, Firm Identity, and Newsletter were left
+  untouched — Event Gallery already has its own scroll-pin treatment (see
+  below), and Firm Identity is meant to be the quiet moment between louder
+  sections.
+
+## Event Gallery scroll-pin effect (2026-08-05)
+
+Replaced the autoplay slide carousel in `EventGallery.tsx` with a
+scroll-driven "sticky stack" effect (adapted from a user-supplied Skiper UI
+snippet): each of the 4 real event photos pins to the viewport while
+scrolling, then shrinks and rotates away to reveal the next. Decisions
+made adapting the snippet to this codebase:
+
+- **No Lenis.** The snippet wraps the page in `ReactLenis root`, a smooth-
+  scroll library that isn't a dependency here and would hijack scroll for
+  the whole site, not just this section. Rebuilt the scroll tracking with
+  framer-motion's own `useScroll`/`useInView` (already a dependency),
+  scoped per-card — no new package, no site-wide behavior change.
+- **Captions kept.** The snippet has no text at all; this site's event
+  photos carry real evidence (event name + description), so the caption
+  overlay was grouped into the same counter-rotating inner layer as the
+  image, keeping it upright and legible while the outer card spins away.
+- **Corners matched.** `rounded-4xl` → `rounded-institutional`, to stay
+  consistent with every other card on the site rather than reading as a
+  different design system.
+- Trade-off: the section now spans ~4 viewport-heights of scroll instead
+  of one compact block — inherent to the effect, not a bug.
+
+## Hero motion pass (2026-08-05)
+
+`Hero.tsx`'s entrance was a generic staggered fade-up on every element —
+explicitly called out in the design skill's `animate` playbook as "not a
+thesis." Replaced with one authored sequence themed on the brand ("the
+letterhead seal"): a thin accent rule draws in above the eyebrow, then the
+headline reveals through a direction-aware `clip-path` wipe (left→right in
+EN, right→left in AR) instead of a plain fade, with the rest following in
+tightened succession so the whole thing reads as ~1.2s of one rehearsed
+entrance rather than four independent fades. `useReducedMotion()` short-
+circuits the whole sequence to an instant, fully visible state — note this
+is necessary because framer-motion's JS-driven animations ignore the
+sitewide CSS `prefers-reduced-motion` override in `globals.css` (that
+override only catches native CSS transitions/animations). The same
+`entrance = reduceMotion ? false : undefined` pattern was carried into
+every new/reworked section this session for consistency.
+
+## About Us page build (2026-08-05)
+
+Built to the client's full 10-section content brief (page header, Company
+Overview, Vision/Mission/Purpose, Global Team, What We Believe, We Embrace
+Ownership, CTA banner, Registration & Entity Statement, Newsletter, Office
+& Contact). New components under `src/components/sections/`:
+`CompanyOverview`, `ValuesGrid`, `Team`, `WhatWeBelieve`, `Ownership`,
+`AboutCtaBanner`, `OfficeContact`. New dictionary keys under
+`aboutPage.{companyOverview,values,team,belief,ownership,ctaBanner,office}`
+— EN and AR both filled in, not placeholders. Decisions worth knowing
+before touching this again:
+
+- **Core Pillars and FAQ are not in the client's 10-section list, but stay
+  on the page anyway.** They're appended after the 10 sections. Reason:
+  the Home page's Core Services and Trust Banner already deep-link to
+  `/about-us#global-immigration`, `#commercial-disputes`, `#notary-poa`,
+  and `#core-pillars` — those anchors only exist inside `CorePillars.tsx`.
+  Dropping it would have broken live cross-page navigation the brief
+  didn't ask to change. FAQ's schema was already flagged as owed; it now
+  ships correctly since About Us has real content.
+- **Registration & Entity Statement (brief section 8) reuses the existing
+  `FirmIdentity` component as-is** — its dictionary content already
+  matched the brief's copy word-for-word (it was written for the Home
+  page's identical statement band). Same for **Newsletter (section 9)** —
+  reused directly, no new component.
+- **The "Landline" number is a real fact correction, not just new copy.**
+  The brief lists `00966 112 978 293` as a landline phone number; the
+  codebase had that exact number on file as the firm's *fax*
+  (`ORGANIZATION.fax`/`faxDisplay`, `footer.faxLabel`) since the original
+  build. Renamed to `ORGANIZATION.landline`/`landlineDisplay` everywhere
+  (constants, Footer, dictionaries) and made it a clickable `tel:` link
+  like the mobile number — it no longer appears as fax anywhere on the
+  site. If this was actually the fax number after all, it needs reverting
+  before launch.
+- **Team photos are real (2026-08-05), matched by filename not
+  appearance.** The client's media folder had headshots named
+  `Murtaza-NS.png`, `Manisha-Gami-NS.png`, `Qadri-NS.png`,
+  `Owais-ALI-NS.png`, `Noor-Nadeem.png` — copied to
+  `public/images/team/` and matched to the 5 brief members by that exact
+  filename correspondence, not by guessing from the photo itself (per
+  Product Principle #3, never attach an unverified photo to a named real
+  person). Rendered as circular `object-cover object-top` crops. LinkedIn
+  URLs still weren't supplied, so the icon stays decorative (`aria-hidden`,
+  no `href`) — swap it in once real profile URLs arrive.
+- **Vision/Mission/Purpose (brief section 3) has no section heading in the
+  brief** — didn't invent one. It renders as a navy "manifesto strip" with
+  the three items divided by rules, each item's own title (Vision/Mission/
+  Purpose) doing the heading's job.
+- Same signature rule + `useReducedMotion()` pattern from the Home page
+  bolder pass carried through every new section here, for one consistent
+  identity across both pages.
 
 ## Session checkpoint (2026-08-04, end of day)
 
