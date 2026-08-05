@@ -43,7 +43,7 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
             </p>
           </div>
           <Link
-            href={`/${lang}/about-us`}
+            href={`/${lang}/services`}
             className="shrink-0 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:text-accent dark:text-cream"
           >
             {dict.coreServices.exploreAll}
