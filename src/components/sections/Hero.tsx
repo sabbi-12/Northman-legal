@@ -2,14 +2,23 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 
+// Confident, non-elastic arrival — matches the institutional register.
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const ArrowIcon = lang === "ar" ? ArrowLeft : ArrowRight;
+  const isRtl = lang === "ar";
+  const reduceMotion = useReducedMotion();
+  // `initial={false}` (rather than per-motion conditionals) is what actually
+  // honors prefers-reduced-motion here: it renders straight into the
+  // "animate" target with no transform/clip-path pass at all.
+  const entrance = reduceMotion ? false : undefined;
 
   return (
     <section className="relative overflow-hidden bg-navy pb-24 pt-28 text-cream md:pb-32 md:pt-36">
@@ -35,37 +44,51 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
       />
 
       <div className="container-institutional relative">
+        <motion.span
+          initial={entrance ?? { scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.4, ease: EASE }}
+          style={{ transformOrigin: isRtl ? "right" : "left" }}
+          className="mb-4 block h-px w-14 bg-accent"
+          aria-hidden="true"
+        />
+
         <motion.p
-          initial={{ opacity: 0, y: 8 }}
+          initial={entrance ?? { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.35, delay: 0.1, ease: EASE }}
           className="text-sm font-medium uppercase tracking-[0.2em] text-white drop-shadow-[0_1px_6px_rgba(8,18,32,0.75)]"
         >
           {dict.hero.eyebrow}
         </motion.p>
 
         <motion.h1
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          initial={
+            entrance ?? {
+              clipPath: isRtl ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)",
+              y: 8,
+            }
+          }
+          animate={{ clipPath: "inset(0 0% 0 0%)", y: 0 }}
+          transition={{ duration: 0.55, delay: 0.3, ease: EASE }}
           className="mt-6 max-w-3xl text-4xl font-medium leading-tight drop-shadow-[0_2px_10px_rgba(8,18,32,0.7)] md:text-5xl lg:text-6xl"
         >
           {dict.hero.headline}
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
+          initial={entrance ?? { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.45, delay: 0.65, ease: EASE }}
           className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/90 drop-shadow-[0_1px_6px_rgba(8,18,32,0.65)]"
         >
           {dict.hero.subheadline}
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={entrance ?? { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.45, delay: 0.8, ease: EASE }}
           className="mt-10"
         >
           <Link

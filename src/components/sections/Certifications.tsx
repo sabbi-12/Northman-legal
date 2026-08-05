@@ -1,20 +1,33 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 export function Certifications({ dict }: { dict: Dictionary }) {
+  const reduceMotion = useReducedMotion();
+  const entrance = reduceMotion ? false : undefined;
+
   return (
     <section className="border-b border-navy/10 bg-white py-20 dark:border-cream/10 dark:bg-navy/30">
       <div className="container-institutional text-center">
+        <motion.span
+          initial={entrance ?? { scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: EASE }}
+          className="mx-auto block h-px w-14 bg-accent"
+          aria-hidden="true"
+        />
         <motion.h2
-          initial={{ opacity: 0, y: 12 }}
+          initial={entrance ?? { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl font-medium text-slate-dark md:text-3xl dark:text-cream"
+          transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+          className="mt-5 text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream"
         >
           {dict.certifications.title}
         </motion.h2>
@@ -22,15 +35,15 @@ export function Certifications({ dict }: { dict: Dictionary }) {
           {dict.certifications.subtitle}
         </p>
 
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-10 sm:gap-14">
+        <div className="mt-14 flex flex-wrap items-center justify-center divide-x divide-navy/10 dark:divide-cream/10">
           {dict.certifications.items.map((cert, index) => (
             <motion.div
               key={cert.id}
-              initial={{ opacity: 0, y: 12 }}
+              initial={entrance ?? { opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="flex flex-col items-center gap-3"
+              transition={{ duration: 0.5, delay: index * 0.08, ease: EASE }}
+              className="flex flex-col items-center gap-3 px-10"
             >
               <div className="relative h-28 w-28 sm:h-32 sm:w-32">
                 <Image
