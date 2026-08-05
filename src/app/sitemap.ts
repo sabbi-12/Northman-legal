@@ -3,6 +3,9 @@ import type { MetadataRoute } from "next";
 import { locales, type Locale } from "@/lib/i18n/config";
 import { SITE_URL } from "@/lib/seo/constants";
 import { getAllPostSlugs } from "@/lib/sanity/posts";
+import enDictionary from "@/lib/i18n/dictionaries/en.json";
+
+const SERVICE_DETAIL_SLUGS = Object.keys(enDictionary.serviceDetails);
 
 type StaticRoute = {
   path: string; // e.g. "" for home, "about-us" for /about-us
@@ -42,6 +45,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: route.changeFrequency,
         priority: route.priority,
         alternates: { languages: languageAlternatesFor(route.path) },
+      });
+    }
+  }
+
+  // Service detail pages under /services/[slug] — one entry per locale,
+  // sourced from the same dictionary keys the [slug] route itself reads.
+  for (const slug of SERVICE_DETAIL_SLUGS) {
+    for (const locale of locales) {
+      entries.push({
+        url: `${SITE_URL}/${locale}/services/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: "monthly",
+        priority: 0.7,
+        alternates: { languages: languageAlternatesFor(`services/${slug}`) },
       });
     }
   }

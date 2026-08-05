@@ -565,6 +565,62 @@ route once their content arrives, not five new page files.
   `FirmIdentity`/`Newsletter`/`OfficeContact` again — same components,
   fourth page now sharing them.
 
+## Second service detail page: Company Incorporation Saudi Arabia (2026-08-05)
+
+This one's shape didn't fit the `corporate-immigration` template at all — no
+pillars, instead a video embed, a "Why Saudi" essay, a foreign-ownership
+callout, an entity-forms checklist, 3 separate entity comparison tables,
+and a 12-step process timeline. Rather than force it into the pillars
+template, `serviceDetails.<slug>` now carries a `"layout"` discriminator
+(`"pillars"` | `"ksa-guide"`), and `src/app/[lang]/services/[slug]/page.tsx`
+branches into two render functions (`PillarsPage` / `KsaGuidePage`). Same
+URL pattern (`/services/[slug]`), same dictionary-driven
+`SERVICE_SLUGS`/`generateStaticParams`, just two different component trees.
+Seven new components: `ServiceQuoteIntro`, `ServiceVideoBanner`,
+`ServiceWhySaudi`, `ServiceOwnershipCallout`, `ServiceEntityForms`,
+`ServiceEntityComparison`, `ServiceProcessTimeline`, `ServiceSecondaryEntities`,
+`ServiceFinalCallout`.
+
+- **All 3 real photos came from the client's media folder, not fabricated.**
+  `Saudi-Arabia.jpg` (a Saudi flag photo) → hero background
+  (`ksa-flag-banner.jpg`); a Kingdom Centre tower photo the client pasted
+  mid-session landed in the media folder as `MISA-Services-license-.png`
+  (matched by fresh-file-timestamp, same pattern as the corporate-immigration
+  photo) → the intro section's "Riyadh towers" image
+  (`riyadh-towers.jpg`); and `CTA-Company-Formation.png` — found inside the
+  saved WP page's own asset folder — is the *exact* image the live site
+  already uses for the closing "Set up Business in KSA" banner, copied in
+  as `company-formation-cta.png`. No stock substitutes anywhere.
+- **The video section embeds the real LinkedIn post via iframe**
+  (`linkedin.com/embed/feed/update/urn:li:ugcPost:7224730810107469830`),
+  matching what the live WP page actually does — not a generic video
+  placeholder.
+- **The process timeline table was simplified from 3 duplicate columns to
+  1.** The brief (and the live site) list identical LLC/JSC/Branch
+  durations for every single one of the 12 steps — three columns that
+  always agree convey no extra information and read as a mistake to
+  anyone who notices. Collapsed to one "Typical Timeline" column plus a
+  note that it's consistent across all three structures. If the entities
+  ever diverge on timing, this needs to go back to 3 columns.
+- **Breadcrumb intentionally drops the brief's literal "Regions / Middle
+  East / Africa" path.** That reflected the old WP site's regions
+  taxonomy, which this rebuild retired earlier today (see "Services page
+  build" above) — reusing it here would add a dead, unlinked crumb.
+  Used `Home > Services > Company Incorporation Saudi Arabia` instead,
+  matching the real URL hierarchy.
+- **Legacy redirect added**: `/company-incorporation-saudi-arabia` (the
+  live WP URL) → `/en/services/company-incorporation`, in both
+  `next.config.js` and `src/data/redirects.ts`.
+- **Sitemap gap found and fixed while doing this**: `sitemap.ts` never
+  had an entry for individual `/services/[slug]` pages at all — neither
+  `corporate-immigration` nor this one were being submitted to search
+  engines. Added a loop over the same `serviceDetails` dictionary keys the
+  `[slug]` route itself reads, so any future slug added there is
+  automatically in the sitemap too.
+- Gold checkmarks/highlight-box colors from the brief were translated to
+  the site's `accent` token, consistent with every other page — gold was
+  retired in the rebrand.
+
 ## Session checkpoint (2026-08-04, end of day)
 
 Everything described above through the Rebrand section is committed —

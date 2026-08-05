@@ -16,6 +16,8 @@ const staticRedirects = [
   { source: "/regions", destination: "/en/services", permanent: true },
   { source: "/regions/", destination: "/en/services", permanent: true },
   { source: "/global-presence", destination: "/en/services", permanent: true },
+  { source: "/company-incorporation-saudi-arabia", destination: "/en/services/company-incorporation", permanent: true },
+  { source: "/company-incorporation-saudi-arabia/", destination: "/en/services/company-incorporation", permanent: true },
   { source: "/news", destination: "/en/news-updates", permanent: true },
   { source: "/news/", destination: "/en/news-updates", permanent: true },
   { source: "/blog", destination: "/en/news-updates", permanent: true },
