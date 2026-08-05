@@ -7,7 +7,7 @@
   "nav": {
     "home": "Home",
     "aboutUs": "About Us",
-    "regions": "Regions",
+    "services": "Services",
     "newsUpdates": "News & Updates",
     "contactUs": "Contact Us",
     "clientPortal": "Client Portal",
@@ -315,13 +315,54 @@
       }
     ]
   },
-  "regionsPage": {
-    "title": "Regions We Serve",
-    "intro": "Headquartered in Riyadh, Northman Sterling supports clients operating across Saudi Arabia and coordinates cross-border matters throughout the GCC and internationally.",
-    "hqTitle": "Headquarters",
-    "hqDescription": "Riyadh, Saudi Arabia — serving as the base for all licensing, notarial, and enforcement matters within the Kingdom.",
-    "reachTitle": "International Reach",
-    "reachDescription": "We regularly act for clients based outside Saudi Arabia, coordinating immigration, commercial, and notarial matters across more than 35 countries."
+  "servicesPage": {
+    "title": "Services",
+    "intro": "Corporate immigration, incorporation, visas, and document attestation support for organizations operating in Saudi Arabia.",
+    "valueProp": {
+      "heading": "Streamlining Global Talent Acquisition",
+      "subtext": "Expertly steering your organization through the intricacies of immigration law and regulations. We focus on streamlining your global workforce mobility with accuracy and operational excellence."
+    },
+    "learnMore": "Learn More",
+    "items": [
+      {
+        "id": "corporate-immigration",
+        "title": "Corporate Immigration",
+        "description": "When it comes to Corporate immigration matters, we assist businesses, corporations, and individuals seeking to relocate employees, expand operations internationally, or hire foreign talent needed for international projects while staying compliant with immigration laws and policies. Aligning immigration strategies with your business goals to optimize talent acquisition and mobility.",
+        "imageSrc": "/images/services/corporate-immigration.png",
+        "imageAlt": "Corporate Immigration icon"
+      },
+      {
+        "id": "company-incorporation",
+        "title": "Company Incorporation",
+        "description": "Northman & Sterling is dedicated to assisting its global clients at every stage of their company setup journey. We lead companies looking to expand through the entire process of business incorporation and provide guidance on compliance matters, such as corporate registration, licensing, permits, and annual reporting to maintain your business status.",
+        "imageSrc": "/images/services/company-incorporation.png",
+        "imageAlt": "Company Incorporation icon"
+      },
+      {
+        "id": "outbound-visas",
+        "title": "Outbound Visas",
+        "description": "Northman & Sterling offers assistance with immigration matters for UK, Canada, USA and Australia from UAE and Saudi Arabia. Depending on our client's choice for visa, they can collaborate with us to procure necessary documents, reviewing application materials for quality assurance prior to submission, and monitoring the status and progress of the case.",
+        "imageSrc": "/images/services/outbound-visas.png",
+        "imageAlt": "Outbound Visas icon"
+      },
+      {
+        "id": "consular-visa",
+        "title": "Consular Visa",
+        "description": "We begin by discussing your travel plans and the specific visa requirements of your destination country. Our experienced advisors provide guidance on the appropriate visa type, necessary documentation, and the application process. We are dedicated to assisting you in preventing any potential delays or rejections caused by minor errors."
+      },
+      {
+        "id": "employee-outsourcing",
+        "title": "Employee Outsourcing",
+        "description": "By outsourcing your employee management to us in Saudi Arabia, you gain the advantage of managing administrative tasks, minimized risks, and improved focus on your core business objectives. We have a team of HR professionals who are well-versed in Saudi labor laws and best practices, ensuring a seamless and compliant HR operation."
+      },
+      {
+        "id": "document-attestation",
+        "title": "Document Attestation",
+        "description": "Managing documents effectively is crucial for businesses and organizations to maintain efficiency, compliance, and security. We ensure that you meet all regulatory requirements whether you are a professional, a corporate entity, or a small business, our comprehensive solution is tailored to your specific needs.",
+        "imageSrc": "/images/services/document-attestation.png",
+        "imageAlt": "Document Attestation icon"
+      }
+    ]
   },
   "contactPage": {
     "title": "Contact Us",

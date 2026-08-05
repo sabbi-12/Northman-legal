@@ -13,7 +13,7 @@ type StaticRoute = {
 const staticRoutes: StaticRoute[] = [
   { path: "", changeFrequency: "weekly", priority: 1 },
   { path: "about-us", changeFrequency: "monthly", priority: 0.8 },
-  { path: "regions", changeFrequency: "monthly", priority: 0.7 },
+  { path: "services", changeFrequency: "monthly", priority: 0.8 },
   { path: "news-updates", changeFrequency: "daily", priority: 0.8 },
   { path: "contact-us", changeFrequency: "monthly", priority: 0.6 },
   { path: "privacy-policy", changeFrequency: "yearly", priority: 0.2 },

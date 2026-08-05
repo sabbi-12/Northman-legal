@@ -73,9 +73,8 @@ pre-launch migration data (full WP crawl, real OG images, credentials).
 | Home | ✅ 2026-08-04, full 10-section brief | ✅ (existing root layout metadata covers it) | Org/LegalService/Attorney (sitewide) | See "Home page build" below |
 | About Us | ✅ 2026-08-05, full 10-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide), Core Pillars anchors, FAQPage (pre-existing) | See "About Us page build" below |
 | Contact Us | ✅ 2026-08-05, full 8-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide) | See "Contact Us page build" below |
-| Regions | — | — | | |
+| Services (replaces Regions in nav) | ✅ 2026-08-05, full 6-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide) | See "Services page build" below |
 | News & Updates (list + detail) | — | — | Article ✅ | Sanity-backed, ISR |
-| Contact Us | — | — | | |
 | Privacy Policy | — | — | | |
 | Disclaimer | — | — | | |
 
@@ -477,6 +476,43 @@ again:
   given, ellipsis and all.
 - Removed the now-dead `contactPage.officeTitle` key (the old ad-hoc
   "Our Office" sidebar card this rebuild replaced).
+
+## Services page build, Regions retired (2026-08-05)
+
+The navbar's "Regions" link was replaced with "Services", pointing at a new
+`src/app/[lang]/services/page.tsx` built to the client's 6-section brief
+(header, value proposition, 6-service grid, Registration Statement,
+Newsletter, KSA office spotlight). New dictionary key: `servicesPage`. New
+components: `ServicesValueProp`, `ServicesGrid`. Decisions worth knowing:
+
+- **Regions was fully retired, not just unlinked** — confirmed with the
+  user first, since `/regions` had live legacy-WordPress redirects pointing
+  into it (`/regions`, `/regions/`, `/global-presence`) and was in
+  `sitemap.ts`. `src/app/[lang]/regions/page.tsx` and the `regionsPage`
+  dictionary key are deleted; those three legacy sources, plus the
+  pre-existing (and already-wrong) `/services` → `/en/about-us` redirect,
+  now all point to `/en/services` in both `next.config.js` and
+  `src/data/redirects.ts` (kept in sync manually, per convention).
+  `sitemap.ts`'s `regions` entry became `services` (priority bumped
+  0.7 → 0.8, matching About Us — it's an equally primary commercial page).
+- **4 of the 6 services reuse the real icons already shipped for Home's
+  Core Services** (`corporate-immigration`, `company-incorporation`,
+  `outbound-visas`, `document-attestation` — same files in
+  `public/images/services/`). The other two, **Consular Visa and Employee
+  Outsourcing, are new services with no real icon asset yet** — they fall
+  back to lucide icons (`Stamp`, `UsersRound`) in `ServicesGrid.tsx` rather
+  than an empty tile or a borrowed unrelated image. Swap for real icons
+  the moment they're supplied, same pattern as every other placeholder
+  asset on this project.
+- **"Learn More" on each service card links to Contact Us.** The brief
+  didn't specify a target (no per-service detail pages exist) — each
+  card's description is already the full "read more" text per the brief,
+  so the button reads as a conversion CTA, consistent with every other
+  "Learn More"/CTA button sitewide.
+- **Registration Statement, Newsletter, and the KSA office spotlight all
+  reuse existing components** (`FirmIdentity`, `Newsletter`,
+  `OfficeContact` — the last one already built for About Us and reused
+  again on Contact Us) — identical real content, no new components built.
 
 ## Session checkpoint (2026-08-04, end of day)
 
