@@ -326,10 +326,16 @@
   "contactPage": {
     "title": "اتصل بنا",
     "intro": "أرسل لنا بعض التفاصيل حول قضيتك وسيقوم فريقنا بالرد عليك في أقرب وقت.",
+    "connect": {
+      "heading": "لنتواصل !",
+      "subheading": "يسعدنا مناقشة احتياجاتكم في الهجرة والتنقل…"
+    },
+    "formSectionSubtitle": "نموذج الاستفسارات العامة",
     "formName": "الاسم الكامل",
-    "formEmail": "البريد الإلكتروني",
+    "formEmail": "البريد الإلكتروني للعمل",
     "formPhone": "رقم الهاتف",
-    "formService": "مجال الاهتمام",
+    "formService": "الخدمة",
+    "formServicePlaceholder": "اختر الخدمة",
     "formServiceOptions": [
       "تأسيس الشركات",
       "خدمات الهجرة",
@@ -341,12 +347,64 @@
       "إدارة الامتثال",
       "أخرى"
     ],
-    "formMessage": "الرسالة",
-    "formSubmit": "إرسال الرسالة",
+    "formMessage": "استفسارك",
+    "formSubmit": "إرسال الاستفسار",
     "formSubmitting": "جاري الإرسال…",
     "formSuccess": "شكراً لك — تم إرسال رسالتك. سيتواصل معك فريقنا قريباً.",
     "formError": "حدث خطأ أثناء إرسال رسالتك. يرجى المحاولة مرة أخرى أو التواصل معنا مباشرة عبر البريد الإلكتروني.",
-    "officeTitle": "مكتبنا"
+    "offices": {
+      "heading": "مكاتبنا حول العالم",
+      "items": [
+        {
+          "id": "uk",
+          "country": "المملكة المتحدة",
+          "address": "Devonshire House, Level 1, One Mayfair Place, W1J 8AJ London, United Kingdom",
+          "phone": "0044 203 205 7010",
+          "email": "europe@northmansterling.legal"
+        },
+        {
+          "id": "ksa",
+          "country": "المملكة العربية السعودية",
+          "address": "Level 18, Al Faisaliah Tower, King Fahad Road, Olaya District, Riyadh, Saudi Arabia",
+          "phone": "00966 112 978 293",
+          "email": "gcc@northmansterling.legal"
+        },
+        {
+          "id": "uae",
+          "country": "الإمارات العربية المتحدة",
+          "address": "Emirates Towers, Level 41, Sheikh Zayed Road, Dubai, United Arab Emirates",
+          "phone": "00971 43 132 784",
+          "email": "gcc@northmansterling.legal"
+        },
+        {
+          "id": "brussels",
+          "country": "بروكسل",
+          "email": "europe@northmansterling.legal"
+        },
+        {
+          "id": "frankfurt",
+          "country": "فرانكفورت",
+          "email": "europe@northmansterling.legal"
+        },
+        {
+          "id": "delhi",
+          "country": "دلهي",
+          "email": "asia@northmansterling.legal"
+        },
+        {
+          "id": "washington",
+          "country": "واشنطن",
+          "phone": "+1 (202) 569-8971",
+          "email": "americas@northmansterling.legal"
+        },
+        {
+          "id": "houston",
+          "country": "هيوستن",
+          "phone": "+1 (713) 352-0919",
+          "email": "americas@northmansterling.legal"
+        }
+      ]
+    }
   },
   "cookieConsent": {
     "message": "نستخدم ملفات تعريف الارتباط لتشغيل التحليلات التي تساعدنا على فهم كيفية استخدام الزوار لهذا الموقع. يمكنك قبول جميع ملفات تعريف الارتباط أو الاستمرار باستخدام الملفات الأساسية فقط.",

@@ -81,7 +81,10 @@ export function ContactForm({ dict, submitLabel }: { dict: Dictionary; submitLab
           <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-slate-dark dark:text-cream">
             {dict.contactPage.formService}
           </label>
-          <select id="service" name="service" className={fieldClasses}>
+          <select id="service" name="service" required defaultValue="" className={fieldClasses}>
+            <option value="" disabled hidden>
+              {dict.contactPage.formServicePlaceholder}
+            </option>
             {dict.contactPage.formServiceOptions.map((option: string) => (
               <option key={option} value={option}>
                 {option}

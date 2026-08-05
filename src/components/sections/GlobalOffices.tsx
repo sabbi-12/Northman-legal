@@ -1,0 +1,74 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { MapPin, Phone, Mail } from "lucide-react";
+
+import type { Dictionary } from "@/lib/i18n/getDictionary";
+
+const EASE = [0.16, 1, 0.3, 1] as const;
+
+function toTelHref(phone: string) {
+  const normalized = phone.startsWith("00") ? `+${phone.slice(2)}` : phone;
+  return normalized.replace(/[^\d+]/g, "");
+}
+
+export function GlobalOffices({ dict }: { dict: Dictionary }) {
+  const reduceMotion = useReducedMotion();
+  const entrance = reduceMotion ? false : undefined;
+  const offices = dict.contactPage.offices;
+
+  return (
+    <section className="bg-cream py-24 dark:bg-navy-dark">
+      <div className="container-institutional">
+        <span className="block h-px w-14 origin-left bg-accent rtl:origin-right" aria-hidden="true" />
+        <h2 className="mt-5 text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
+          {offices.heading}
+        </h2>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {offices.items.map((office, index) => (
+            <motion.div
+              key={office.id}
+              initial={entrance ?? { opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: index * 0.05, ease: EASE }}
+              className="flex flex-col gap-3 rounded-institutional border border-navy/10 bg-white p-6 shadow-institutional dark:border-cream/10 dark:bg-navy/40"
+            >
+              <h3 className="text-base font-medium text-slate-dark dark:text-cream">{office.country}</h3>
+
+              {office.address && (
+                <div className="flex items-start gap-2">
+                  <MapPin size={15} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
+                  <p className="text-xs leading-relaxed text-slate-mid dark:text-cream/70">{office.address}</p>
+                </div>
+              )}
+
+              {office.phone && (
+                <div className="flex items-start gap-2">
+                  <Phone size={15} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
+                  <a
+                    href={`tel:${toTelHref(office.phone)}`}
+                    className="text-xs text-slate-mid transition-colors hover:text-navy dark:text-cream/70 dark:hover:text-cream"
+                  >
+                    {office.phone}
+                  </a>
+                </div>
+              )}
+
+              <div className="flex items-start gap-2">
+                <Mail size={15} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
+                <a
+                  href={`mailto:${office.email}`}
+                  className="text-xs text-slate-mid transition-colors hover:text-navy dark:text-cream/70 dark:hover:text-cream"
+                >
+                  {office.email}
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

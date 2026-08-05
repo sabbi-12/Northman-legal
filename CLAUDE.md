@@ -72,6 +72,7 @@ pre-launch migration data (full WP crawl, real OG images, credentials).
 |---|---|---|---|---|
 | Home | ✅ 2026-08-04, full 10-section brief | ✅ (existing root layout metadata covers it) | Org/LegalService/Attorney (sitewide) | See "Home page build" below |
 | About Us | ✅ 2026-08-05, full 10-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide), Core Pillars anchors, FAQPage (pre-existing) | See "About Us page build" below |
+| Contact Us | ✅ 2026-08-05, full 8-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide) | See "Contact Us page build" below |
 | Regions | — | — | | |
 | News & Updates (list + detail) | — | — | Article ✅ | Sanity-backed, ISR |
 | Contact Us | — | — | | |
@@ -427,6 +428,55 @@ before touching this again:
 - Same signature rule + `useReducedMotion()` pattern from the Home page
   bolder pass carried through every new section here, for one consistent
   identity across both pages.
+
+## Contact Us page build (2026-08-05)
+
+Built to the client's full 8-section brief (header, Let's Connect + socials,
+General Enquiries form, Global Offices grid, Registration & Entity
+Statement, Newsletter, KSA office spotlight, footer). New components under
+`src/components/sections/`: `ConnectBanner`, `EnquiriesForm`,
+`GlobalOffices`. New dictionary keys under
+`contactPage.{connect,formSectionSubtitle,formServicePlaceholder,offices}`
+— EN and AR both filled in. Decisions worth knowing before touching this
+again:
+
+- **Global office data (8 locations: UK, KSA, UAE, Brussels, Frankfurt,
+  Delhi, Washington, Houston) is new factual content**, not previously
+  anywhere in the codebase — added as `contactPage.offices.items` in the
+  dictionaries (addresses/phones kept in Latin script in both EN and AR,
+  matching how official postal addresses are conventionally shown even on
+  Arabic pages; only the country label is translated). Some offices have
+  only an email (Brussels, Frankfurt, Delhi) — rendered conditionally, not
+  padded with invented addresses/phones.
+- **Regional office relies on the About Us page's `OfficeContact`
+  component, reused as-is** — brief section 7 ("Regional Office Spotlight
+  KSA") is identical content to About Us's office section (same heading,
+  address, mobile, landline, email), so no new component was built for it.
+  Same for **Registration & Entity Statement (section 5) and Newsletter
+  (section 6)** — both reuse the existing `FirmIdentity`/`Newsletter`
+  components directly.
+- **New general enquiries inbox added**: `ORGANIZATION.generalEmail`
+  (`info@northmansterling.legal`) in `src/lib/seo/constants.ts` — distinct
+  from the existing KSA-specific `ORGANIZATION.email`
+  (`ksa@northmansterling.legal`). Shown on the "Let's Connect" banner only.
+- **Contact form copy realigned to the brief's field names** across both
+  the Contact Us and Home "Let's Connect" forms (they share
+  `ContactForm.tsx`): "Full name" → "Full Name", "Email address" →
+  "Business Email", "Phone number" → "Phone Number", "Area of interest" →
+  "Service", "Message" → "Your Inquiry", submit "Send Message" → "Submit
+  Enquiry" (now consistent with the Home page form, which already used
+  that label). The service `<select>` also gained a disabled placeholder
+  option ("Choose Service") and `required`, so it can no longer silently
+  submit "Company Incorporation" as an unintended default — the brief's
+  "(Choose Service)*" reads as an actual required choice, not a pre-filled
+  one.
+- **Section 2's subheading ships with a trailing "…" on purpose.** The
+  brief text ("We would love to discuss your immigration and mobility
+  needs…") was given truncated; asked the client directly rather than
+  completing the sentence myself, and was told to render it exactly as
+  given, ellipsis and all.
+- Removed the now-dead `contactPage.officeTitle` key (the old ad-hoc
+  "Our Office" sidebar card this rebuild replaced).
 
 ## Session checkpoint (2026-08-04, end of day)
 

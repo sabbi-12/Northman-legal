@@ -12,6 +12,9 @@ export const ORGANIZATION = {
   landline: "+966112978293",
   landlineDisplay: "00966 112 978 293",
   email: "ksa@northmansterling.legal",
+  // General/global enquiries inbox — distinct from the KSA-specific address
+  // above. Shown on the Contact Us page's "Let's Connect" section.
+  generalEmail: "info@northmansterling.legal",
   // Social profile URLs — placeholders until the firm shares the live
   // accounts; swap these before launch rather than leaving them pointed
   // at "#".
