@@ -9,13 +9,6 @@ import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 import { SERVICE_DETAIL_SLUGS } from "@/lib/data/serviceSlugs";
 
-const ANCHORS: Record<string, string> = {
-  "corporate-immigration": "global-immigration",
-  "company-incorporation": "core-pillars",
-  "outbound-visas": "global-immigration",
-  "document-attestation": "notary-poa",
-};
-
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale }) {
@@ -26,9 +19,7 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
   const [featured, ...rest] = dict.coreServices.items;
 
   function learnMoreHref(id: string) {
-    return SERVICE_DETAIL_SLUGS.has(id)
-      ? `/${lang}/services/${id}`
-      : `/${lang}/about-us#${ANCHORS[id] ?? "core-pillars"}`;
+    return SERVICE_DETAIL_SLUGS.has(id) ? `/${lang}/services/${id}` : `/${lang}/contact-us`;
   }
 
   return (
