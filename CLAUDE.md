@@ -14,7 +14,7 @@ ships if server-rendering would do; no redirect is "close enough"; no visual
 choice undermines an "institutional law firm" register in favor of a
 "tech startup" one.
 
-## Current status (2026-08-04)
+## Current status (last updated 2026-08-07)
 
 The Next.js 14 App Router scaffold is **already substantially built** —
 this is not a greenfield start. Verified present and wired correctly:
@@ -31,7 +31,7 @@ this is not a greenfield start. Verified present and wired correctly:
 | XML sitemap per language | ✅ | `src/app/sitemap.ts` (one entry per locale + hreflang alternates) |
 | robots.txt | ✅ | `src/app/robots.ts` |
 | Breadcrumbs (visual + schema) | ✅ | `components/seo/Breadcrumbs.tsx` |
-| 301 redirects from old WP URLs | ⚠️ placeholder set only | `src/data/redirects.ts` + mirrored in `next.config.js` — **needs full WP crawl before launch** |
+| 301 redirects from old WP URLs | ✅ full crawl done 2026-08-07 — all 56 blog posts + corporate-immigration/-2 + company-incorporation + terms-and-conditions now explicit 1:1 | `src/data/redirects.ts` + mirrored in `next.config.js` — see "WP → Vercel migration" below |
 | Open Graph / social metadata | ✅ pattern exists, ⚠️ OG images are placeholder paths that don't exist yet | root layout + `public/images/og-default-{en,ar}.jpg` missing |
 | WebP/AVIF images | ✅ configured | `next.config.js` `images.formats` |
 | Minimal client JS | ✅ by default (RSC everywhere) — audit each new component for unnecessary `"use client"` | |
@@ -77,9 +77,10 @@ pre-launch migration data (full WP crawl, real OG images, credentials).
 | Services → Corporate Immigration detail | ✅ 2026-08-05 | ✅ | Org/LegalService/Attorney (sitewide) | `/services/corporate-immigration`, "pillars" layout |
 | Services → Company Incorporation detail | ✅ 2026-08-05 | ✅ | Org/LegalService/Attorney (sitewide) | `/services/company-incorporation`, "ksa-guide" layout |
 | Services → remaining 4 (Outbound Visas, Consular Visa, Employee Outsourcing, Document Attestation) | — | — | | Grid cards exist on /services; "Learn More" → Contact Us until detail content is written |
-| News & Updates (list + detail) | — | — | Article ✅ | Sanity-backed, ISR |
+| News & Updates (list + detail) | ✅ 56 real posts migrated from WP | Article ✅ | Article ✅ | Sanity-backed, ISR |
 | Privacy Policy | — | — | | |
 | Disclaimer | — | — | | |
+| Terms and Conditions | ✅ 2026-08-07, full WP text copied verbatim | ✅ | | `/terms-and-conditions`, see "WP → Vercel migration" below |
 
 (Fill in as we go — don't let this table go stale.)
 
@@ -669,21 +670,241 @@ this back up tomorrow, start here:
 
 ## Pre-launch migration checklist (do NOT skip — live site is indexed)
 
-- [ ] Export every currently-indexed URL from the live WP site (WP sitemap.xml
-      or a full Screaming Frog crawl).
-- [ ] Give every one of those URLs an explicit 1:1 entry in
-      `src/data/redirects.ts` + `next.config.js` — wildcard-only rules are not
-      acceptable for anything that currently ranks.
-- [ ] Carry over any existing content worth keeping (don't drop indexed,
-      valuable copy just because it's being rebuilt).
+- [x] Export every currently-indexed URL from the live WP site — done
+      2026-08-07 via a mix of live-site crawl (WebFetch on the real
+      `northmansterling.legal` nav/footer/news-listing pages) and direct
+      Sanity queries (`getAllPostSlugs`) cross-checked against user-confirmed
+      WP permalinks. See "WP → Vercel migration" below for the full account —
+      **standard sitemap.xml/wp-sitemap.xml/sitemap_index.xml paths all 404
+      on the live site**, so this was done by crawl, not sitemap export.
+- [x] Give every one of those URLs an explicit 1:1 entry in
+      `src/data/redirects.ts` + `next.config.js` — done for all 56 blog
+      posts, `/corporate-immigration`, `/corporate-immigration-2`,
+      `/company-incorporation` (no suffix), `/terms-and-conditions`. See
+      below for what's still possibly missing (WP's `/page/2/`…`/page/14/`
+      blog pagination URLs were seen in the crawl but not yet redirect-mapped
+      — check Search Console Coverage after launch to see if any actually
+      rank before deciding whether they need entries).
+- [x] Carry over any existing content worth keeping — Terms & Conditions
+      full text copied verbatim from WP (see below); the 56 blog posts were
+      already migrated to Sanity earlier in the project.
 - [ ] Generate real `og-default-en.jpg` / `og-default-ar.jpg` (1200×630) —
       currently referenced but absent from `public/images/`.
 - [ ] Fill every blank in `.env.local` for prod (Sanity project ID, SMTP,
       GTM/GA4/Clarity/HubSpot IDs, revalidate secret) — see
       `.env.local.example` for the full list.
 - [ ] Add Search Console verification meta tag.
+- [ ] Decide the Vercel domain/DNS cutover plan (nameserver move vs.
+      A/CNAME record) — not yet discussed with the user beyond confirming
+      the bilingual `/en`/`/ar` URL structure stays as-is (see below).
 - [ ] After deploy: submit new sitemap in Search Console, monitor Coverage
       report for 404s/soft-404s and ranking movement for at least 4–6 weeks.
+
+## TopBar redesign + real Sanity ticker (2026-08-07)
+
+The old `TopBar`/`Ticker` was a continuous CSS marquee driven by static
+dictionary text (`dict.topBar.tickerItems`). Rebuilt to match a WordPress
+reference screenshot (bell icon + "Current Updates" label, sky-blue "Latest
+News" badge + white headline box + prev/next chevrons, dark "Client Portal"
+button) and to show real content:
+
+- **`Ticker.tsx` rebuilt from a marquee into a discrete one-post-at-a-time
+  slider.** Accepts real `NewsPost[]` (title + slug) instead of the deleted
+  `TickerItem` type — `src/types/index.ts`'s `TickerItem` export is gone.
+  Auto-advances every 6s, manual prev/next, RTL-aware chevrons, each
+  headline links to the real `/[lang]/news-updates/[slug]` post.
+- **`layout.tsx` fetches `getLatestPosts(lang, 6)`** and passes it down
+  through `TopBar` to `Ticker` — this is a real Sanity fetch on every page
+  load (server-rendered, not client-fetched), same caching behavior as
+  every other `getLatestPosts` call site.
+- **Multiple redesign passes on `TopBar`** in response to iterative
+  feedback: navy-glass → tried `bg-cream`/`bg-white` variants → landed on
+  **`!bg-white`, fixed regardless of dark/light mode** (`!` important flag,
+  no `dark:` variant at all) since the user wanted this one bar to never
+  follow the site theme toggle. Height bumped `h-11` → `h-14`. "Current
+  Updates" is now a real link to `/[lang]/news-updates`, not static text.
+  Dictionary keys `latestNewsLabel`/`previousUpdate`/`nextUpdate` added
+  (EN+AR); old `tickerItems` array removed from both dictionaries.
+
+## Navbar: transparent/blurred + shrink-on-scroll (2026-08-07)
+
+Multiple iterative passes on `Navbar.tsx` per user feedback, in order:
+
+1. Made the sticky header **translucent + blurred** (`bg-navy/35
+   backdrop-blur-lg`) instead of solid navy, so Home's Hero photo shows
+   through it, with bigger logo (`height={36}`→`46`) and a light backing
+   chip behind the logo (still `onDark`, since no light-ink logo variant
+   exists — see the original Rebrand section above, still true).
+2. **Bug found**: `LanguageSwitcher`/`DarkModeToggle` used to assume they
+   sit on a surface that follows the site's dark/light toggle
+   (`text-navy dark:text-cream`) — but the navbar itself is *always*
+   navy-glass regardless of theme, so in light mode these rendered
+   navy-text-on-navy-background, nearly invisible. Fixed by adding an
+   `onDark` prop to both (same pattern as `BrandLogo`), applied only on
+   the desktop header's usage — the mobile drawer's usage of both
+   components was untouched since that surface *does* follow the theme.
+3. **"Grey before scrolling" bug**: `bg-navy/35` over a light page
+   background (or the white TopBar directly above it) blends into a flat
+   grey rather than reading as navy glass. Fixed by raising to `bg-navy/55`
+   and later, per the user's actual root-cause diagnosis, by giving
+   `Hero.tsx` a `-mt-24` negative margin (see below) so the real photo
+   extends up behind the sticky navbar on Home specifically.
+4. **Shrink-on-scroll added**: a `scrolled` boolean (scroll listener,
+   24px threshold) drives the nav bar height `96px→72px` via
+   framer-motion and the logo height `46px→34px` via a CSS
+   `transition-[height]` added directly to the `<Image>` inside
+   `BrandLogo.tsx` (not the wrapping card — the card's height is
+   intrinsic to padding, the actual animated value lives on the image).
+   Header stays `sticky` (not `fixed`), so the shrink doesn't leave a
+   gap — content just moves up to fill the reclaimed space.
+
+## Hero `-mt-24` fill-behind-navbar pattern, and where it did/didn't spread (2026-08-07)
+
+`Hero.tsx` got `-mt-24` (pulling the section up by exactly the navbar's
+tall-state height) plus matching extra top padding, so its photo/gradient
+layers extend up underneath the sticky transparent navbar instead of
+showing blank space behind the blur. This pattern was then propagated to
+About Us/Contact Us/Services/service-detail's navy header bands too (moving
+`Breadcrumbs` inside each navy section, adding an `onDark` prop to
+`Breadcrumbs` for cream-toned text) — **then partially reverted** after
+further feedback:
+
+- About Us and Contact Us: `-mt-24` removed, replaced with a plain `pt-4`
+  top margin — the user wanted visible breathing room back under the
+  navbar on these two pages specifically.
+- Services: the navy hero band itself was removed per user request ("wo
+  services jo likha hy usay remove krke... hero section ka content bana
+  do"). `ServicesValueProp.tsx` was deleted — its heading/subtext
+  (`servicesPage.valueProp.heading/subtext`) now render directly as the
+  page's real `<h1>`/subhead inside a navy hero, replacing the plain
+  "Services" title. Breadcrumbs moved back out of the hero, now render
+  below it on the page's normal background — same "breadcrumbs below hero"
+  treatment applied to About Us and Contact Us too.
+- **Net effect**: the `-mt-24`/navbar-fill treatment now lives on Home's
+  Hero only. About Us/Contact Us/Services all have breadcrumbs *below*
+  their (non-negative-margin) navy header band, not inside it. If touching
+  any of these four sections again, don't assume they're still consistent
+  with each other — check the live file, not just this note.
+
+## Dark-mode contrast bugs found + fixed (2026-08-07)
+
+User-reported: "icons dark mode mein invisible ho jate hain" and "blog
+section hover pe invisible ho jata hai dark mode mein." Root cause in both
+`LatestInsights.tsx` and `NewsCard.tsx`: post titles were
+`dark:text-cream` at rest but `group-hover:text-navy` with **no dark
+override** — hovering a card in dark mode turned the title navy-on-navy
+(invisible). Fixed by adding `dark:group-hover:text-accent` to both. The
+"icons" complaint turned out to be the same bug family, not a separate
+issue — audited `CoreServices`/`Certifications`/social icons and found
+those already correctly theme-aware.
+
+## WP → Vercel migration: URL crawl, blog redirects, real gaps found (2026-08-07)
+
+User's end goal: move the live WordPress site (northmansterling.legal,
+hosted on cPanel) to Vercel, pointing the same domain at the new site, with
+**zero SEO/ranking damage** — same URLs where practical, explicit 301s
+where they can't be. This is the first real progress against the
+"Pre-launch migration checklist" above, which had been entirely unchecked
+since the project started.
+
+- **Standard sitemap paths (`/sitemap.xml`, `/wp-sitemap.xml`,
+  `/sitemap_index.xml`) all 404 on the live site** — no SEO plugin sitemap
+  is exposed (or it's disabled). Had to crawl by hand instead: WebFetch on
+  the homepage nav/footer, then the `/news-updates/` listing page and its
+  paginated variants (`?e-page-...=2`, `=3` — Elementor's own pagination
+  param, not real WP `/page/N/` pagination, and it turned out **not to
+  actually change content between params in this crawl** — page "3" showed
+  the same posts as page "1", so the listing's own pagination could not be
+  trusted to enumerate all 56 posts by itself).
+- **The crawl's 40 unique post URLs were cross-checked against a direct
+  Sanity query** (`*[_type == "post" && language == "en"].slug.current`,
+  56 results) rather than trusted blindly — every single one of the 40
+  matched a real Sanity slug exactly, which is strong evidence the
+  earlier WP→Sanity migration preserved slugs verbatim. The user then
+  manually verified the remaining ~16 slugs in WP admin (Posts → edit →
+  Slug field, since permalink-hover-preview didn't work in their WP
+  theme) and confirmed they matched too — so **all 56 blog posts now have
+  an explicit 1:1 redirect**, not an assumption.
+- **One genuine near-miss caught by this cross-check**: two different
+  Sanity posts have visually similar titles ("Qatar announced New
+  Residence Permit..." and a second post whose slug collided into
+  `...-entrepreneurs-2`). The user confirmed via a live screenshot that
+  WP's actual URL for the second post really does carry the `-2` suffix —
+  so both got their own correct redirect entry; this was **not** a
+  migration bug, just two coincidentally-similar titles.
+- **Real content gaps found during the crawl, fixed the same session:**
+  - `/terms-and-conditions/` is a real, live, indexed WP page — the new
+    site had no equivalent at all (only `disclaimer`, a *different*
+    document). Worse: the footer's "Terms & Conditions" *label* existed
+    but linked to `/disclaimer` — silently serving the wrong legal
+    document under that label. Fixed: copied the WP page's full text
+    verbatim (including its oddly generic "laws of respective
+    country"/"specific country" governing-law clause — the user
+    explicitly said to preserve WP's original wording as-is rather than
+    have Claude specify "Kingdom of Saudi Arabia"), built a new
+    `/terms-and-conditions` page (EN+AR, reusing `LegalPageContent` like
+    `disclaimer` does), fixed the footer link, added sitemap entry +
+    redirects. `disclaimer` itself is now an orphaned page (nothing
+    internally links to it) but stays published since it's real content
+    with no WP equivalent that supersedes it.
+  - `/corporate-immigration/` and `/corporate-immigration-2/` are **two
+    different live WP pages** (the former is an old 2023 image-attachment
+    page, not real content; the latter is the real Corporate Immigration
+    service page) — both now redirect to `/en/services/corporate-immigration`.
+  - `/company-incorporation/` (no "-saudi-arabia" suffix) is a third live
+    WP URL for the same content already covered by
+    `/company-incorporation-saudi-arabia` — added its own redirect to
+    `/en/services/company-incorporation`.
+  - **Real social URLs recovered from the WP footer**: Facebook
+    (`facebook.com/northmansterling`), Twitter
+    (`twitter.com/northmansterlin`), LinkedIn
+    (`linkedin.com/company/northman-sterling`) — `ORGANIZATION.facebookUrl`
+    etc. in `src/lib/seo/constants.ts` were blank placeholders since the
+    original build; now filled in, which also feeds `Organization`
+    schema's `sameAs` automatically (no separate schema edit needed,
+    `Footer.tsx`/`ConnectBanner.tsx` already read from `ORGANIZATION.*`).
+  - **`CLIENT_PORTAL_URL` (`northmansterling.app`) confirmed correct**
+    against the live WP footer's "Client Portal" link — no change needed.
+- **Bilingual `/en`/`/ar` URL structure question, resolved**: the user
+  asked whether dropping the locale prefix (to match WP's un-prefixed
+  root-level slugs more literally) would help SEO. Answered no — explained
+  that `/en`/`/ar` + hreflang is the standard, Google-sanctioned pattern
+  for bilingual sites (which is what the whole `[lang]/layout.tsx` +
+  `sitemap.ts` hreflang setup already implements), that WP itself had no
+  Arabic version to begin with so there's no "same URL" to preserve on
+  that axis, and that the real SEO risk is broken/missing redirects, not
+  URL-prefix shape. **Decision: keep `/en`/`/ar` as-is, do not restructure
+  routing.** Don't revisit this without a new, specific reason — it was a
+  deliberate, explained decision, not an open question.
+- **Still open / explicitly not done this session**: OG images, `.env.local`
+  production secrets, Search Console verification tag, the actual Vercel
+  deploy + domain/DNS cutover itself. See the checklist above for the
+  current state of each.
+
+## Team LinkedIn icons: real profile links + brand mark (2026-08-07)
+
+`Team.tsx`'s LinkedIn icon was `aria-hidden`/non-clickable for all 5
+members since no profile URLs existed. The user supplied 4 real URLs
+(Murtaza, Manisha, Owais, Noor) plus a 5th (Mohammad Qadri) that is
+**LinkedIn's own `/404/` error page** — the user explicitly asked for it to
+be wired in anyway rather than left decorative, so it is (flagged back to
+the user that it's a dead link; swap it the same way once a real URL turns
+up). `aboutPage.team.members[].linkedinUrl` is a new optional dictionary
+field (EN+AR) — present only for members with a real link; `Team.tsx`
+branches on its presence to render either a clickable `<a>` or the old
+decorative `<span>`.
+
+Two icon-styling passes: first swapped the plain outlined icon for a
+filled `#0A66C2` (LinkedIn's real brand blue) circular badge — a
+deliberate, scoped exception to the site's otherwise-restrained
+navy/accent-only palette, justified because it's a recognizable third-party
+brand mark, not a UI color choice. Then, per follow-up feedback, replaced
+lucide's generic `Linkedin` icon with an inline hand-written SVG
+(`LinkedInGlyph` in `Team.tsx`) that reproduces LinkedIn's actual "in"
+wordmark glyph, since lucide's icon is a generic outline, not the real
+brand mark. Both the clickable and the decorative (Qadri) variant use the
+same `LinkedInGlyph` now — no visual inconsistency between "has a link" and
+"doesn't" beyond color/opacity.
 
 ## Conventions to hold the line on
 
