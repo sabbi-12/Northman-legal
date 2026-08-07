@@ -15,12 +15,11 @@ export const ORGANIZATION = {
   // General/global enquiries inbox — distinct from the KSA-specific address
   // above. Shown on the Contact Us page's "Let's Connect" section.
   generalEmail: "info@northmansterling.legal",
-  // Social profile URLs — placeholders until the firm shares the live
-  // accounts; swap these before launch rather than leaving them pointed
-  // at "#".
-  facebookUrl: "",
-  twitterUrl: "",
-  linkedinUrl: "",
+  // Social profile URLs — sourced from the live WordPress site's footer
+  // (2026-08-07).
+  facebookUrl: "https://www.facebook.com/northmansterling",
+  twitterUrl: "https://twitter.com/northmansterlin",
+  linkedinUrl: "https://www.linkedin.com/company/northman-sterling/",
   get sameAs(): string[] {
     return [this.facebookUrl, this.twitterUrl, this.linkedinUrl].filter(Boolean);
   },

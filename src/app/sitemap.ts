@@ -21,6 +21,7 @@ const staticRoutes: StaticRoute[] = [
   { path: "contact-us", changeFrequency: "monthly", priority: 0.6 },
   { path: "privacy-policy", changeFrequency: "yearly", priority: 0.2 },
   { path: "disclaimer", changeFrequency: "yearly", priority: 0.2 },
+  { path: "terms-and-conditions", changeFrequency: "yearly", priority: 0.2 },
 ];
 
 function languageAlternatesFor(path: string): Record<string, string> {

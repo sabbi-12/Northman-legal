@@ -15,7 +15,7 @@ export function Footer({ dict, lang }: { dict: Dictionary; lang: Locale }) {
     { href: `/${lang}#event-gallery`, label: dict.footer.keyEvents },
     { href: `/${lang}/contact-us`, label: dict.nav.contactUs },
     { href: `/${lang}/privacy-policy`, label: dict.footer.privacyPolicy },
-    { href: `/${lang}/disclaimer`, label: dict.footer.termsConditions },
+    { href: `/${lang}/terms-and-conditions`, label: dict.footer.termsConditions },
   ];
 
   // Placeholder until the firm shares its live social accounts — see

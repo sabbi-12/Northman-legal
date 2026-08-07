@@ -2,11 +2,20 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { Linkedin } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
+
+// LinkedIn's own "in" glyph (not lucide's outline icon) — the recognizable
+// brand mark, used verbatim at brand size/weight.
+function LinkedInGlyph({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" width={14} height={14} fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.114 20.452H3.558V9h3.556v11.452z" />
+    </svg>
+  );
+}
 
 export function Team({ dict }: { dict: Dictionary }) {
   const reduceMotion = useReducedMotion();
@@ -47,12 +56,24 @@ export function Team({ dict }: { dict: Dictionary }) {
               <h3 className="mt-4 text-base font-medium text-slate-dark dark:text-cream">{member.name}</h3>
               <p className="mt-1 text-sm text-accent">{member.role}</p>
               <p className="mt-1 text-xs text-slate-mid dark:text-cream/60">{member.location}</p>
-              <span
-                aria-hidden="true"
-                className="mt-4 flex h-8 w-8 items-center justify-center rounded-institutional border border-navy/10 text-slate-mid/50 dark:border-cream/10 dark:text-cream/30"
-              >
-                <Linkedin size={14} strokeWidth={1.75} />
-              </span>
+              {member.linkedinUrl ? (
+                <a
+                  href={member.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${member.name} on LinkedIn`}
+                  className="mt-4 flex h-8 w-8 items-center justify-center rounded-institutional bg-[#0A66C2] text-white transition-opacity hover:opacity-85"
+                >
+                  <LinkedInGlyph />
+                </a>
+              ) : (
+                <span
+                  aria-hidden="true"
+                  className="mt-4 flex h-8 w-8 items-center justify-center rounded-institutional border border-navy/10 text-slate-mid/50 dark:border-cream/10 dark:text-cream/30"
+                >
+                  <LinkedInGlyph />
+                </span>
+              )}
             </motion.div>
           ))}
         </div>

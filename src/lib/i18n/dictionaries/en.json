@@ -255,11 +255,11 @@
       "heading": "Global Team, Local Expertise",
       "body": "At Northman & Sterling, our experts are committed to understanding your unique goals and simplifying the immigration process. With a global presence, we deliver strategic solutions and comprehensive support for your business.",
       "members": [
-        { "name": "Murtaza Shah", "role": "Partner - EMEA Region", "location": "London, UK", "imageSrc": "/images/team/murtaza-shah.png" },
-        { "name": "Manisha Gami", "role": "Manager - Global Immigration", "location": "Dubai, UAE", "imageSrc": "/images/team/manisha-gami.png" },
-        { "name": "Mohammad Qadri", "role": "Assistant Manager", "location": "Dubai, UAE", "imageSrc": "/images/team/mohammad-qadri.png" },
-        { "name": "Owais Ali", "role": "Manager - Outbound Immigration", "location": "London, UK", "imageSrc": "/images/team/owais-ali.png" },
-        { "name": "Noor Nadeem", "role": "Manager - Business Development and Marketing", "location": "Dubai, UAE", "imageSrc": "/images/team/noor-nadeem.png" }
+        { "name": "Murtaza Shah", "role": "Partner - EMEA Region", "location": "London, UK", "imageSrc": "/images/team/murtaza-shah.png", "linkedinUrl": "https://www.linkedin.com/in/shahmurtaza/" },
+        { "name": "Manisha Gami", "role": "Manager - Global Immigration", "location": "Dubai, UAE", "imageSrc": "/images/team/manisha-gami.png", "linkedinUrl": "https://www.linkedin.com/in/manisha-gami-23903b154/" },
+        { "name": "Mohammad Qadri", "role": "Assistant Manager", "location": "Dubai, UAE", "imageSrc": "/images/team/mohammad-qadri.png", "linkedinUrl": "https://www.linkedin.com/404/" },
+        { "name": "Owais Ali", "role": "Manager - Outbound Immigration", "location": "London, UK", "imageSrc": "/images/team/owais-ali.png", "linkedinUrl": "https://www.linkedin.com/in/syed-owais-ali-shah/" },
+        { "name": "Noor Nadeem", "role": "Manager - Business Development and Marketing", "location": "Dubai, UAE", "imageSrc": "/images/team/noor-nadeem.png", "linkedinUrl": "https://www.linkedin.com/in/noor-nadeem-2a427a367/" }
       ]
     },
     "belief": {
@@ -751,6 +751,48 @@
         {
           "heading": "Seek Professional Advice",
           "body": "For advice on a specific legal matter, please contact us directly so we can assess your circumstances individually."
+        }
+      ]
+    },
+    "termsAndConditions": {
+      "title": "Terms and Conditions",
+      "intro": "These terms and conditions (\"Agreement\") govern the use of Immigration and Visa services offered by Northman & Sterling. By engaging with our services, you agree to comply with these terms and conditions in their entirety.",
+      "sections": [
+        {
+          "heading": "Scope of Services",
+          "body": "Northman and Sterling offers professional immigration and visa services to corporates and businesses seeking assistance in various immigration and Visa matters in different regions. Our services include but are not limited to visa processing, residency permits, company registration, legal compliance, and related advisory services."
+        },
+        {
+          "heading": "Client Obligations",
+          "body": "As a client of Northman, you agree to provide accurate and complete information regarding your immigration or visa requirements. It is your responsibility to ensure the authenticity and validity of all provided documents. Any false or misleading information may result in the termination of our services without liability."
+        },
+        {
+          "heading": "Service Fees and Payment",
+          "body": "Northman's service fees are disclosed prior to engagement and are based on the specific services requested. All fees quoted are exclusive of any government charges, taxes, or third-party expenses. Payment terms and methods will be discussed and agreed upon with the client. Failure to make timely payments may result in a suspension or termination of services."
+        },
+        {
+          "heading": "Confidentiality",
+          "body": "We understand the sensitivity of client information and ensure the highest level of confidentiality. We undertake to handle all client data and documents with strict confidentiality, except as required by law or with the client's consent."
+        },
+        {
+          "heading": "Limitation of Liability",
+          "body": "Northman & Sterling will exercise reasonable care and skill in delivering its services. However, we do not guarantee the outcome of any immigration or Visa application, as the final decision lies with the relevant authorities. We shall not be liable for any direct, indirect, or consequential damages arising from the use or inability to use our services."
+        },
+        {
+          "heading": "Termination of Services",
+          "body": "Either party may terminate the services by providing written notice to the other party. In the event of termination, any outstanding fees or expenses incurred up to the termination date will be due and payable."
+        },
+        {
+          "heading": "Intellectual Property",
+          "body": "All intellectual property rights, including but not limited to trademarks, logos, and content, associated with Northman's services and website, are the sole property of Northman and Sterling. You agree not to use, reproduce, or distribute any of our intellectual property without prior written consent."
+        },
+        {
+          "heading": "Amendments to the Agreement",
+          "body": "Northman & Sterling reserves the right to modify these terms and conditions at any time without prior notice. It is the client's responsibility to review the updated terms on our website periodically."
+        },
+        {
+          "heading": "Governing Law and Jurisdiction",
+          "body": "This Agreement shall be governed by and construed in accordance with the laws of respective country. Any disputes arising out of or relating to this Agreement shall be subject to the exclusive jurisdiction of the courts of specific country."
         }
       ]
     }
