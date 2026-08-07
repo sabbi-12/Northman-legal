@@ -50,7 +50,7 @@ export function NewsCard({
         )}
 
         <Link href={`/${lang}/news-updates/${post.slug}`}>
-          <h3 className="mt-2 text-lg font-medium leading-snug text-slate-dark transition-colors group-hover:text-navy dark:text-cream">
+          <h3 className="mt-2 text-lg font-medium leading-snug text-slate-dark transition-colors group-hover:text-navy dark:text-cream dark:group-hover:text-accent">
             {post.title}
           </h3>
         </Link>

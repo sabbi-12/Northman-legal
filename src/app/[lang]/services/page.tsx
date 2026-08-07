@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n/config";
 import { SITE_URL } from "@/lib/seo/constants";
-import { ServicesValueProp } from "@/components/sections/ServicesValueProp";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { FirmIdentity } from "@/components/sections/FirmIdentity";
 import { Newsletter } from "@/components/sections/Newsletter";
@@ -48,6 +47,18 @@ export default async function ServicesPage({ params }: { params: { lang: string 
 
   return (
     <>
+      <section className="bg-navy py-20 text-cream md:py-28">
+        <div className="container-institutional max-w-3xl">
+          <span className="block h-px w-14 bg-accent" aria-hidden="true" />
+          <h1 className="mt-5 text-4xl font-medium leading-tight md:text-5xl">
+            {dict.servicesPage.valueProp.heading}
+          </h1>
+          <p className="mt-5 text-lg leading-relaxed text-cream/80">
+            {dict.servicesPage.valueProp.subtext}
+          </p>
+        </div>
+      </section>
+
       <Breadcrumbs
         lang={lang}
         items={[
@@ -56,13 +67,6 @@ export default async function ServicesPage({ params }: { params: { lang: string 
         ]}
       />
 
-      <section className="bg-navy py-20 text-cream md:py-28">
-        <div className="container-institutional max-w-3xl">
-          <h1 className="text-4xl font-medium md:text-5xl">{dict.servicesPage.title}</h1>
-        </div>
-      </section>
-
-      <ServicesValueProp dict={dict} />
       <ServicesGrid dict={dict} lang={lang} />
       <FirmIdentity dict={dict} />
       <Newsletter dict={dict} />

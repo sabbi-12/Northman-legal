@@ -54,6 +54,12 @@ export default async function AboutUsPage({ params }: { params: { lang: string }
 
   return (
     <>
+      <section className="bg-navy py-20 text-cream md:py-28">
+        <div className="container-institutional max-w-3xl">
+          <h1 className="text-4xl font-medium md:text-5xl">{dict.aboutPage.title}</h1>
+        </div>
+      </section>
+
       <Breadcrumbs
         lang={lang}
         items={[
@@ -61,12 +67,6 @@ export default async function AboutUsPage({ params }: { params: { lang: string }
           { name: dict.aboutPage.title, href: `/${lang}/about-us` },
         ]}
       />
-
-      <section className="bg-navy py-20 text-cream md:py-28">
-        <div className="container-institutional max-w-3xl">
-          <h1 className="text-4xl font-medium md:text-5xl">{dict.aboutPage.title}</h1>
-        </div>
-      </section>
 
       <CompanyOverview dict={dict} lang={lang} />
       <ValuesGrid dict={dict} />

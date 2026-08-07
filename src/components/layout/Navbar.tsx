@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -14,9 +14,19 @@ import type { Locale } from "@/lib/i18n/config";
 import type { NavLink } from "@/types";
 import { cn } from "@/lib/utils";
 
+const SCROLL_THRESHOLD = 24;
+
 export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const pathname = usePathname() ?? `/${lang}`;
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const links: NavLink[] = [
     { href: `/${lang}`, label: dict.nav.home },
@@ -31,9 +41,14 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-cream/10 bg-navy/55 backdrop-blur-lg backdrop-saturate-150">
-      <nav className="container-institutional flex h-24 items-center justify-between">
+      <motion.nav
+        initial={false}
+        animate={{ height: scrolled ? 72 : 96 }}
+        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+        className="container-institutional flex items-center justify-between"
+      >
         <Link href={`/${lang}`} className="shrink-0" aria-label={dict.meta.siteName}>
-          <BrandLogo height={46} onDark />
+          <BrandLogo height={scrolled ? 34 : 46} onDark />
         </Link>
 
         <div className="hidden items-center gap-10 lg:flex">
@@ -68,7 +83,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
         >
           <Menu size={22} strokeWidth={1.75} />
         </button>
-      </nav>
+      </motion.nav>
 
       <AnimatePresence>
         {mobileOpen && (

@@ -30,9 +30,18 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
         priority
         sizes="100vw"
         quality={90}
-        className="object-cover"
+        className="object-cover dark:hidden"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/40 to-navy/65" />
+      <Image
+        src="/images/hero/westminster-night.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        quality={90}
+        className="hidden object-cover dark:block"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/40 to-navy/65 dark:from-navy-dark/80 dark:via-navy-dark/45 dark:to-navy-dark/75" />
 
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.06]"

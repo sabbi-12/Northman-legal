@@ -26,6 +26,7 @@ export function BrandLogo({
       width={width}
       height={height}
       style={{ height, width: "auto" }}
+      className="transition-[height] duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]"
       priority
     />
   );

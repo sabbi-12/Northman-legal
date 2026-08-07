@@ -65,7 +65,7 @@ export function LatestInsights({
                 {formatDate(post.date, lang)}
               </span>
               <Link href={`/${lang}/news-updates/${post.slug}`} className="flex-1">
-                <h3 className="text-lg font-medium leading-snug text-slate-dark transition-colors group-hover:text-navy dark:text-cream">
+                <h3 className="text-lg font-medium leading-snug text-slate-dark transition-colors group-hover:text-navy dark:text-cream dark:group-hover:text-accent">
                   {post.title}
                 </h3>
               </Link>

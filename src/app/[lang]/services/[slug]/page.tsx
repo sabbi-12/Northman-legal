@@ -167,15 +167,15 @@ function PillarsPage({
 }) {
   return (
     <>
-      <Breadcrumbs
-        lang={lang}
-        items={[
-          { name: dict.nav.home, href: `/${lang}` },
-          { name: detail.title, href: `/${lang}/services/${slug}` },
-        ]}
-      />
-
-      <section className="bg-navy py-20 text-cream md:py-28">
+      <section className="-mt-24 bg-navy pb-20 pt-[calc(theme(spacing.4)+theme(spacing.24))] text-cream md:pb-28 md:pt-[calc(theme(spacing.4)+theme(spacing.24))]">
+        <Breadcrumbs
+          lang={lang}
+          onDark
+          items={[
+            { name: dict.nav.home, href: `/${lang}` },
+            { name: detail.title, href: `/${lang}/services/${slug}` },
+          ]}
+        />
         <div className="container-institutional max-w-3xl">
           <h1 className="inline-block border-b-2 border-accent pb-2 text-3xl font-bold md:text-4xl">
             {detail.title}
@@ -213,18 +213,20 @@ function KsaGuidePage({
 }) {
   return (
     <>
-      <Breadcrumbs
-        lang={lang}
-        items={[
-          { name: dict.nav.home, href: `/${lang}` },
-          { name: dict.servicesPage.title, href: `/${lang}/services` },
-          { name: detail.title, href: `/${lang}/services/${slug}` },
-        ]}
-      />
-
-      <section className="relative overflow-hidden bg-navy py-16 text-white md:py-20">
+      <section className="relative -mt-24 overflow-hidden bg-navy pb-16 pt-[calc(theme(spacing.4)+theme(spacing.24))] text-white md:pb-20 md:pt-[calc(theme(spacing.4)+theme(spacing.24))]">
         <Image src={detail.heroImageSrc} alt="" fill priority sizes="100vw" quality={90} className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/85 via-navy/70 to-navy/90" />
+        <div className="relative">
+          <Breadcrumbs
+            lang={lang}
+            onDark
+            items={[
+              { name: dict.nav.home, href: `/${lang}` },
+              { name: dict.servicesPage.title, href: `/${lang}/services` },
+              { name: detail.title, href: `/${lang}/services/${slug}` },
+            ]}
+          />
+        </div>
         <div className="container-institutional relative max-w-3xl">
           <h1 className="text-3xl font-bold md:text-4xl">{detail.title}</h1>
         </div>

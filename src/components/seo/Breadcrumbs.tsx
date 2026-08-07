@@ -10,7 +10,15 @@ export type BreadcrumbItem = {
   href: string; // absolute path, e.g. "/en/news-updates/some-slug"
 };
 
-export function Breadcrumbs({ items, lang }: { items: BreadcrumbItem[]; lang: Locale }) {
+export function Breadcrumbs({
+  items,
+  lang,
+  onDark = false,
+}: {
+  items: BreadcrumbItem[];
+  lang: Locale;
+  onDark?: boolean;
+}) {
   const Separator = lang === "ar" ? ChevronLeft : ChevronRight;
 
   const schema = {
@@ -26,15 +34,24 @@ export function Breadcrumbs({ items, lang }: { items: BreadcrumbItem[]; lang: Lo
 
   return (
     <>
-      <nav aria-label="Breadcrumb" className="py-4">
-        <ol className="container-institutional flex flex-wrap items-center gap-1.5 text-xs text-slate-mid dark:text-cream/60">
+      <nav aria-label="Breadcrumb" className={onDark ? "pb-6" : "py-4"}>
+        <ol
+          className={
+            onDark
+              ? "container-institutional flex flex-wrap items-center gap-1.5 text-xs text-cream/60"
+              : "container-institutional flex flex-wrap items-center gap-1.5 text-xs text-slate-mid dark:text-cream/60"
+          }
+        >
           {items.map((item, index) => {
             const isLast = index === items.length - 1;
             return (
               <li key={item.href} className="flex items-center gap-1.5">
                 {index > 0 && <Separator size={12} strokeWidth={2} aria-hidden="true" />}
                 {isLast ? (
-                  <span aria-current="page" className="font-medium text-slate-dark dark:text-cream">
+                  <span
+                    aria-current="page"
+                    className={onDark ? "font-medium text-cream" : "font-medium text-slate-dark dark:text-cream"}
+                  >
                     {item.name}
                   </span>
                 ) : (

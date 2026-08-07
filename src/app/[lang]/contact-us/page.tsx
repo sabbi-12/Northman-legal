@@ -48,6 +48,12 @@ export default async function ContactUsPage({ params }: { params: { lang: string
 
   return (
     <>
+      <section className="bg-navy py-20 text-cream md:py-28">
+        <div className="container-institutional max-w-3xl">
+          <h1 className="text-4xl font-medium md:text-5xl">{dict.contactPage.title}</h1>
+        </div>
+      </section>
+
       <Breadcrumbs
         lang={lang}
         items={[
@@ -55,12 +61,6 @@ export default async function ContactUsPage({ params }: { params: { lang: string
           { name: dict.contactPage.title, href: `/${lang}/contact-us` },
         ]}
       />
-
-      <section className="bg-navy py-20 text-cream md:py-28">
-        <div className="container-institutional max-w-3xl">
-          <h1 className="text-4xl font-medium md:text-5xl">{dict.contactPage.title}</h1>
-        </div>
-      </section>
 
       <ConnectBanner dict={dict} />
       <GlobalOffices dict={dict} />
