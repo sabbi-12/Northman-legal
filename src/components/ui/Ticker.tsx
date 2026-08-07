@@ -1,28 +1,96 @@
 "use client";
 
-import type { TickerItem } from "@/types";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
-export function Ticker({ items }: { items: TickerItem[] }) {
-  if (items.length === 0) return null;
+import type { NewsPost } from "@/lib/sanity/types";
+import type { Locale } from "@/lib/i18n/config";
 
-  // Duplicate the list so the marquee loops seamlessly.
-  const loopItems = [...items, ...items];
+const AUTO_ADVANCE_MS = 6000;
+
+export function Ticker({
+  posts,
+  lang,
+  latestNewsLabel,
+  previousLabel,
+  nextLabel,
+}: {
+  posts: NewsPost[];
+  lang: Locale;
+  latestNewsLabel: string;
+  previousLabel: string;
+  nextLabel: string;
+}) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (posts.length < 2) return;
+    const timer = window.setInterval(() => {
+      setIndex((current) => (current + 1) % posts.length);
+    }, AUTO_ADVANCE_MS);
+    return () => window.clearInterval(timer);
+  }, [posts.length]);
+
+  if (posts.length === 0) return null;
+
+  const active = posts[index];
+
+  function goTo(next: number) {
+    setIndex((next + posts.length) % posts.length);
+  }
 
   return (
-    <div className="relative flex-1 overflow-hidden" aria-label="Current updates">
-      <div className="flex w-max animate-marquee gap-12 whitespace-nowrap py-2 rtl:[animation-direction:reverse]">
-        {loopItems.map((item, index) => (
-          <span key={`${item.id}-${index}`} className="text-sm text-cream/90">
-            {item.href ? (
-              <a href={item.href} className="transition-colors hover:text-accent">
-                {item.text}
-              </a>
-            ) : (
-              item.text
-            )}
-          </span>
-        ))}
+    <div className="flex min-w-0 flex-1 items-stretch overflow-hidden rounded-institutional" aria-label="Latest news">
+      <span className="flex shrink-0 items-center bg-button px-3.5 text-[11px] font-semibold uppercase tracking-widest text-white">
+        {latestNewsLabel}
+      </span>
+
+      <div className="relative min-w-0 flex-1 overflow-hidden bg-navy/5">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={active.slug}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.25 }}
+            className="absolute inset-0 flex items-center"
+          >
+            <Link
+              href={`/${lang}/news-updates/${active.slug}`}
+              className="truncate px-3.5 py-1.5 text-sm font-medium text-navy transition-colors hover:text-button"
+            >
+              {active.title}
+            </Link>
+          </motion.div>
+        </AnimatePresence>
+        {/* Reserves height so the absolutely-positioned slide has something to sit in */}
+        <div className="invisible px-3.5 py-1.5 text-sm font-medium" aria-hidden="true">
+          {active.title}
+        </div>
       </div>
+
+      {posts.length > 1 && (
+        <div className="flex shrink-0 items-center gap-0.5 bg-navy/5 pe-2">
+          <button
+            type="button"
+            onClick={() => goTo(index - 1)}
+            aria-label={previousLabel}
+            className="flex h-6 w-6 items-center justify-center rounded-full text-slate-mid transition-colors hover:bg-navy/10 hover:text-navy"
+          >
+            <ChevronLeft size={15} strokeWidth={2} className="rtl:rotate-180" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            onClick={() => goTo(index + 1)}
+            aria-label={nextLabel}
+            className="flex h-6 w-6 items-center justify-center rounded-full text-slate-mid transition-colors hover:bg-navy/10 hover:text-navy"
+          >
+            <ChevronRight size={15} strokeWidth={2} className="rtl:rotate-180" aria-hidden="true" />
+          </button>
+        </div>
+      )}
     </div>
   );
 }

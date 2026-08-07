@@ -16,15 +16,28 @@ function swapLocaleInPath(pathname: string, nextLocale: Locale): string {
   return segments.join("/") || `/${nextLocale}`;
 }
 
-export function LanguageSwitcher({ currentLang }: { currentLang: Locale }) {
+export function LanguageSwitcher({
+  currentLang,
+  onDark = false,
+}: {
+  currentLang: Locale;
+  onDark?: boolean;
+}) {
   const pathname = usePathname() ?? `/${currentLang}`;
 
   return (
     <div className="flex items-center gap-1 text-sm">
-      <Globe size={16} strokeWidth={1.75} className="me-1 text-navy/60 dark:text-cream/60" aria-hidden="true" />
+      <Globe
+        size={16}
+        strokeWidth={1.75}
+        className={cn("me-1", onDark ? "text-cream/70" : "text-navy/60 dark:text-cream/60")}
+        aria-hidden="true"
+      />
       {locales.map((locale, index) => (
         <span key={locale} className="flex items-center">
-          {index > 0 && <span className="mx-1 text-navy/30 dark:text-cream/30">/</span>}
+          {index > 0 && (
+            <span className={cn("mx-1", onDark ? "text-cream/30" : "text-navy/30 dark:text-cream/30")}>/</span>
+          )}
           <Link
             href={swapLocaleInPath(pathname, locale)}
             hrefLang={locale}
@@ -32,7 +45,9 @@ export function LanguageSwitcher({ currentLang }: { currentLang: Locale }) {
               "px-1 py-0.5 font-medium uppercase tracking-wide transition-colors",
               locale === currentLang
                 ? "text-accent"
-                : "text-navy/60 hover:text-navy dark:text-cream/60 dark:hover:text-cream"
+                : onDark
+                  ? "text-cream/70 hover:text-cream"
+                  : "text-navy/60 hover:text-navy dark:text-cream/60 dark:hover:text-cream"
             )}
             aria-current={locale === currentLang ? "true" : undefined}
           >

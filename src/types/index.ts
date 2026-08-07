@@ -7,11 +7,6 @@ export type NavLink = {
   label: string;
 };
 
-export type TickerItem = {
-  id: string;
-  text: string;
-  href?: string;
-};
 
 export type PillarItem = {
   id: string;

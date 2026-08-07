@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Mail, Facebook, Twitter, Linkedin } from "lucide-react";
 
+import { ContactForm } from "@/components/sections/ContactForm";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import { ORGANIZATION } from "@/lib/seo/constants";
 
@@ -20,44 +21,57 @@ export function ConnectBanner({ dict }: { dict: Dictionary }) {
   ];
 
   return (
-    <section className="bg-white py-16 dark:bg-navy/30">
-      <div className="container-institutional flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
+    <section className="bg-cream py-20 dark:bg-navy-dark">
+      <div className="container-institutional">
         <motion.div
-          initial={entrance ?? { opacity: 0, y: 12 }}
+          initial={entrance ?? { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE }}
-          className="max-w-xl"
+          className="grid overflow-hidden rounded-institutional shadow-institutional lg:grid-cols-2"
         >
-          <h2 className="text-2xl font-medium text-slate-dark md:text-3xl dark:text-cream">
-            {connect.heading}
-          </h2>
-          <p className="mt-3 text-base leading-relaxed text-slate-mid dark:text-cream/70">
-            {connect.subheading}
-          </p>
-          <a
-            href={`mailto:${ORGANIZATION.generalEmail}`}
-            className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-navy dark:hover:text-cream"
-          >
-            <Mail size={16} strokeWidth={1.75} aria-hidden="true" />
-            {ORGANIZATION.generalEmail}
-          </a>
-        </motion.div>
+          {/* Left panel — always light, regardless of site dark mode; this
+              card is a fixed light/navy pairing, not a theme-following one. */}
+          <div className="flex flex-col justify-center bg-white p-8 md:p-12">
+            <h2 className="text-4xl font-medium text-button">{connect.heading}</h2>
+            <span className="mt-3 block h-0.5 w-28 bg-slate-dark" aria-hidden="true" />
 
-        <div className="flex shrink-0 items-center gap-3">
-          {socials.map((social) => (
             <a
-              key={social.label}
-              href={social.url || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={social.label}
-              className="flex h-10 w-10 items-center justify-center rounded-institutional border border-navy/15 text-navy transition-colors hover:border-accent hover:text-accent dark:border-cream/15 dark:text-cream"
+              href={`mailto:${ORGANIZATION.generalEmail}`}
+              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-slate-dark transition-colors hover:text-button"
             >
-              <social.icon size={17} strokeWidth={1.75} />
+              <Mail size={16} strokeWidth={1.75} aria-hidden="true" />
+              {ORGANIZATION.generalEmail}
             </a>
-          ))}
-        </div>
+
+            <p className="mt-5 text-lg leading-relaxed text-slate-dark">{connect.subheading}</p>
+
+            <div className="mt-6 flex items-center gap-3">
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.url || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="flex h-9 w-9 items-center justify-center rounded-institutional bg-navy text-white transition-colors hover:bg-button"
+                >
+                  <social.icon size={16} strokeWidth={1.75} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Right panel — the enquiries form, on a fixed navy card. */}
+          <div className="bg-navy p-8 md:p-12">
+            <h3 className="text-center text-2xl font-medium text-white">{dict.contactPage.title}</h3>
+            <span className="mx-auto mt-3 block h-0.5 w-24 bg-button" aria-hidden="true" />
+
+            <div className="mt-8">
+              <ContactForm dict={dict} variant="dark" />
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

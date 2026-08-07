@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import Link from "next/link";
+
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n/config";
-import { getPosts, NEWS_REVALIDATE_SECONDS } from "@/lib/sanity/posts";
+import { getPosts, searchPosts, NEWS_REVALIDATE_SECONDS } from "@/lib/sanity/posts";
 import { NewsCard } from "@/components/sections/NewsCard";
+import { SearchBar } from "@/components/sections/SearchBar";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { SITE_URL } from "@/lib/seo/constants";
 
@@ -42,7 +45,7 @@ export default async function NewsUpdatesPage({
   searchParams,
 }: {
   params: { lang: string };
-  searchParams: { page?: string };
+  searchParams: { page?: string; q?: string };
 }) {
   if (!isValidLocale(params.lang)) {
     notFound();
@@ -51,8 +54,17 @@ export default async function NewsUpdatesPage({
   const lang = params.lang as Locale;
   const dict = await getDictionary(lang);
   const currentPage = Number(searchParams.page ?? "1") || 1;
+  const query = searchParams.q?.trim() ?? "";
+  const isSearching = query.length > 0;
 
-  const { posts, totalPages } = await getPosts({ lang, page: currentPage, perPage: 9 });
+  const { posts, totalPages } = isSearching
+    ? await searchPosts({ query, lang, page: currentPage, perPage: 9 })
+    : await getPosts({ lang, page: currentPage, perPage: 9 });
+
+  const pageHref = (pageNumber: number) =>
+    isSearching
+      ? `/${lang}/news-updates?q=${encodeURIComponent(query)}&page=${pageNumber}`
+      : `/${lang}/news-updates?page=${pageNumber}`;
 
   return (
     <section className="py-20">
@@ -73,9 +85,29 @@ export default async function NewsUpdatesPage({
           </p>
         </div>
 
+        <div className="mt-8 max-w-md">
+          <SearchBar
+            lang={lang}
+            placeholder={dict.newsSection.searchPlaceholder}
+            buttonLabel={dict.newsSection.searchButton}
+            defaultValue={query}
+          />
+        </div>
+
+        {isSearching && (
+          <div className="mt-6 flex flex-wrap items-center gap-3 text-sm text-slate-mid dark:text-cream/70">
+            <span>
+              {dict.newsSection.searchResultsFor} <strong className="text-slate-dark dark:text-cream">&ldquo;{query}&rdquo;</strong>
+            </span>
+            <Link href={`/${lang}/news-updates`} className="font-medium text-accent hover:underline">
+              {dict.newsSection.clearSearch}
+            </Link>
+          </div>
+        )}
+
         {posts.length === 0 ? (
           <p className="mt-14 rounded-institutional border border-dashed border-navy/20 p-10 text-center text-sm text-slate-mid dark:border-cream/20 dark:text-cream/60">
-            {dict.newsSection.empty}
+            {isSearching ? dict.newsSection.searchEmpty : dict.newsSection.empty}
           </p>
         ) : (
           <>
@@ -93,7 +125,7 @@ export default async function NewsUpdatesPage({
                 {Array.from({ length: totalPages }, (_, index) => index + 1).map((pageNumber) => (
                   <a
                     key={pageNumber}
-                    href={`/${lang}/news-updates?page=${pageNumber}`}
+                    href={pageHref(pageNumber)}
                     aria-current={pageNumber === currentPage ? "page" : undefined}
                     className={`flex h-9 w-9 items-center justify-center rounded-institutional border text-sm font-medium transition-colors ${
                       pageNumber === currentPage

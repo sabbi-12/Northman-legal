@@ -60,6 +60,24 @@ module.exports = {
         cream: "#F8F9FA", // Background Light — Off-White
         "navy-dark": "#04080F", // Dark Mode Background
       },
+      // Bumps every Tailwind text-size utility ~8-9% larger than the
+      // framework defaults (2026-08-06) — the client compared this build
+      // against the live WordPress site and felt body/heading text read
+      // noticeably smaller here. `extend` merges these in per-key rather
+      // than replacing Tailwind's whole scale, so nothing else changes.
+      fontSize: {
+        xs: ["0.8125rem", { lineHeight: "1.1rem" }],
+        sm: ["0.9375rem", { lineHeight: "1.35rem" }],
+        base: ["1.0625rem", { lineHeight: "1.625rem" }],
+        lg: ["1.1875rem", { lineHeight: "1.75rem" }],
+        xl: ["1.375rem", { lineHeight: "1.875rem" }],
+        "2xl": ["1.625rem", { lineHeight: "2.1rem" }],
+        "3xl": ["2.0625rem", { lineHeight: "2.375rem" }],
+        "4xl": ["2.5rem", { lineHeight: "2.625rem" }],
+        "5xl": ["3.25rem", { lineHeight: "1" }],
+        "6xl": ["4.0625rem", { lineHeight: "1" }],
+        "7xl": ["4.875rem", { lineHeight: "1" }],
+      },
       fontFamily: {
         // Headings — English
         "heading-en": ["var(--font-heading-en)", "Cinzel", "Playfair Display", "serif"],

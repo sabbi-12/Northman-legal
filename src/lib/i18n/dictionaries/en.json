@@ -18,13 +18,10 @@
   },
   "topBar": {
     "updatesLabel": "Current Updates",
+    "latestNewsLabel": "Latest News",
     "clientPortal": "Client Portal",
-    "tickerItems": [
-      { "id": "tb-1", "text": "How Government Relations Services Support Iqama Processing and Workforce Mobility in Saudi Arabia" },
-      { "id": "tb-2", "text": "Northman Sterling advises on cross-border enforcement matters across the GCC." },
-      { "id": "tb-3", "text": "New Power of Attorney notarization guidelines now in effect for foreign investors." },
-      { "id": "tb-4", "text": "Northman Sterling opens dedicated commercial disputes desk in Riyadh." }
-    ]
+    "previousUpdate": "Previous update",
+    "nextUpdate": "Next update"
   },
   "hero": {
     "eyebrow": "Legal Services for all your legal support needs in Saudi Arabia",
@@ -143,16 +140,7 @@
     ]
   },
   "latestInsights": {
-    "title": "Read our latest Insights",
-    "author": "Northman marketing",
-    "readMore": "Read more",
-    "next": "Next",
-    "posts": [
-      { "title": "Compliance Considerations for Foreign Companies Expanding into Saudi Arabia", "date": "2026-08-03" },
-      { "title": "The First Five Strategic Hires for Companies Expanding into Saudi Arabia", "date": "2026-07-31" },
-      { "title": "The Wrong Legal Structure Can Limit Business Expansion in Saudi Arabia", "date": "2026-07-28" },
-      { "title": "How Are Digital Government Services Changing the Way Businesses Operate in Saudi Arabia?", "date": "2026-07-21" }
-    ]
+    "title": "Read our latest Insights"
   },
   "letsConnect": {
     "title": "Let's Connect!",
@@ -216,7 +204,14 @@
     "viewAll": "View all updates",
     "empty": "No updates are published yet. Check back soon.",
     "backToNews": "Back to News & Updates",
-    "publishedOn": "Published"
+    "publishedOn": "Published",
+    "previousPost": "Previous",
+    "nextPost": "Next",
+    "searchPlaceholder": "Search articles — e.g. UAE, Saudi Arabia, business setup",
+    "searchButton": "Search",
+    "searchResultsFor": "Search results for",
+    "searchEmpty": "No articles matched your search. Try a different term.",
+    "clearSearch": "Clear search"
   },
   "aboutPage": {
     "title": "About Us",
@@ -629,6 +624,10 @@
     "formPhone": "Phone Number",
     "formService": "Service",
     "formServicePlaceholder": "Choose Service",
+    "formNamePlaceholder": "Enter Your Name",
+    "formEmailPlaceholder": "Enter Your Business Email",
+    "formPhonePlaceholder": "Enter Your Phone Number",
+    "formMessagePlaceholder": "Your Inquiry",
     "formServiceOptions": [
       "Company Incorporation",
       "Immigration Services",
@@ -651,6 +650,7 @@
         {
           "id": "uk",
           "country": "United Kingdom",
+          "flagCode": "gb",
           "address": "Devonshire House, Level 1, One Mayfair Place, W1J 8AJ London, United Kingdom",
           "phone": "0044 203 205 7010",
           "email": "europe@northmansterling.legal"
@@ -658,6 +658,7 @@
         {
           "id": "ksa",
           "country": "Saudi Arabia",
+          "flagCode": "sa",
           "address": "Level 18, Al Faisaliah Tower, King Fahad Road, Olaya District, Riyadh, Saudi Arabia",
           "phone": "00966 112 978 293",
           "email": "gcc@northmansterling.legal"
@@ -665,6 +666,7 @@
         {
           "id": "uae",
           "country": "United Arab Emirates",
+          "flagCode": "ae",
           "address": "Emirates Towers, Level 41, Sheikh Zayed Road, Dubai, United Arab Emirates",
           "phone": "00971 43 132 784",
           "email": "gcc@northmansterling.legal"
@@ -672,27 +674,32 @@
         {
           "id": "brussels",
           "country": "Brussels",
+          "flagCode": "be",
           "email": "europe@northmansterling.legal"
         },
         {
           "id": "frankfurt",
           "country": "Frankfurt",
+          "flagCode": "de",
           "email": "europe@northmansterling.legal"
         },
         {
           "id": "delhi",
           "country": "Delhi",
+          "flagCode": "in",
           "email": "asia@northmansterling.legal"
         },
         {
           "id": "washington",
           "country": "Washington",
+          "flagCode": "us",
           "phone": "+1 (202) 569-8971",
           "email": "americas@northmansterling.legal"
         },
         {
           "id": "houston",
           "country": "Houston",
+          "flagCode": "us",
           "phone": "+1 (713) 352-0919",
           "email": "americas@northmansterling.legal"
         }

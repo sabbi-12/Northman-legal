@@ -18,13 +18,10 @@
   },
   "topBar": {
     "updatesLabel": "آخر التحديثات",
+    "latestNewsLabel": "آخر الأخبار",
     "clientPortal": "بوابة العملاء",
-    "tickerItems": [
-      { "id": "tb-1", "text": "كيف تدعم خدمات العلاقات الحكومية معالجة الإقامة وتنقل القوى العاملة في المملكة العربية السعودية" },
-      { "id": "tb-2", "text": "نورثمان سترلينج تقدم استشارات في قضايا التنفيذ عبر الحدود في دول الخليج." },
-      { "id": "tb-3", "text": "إرشادات جديدة لتوثيق الوكالات القانونية سارية الآن للمستثمرين الأجانب." },
-      { "id": "tb-4", "text": "نورثمان سترلينج تفتح مكتباً مخصصاً للمنازعات التجارية في الرياض." }
-    ]
+    "previousUpdate": "التحديث السابق",
+    "nextUpdate": "التحديث التالي"
   },
   "hero": {
     "eyebrow": "خدمات قانونية لجميع احتياجاتك القانونية في المملكة العربية السعودية",
@@ -143,16 +140,7 @@
     ]
   },
   "latestInsights": {
-    "title": "اطلع على أحدث رؤانا",
-    "author": "فريق نورثمان للتسويق",
-    "readMore": "اقرأ المزيد",
-    "next": "التالي",
-    "posts": [
-      { "title": "اعتبارات الامتثال للشركات الأجنبية الراغبة في التوسع إلى المملكة العربية السعودية", "date": "2026-08-03" },
-      { "title": "أول خمسة تعيينات استراتيجية للشركات الراغبة في التوسع إلى المملكة العربية السعودية", "date": "2026-07-31" },
-      { "title": "الهيكل القانوني الخاطئ قد يحد من توسع أعمالك في المملكة العربية السعودية", "date": "2026-07-28" },
-      { "title": "كيف تغيّر الخدمات الحكومية الرقمية طريقة عمل الشركات في المملكة العربية السعودية؟", "date": "2026-07-21" }
-    ]
+    "title": "اطلع على أحدث رؤانا"
   },
   "letsConnect": {
     "title": "لنتواصل!",
@@ -216,7 +204,14 @@
     "viewAll": "عرض جميع التحديثات",
     "empty": "لا توجد تحديثات منشورة حتى الآن. يرجى المتابعة قريباً.",
     "backToNews": "العودة إلى الأخبار والتحديثات",
-    "publishedOn": "تاريخ النشر"
+    "publishedOn": "تاريخ النشر",
+    "previousPost": "السابق",
+    "nextPost": "التالي",
+    "searchPlaceholder": "ابحث في المقالات — مثل: الإمارات، السعودية، تأسيس الأعمال",
+    "searchButton": "بحث",
+    "searchResultsFor": "نتائج البحث عن",
+    "searchEmpty": "لم يتم العثور على مقالات مطابقة لبحثك. جرّب كلمة مختلفة.",
+    "clearSearch": "إلغاء البحث"
   },
   "aboutPage": {
     "title": "من نحن",
@@ -629,6 +624,10 @@
     "formPhone": "رقم الهاتف",
     "formService": "الخدمة",
     "formServicePlaceholder": "اختر الخدمة",
+    "formNamePlaceholder": "أدخل اسمك",
+    "formEmailPlaceholder": "أدخل بريدك الإلكتروني للعمل",
+    "formPhonePlaceholder": "أدخل رقم هاتفك",
+    "formMessagePlaceholder": "استفسارك",
     "formServiceOptions": [
       "تأسيس الشركات",
       "خدمات الهجرة",
@@ -651,6 +650,7 @@
         {
           "id": "uk",
           "country": "المملكة المتحدة",
+          "flagCode": "gb",
           "address": "Devonshire House, Level 1, One Mayfair Place, W1J 8AJ London, United Kingdom",
           "phone": "0044 203 205 7010",
           "email": "europe@northmansterling.legal"
@@ -658,6 +658,7 @@
         {
           "id": "ksa",
           "country": "المملكة العربية السعودية",
+          "flagCode": "sa",
           "address": "Level 18, Al Faisaliah Tower, King Fahad Road, Olaya District, Riyadh, Saudi Arabia",
           "phone": "00966 112 978 293",
           "email": "gcc@northmansterling.legal"
@@ -665,6 +666,7 @@
         {
           "id": "uae",
           "country": "الإمارات العربية المتحدة",
+          "flagCode": "ae",
           "address": "Emirates Towers, Level 41, Sheikh Zayed Road, Dubai, United Arab Emirates",
           "phone": "00971 43 132 784",
           "email": "gcc@northmansterling.legal"
@@ -672,27 +674,32 @@
         {
           "id": "brussels",
           "country": "بروكسل",
+          "flagCode": "be",
           "email": "europe@northmansterling.legal"
         },
         {
           "id": "frankfurt",
           "country": "فرانكفورت",
+          "flagCode": "de",
           "email": "europe@northmansterling.legal"
         },
         {
           "id": "delhi",
           "country": "دلهي",
+          "flagCode": "in",
           "email": "asia@northmansterling.legal"
         },
         {
           "id": "washington",
           "country": "واشنطن",
+          "flagCode": "us",
           "phone": "+1 (202) 569-8971",
           "email": "americas@northmansterling.legal"
         },
         {
           "id": "houston",
           "country": "هيوستن",
+          "flagCode": "us",
           "phone": "+1 (713) 352-0919",
           "email": "americas@northmansterling.legal"
         }

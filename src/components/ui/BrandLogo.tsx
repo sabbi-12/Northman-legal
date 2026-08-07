@@ -35,7 +35,7 @@ export function BrandLogo({
   }
 
   return (
-    <span className={cn("inline-flex rounded-institutional bg-cream px-3 py-2", className)}>
+    <span className={cn("inline-flex rounded-institutional bg-cream/95 px-3 py-2 shadow-institutional", className)}>
       {image}
     </span>
   );

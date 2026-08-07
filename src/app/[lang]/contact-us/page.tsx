@@ -5,7 +5,6 @@ import { getDictionary } from "@/lib/i18n/getDictionary";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n/config";
 import { SITE_URL } from "@/lib/seo/constants";
 import { ConnectBanner } from "@/components/sections/ConnectBanner";
-import { EnquiriesForm } from "@/components/sections/EnquiriesForm";
 import { GlobalOffices } from "@/components/sections/GlobalOffices";
 import { FirmIdentity } from "@/components/sections/FirmIdentity";
 import { Newsletter } from "@/components/sections/Newsletter";
@@ -64,7 +63,6 @@ export default async function ContactUsPage({ params }: { params: { lang: string
       </section>
 
       <ConnectBanner dict={dict} />
-      <EnquiriesForm dict={dict} />
       <GlobalOffices dict={dict} />
       <FirmIdentity dict={dict} />
       <Newsletter dict={dict} />

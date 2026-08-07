@@ -1,6 +1,7 @@
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { isValidLocale, type Locale } from "@/lib/i18n/config";
 import { notFound } from "next/navigation";
+import { getLatestPosts } from "@/lib/sanity/posts";
 
 import { Hero } from "@/components/sections/Hero";
 import { ComplianceHighlights } from "@/components/sections/ComplianceHighlights";
@@ -22,6 +23,7 @@ export default async function HomePage({ params }: { params: { lang: string } })
 
   const lang = params.lang as Locale;
   const dict = await getDictionary(lang);
+  const latestPosts = await getLatestPosts(lang, 4);
 
   return (
     <>
@@ -33,7 +35,7 @@ export default async function HomePage({ params }: { params: { lang: string } })
       <WhyChooseUs dict={dict} lang={lang} />
       <LegalAdvisors dict={dict} lang={lang} />
       <EventGallery dict={dict} />
-      <LatestInsights dict={dict} lang={lang} />
+      <LatestInsights dict={dict} lang={lang} posts={latestPosts} />
       <LetsConnect dict={dict} />
       <FirmIdentity dict={dict} />
       <Newsletter dict={dict} />

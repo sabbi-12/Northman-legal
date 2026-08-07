@@ -7,7 +7,19 @@ import type { Dictionary } from "@/lib/i18n/getDictionary";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export function ContactForm({ dict, submitLabel }: { dict: Dictionary; submitLabel?: string }) {
+export function ContactForm({
+  dict,
+  submitLabel,
+  variant = "light",
+}: {
+  dict: Dictionary;
+  submitLabel?: string;
+  // "dark" is for placing the form on a fixed navy card (e.g. the Contact
+  // Us "Let's Connect" panel) — always-light fields regardless of the
+  // site's own dark-mode toggle, with placeholder text standing in for a
+  // visible label (label stays in the DOM for screen readers via sr-only).
+  variant?: "light" | "dark";
+}) {
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -42,8 +54,15 @@ export function ContactForm({ dict, submitLabel }: { dict: Dictionary; submitLab
     }
   }
 
-  const fieldClasses =
-    "w-full rounded-institutional border border-navy/15 bg-white px-4 py-3 text-sm text-slate-dark placeholder:text-navy/40 transition-colors focus:border-accent focus:outline-none dark:border-cream/15 dark:bg-navy/40 dark:text-cream dark:placeholder:text-cream/30";
+  const isDark = variant === "dark";
+
+  const fieldClasses = isDark
+    ? "w-full rounded-institutional border border-navy/15 bg-white px-4 py-3 text-sm text-slate-dark placeholder:text-slate-mid/70 transition-colors focus:border-button focus:outline-none"
+    : "w-full rounded-institutional border border-navy/15 bg-white px-4 py-3 text-sm text-slate-dark placeholder:text-navy/40 transition-colors focus:border-accent focus:outline-none dark:border-cream/15 dark:bg-navy/40 dark:text-cream dark:placeholder:text-cream/30";
+
+  const labelClasses = isDark
+    ? "sr-only"
+    : "mb-1.5 block text-sm font-medium text-slate-dark dark:text-cream";
 
   return (
     <form onSubmit={handleSubmit} data-ns-track="contact-form" className="space-y-5">
@@ -57,54 +76,80 @@ export function ContactForm({ dict, submitLabel }: { dict: Dictionary; submitLab
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-slate-dark dark:text-cream">
+          <label htmlFor="name" className={labelClasses}>
             {dict.contactPage.formName}
           </label>
-          <input id="name" name="name" type="text" required className={fieldClasses} />
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            placeholder={dict.contactPage.formNamePlaceholder}
+            className={fieldClasses}
+          />
         </div>
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-dark dark:text-cream">
+          <label htmlFor="email" className={labelClasses}>
             {dict.contactPage.formEmail}
           </label>
-          <input id="email" name="email" type="email" required className={fieldClasses} />
-        </div>
-      </div>
-
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-slate-dark dark:text-cream">
-            {dict.contactPage.formPhone}
-          </label>
-          <input id="phone" name="phone" type="tel" className={fieldClasses} />
-        </div>
-        <div>
-          <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-slate-dark dark:text-cream">
-            {dict.contactPage.formService}
-          </label>
-          <select id="service" name="service" required defaultValue="" className={fieldClasses}>
-            <option value="" disabled hidden>
-              {dict.contactPage.formServicePlaceholder}
-            </option>
-            {dict.contactPage.formServiceOptions.map((option: string) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder={dict.contactPage.formEmailPlaceholder}
+            className={fieldClasses}
+          />
         </div>
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-slate-dark dark:text-cream">
+        <label htmlFor="phone" className={labelClasses}>
+          {dict.contactPage.formPhone}
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder={dict.contactPage.formPhonePlaceholder}
+          className={fieldClasses}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="service" className={labelClasses}>
+          {dict.contactPage.formService}
+        </label>
+        <select id="service" name="service" required defaultValue="" className={fieldClasses}>
+          <option value="" disabled hidden>
+            {dict.contactPage.formServicePlaceholder}
+          </option>
+          {dict.contactPage.formServiceOptions.map((option: string) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label htmlFor="message" className={labelClasses}>
           {dict.contactPage.formMessage}
         </label>
-        <textarea id="message" name="message" required rows={5} className={fieldClasses} />
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows={5}
+          placeholder={dict.contactPage.formMessagePlaceholder}
+          className={fieldClasses}
+        />
       </div>
 
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="flex items-center gap-2 rounded-institutional bg-button px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-button-hover disabled:cursor-not-allowed disabled:opacity-60"
+        className="flex w-full items-center justify-center gap-2 rounded-institutional bg-button px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-button-hover disabled:cursor-not-allowed disabled:opacity-60"
       >
         <Send size={16} strokeWidth={2} />
         {status === "submitting" ? dict.contactPage.formSubmitting : submitLabel ?? dict.contactPage.formSubmit}

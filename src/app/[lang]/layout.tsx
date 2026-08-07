@@ -20,6 +20,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buildOrganizationSchema } from "@/components/seo/schemas/organization";
 import { buildLegalServiceSchema } from "@/components/seo/schemas/legalService";
 import { buildAttorneySchema } from "@/components/seo/schemas/attorney";
+import { getLatestPosts } from "@/lib/sanity/posts";
 
 import "../globals.css";
 
@@ -135,6 +136,7 @@ export default async function RootLayout({
   const lang = params.lang as Locale;
   const dir = localeDirection[lang];
   const dict = await getDictionary(lang);
+  const topBarPosts = await getLatestPosts(lang, 6);
 
   return (
     <html
@@ -161,7 +163,7 @@ export default async function RootLayout({
         <JsonLd data={buildLegalServiceSchema(lang)} />
         <JsonLd data={buildAttorneySchema(lang)} />
         <ThemeProvider>
-          <TopBar dict={dict} lang={lang} />
+          <TopBar dict={dict} lang={lang} posts={topBarPosts} />
           <Navbar dict={dict} lang={lang} />
           <main>{children}</main>
           <Footer dict={dict} lang={lang} />

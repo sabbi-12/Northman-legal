@@ -6,8 +6,8 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
+import type { NewsPost } from "@/lib/sanity/types";
 
-const PAGE_NUMBERS = [1, 2, 3];
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 function formatDate(dateString: string, lang: Locale) {
@@ -18,14 +18,20 @@ function formatDate(dateString: string, lang: Locale) {
   }).format(new Date(dateString));
 }
 
-// Static placeholder posts for the home page insights strip, sourced from
-// the content brief. The full News & Updates listing (src/app/[lang]/news-updates)
-// stays Sanity-driven — swap these for real posts once the equivalent
-// articles are published there and this can pull the latest 4 dynamically.
-export function LatestInsights({ dict, lang }: { dict: Dictionary; lang: Locale }) {
+export function LatestInsights({
+  dict,
+  lang,
+  posts,
+}: {
+  dict: Dictionary;
+  lang: Locale;
+  posts: NewsPost[];
+}) {
   const ArrowIcon = lang === "ar" ? ArrowLeft : ArrowRight;
   const reduceMotion = useReducedMotion();
   const entrance = reduceMotion ? false : undefined;
+
+  if (posts.length === 0) return null;
 
   return (
     <section className="bg-white py-24 dark:bg-navy/20">
@@ -46,9 +52,9 @@ export function LatestInsights({ dict, lang }: { dict: Dictionary; lang: Locale 
         </div>
 
         <div className="mt-12 divide-y divide-navy/10 border-t border-navy/10 dark:divide-cream/10 dark:border-cream/10">
-          {dict.latestInsights.posts.map((post, index) => (
+          {posts.map((post, index) => (
             <motion.article
-              key={post.title}
+              key={post.id}
               initial={entrance ?? { opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -58,15 +64,17 @@ export function LatestInsights({ dict, lang }: { dict: Dictionary; lang: Locale 
               <span className="flex shrink-0 items-center gap-1.5 text-xs uppercase tracking-wide text-accent sm:w-40">
                 {formatDate(post.date, lang)}
               </span>
-              <Link href={`/${lang}/news-updates`} className="flex-1">
+              <Link href={`/${lang}/news-updates/${post.slug}`} className="flex-1">
                 <h3 className="text-lg font-medium leading-snug text-slate-dark transition-colors group-hover:text-navy dark:text-cream">
                   {post.title}
                 </h3>
               </Link>
               <div className="flex shrink-0 items-center justify-between gap-6 sm:justify-end">
-                <span className="text-xs text-slate-mid dark:text-cream/60">{dict.latestInsights.author}</span>
+                {post.authorName && (
+                  <span className="text-xs text-slate-mid dark:text-cream/60">{post.authorName}</span>
+                )}
                 <Link
-                  href={`/${lang}/news-updates`}
+                  href={`/${lang}/news-updates/${post.slug}`}
                   aria-label={post.title}
                   className="flex h-8 w-8 items-center justify-center rounded-institutional border border-navy/15 text-navy transition-colors group-hover:border-accent group-hover:text-accent dark:border-cream/15 dark:text-cream"
                 >
@@ -76,37 +84,6 @@ export function LatestInsights({ dict, lang }: { dict: Dictionary; lang: Locale 
             </motion.article>
           ))}
         </div>
-
-        <nav aria-label="Insights pagination" className="mt-12 flex items-center justify-center gap-2 text-sm">
-          {PAGE_NUMBERS.map((page) => (
-            <Link
-              key={page}
-              href={`/${lang}/news-updates`}
-              aria-current={page === 1 ? "page" : undefined}
-              className={
-                page === 1
-                  ? "flex h-9 w-9 items-center justify-center rounded-institutional bg-navy font-medium text-cream dark:bg-accent dark:text-navy"
-                  : "flex h-9 w-9 items-center justify-center rounded-institutional text-slate-mid transition-colors hover:text-navy dark:text-cream/60 dark:hover:text-cream"
-              }
-            >
-              {page}
-            </Link>
-          ))}
-          <span className="px-1 text-slate-mid dark:text-cream/40">…</span>
-          <Link
-            href={`/${lang}/news-updates`}
-            className="flex h-9 w-9 items-center justify-center rounded-institutional text-slate-mid transition-colors hover:text-navy dark:text-cream/60 dark:hover:text-cream"
-          >
-            14
-          </Link>
-          <Link
-            href={`/${lang}/news-updates`}
-            className="ms-2 flex items-center gap-1 font-medium text-navy transition-colors hover:text-accent dark:text-cream"
-          >
-            {dict.latestInsights.next}
-            <ArrowRight size={14} strokeWidth={2} className="rtl:hidden" />
-          </Link>
-        </nav>
       </div>
     </section>
   );

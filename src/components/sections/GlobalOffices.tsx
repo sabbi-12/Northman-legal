@@ -20,12 +20,12 @@ export function GlobalOffices({ dict }: { dict: Dictionary }) {
   return (
     <section className="bg-cream py-24 dark:bg-navy-dark">
       <div className="container-institutional">
-        <span className="block h-px w-14 origin-left bg-accent rtl:origin-right" aria-hidden="true" />
-        <h2 className="mt-5 text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
+        <span className="mx-auto block h-px w-14 origin-left bg-accent rtl:origin-right" aria-hidden="true" />
+        <h2 className="mt-5 text-center text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
           {offices.heading}
         </h2>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {offices.items.map((office, index) => (
             <motion.div
               key={office.id}
@@ -33,12 +33,22 @@ export function GlobalOffices({ dict }: { dict: Dictionary }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: index * 0.05, ease: EASE }}
-              className="flex flex-col gap-3 rounded-institutional border border-navy/10 bg-white p-6 shadow-institutional dark:border-cream/10 dark:bg-navy/40"
+              className="flex flex-col items-center gap-3 rounded-institutional border border-navy/10 bg-white p-6 text-center shadow-institutional dark:border-cream/10 dark:bg-navy/40"
             >
+              {office.flagCode && (
+                <span className="h-12 w-12 overflow-hidden rounded-full border border-navy/10 shadow-institutional dark:border-cream/10">
+                  <span
+                    className={`fi fi-${office.flagCode}`}
+                    style={{ width: "100%", height: "100%", backgroundSize: "cover" }}
+                    aria-hidden="true"
+                  />
+                </span>
+              )}
+
               <h3 className="text-base font-medium text-slate-dark dark:text-cream">{office.country}</h3>
 
               {office.address && (
-                <div className="flex items-start gap-2">
+                <div className="flex items-start gap-2 text-start">
                   <MapPin size={15} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
                   <p className="text-xs leading-relaxed text-slate-mid dark:text-cream/70">{office.address}</p>
                 </div>

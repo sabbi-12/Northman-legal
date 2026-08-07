@@ -7,6 +7,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
+import { SearchBar } from "@/components/sections/SearchBar";
 
 // Confident, non-elastic arrival — matches the institutional register.
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -21,7 +22,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const entrance = reduceMotion ? false : undefined;
 
   return (
-    <section className="relative overflow-hidden bg-navy pb-24 pt-28 text-cream md:pb-32 md:pt-36">
+    <section className="relative -mt-24 overflow-hidden bg-navy pb-24 pt-[calc(theme(spacing.28)+theme(spacing.24))] text-cream md:pb-32 md:pt-[calc(theme(spacing.36)+theme(spacing.24))]">
       <Image
         src="/images/hero/westminster-sunset.jpg"
         alt=""
@@ -98,6 +99,19 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
             {dict.hero.cta}
             <ArrowIcon size={16} strokeWidth={2} className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
           </Link>
+        </motion.div>
+
+        <motion.div
+          initial={entrance ?? { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.9, ease: EASE }}
+          className="mt-6"
+        >
+          <SearchBar
+            lang={lang}
+            placeholder={dict.newsSection.searchPlaceholder}
+            buttonLabel={dict.newsSection.searchButton}
+          />
         </motion.div>
       </div>
     </section>

@@ -6,12 +6,13 @@ import { ArrowRight, ArrowLeft, CalendarDays } from "lucide-react";
 
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n/config";
-import { getAllPostSlugs, getPostBySlug, NEWS_REVALIDATE_SECONDS } from "@/lib/sanity/posts";
+import { getAdjacentPosts, getAllPostSlugs, getPostBySlug, NEWS_REVALIDATE_SECONDS } from "@/lib/sanity/posts";
 import { SITE_URL } from "@/lib/seo/constants";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildArticleSchema } from "@/components/seo/schemas/article";
 import { PortableTextContent } from "@/components/sections/PortableTextContent";
+import { PostNavigation } from "@/components/sections/PostNavigation";
 
 export const revalidate = NEWS_REVALIDATE_SECONDS;
 // New Sanity posts published after the last build render on first request
@@ -83,6 +84,8 @@ export default async function NewsArticlePage({
     notFound();
   }
 
+  const { newer, older } = await getAdjacentPosts(post.date, lang);
+
   const BackIcon = lang === "ar" ? ArrowRight : ArrowLeft;
 
   return (
@@ -136,7 +139,15 @@ export default async function NewsArticlePage({
           </div>
         )}
 
-        <PortableTextContent value={post.content} />
+        <PortableTextContent value={post.content} lang={lang} />
+
+        <PostNavigation
+          lang={lang}
+          older={older}
+          newer={newer}
+          previousLabel={dict.newsSection.previousPost}
+          nextLabel={dict.newsSection.nextPost}
+        />
       </div>
     </article>
   );

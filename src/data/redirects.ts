@@ -62,13 +62,17 @@ export const staticRedirects: RedirectRule[] = [
 // These run AFTER staticRedirects in next.config.js, so explicit matches win.
 export const patternRedirects: RedirectRule[] = [
   {
+    // The destination intentionally drops :slug rather than forwarding it
+    // as a query param — /news-updates has no category/tag filter to read
+    // it, so a param that does nothing would just be misleading. Revisit
+    // if/when the listing page gains real category filtering.
     source: "/category/:slug",
-    destination: "/en/news-updates?category=:slug",
+    destination: "/en/news-updates",
     permanent: true,
   },
   {
     source: "/tag/:slug",
-    destination: "/en/news-updates?tag=:slug",
+    destination: "/en/news-updates",
     permanent: true,
   },
   {

@@ -30,11 +30,10 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
     href === `/${lang}` ? pathname === href : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-navy/10 bg-cream/90 backdrop-blur-md dark:border-cream/10 dark:bg-navy-dark/90">
-      <nav className="container-institutional flex h-20 items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-cream/10 bg-navy/55 backdrop-blur-lg backdrop-saturate-150">
+      <nav className="container-institutional flex h-24 items-center justify-between">
         <Link href={`/${lang}`} className="shrink-0" aria-label={dict.meta.siteName}>
-          <BrandLogo height={36} className="dark:hidden" />
-          <BrandLogo height={36} onDark className="hidden dark:inline-flex" />
+          <BrandLogo height={46} onDark />
         </Link>
 
         <div className="hidden items-center gap-10 lg:flex">
@@ -44,10 +43,8 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
                 <Link
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium uppercase tracking-wide transition-colors",
-                    isActive(link.href)
-                      ? "text-accent"
-                      : "text-navy/80 hover:text-navy dark:text-cream/80 dark:hover:text-cream"
+                    "text-sm font-medium uppercase tracking-wide transition-colors drop-shadow-[0_1px_4px_rgba(4,8,15,0.6)]",
+                    isActive(link.href) ? "text-button" : "text-cream/90 hover:text-cream"
                   )}
                   aria-current={isActive(link.href) ? "page" : undefined}
                 >
@@ -57,9 +54,9 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
             ))}
           </ul>
 
-          <div className="flex items-center gap-4 border-s border-navy/10 ps-6 dark:border-cream/10">
-            <LanguageSwitcher currentLang={lang} />
-            <DarkModeToggle labels={{ light: dict.nav.toggleLight, dark: dict.nav.toggleDark }} />
+          <div className="flex items-center gap-4 border-s border-cream/20 ps-6">
+            <LanguageSwitcher currentLang={lang} onDark />
+            <DarkModeToggle labels={{ light: dict.nav.toggleLight, dark: dict.nav.toggleDark }} onDark />
           </div>
         </div>
 
@@ -67,7 +64,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
           type="button"
           onClick={() => setMobileOpen(true)}
           aria-label={dict.nav.openMenu}
-          className="flex h-10 w-10 items-center justify-center text-navy lg:hidden dark:text-cream"
+          className="flex h-10 w-10 items-center justify-center text-cream lg:hidden"
         >
           <Menu size={22} strokeWidth={1.75} />
         </button>
