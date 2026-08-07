@@ -70,10 +70,13 @@ pre-launch migration data (full WP crawl, real OG images, credentials).
 
 | Page | Content received | Metadata finalized | Schema wired | Notes |
 |---|---|---|---|---|
-| Home | ✅ 2026-08-04, full 10-section brief | ✅ (existing root layout metadata covers it) | Org/LegalService/Attorney (sitewide) | See "Home page build" below |
+| Home | ✅ 2026-08-04, full 10-section brief | ✅ (existing root layout metadata covers it) | Org/LegalService/Attorney (sitewide) | See "Home page build" + "Home page bolder pass" below |
 | About Us | ✅ 2026-08-05, full 10-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide), Core Pillars anchors, FAQPage (pre-existing) | See "About Us page build" below |
 | Contact Us | ✅ 2026-08-05, full 8-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide) | See "Contact Us page build" below |
 | Services (replaces Regions in nav) | ✅ 2026-08-05, full 6-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide) | See "Services page build" below |
+| Services → Corporate Immigration detail | ✅ 2026-08-05 | ✅ | Org/LegalService/Attorney (sitewide) | `/services/corporate-immigration`, "pillars" layout |
+| Services → Company Incorporation detail | ✅ 2026-08-05 | ✅ | Org/LegalService/Attorney (sitewide) | `/services/company-incorporation`, "ksa-guide" layout |
+| Services → remaining 4 (Outbound Visas, Consular Visa, Employee Outsourcing, Document Attestation) | — | — | | Grid cards exist on /services; "Learn More" → Contact Us until detail content is written |
 | News & Updates (list + detail) | — | — | Article ✅ | Sanity-backed, ISR |
 | Privacy Policy | — | — | | |
 | Disclaimer | — | — | | |
@@ -621,30 +624,48 @@ Seven new components: `ServiceQuoteIntro`, `ServiceVideoBanner`,
   the site's `accent` token, consistent with every other page — gold was
   retired in the rebrand.
 
-## Session checkpoint (2026-08-04, end of day)
+## Session checkpoint (2026-08-05, end of day)
 
-Everything described above through the Rebrand section is committed —
-`46feef9` ("website design changes") on `main`, working tree clean at the
-close of this session. Picking this back up tomorrow, start here:
+A large session — Home page bolder pass, Hero motion rework, Event Gallery
+scroll-pin rebuild, and three full new pages (About Us, Contact Us,
+Services) plus two service detail pages, all with real content and real
+client-supplied images throughout. Everything is committed across several
+commits on `main` (`922fc0c` home page final design → `87b751d` about us
+page → `46f3631` contact us page → `aa47d39` services page → `827b708`
+immigration solutions → `5d7e0fb` company incorporation saudi → `9fba1a8`/
+`a1c1d22` services) — working tree clean except this doc update. Picking
+this back up tomorrow, start here:
 
-- **`/impeccable` is now usable.** It was installed/initialized in an
-  earlier session but not picked up mid-session; this session's fresh
-  start confirmed the skill loads (`context.mjs` and `context-signals.mjs`
-  both ran successfully). Nothing has been critiqued or audited yet —
-  `critique.latest` is `null`. A first `/impeccable critique` or
-  `/impeccable document` pass (to generate the still-missing `DESIGN.md`)
-  is queued but not started.
-- **No code changes were made this session** — this session was
-  docs-only, reconciling `CLAUDE.md`/`PRODUCT.md`/`SNAPSHOT.md` against
-  what the *previous* session's rebrand commit actually shipped (the hero
-  photo's second swap to `westminster-sunset.jpg`, the new dedicated
-  `button` CTA-color token, and the still-unwired `logo-mark-square.png`
-  asset weren't written down until now).
-- **Open threads carried forward, unchanged:** the Page log (About Us,
-  Regions, Contact Us, Privacy Policy, Disclaimer all still placeholder
-  content), FAQ schema still not emitted, `logo-mark-square.png` needs a
-  decision on where/whether it's used, footer social URLs still `#`, and
-  the full pre-launch migration checklist below is untouched.
+- **Regions is gone from the nav; Services replaces it.** `/regions` and
+  the old, already-wrong `/services` → `/en/about-us` redirect both now
+  point at the real `/services` page. See "Services page build, Regions
+  retired" below for the full account before touching redirects again.
+- **`/services/[slug]` is a dynamic route with a `layout` discriminator**
+  (`"pillars"` for Corporate Immigration, `"ksa-guide"` for Company
+  Incorporation) — the other 4 services (Outbound Visas, Consular Visa,
+  Employee Outsourcing, Document Attestation) still have no detail page;
+  their "Learn More" buttons correctly fall back to Contact Us on both
+  the Home page and the Services page (`SERVICE_DETAIL_SLUGS` in
+  `src/lib/data/serviceSlugs.ts` is the single source of truth for this —
+  check it before writing a 3rd detail page, since its content shape may
+  need a 3rd `layout` value rather than being forced into "pillars" or
+  "ksa-guide").
+- **A real fact correction happened today, not just new copy**: the
+  number on file as the firm's fax (`00966 112 978 293`) was renamed to
+  `ORGANIZATION.landline` everywhere per the client's own Contact Us
+  brief. If that turns out to have actually been the fax line, it needs
+  reverting — see "Contact Us page build" below.
+- **`/impeccable` is confirmed usable** (loaded cleanly again this
+  session) but still nothing has gone through `/impeccable critique` or
+  `/impeccable document` — `DESIGN.md` still doesn't exist. Worth doing
+  once the remaining 4 service detail pages are further along, so the
+  captured design system reflects the full page set rather than a
+  half-built one.
+- **Open threads carried forward, unchanged:** Privacy Policy and
+  Disclaimer still placeholder content, `logo-mark-square.png` still
+  unwired, footer social URLs still `#`, LinkedIn profile URLs for the
+  About Us team still missing, and the full pre-launch migration
+  checklist below is untouched.
 
 ## Pre-launch migration checklist (do NOT skip — live site is indexed)
 
