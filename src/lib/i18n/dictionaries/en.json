@@ -1,7 +1,7 @@
 {
   "meta": {
-    "siteName": "Northman Sterling",
-    "defaultTitle": "Northman Sterling | Legal Services in Saudi Arabia",
+    "siteName": "Northman Sterling Legal",
+    "defaultTitle": "Northman Sterling Legal | Legal Services in Saudi Arabia",
     "defaultDescription": "Legal services for all your legal support needs in Saudi Arabia — global immigration, commercial disputes, court enforcement, and notary services."
   },
   "notFound": {
@@ -32,7 +32,7 @@
   "hero": {
     "eyebrow": "Corporate & Commercial Law Firm in Saudi Arabia",
     "headline": "Trusted Law Firm in Saudi Arabia for Corporate & Commercial Legal Services",
-    "subheadline": "Northman Sterling advises businesses operating in Saudi Arabia on corporate transactions, commercial disputes, real estate, employment law, and regulatory compliance — with the local knowledge of Saudi law and the standards of an international law firm.",
+    "subheadline": "Northman Sterling Legal advises businesses operating in Saudi Arabia on corporate transactions, commercial disputes, real estate, employment law, and regulatory compliance — with the local knowledge of Saudi law and the standards of an international law firm.",
     "cta": "Speak With Our Lawyers"
   },
   "complianceHighlights": {
@@ -70,7 +70,7 @@
         "id": "company-incorporation",
         "title": "Company Setup & KSA Market Entry",
         "subtext": "End-to-end legal support for foreign investors entering the Saudi market, from licensing to full incorporation.",
-        "description": "Northman Sterling guides foreign investors through every stage of Saudi market entry — MISA licensing, entity structuring, and full company incorporation — so your business is registered, licensed, and compliant from day one.",
+        "description": "Northman Sterling Legal guides foreign investors through every stage of Saudi market entry — MISA licensing, entity structuring, and full company incorporation — so your business is registered, licensed, and compliant from day one.",
         "imageSrc": "/images/services/company-incorporation.png",
         "imageAlt": "Company Setup and KSA Market Entry icon"
       },
@@ -187,7 +187,7 @@
   },
   "legalAdvisors": {
     "title": "Your Legal Advisors",
-    "imageAlt": "A Northman Sterling legal advisor consulting with a client",
+    "imageAlt": "A Northman Sterling Legal advisor consulting with a client",
     "paragraphs": [
       "We proudly serve as your trusted legal services partner in Saudi Arabia, guiding clients through the complexities of local laws and regulatory frameworks. Our team collaborates with leading legal and compliance experts to deliver practical, results-driven solutions.",
       "Businesses of all sizes rely on us for our commitment to precision, professionalism, and excellence. We approach every matter with diligence and urgency, ensuring that our legal support is both strategic and effective in protecting your interests and achieving your goals."
@@ -201,25 +201,25 @@
         "title": "SME London Business Awards 2024",
         "description": "We were honored to have our team present at the SME London Business Awards, hosted by the London Chamber of Commerce and Industry. It was a valuable occasion to connect with industry professionals, share insights, and celebrate the remarkable achievements within the SME community.",
         "imageSrc": "/images/events/sme-london-business-awards-2024.png",
-        "imageAlt": "The Northman Sterling team at the SME London Business Awards 2024"
+        "imageAlt": "The Northman Sterling Legal team at the SME London Business Awards 2024"
       },
       {
         "title": "FEM – EMEA Summit 2023",
         "description": "We had an outstanding experience at The Forum for Expatriate Management EMEA Summit, winning Best Stand with our robot Pepper. We were also honored with nominations for Immigration Provider of the Year and Global Mobility Professional of the Year. The event was full of valuable insights and networking with industry leaders.",
         "imageSrc": "/images/events/fem-emea-summit-2023.png",
-        "imageAlt": "The Northman Sterling stand at the FEM EMEA Summit 2023, featuring the robot Pepper"
+        "imageAlt": "The Northman Sterling Legal stand at the FEM EMEA Summit 2023, featuring the robot Pepper"
       },
       {
         "title": "HR Leaders Conference 2024",
-        "description": "Northman Sterling had a valuable presence at the HRL Conference in Riyadh. Our participation reflected our commitment to staying at the forefront of industry development. We appreciate the ongoing support from our Riyadh management team in making this event a success.",
+        "description": "Northman Sterling Legal had a valuable presence at the HRL Conference in Riyadh. Our participation reflected our commitment to staying at the forefront of industry development. We appreciate the ongoing support from our Riyadh management team in making this event a success.",
         "imageSrc": "/images/events/hr-leaders-conference-2024.png",
-        "imageAlt": "The Northman Sterling team at the HR Leaders Conference 2024 in Riyadh"
+        "imageAlt": "The Northman Sterling Legal team at the HR Leaders Conference 2024 in Riyadh"
       },
       {
         "title": "PIF Private Sector Forum",
         "description": "At the prestigious PIF forum, our team was honored to be represented and connected with Chief Commercial Officer Mr. Vivek Bachhawat and other inspiring leaders.",
         "imageSrc": "/images/events/pif-private-sector-forum.png",
-        "imageAlt": "Northman Sterling representatives at the PIF Private Sector Forum"
+        "imageAlt": "Northman Sterling Legal representatives at the PIF Private Sector Forum"
       }
     ]
   },
@@ -283,7 +283,7 @@
   },
   "newsSection": {
     "title": "News & Updates",
-    "subtitle": "The latest from Northman Sterling — regulatory updates, firm news, and legal insight.",
+    "subtitle": "The latest from Northman Sterling Legal — regulatory updates, firm news, and legal insight.",
     "readMore": "Read more",
     "viewAll": "View all updates",
     "empty": "No updates are published yet. Check back soon.",
@@ -377,7 +377,7 @@
     "faqTitle": "Frequently Asked Questions",
     "faqItems": [
       {
-        "question": "What areas does Northman Sterling practice in?",
+        "question": "What areas does Northman Sterling Legal practice in?",
         "answer": "We focus on three core areas: global immigration solutions for corporates and individuals, commercial disputes and court enforcement, and authorized notary and Power of Attorney issuance."
       },
       {
@@ -396,183 +396,60 @@
   },
   "serviceDetails": {
     "company-incorporation": {
-      "layout": "ksa-guide",
-      "title": "Company Incorporation Saudi Arabia",
-      "intro": "A guide to establishing a business in Saudi Arabia with Northman Sterling Legal — legal entity types, foreign ownership rules, and the incorporation timeline.",
-      "heroImageSrc": "/images/services/ksa-flag-banner.jpg",
-      "quoteIntro": {
-        "heading": "Establishing a Business in Saudi Arabia with Northman Sterling Legal",
-        "body": "Expanding your business to Saudi Arabia offers exciting opportunities. Northman Sterling Legal provides options for establishing your business with different legal entity types. Here's a simplified overview to help you decide:",
-        "cta": "Request a Quote",
-        "imageSrc": "/images/services/riyadh-towers.jpg",
-        "imageAlt": "The Kingdom Centre tower under a evening sky among Riyadh's skyline"
-      },
-      "videoBanner": {
-        "heading": "Business Expansion In Saudi Arabia",
-        "intro": "Saudi Arabia offers incredible opportunities for business growth, from mega-events to giga projects.",
-        "servicesIntro": "Our services for expat entrepreneurs include:",
-        "services": [
-          "Visa and Immigration Support",
-          "Market Entry Strategy",
-          "Legal and Compliance Support",
-          "Company Incorporation",
-          "Relocation Assistance",
-          "Cultural Orientation"
-        ],
-        "embedUrl": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7224730810107469830?compact=1"
-      },
-      "whySaudi": {
-        "heading": "Why Saudi?",
-        "paragraphs": [
-          "Saudi Arabia has recently undergone significant economic reforms, resulting in increased opportunities for foreign investment. The country's rich natural resources, including oil and minerals, make it a prime location for businesses to thrive. In addition, the government's efforts to open up the economy and attract international investment further enhance the attractiveness of Saudi Arabia as a destination for business ventures.",
-          "Northman Sterling Legal is a company that has been serving the region for over 10 years, offering a range of services to support the establishment of businesses in Saudi Arabia. Our 360 degree service delivery model covers all aspects of the process, from the initial formation of the company to post-launch business support. With a wealth of experience and a comprehensive approach, Northman Sterling Legal is well-equipped to guide investors through the journey of setting up a business in Saudi Arabia. Whether you are a seasoned investor or new to the market, Northman Sterling Legal can provide the expert assistance and support you need to succeed in the thriving business environment of Saudi Arabia."
-        ]
-      },
-      "ownership": {
-        "heading": "100% Foreign Ownership",
-        "paragraphs": [
-          "Establishing a branch office in Saudi Arabia can be a strategic move for businesses seeking to expand their operations. The Ministry of Investment of Saudi Arabia (MISA) allows for 100% foreign ownership of branch offices without the need for a local sponsor.",
-          "While branch offices are not permitted to engage in trading activities, they can support the parent company's business development in the service industry.",
-          "Alternatively, a representative office is a type of branch that is limited to marketing activities on behalf of the parent company, but cannot participate in business development. Both branch offices and representative offices offer opportunities for companies to expand their presence in Saudi Arabia and tap into the country's growing economy."
-        ]
-      },
-      "entityForms": {
-        "heading": "Forms of Entities in Saudi Arabia",
-        "subheading": "The main forms of legal entities in Saudi Arabia are:",
-        "items": [
-          "Limited Liability Company (LLC)",
-          "Branch of a Foreign Company",
-          "Joint Stock Company",
-          "General partnership",
-          "Technical and scientific services office",
-          "The sole establishment"
-        ],
-        "footerNote": "The shareholding structure and required paid-up capital will change based on the company activity and legal form."
-      },
-      "entityComparison": {
-        "heading": "Comprehensive Requirements Comparison",
-        "keyFeaturesLabel": "Key Features",
-        "recommendedPracticesLabel": "Recommended Practices",
-        "entities": [
-          {
-            "id": "llc",
-            "name": "Limited Liability Company (LLC)",
-            "rows": [
-              { "label": "Capital Requirements", "value": "Determined by MISA based on activity and shareholding" },
-              { "label": "Limited Liability", "value": "Yes" },
-              { "label": "Losses Exceeding 50% of Capital", "value": "Shareholders meet within 90 days to decide on business continuation" },
-              { "label": "Corporate Taxes on Annual Net Profits", "value": "20%" },
-              { "label": "Zakat Rate (GCC Residents Only)", "value": "2.5%" },
-              { "label": "Ability to Bid for Government Contracts", "value": "Yes, filing an annual tax return is required" },
-              { "label": "File Annual Final Statements", "value": "Required" },
-              { "label": "Appoint Auditor", "value": "Required" }
-            ],
-            "keyFeatures": [
-              "Engage in approved business activities",
-              "Participate in public/private sector contracts",
-              "Sponsor foreign employees for residency",
-              "Obtain a corporate bank account"
-            ],
-            "recommendedPractices": [
-              "Seek tax and corporate structuring advice",
-              "Engage Northman Sterling Legal for compliance guidance",
-              "Appoint an auditor post company formation"
-            ]
-          },
-          {
-            "id": "branch",
-            "name": "Branch of a Foreign Company",
-            "rows": [
-              { "label": "Number of Shareholders", "value": "Non-applicable" },
-              { "label": "Capital Requirements", "value": "Depends on activity" },
-              { "label": "Limited Liability", "value": "No, head office bears full liability" },
-              { "label": "Losses Exceeding 50% of Capital", "value": "Shareholders meet within 90 days to decide on business continuation" },
-              { "label": "Corporate Taxes on Annual Net Profits", "value": "20%" },
-              { "label": "Zakat Rate (GCC Residents Only)", "value": "2.5%" },
-              { "label": "Ability to Bid for Government Contracts", "value": "Yes, filing an annual tax return is required" },
-              { "label": "File Annual Final Statements", "value": "Required" },
-              { "label": "Appoint Auditor", "value": "Required" }
-            ],
-            "keyFeatures": [
-              "Activities must match the parent company's business",
-              "Engage in commercial activities within the license's scope",
-              "Sponsor foreign employees for residency",
-              "Obtain a corporate bank account"
-            ],
-            "recommendedPractices": [
-              "Seek tax and corporate structuring advice",
-              "Appoint an auditor once the branch setup is finalized"
-            ]
-          },
-          {
-            "id": "jsc",
-            "name": "Joint Stock Company (JSC)",
-            "note": "A JSC is suitable for large multinational companies or those listed on other stock exchanges.",
-            "rows": [
-              { "label": "Number of Shareholders", "value": "Normally 2, minimum 1 with SR 5,000,000 capital" },
-              { "label": "Capital Requirements", "value": "SR 500,000 or SR 5,000,000 (single shareholder)" },
-              { "label": "Limited Liability", "value": "Yes" },
-              { "label": "Losses Exceeding 50% of Capital", "value": "Shareholders meet within 45 days to decide on business continuation or increase capital" },
-              { "label": "Corporate Taxes on Annual Net Profits", "value": "20%" },
-              { "label": "Zakat Rate (GCC Residents Only)", "value": "2.5%" },
-              { "label": "Ability to Bid for Government Contracts", "value": "Yes, filing an annual tax return is required" },
-              { "label": "File Annual Final Statements", "value": "Required" },
-              { "label": "Appoint Auditor", "value": "Required" }
-            ]
-          }
-        ]
-      },
-      "processTimeline": {
-        "heading": "Step-by-Step Formation Process",
-        "note": "Timelines are consistent across the LLC, JSC, and Branch structures.",
-        "milestoneLabel": "Milestone",
-        "durationLabel": "Typical Timeline",
-        "steps": [
-          { "milestone": "Register Saudi Company Name", "duration": "1-2 working days" },
-          { "milestone": "Apply & Receive MISA License", "duration": "2-4 weeks" },
-          { "milestone": "Review & Approve Entity Documents", "duration": "5 working days" },
-          { "milestone": "Notarize Articles of Association", "duration": "1-2 working days" },
-          { "milestone": "Pay Registration Fees & Receive Commercial Registration", "duration": "1 working day" },
-          { "milestone": "Open Corporate Bank Account", "duration": "2-3 weeks" },
-          { "milestone": "Register Office Address", "duration": "Required" },
-          { "milestone": "Commercial Registry", "duration": "2 working days" },
-          { "milestone": "Register Chamber of Commerce", "duration": "1 working day" },
-          { "milestone": "Register with Labour", "duration": "1 working day" },
-          { "milestone": "Register with Social Insurance", "duration": "2-3 working days" },
-          { "milestone": "Register for Taxes (ZATCA)", "duration": "2-3 working days" }
-        ]
-      },
-      "secondaryEntities": {
-        "items": [
-          {
-            "title": "Technical and Scientific Services Office (TSO)",
-            "description": "A TSO provides technical support to the parent company's Saudi agent or distributor, without engaging in sales activities."
-          },
-          {
-            "title": "The Establishment",
-            "description": "Similar to a sole proprietorship, available only to Saudi or GCC nationals. The owner is personally liable for business debts.",
-            "keyFeaturesLabel": "Key Features",
-            "keyFeatures": [
-              "Engage in approved business activities",
-              "Participate in public/private sector contracts",
-              "Sponsor foreign employees for residency",
-              "Obtain a corporate bank account"
-            ]
-          }
-        ]
-      },
-      "finalCallout": {
-        "heading": "Set up Business in KSA",
-        "body": "For comprehensive guidance and support in establishing your business in Saudi Arabia, reach out to Northman Sterling Legal. Our expert consultants will ensure your business meets all current regulations and assist you in navigating the setup process seamlessly.",
-        "cta": "Request Quote",
-        "imageSrc": "/images/services/company-formation-cta.png",
-        "imageAlt": "Official corporate licensing and document signing for a company formation in Saudi Arabia"
-      }
+      "layout": "simple",
+      "title": "Company Setup & KSA Market Entry Lawyers",
+      "intro": "Northman Sterling Legal guides foreign investors through every stage of Saudi market entry — MISA licensing, entity structuring, and full company incorporation — so your business is registered, licensed, and compliant from day one.",
+      "sections": [
+        {
+          "heading": "MISA Licensing & Market Entry Strategy",
+          "body": "Before any Saudi entity can be formed, most foreign-owned businesses need a license from the Ministry of Investment of Saudi Arabia (MISA). We assess which license category fits your activity, prepare and submit the MISA application, and advise on the market entry structure that best matches your commercial goals — full incorporation, a branch, or a representative office.",
+          "items": [
+            "MISA license category assessment and application",
+            "Foreign ownership rules by sector and activity",
+            "Market entry strategy: subsidiary, branch, or representative office"
+          ]
+        },
+        {
+          "heading": "Choosing the Right Legal Entity",
+          "body": "Saudi Arabia offers several legal entity forms, and the right choice depends on your shareholding structure, capital, and commercial activity. A Limited Liability Company (LLC) is the most common vehicle for foreign investors, offering limited liability with capital requirements set by MISA based on activity. A Branch of a Foreign Company allows 100% foreign ownership without a local sponsor, but the parent company bears full liability and branches cannot engage in trading. A Joint Stock Company (JSC) suits larger multinational investors or businesses planning a future listing, with higher minimum capital requirements. We advise on which structure fits your investment before you commit to one.",
+          "items": [
+            "Limited Liability Company (LLC) — the standard vehicle for most foreign investors",
+            "Branch of a Foreign Company — 100% foreign ownership, no local sponsor required",
+            "Joint Stock Company (JSC) — for larger or listing-track investors",
+            "Representative office, technical/scientific services office, and other specialized forms"
+          ]
+        },
+        {
+          "heading": "Incorporation, Registration & Post-Formation Compliance",
+          "body": "Once the entity structure is set, we manage the full registration process — name reservation, MISA license approval, notarizing the Articles of Association, obtaining the Commercial Registration, and registering with the Chamber of Commerce, GOSI (social insurance), the Ministry of Human Resources, and ZATCA for tax purposes. We also support opening a corporate bank account and staying compliant with annual reporting, auditor appointment, and license renewal obligations after formation.",
+          "items": [
+            "Commercial Registration and Articles of Association",
+            "GOSI, labor, and Chamber of Commerce registration",
+            "ZATCA tax registration and ongoing compliance",
+            "Corporate bank account opening support"
+          ]
+        }
+      ],
+      "highlights": [
+        {
+          "title": "End-to-End Formation",
+          "description": "From MISA licensing through Commercial Registration to your first tax filing — one team, start to finish."
+        },
+        {
+          "title": "Entity Structuring Advice",
+          "description": "Clear guidance on LLC, branch, or JSC before you commit capital to the wrong structure."
+        },
+        {
+          "title": "Post-Launch Compliance",
+          "description": "Ongoing support with annual filings, auditor appointment, and license renewals after your business is live."
+        }
+      ],
+      "cta": "Start Your Saudi Market Entry"
     },
     "dispute-resolution": {
       "layout": "simple",
       "title": "Dispute Resolution Lawyers in Saudi Arabia",
-      "intro": "Northman Sterling represents businesses in commercial litigation, arbitration, and mediation before Saudi courts and tribunals, protecting your interests from the first notice of dispute through to enforcement.",
+      "intro": "Northman Sterling Legal represents businesses in commercial litigation, arbitration, and mediation before Saudi courts and tribunals, protecting your interests from the first notice of dispute through to enforcement.",
       "sections": [
         {
           "heading": "Commercial Litigation Before Saudi Courts",
@@ -1378,7 +1255,7 @@
     "lastUpdated": "Last updated",
     "privacyPolicy": {
       "title": "Privacy Policy",
-      "intro": "This Privacy Policy explains how Northman Sterling collects, uses, and protects information submitted through this website.",
+      "intro": "This Privacy Policy explains how Northman Sterling Legal collects, uses, and protects information submitted through this website.",
       "sections": [
         {
           "heading": "Information We Collect",
@@ -1404,7 +1281,7 @@
       "sections": [
         {
           "heading": "No Attorney-Client Relationship",
-          "body": "Viewing or interacting with this website, including submitting the contact form, does not create an attorney-client relationship between you and Northman Sterling."
+          "body": "Viewing or interacting with this website, including submitting the contact form, does not create an attorney-client relationship between you and Northman Sterling Legal."
         },
         {
           "heading": "No Guarantee of Outcome",

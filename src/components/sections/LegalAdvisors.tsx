@@ -75,9 +75,9 @@ export function LegalAdvisors({ dict, lang }: { dict: Dictionary; lang: Locale }
 
           <div className="mt-9 grid grid-cols-3 divide-x divide-navy/10 border-y border-navy/10 py-2 dark:divide-cream/10 dark:border-cream/10">
             {stats.map((stat) => (
-              <div key={stat.label} className="px-4 text-center first:pl-0 last:pr-0">
-                <p className="text-3xl font-medium text-accent md:text-4xl">{stat.value}</p>
-                <p className="mt-1.5 text-xs uppercase tracking-wide text-slate-mid dark:text-cream/60">
+              <div key={stat.label} className="min-w-0 px-2 text-center sm:px-4 first:pl-0 last:pr-0">
+                <p className="text-xl font-medium text-accent sm:text-3xl md:text-4xl">{stat.value}</p>
+                <p className="mt-1.5 text-[0.65rem] uppercase tracking-wide text-slate-mid dark:text-cream/60 sm:text-xs">
                   {stat.label}
                 </p>
               </div>

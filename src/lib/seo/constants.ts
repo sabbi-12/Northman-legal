@@ -1,5 +1,5 @@
 export const SITE_URL = "https://northmansterling.legal";
-export const SITE_NAME = "Northman Sterling";
+export const SITE_NAME = "Northman Sterling Legal";
 export const CLIENT_PORTAL_URL = "https://northmansterling.app";
 
 export const ORGANIZATION = {

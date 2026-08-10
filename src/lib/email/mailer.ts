@@ -27,7 +27,7 @@ export async function sendNotificationEmail({ subject, text, replyTo }: SendMail
   });
 
   await transporter.sendMail({
-    from: `"Northman Sterling Website" <${user}>`,
+    from: `"Northman Sterling Legal Website" <${user}>`,
     to,
     replyTo,
     subject,

@@ -56,7 +56,7 @@ export function ServicePhotoCard({
     >
       <Link
         href={href}
-        className="group relative block aspect-square w-full overflow-hidden rounded-institutional shadow-institutional"
+        className="group relative flex min-h-[16rem] w-full flex-col justify-end overflow-hidden rounded-institutional shadow-institutional"
       >
         <Image
           src={photo}
@@ -71,21 +71,23 @@ export function ServicePhotoCard({
           aria-hidden="true"
         />
 
-        <div className="absolute inset-0 flex flex-col justify-end p-7 md:p-8">
-          <h3 className="text-2xl font-semibold leading-snug text-white drop-shadow-sm transition-transform duration-500 ease-out group-hover:-translate-y-1 md:text-[1.75rem]">
+        <div className="relative flex flex-col justify-end p-7 md:p-8">
+          <h3 className="text-xl font-semibold leading-snug text-white drop-shadow-sm transition-transform duration-500 ease-out group-hover:-translate-y-1 sm:text-2xl md:text-[1.75rem]">
             {service.title}
           </h3>
 
-          <div className="max-h-0 overflow-hidden opacity-0 transition-all duration-500 ease-out group-hover:mt-3 group-hover:max-h-40 group-hover:opacity-100">
-            <p className="text-sm leading-relaxed text-white/90">{service.subtext}</p>
-            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-white">
-              {learnMoreLabel}
-              <ArrowIcon
-                size={15}
-                strokeWidth={2}
-                className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
-              />
-            </span>
+          <div className="grid grid-rows-[0fr] opacity-0 transition-[grid-template-rows,opacity] duration-500 ease-out group-hover:grid-rows-[1fr] group-hover:opacity-100">
+            <div className="min-h-0 overflow-hidden">
+              <p className="mt-3 text-sm leading-relaxed text-white/90">{service.subtext}</p>
+              <span className="mb-1 mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-white">
+                {learnMoreLabel}
+                <ArrowIcon
+                  size={15}
+                  strokeWidth={2}
+                  className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1"
+                />
+              </span>
+            </div>
           </div>
         </div>
       </Link>

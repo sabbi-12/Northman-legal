@@ -83,11 +83,13 @@ function StickyEventCard({ event, priority }: { event: EventItem; priority: bool
           className="object-cover object-center"
           priority={priority}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/35 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy from-15% via-navy/60 via-45% to-transparent" />
 
         <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 lg:p-10">
           <h3 className="text-lg font-medium leading-snug sm:text-xl lg:text-2xl">{event.title}</h3>
-          <p className="mt-2 max-w-xl text-sm leading-relaxed text-cream/80">{event.description}</p>
+          <p className="mt-2 line-clamp-3 max-w-xl text-sm leading-relaxed text-cream/80 sm:line-clamp-none">
+            {event.description}
+          </p>
         </div>
       </motion.div>
     </motion.div>
