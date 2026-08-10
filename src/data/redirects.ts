@@ -22,6 +22,15 @@ export type RedirectRule = {
 };
 
 // Static, hand-mapped high-value pages (exact matches take priority).
+//
+// NOTE on the "/" entry below: it's listed here for documentation
+// completeness (this file is meant to be the full picture of every
+// WP → new-site mapping), but next.config.js intentionally does NOT
+// mirror it — root-path locale negotiation is handled by
+// src/middleware.ts instead (Accept-Language based, not a blanket
+// redirect), so a literal copy in next.config.js would just be dead/
+// conflicting code. This is the one deliberate exception to "keep both
+// files in sync."
 export const staticRedirects: RedirectRule[] = [
   { source: "/", destination: "/en", permanent: true, locale: false },
   { source: "/home", destination: "/en", permanent: true },

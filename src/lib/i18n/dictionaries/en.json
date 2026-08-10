@@ -4,6 +4,12 @@
     "defaultTitle": "Northman Sterling | Legal Services in Saudi Arabia",
     "defaultDescription": "Legal services for all your legal support needs in Saudi Arabia — global immigration, commercial disputes, court enforcement, and notary services."
   },
+  "notFound": {
+    "eyebrow": "404",
+    "title": "Page not found",
+    "body": "The page you're looking for doesn't exist or may have moved.",
+    "cta": "Back to Home"
+  },
   "nav": {
     "home": "Home",
     "aboutUs": "About Us",

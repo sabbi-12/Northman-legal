@@ -69,13 +69,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // array rather than throwing, so the sitemap build never fails on that
   // account.
   //
-  // ASSUMPTION: this treats a post's EN and AR slugs as interchangeable
-  // for the hreflang alternate set. Since each language is its own Sanity
-  // document, an EN post and its AR translation could have different
-  // slugs — if editors give them different slugs, replace this with a
-  // lookup that maps each post to its translation's slug per locale
-  // (e.g. a shared `translationKey` field on the post schema) before
-  // building `languageAlternatesFor`.
+  // Each post is its own Sanity document per language, and there is
+  // currently no cross-language slug mapping (no ar-language posts exist
+  // yet at all) — so unlike the static routes above, a post's hreflang
+  // alternate set must NOT claim every locale has a matching slug. Each
+  // entry only advertises the locale it actually has, self-referencing
+  // hreflang (its own URL) rather than a same-slug guess at other
+  // locales, which would 404.
   const seenSlugs = new Set<string>();
   for (const locale of locales as readonly Locale[]) {
     const slugs = await getAllPostSlugs(locale);
@@ -84,12 +84,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       if (seenSlugs.has(key)) continue;
       seenSlugs.add(key);
 
+      const url = `${SITE_URL}/${locale}/news-updates/${slug}`;
       entries.push({
-        url: `${SITE_URL}/${locale}/news-updates/${slug}`,
+        url,
         lastModified: new Date(),
         changeFrequency: "monthly",
         priority: 0.6,
-        alternates: { languages: languageAlternatesFor(`news-updates/${slug}`) },
+        alternates: { languages: { [locale]: url, "x-default": url } },
       });
     }
   }

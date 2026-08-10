@@ -42,11 +42,21 @@ export async function generateMetadata({
 
   if (!post) return {};
 
+  // Every post is currently English-only in Sanity (no ar-language posts
+  // exist yet — see getLatestPosts' fallback in lib/sanity/posts.ts) —
+  // hreflang must point only at post.language's own URL, never assume an
+  // /ar counterpart at the same slug exists when it doesn't.
+  const postUrl = `${SITE_URL}/${post.language}/news-updates/${post.slug}`;
+
   return {
     title: post.title,
     description: post.excerpt,
     alternates: {
       canonical: `${SITE_URL}/${lang}/news-updates/${post.slug}`,
+      languages: {
+        [post.language]: postUrl,
+        "x-default": postUrl,
+      },
     },
     openGraph: {
       type: "article",
