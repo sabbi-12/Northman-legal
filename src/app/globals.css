@@ -62,6 +62,15 @@
   .container-header {
     @apply mx-auto w-full max-w-header px-6 md:px-10;
   }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -74,3 +83,4 @@
     scroll-behavior: auto !important;
   }
 }
+

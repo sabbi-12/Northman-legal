@@ -34,7 +34,7 @@ export default async function HomePage({ params }: { params: { lang: string } })
       <CoreServices dict={dict} lang={lang} />
       <WhyChooseUs dict={dict} lang={lang} />
       <LegalAdvisors dict={dict} lang={lang} />
-      <EventGallery dict={dict} />
+      <EventGallery dict={dict} lang={lang} />
       <LatestInsights dict={dict} lang={lang} posts={latestPosts} />
       <LetsConnect dict={dict} />
       <FirmIdentity dict={dict} />

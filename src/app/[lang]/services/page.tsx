@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { getDictionary } from "@/lib/i18n/getDictionary";
@@ -47,12 +48,23 @@ export default async function ServicesPage({ params }: { params: { lang: string 
 
   return (
     <>
-      <section className="bg-navy py-20 text-cream md:py-28">
-        <div className="container-institutional max-w-3xl">
-          <h1 className="text-4xl font-medium leading-tight md:text-5xl">
+      <section className="relative -mt-24 overflow-hidden bg-navy pb-20 pt-[calc(theme(spacing.20)+theme(spacing.24))] text-cream md:pb-28 md:pt-[calc(theme(spacing.28)+theme(spacing.24))]">
+        <Image
+          src="/images/services/saudi-arabia-hero.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          quality={90}
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/60 to-navy/85 dark:from-navy-dark/85 dark:via-navy-dark/65 dark:to-navy-dark/90" />
+
+        <div className="container-institutional relative max-w-3xl">
+          <h1 className="text-4xl font-medium leading-tight drop-shadow-[0_2px_10px_rgba(8,18,32,0.7)] md:text-5xl">
             {dict.servicesPage.valueProp.heading}
           </h1>
-          <p className="mt-5 text-lg leading-relaxed text-cream/80">
+          <p className="mt-5 text-lg leading-relaxed text-cream/90 drop-shadow-[0_1px_6px_rgba(8,18,32,0.65)]">
             {dict.servicesPage.valueProp.subtext}
           </p>
         </div>

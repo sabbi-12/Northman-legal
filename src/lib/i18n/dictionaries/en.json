@@ -196,6 +196,8 @@
   },
   "eventGallery": {
     "title": "Event Gallery",
+    "previous": "Previous event",
+    "next": "Next event",
     "events": [
       {
         "title": "SME London Business Awards 2024",

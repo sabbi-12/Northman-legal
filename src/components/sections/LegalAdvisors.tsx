@@ -62,25 +62,30 @@ export function LegalAdvisors({ dict, lang }: { dict: Dictionary; lang: Locale }
             />
             <div className="relative aspect-[3/2] w-full overflow-hidden rounded-institutional border border-navy/10 shadow-institutional dark:border-cream/10">
               <Image
-                src="/images/about/legal-advisor.png"
+                src="/images/about/legal-advisor-ksa.jpg"
                 alt={dict.legalAdvisors.imageAlt}
                 fill
                 sizes="(min-width: 1024px) 560px, 90vw"
                 quality={95}
                 className="object-cover"
               />
-            </div>
-          </div>
-
-          <div className="mt-9 grid grid-cols-3 divide-x divide-navy/10 border-y border-navy/10 py-2 dark:divide-cream/10 dark:border-cream/10">
-            {stats.map((stat) => (
-              <div key={stat.label} className="min-w-0 px-2 text-center sm:px-4 first:pl-0 last:pr-0">
-                <p className="text-xl font-medium text-accent sm:text-3xl md:text-4xl">{stat.value}</p>
-                <p className="mt-1.5 text-[0.65rem] uppercase tracking-wide text-slate-mid dark:text-cream/60 sm:text-xs">
-                  {stat.label}
-                </p>
+              <div
+                className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent backdrop-blur-sm [mask-image:linear-gradient(to_top,black,transparent)]"
+                aria-hidden="true"
+              />
+              <div className="absolute inset-x-0 bottom-0 grid grid-cols-3 divide-x divide-white/20 px-4 pb-5 pt-8 sm:px-6">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="min-w-0 px-2 text-center first:pl-0 last:pr-0">
+                    <p className="text-xl font-medium text-white drop-shadow-sm sm:text-2xl md:text-3xl">
+                      {stat.value}
+                    </p>
+                    <p className="mt-1 text-[0.6rem] uppercase tracking-wide text-white/80 sm:text-[0.65rem]">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </motion.div>
       </div>
