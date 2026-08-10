@@ -1,0 +1,21 @@
+{
+  "createdAt": "2026-08-10T06:50:30.397Z",
+  "studioVersion": "6.9.1",
+  "version": 3,
+  "workspaces": [
+    {
+      "basePath": "/",
+      "dataset": "production",
+      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><rect width=\"32\" height=\"32\" rx=\"2\" fill=\"#ffb685\"></rect><text x=\"50%\" y=\"50%\" text-anchor=\"middle\" alignment-baseline=\"middle\" fill=\"hsla(24, 100%, 36%, 1)\" style=\"font-family:Inter, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, &quot;Liberation Sans&quot;, Helvetica, Arial, system-ui, sans-serif;font-weight:500;font-size:13px;transform:translateY(1px)\">NS</text></svg>",
+      "mediaLibrary": {
+        "enabled": false,
+        "__internal": {}
+      },
+      "name": "northman-sterling-studio",
+      "projectId": "08hwxtv4",
+      "schema": "679e494d.create-schema.json",
+      "title": "Northman Sterling — Content",
+      "tools": "ef87c8fe.create-tools.json"
+    }
+  ]
+}

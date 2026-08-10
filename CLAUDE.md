@@ -974,6 +974,82 @@ why News & Updates already worked in dev). Added this session:
   consent-gated `<Script>` even renders), so this is not something that
   needs revisiting until those accounts actually exist.
 
+## Sanity Studio installed + deployed (2026-08-10)
+
+The `studio/` project (already scaffolded earlier, per its own README) had
+never actually had its dependencies installed or been run — the user
+wanted it working now so daily blog posting doesn't require a code change
+per post.
+
+- **`studio/.env.local` was missing entirely** — created it with the same
+  `SANITY_STUDIO_PROJECT_ID=08hwxtv4` / `SANITY_STUDIO_DATASET=production`
+  values already in the main app's `.env.local` (both projects must point
+  at the same dataset — this is not a new/second project).
+- **`npm install` inside `studio/`** — this is a genuinely separate
+  `node_modules` from the main app's (React 19 vs. the main app's React 18,
+  per the README's own explanation), ~950 packages, took a few minutes.
+- **Real bug found and fixed**: `studio/tsconfig.json` extended
+  `"sanity/tsconfig"`, a subpath that no longer exists in the installed
+  `sanity@6.9.1` package (`Error: File 'sanity/tsconfig' not found`) —
+  stale scaffolding from an older Sanity version's convention. Replaced
+  with a plain, self-contained `compilerOptions` block instead of relying
+  on the package to ship one. `npm run dev` then started cleanly at
+  `localhost:3333`.
+- **Deployed to a permanent hosted URL**: `npm run deploy` needs a
+  `studioHost` set in `sanity.cli.ts` (wasn't configured) — added
+  `studioHost: "northman-sterling"`, which deploys to
+  `https://northman-sterling.sanity.studio`. CLI auth was already present
+  on this machine (GitHub-linked Sanity account, `syedsabi08@gmail.com`) —
+  no login/password was needed despite the user not having it on hand.
+  Also added the `deployment.appId` the CLI printed after the first
+  deploy, so future re-deploys (`npm run deploy` again after adding a new
+  schema field, etc.) won't re-prompt for an app ID.
+- **The user can now log into `https://northman-sterling.sanity.studio`
+  from any computer** (not just this dev machine) to write/publish blog
+  posts directly — no `localhost:3333`, no code deploy, no Claude Code
+  session needed for routine posting. New posts appear on the live site
+  within an hour by default (ISR) unless the revalidate webhook (see
+  `SANITY_REVALIDATE_SECRET` above) is wired up post-launch for instant
+  updates.
+
+## Sanity Studio bug: blank "new document" pane (2026-08-10, same day as the deploy above)
+
+Right after the first deploy, the user tried clicking "+" → "News & Updates
+Post" on the live `https://northman-sterling.sanity.studio` and got a
+completely blank content pane — the URL resolved correctly
+(`/intent/create/template=post;type=post`), but no form ever rendered.
+Took several rounds of walking the user through DevTools (Console → no
+red error at all; the "1 error"/"38 warnings" badge was just third-party
+preload-timing noise and an unrelated ad-tech pixel's Quirks Mode notice;
+Network tab showed only websocket/telemetry/batch requests, nothing
+failing) before finding the actual cause by re-reading `sanity.config.ts`
+directly instead of continuing to debug from the browser side.
+
+**Root cause**: `sanity.config.ts`'s `plugins` array only had
+`visionTool()` — **`structureTool()` was never added**. In Sanity Studio
+v6+, `structureTool()` is what actually provides the document list/editor
+UI; without it registered, there is no desk structure at all, so the
+"create new document" intent route resolves (the router works) but has
+nothing to render into the content pane — hence a silent blank screen
+with zero console errors, not a crash. `npx sanity schema validate`
+correctly reported 0 errors throughout, because the *schema* was fine —
+this was a missing *plugin*, a completely different config surface.
+
+**Fix**: added `import { structureTool } from "sanity/structure"` and put
+`structureTool()` first in the `plugins` array (before `visionTool()`).
+Verified the fix locally first (`localhost:3333`, Vite logged
+`dependency optimized: sanity/structure` and reloaded cleanly), then
+re-ran `npm run deploy` — redeployed to the same
+`https://northman-sterling.sanity.studio` URL, no new `appId` prompt this
+time since that was already saved in `sanity.cli.ts` from the first
+deploy.
+
+**Lesson for next time this project's Studio acts "blank" with no
+console error**: check `sanity.config.ts`'s `plugins` array first, before
+spending time in browser DevTools — a missing plugin registration fails
+silently by design (no error to catch), unlike almost everything else in
+this codebase which either throws or degrades to a visible fallback.
+
 ## Conventions to hold the line on
 
 - Server Components by default. Only mark `"use client"` where actual
