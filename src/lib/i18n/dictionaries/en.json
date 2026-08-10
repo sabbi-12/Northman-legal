@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "Northman Sterling Legal",
     "defaultTitle": "Northman Sterling Legal | Legal Services in Saudi Arabia",
-    "defaultDescription": "Legal services for all your legal support needs in Saudi Arabia — global immigration, commercial disputes, court enforcement, and notary services."
+    "defaultDescription": "Legal services for businesses operating in Saudi Arabia — corporate and commercial advisory, dispute resolution, regulatory compliance, and notary services."
   },
   "notFound": {
     "eyebrow": "404",
@@ -250,9 +250,9 @@
     "subtitle": "Focused practice areas built around the legal support enterprises and individuals need most in the Kingdom.",
     "items": [
       {
-        "id": "immigration",
-        "title": "Global Immigration Solutions",
-        "description": "Corporate support in KSA covering work visas, residency permits, and cross-border relocation for enterprises and their people."
+        "id": "corporate",
+        "title": "Corporate & Commercial Advisory",
+        "description": "Company formation, market entry, and the commercial contracts and corporate structuring that keep a business running in Saudi Arabia."
       },
       {
         "id": "disputes",
@@ -304,10 +304,10 @@
     "intro": "Northman Sterling Legal is a registered law firm in Saudi Arabia, providing legal advisory and compliance services for enterprises and individuals operating in the Kingdom.",
     "companyOverview": {
       "subheading": "About Our Company",
-      "heading": "Northman Sterling Legal is the Leading Provider of Legal Advisory & Compliance Services in Saudi Arabia",
+      "heading": "Northman Sterling Legal: A Riyadh Based Practice for Legal Advisory and Compliance in Saudi Arabia",
       "paragraphs": [
-        "We assist companies operating and expanding in Saudi Arabia by managing their legal and compliance requirements. We ensure businesses remain aligned with Saudi regulations while focusing on growth and operational efficiency.",
-        "Our team assists with legal documentation, regulatory approvals, and risk management, making corporate expansion in the Kingdom structured and secure."
+        "Northman Sterling Legal works with companies entering or already operating in Saudi Arabia. Our focus is legal advisory and regulatory compliance, so your business understands exactly what Saudi law requires before it becomes a problem.",
+        "Our team handles legal documentation, licensing, and risk management as part of everyday practice. That includes ISO 27001, 37001, and 9001 certification and authorization to issue notarized documents and Power of Attorney, credentials that most firms our size do not hold."
       ],
       "featureListTitle": "As your strategic legal partner in Saudi Arabia, Northman Sterling Legal offers:",
       "features": [
@@ -323,39 +323,39 @@
         {
           "id": "vision",
           "title": "Vision",
-          "description": "To be the trusted strategic partner for Corporate and Immigration Services that drive excellence and client satisfaction."
+          "description": "To be the law firm businesses turn to first for corporate, commercial, and regulatory matters in Saudi Arabia, known for direct advice and outcomes that hold up."
         },
         {
           "id": "mission",
           "title": "Mission",
-          "description": "Our company is committed to simplify complex processes, facilitating global mobility, and fostering compliance for international business ventures."
+          "description": "We help businesses operate, transact, and resolve disputes in Saudi Arabia with legal advice that is precise, practical, and grounded in how Saudi law actually works in practice."
         },
         {
           "id": "purpose",
           "title": "Purpose",
-          "description": "To work closely with our partners while enabling seamless global business operations and international mobility."
+          "description": "To give every client the same standard of legal support, whether they are entering the Saudi market for the first time or defending a position they have held for years."
         }
       ]
     },
     "team": {
       "heading": "Global Team, Local Expertise",
-      "body": "At Northman Sterling Legal, our experts are committed to understanding your unique goals and simplifying the immigration process. With a global presence, we deliver strategic solutions and comprehensive support for your business.",
+      "body": "Our team supports clients from more than 35 countries out of a single Riyadh base, and has represented Northman Sterling at industry events including the SME London Business Awards, the FEM EMEA Summit, the HR Leaders Conference, and the PIF Private Sector Forum.",
       "members": [
-        { "name": "Murtaza Shah", "role": "Partner - EMEA Region", "location": "London, UK", "imageSrc": "/images/team/murtaza-shah.png", "linkedinUrl": "https://www.linkedin.com/in/shahmurtaza/" },
-        { "name": "Manisha Gami", "role": "Manager - Global Immigration", "location": "Dubai, UAE", "imageSrc": "/images/team/manisha-gami.png", "linkedinUrl": "https://www.linkedin.com/in/manisha-gami-23903b154/" },
-        { "name": "Mohammad Qadri", "role": "Assistant Manager", "location": "Dubai, UAE", "imageSrc": "/images/team/mohammad-qadri.png", "linkedinUrl": "https://www.linkedin.com/404/" },
-        { "name": "Owais Ali", "role": "Manager - Outbound Immigration", "location": "London, UK", "imageSrc": "/images/team/owais-ali.png", "linkedinUrl": "https://www.linkedin.com/in/syed-owais-ali-shah/" },
-        { "name": "Noor Nadeem", "role": "Manager - Business Development and Marketing", "location": "Dubai, UAE", "imageSrc": "/images/team/noor-nadeem.png", "linkedinUrl": "https://www.linkedin.com/in/noor-nadeem-2a427a367/" }
+        { "name": "", "role": "", "location": "", "imageSrc": "", "linkedinUrl": "" },
+        { "name": "", "role": "", "location": "", "imageSrc": "", "linkedinUrl": "" },
+        { "name": "", "role": "", "location": "", "imageSrc": "", "linkedinUrl": "" },
+        { "name": "", "role": "", "location": "", "imageSrc": "", "linkedinUrl": "" },
+        { "name": "", "role": "", "location": "", "imageSrc": "", "linkedinUrl": "" }
       ]
     },
     "belief": {
       "heading": "What we believe",
-      "body": "We adopt a flexible and collaborative legal approach to ensure your organization achieves full regulatory compliance in Saudi Arabia. Our team remains accessible and responsive, guiding you through every stage of legal procedures, documentation, and regulatory requirements with clarity and precision, regardless of jurisdiction.",
+      "body": "Regulatory compliance in Saudi Arabia changes often. We stay close to those changes so our clients do not have to. Our team works through legal process and documentation in plain language, so you always know where a matter stands.",
       "cta": "Learn More"
     },
     "ownership": {
       "heading": "We Embrace Ownership",
-      "body": "We believe that effective legal representation goes beyond advice, it requires responsibility and measurable impact. Our performance is defined by the outcomes we help our clients achieve.",
+      "body": "Legal advice on its own is not enough. It has to come with responsibility for the outcome. We measure our performance the way our clients do, by the results we deliver.",
       "items": [
         "Taking the time to fully understand your commercial objectives and legal priorities",
         "Communicating with clarity, honesty, and procedural transparency",
@@ -365,9 +365,8 @@
       ]
     },
     "ctaBanner": {
-      "eyebrow": "Speak To",
-      "heading": "Our Experts!",
-      "subheading": "Connect with us today for consultation from our experts.",
+      "heading": "Speak to Our Legal Team",
+      "subheading": "Get a direct answer from the people already handling matters like yours in Saudi Arabia.",
       "cta": "Contact Us"
     },
     "office": {
@@ -380,7 +379,7 @@
     "faqItems": [
       {
         "question": "What areas does Northman Sterling Legal practice in?",
-        "answer": "We focus on three core areas: global immigration solutions for corporates and individuals, commercial disputes and court enforcement, and authorized notary and Power of Attorney issuance."
+        "answer": "We advise on corporate and commercial matters, dispute resolution and court enforcement, and authorized notary and Power of Attorney issuance, along with the full range of services on our Services page — from company formation to regulatory compliance."
       },
       {
         "question": "Do you work with clients based outside Saudi Arabia?",
@@ -1157,7 +1156,7 @@
     "intro": "Send us a few details about your matter and our team will respond promptly.",
     "connect": {
       "heading": "Let's Connect !",
-      "subheading": "We would love to discuss your immigration and mobility needs…"
+      "subheading": "We would love to discuss your legal and compliance needs…"
     },
     "formSectionSubtitle": "General Enquiries Form",
     "formName": "Full Name",
@@ -1170,14 +1169,21 @@
     "formPhonePlaceholder": "Enter Your Phone Number",
     "formMessagePlaceholder": "Your Inquiry",
     "formServiceOptions": [
-      "Company Incorporation",
-      "Immigration Services",
-      "Work Permits",
-      "Business Visas",
-      "Work Visas",
-      "Letter of Invitation",
-      "Documents Legalisation",
-      "Compliance Management",
+      "Company Setup & KSA Market Entry",
+      "Dispute Resolution",
+      "Real Estate, Construction & Infrastructure",
+      "Employment Law",
+      "Intellectual Property",
+      "Technology, Media & Telecom",
+      "Regulatory & Compliance",
+      "Tax",
+      "Restructuring & Insolvency",
+      "White-Collar Crime & Investigations",
+      "Competition & Antitrust",
+      "Family Business & Private Client",
+      "Corporate & Commercial / M&A",
+      "Banking & Finance",
+      "Capital Markets",
       "Other"
     ],
     "formMessage": "Your Inquiry",
@@ -1297,19 +1303,19 @@
     },
     "termsAndConditions": {
       "title": "Terms and Conditions",
-      "intro": "These terms and conditions (\"Agreement\") govern the use of Immigration and Visa services offered by Northman Sterling Legal. By engaging with our services, you agree to comply with these terms and conditions in their entirety.",
+      "intro": "These terms and conditions (\"Agreement\") govern the use of legal advisory and related services offered by Northman Sterling Legal. By engaging with our services, you agree to comply with these terms and conditions in their entirety.",
       "sections": [
         {
           "heading": "Scope of Services",
-          "body": "Northman Sterling Legal offers professional immigration and visa services to corporates and businesses seeking assistance in various immigration and Visa matters in different regions. Our services include but are not limited to visa processing, residency permits, company registration, legal compliance, and related advisory services."
+          "body": "Northman Sterling Legal offers professional legal advisory services to corporates and businesses operating in or entering Saudi Arabia. Our services include but are not limited to corporate and commercial advisory, dispute resolution, regulatory compliance, notary and Power of Attorney issuance, and related legal support."
         },
         {
           "heading": "Client Obligations",
-          "body": "As a client of Northman, you agree to provide accurate and complete information regarding your immigration or visa requirements. It is your responsibility to ensure the authenticity and validity of all provided documents. Any false or misleading information may result in the termination of our services without liability."
+          "body": "As a client of Northman Sterling Legal, you agree to provide accurate and complete information regarding your matter. It is your responsibility to ensure the authenticity and validity of all provided documents. Any false or misleading information may result in the termination of our services without liability."
         },
         {
           "heading": "Service Fees and Payment",
-          "body": "Northman's service fees are disclosed prior to engagement and are based on the specific services requested. All fees quoted are exclusive of any government charges, taxes, or third-party expenses. Payment terms and methods will be discussed and agreed upon with the client. Failure to make timely payments may result in a suspension or termination of services."
+          "body": "Northman Sterling Legal's service fees are disclosed prior to engagement and are based on the specific services requested. All fees quoted are exclusive of any government charges, taxes, or third-party expenses. Payment terms and methods will be discussed and agreed upon with the client. Failure to make timely payments may result in a suspension or termination of services."
         },
         {
           "heading": "Confidentiality",
@@ -1317,7 +1323,7 @@
         },
         {
           "heading": "Limitation of Liability",
-          "body": "Northman Sterling Legal will exercise reasonable care and skill in delivering its services. However, we do not guarantee the outcome of any immigration or Visa application, as the final decision lies with the relevant authorities. We shall not be liable for any direct, indirect, or consequential damages arising from the use or inability to use our services."
+          "body": "Northman Sterling Legal will exercise reasonable care and skill in delivering its services. However, we do not guarantee the outcome of any specific legal matter, as the final decision on many matters lies with the relevant Saudi courts or authorities. We shall not be liable for any direct, indirect, or consequential damages arising from the use or inability to use our services."
         },
         {
           "heading": "Termination of Services",
@@ -1325,7 +1331,7 @@
         },
         {
           "heading": "Intellectual Property",
-          "body": "All intellectual property rights, including but not limited to trademarks, logos, and content, associated with Northman's services and website, are the sole property of Northman Sterling Legal. You agree not to use, reproduce, or distribute any of our intellectual property without prior written consent."
+          "body": "All intellectual property rights, including but not limited to trademarks, logos, and content, associated with our services and website, are the sole property of Northman Sterling Legal. You agree not to use, reproduce, or distribute any of our intellectual property without prior written consent."
         },
         {
           "heading": "Amendments to the Agreement",
@@ -1349,7 +1355,7 @@
     "privacyPolicy": "Privacy Policy",
     "termsConditions": "Terms & Conditions",
     "blogs": "Blogs",
-    "immigrationUpdates": "Immigration Updates",
+    "immigrationUpdates": "Legal Updates",
     "keyEvents": "Key Events",
     "followUs": "Follow us",
     "manageConsent": "Manage consent"

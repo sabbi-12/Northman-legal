@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { User } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
@@ -33,48 +34,71 @@ export function Team({ dict }: { dict: Dictionary }) {
         </div>
 
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
-          {team.members.map((member, index) => (
-            <motion.div
-              key={member.name}
-              initial={entrance ?? { opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: index * 0.06, ease: EASE }}
-              className="flex flex-col items-center rounded-institutional border border-navy/10 bg-white p-6 text-center shadow-institutional dark:border-cream/10 dark:bg-navy/40"
-            >
-              <div className="relative h-28 w-28 overflow-hidden rounded-full bg-cream dark:bg-navy/60">
-                <Image
-                  src={member.imageSrc}
-                  alt={member.name}
-                  fill
-                  sizes="112px"
-                  quality={95}
-                  className="object-cover object-top"
-                />
-              </div>
-              <h3 className="mt-4 text-base font-medium text-slate-dark dark:text-cream">{member.name}</h3>
-              <p className="mt-1 text-sm text-accent">{member.role}</p>
-              <p className="mt-1 text-xs text-slate-mid dark:text-cream/60">{member.location}</p>
-              {member.linkedinUrl ? (
-                <a
-                  href={member.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${member.name} on LinkedIn`}
-                  className="mt-4 flex h-8 w-8 items-center justify-center rounded-institutional bg-[#0A66C2] text-white transition-opacity hover:opacity-85"
-                >
-                  <LinkedInGlyph />
-                </a>
-              ) : (
-                <span
-                  aria-hidden="true"
-                  className="mt-4 flex h-8 w-8 items-center justify-center rounded-institutional border border-navy/10 text-slate-mid/50 dark:border-cream/10 dark:text-cream/30"
-                >
-                  <LinkedInGlyph />
-                </span>
-              )}
-            </motion.div>
-          ))}
+          {team.members.map((member, index) => {
+            const hasDetails = Boolean(member.name);
+
+            return (
+              <motion.div
+                key={index}
+                initial={entrance ?? { opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: index * 0.06, ease: EASE }}
+                className={`flex flex-col items-center rounded-institutional border p-6 text-center ${
+                  hasDetails
+                    ? "border-navy/10 bg-white shadow-institutional dark:border-cream/10 dark:bg-navy/40"
+                    : "border-dashed border-navy/15 bg-navy/[0.02] dark:border-cream/15 dark:bg-cream/[0.02]"
+                }`}
+              >
+                <div className="relative flex h-28 w-28 items-center justify-center overflow-hidden rounded-full bg-cream dark:bg-navy/60">
+                  {hasDetails ? (
+                    <Image
+                      src={member.imageSrc}
+                      alt={member.name}
+                      fill
+                      sizes="112px"
+                      quality={95}
+                      className="object-cover object-top"
+                    />
+                  ) : (
+                    <User size={40} strokeWidth={1.5} className="text-slate-mid/40 dark:text-cream/25" aria-hidden="true" />
+                  )}
+                </div>
+
+                {hasDetails ? (
+                  <>
+                    <h3 className="mt-4 text-base font-medium text-slate-dark dark:text-cream">{member.name}</h3>
+                    <p className="mt-1 text-sm text-accent">{member.role}</p>
+                    <p className="mt-1 text-xs text-slate-mid dark:text-cream/60">{member.location}</p>
+                    {member.linkedinUrl ? (
+                      <a
+                        href={member.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${member.name} on LinkedIn`}
+                        className="mt-4 flex h-8 w-8 items-center justify-center rounded-institutional bg-[#0A66C2] text-white transition-opacity hover:opacity-85"
+                      >
+                        <LinkedInGlyph />
+                      </a>
+                    ) : (
+                      <span
+                        aria-hidden="true"
+                        className="mt-4 flex h-8 w-8 items-center justify-center rounded-institutional border border-navy/10 text-slate-mid/50 dark:border-cream/10 dark:text-cream/30"
+                      >
+                        <LinkedInGlyph />
+                      </span>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <h3 className="mt-4 text-base font-medium text-slate-mid/50 dark:text-cream/25">Name</h3>
+                    <p className="mt-1 text-sm text-slate-mid/40 dark:text-cream/20">Role</p>
+                    <p className="mt-1 text-xs text-slate-mid/30 dark:text-cream/15">Location</p>
+                  </>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

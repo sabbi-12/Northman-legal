@@ -16,29 +16,29 @@ export function WhatWeBelieve({ dict, lang }: { dict: Dictionary; lang: Locale }
   const belief = dict.aboutPage.belief;
 
   return (
-    <section className="bg-white py-24 text-center dark:bg-navy/30">
-      <div className="container-institutional mx-auto max-w-2xl">
-        <motion.h2
-          initial={entrance ?? { opacity: 0, y: 12 }}
+    <section className="bg-cream py-24 text-center dark:bg-navy-dark">
+      <div className="container-institutional mx-auto max-w-3xl">
+        <motion.span
+          initial={entrance ?? { opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
-          className="text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream"
+          transition={{ duration: 0.4, ease: EASE }}
+          className="text-sm font-semibold uppercase tracking-[0.2em] text-accent"
         >
           {belief.heading}
-        </motion.h2>
+        </motion.span>
         <motion.p
-          initial={entrance ?? { opacity: 0, y: 12 }}
+          initial={entrance ?? { opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2, ease: EASE }}
-          className="mt-6 text-base leading-relaxed text-slate-mid dark:text-cream/70"
+          transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
+          className="mt-5 font-heading-en text-2xl leading-snug text-slate-dark md:text-[1.75rem] dark:text-cream"
         >
           {belief.body}
         </motion.p>
         <Link
           href={`/${lang}/contact-us`}
-          className="group mt-8 inline-flex items-center gap-3 rounded-institutional bg-button px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-button-hover"
+          className="group mt-9 inline-flex items-center gap-3 rounded-institutional bg-button px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-button-hover"
         >
           {belief.cta}
           <ArrowIcon size={16} strokeWidth={2} className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />

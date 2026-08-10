@@ -43,7 +43,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
     href === `/${lang}` ? pathname === href : pathname.startsWith(href);
 
   const headerElement = (
-    <header className="sticky top-0 z-50 border-b border-cream/10 bg-navy/55 backdrop-blur-lg backdrop-saturate-150">
+    <header className="sticky top-0 z-50 border-b border-navy/10 !bg-cream/70 backdrop-blur-lg backdrop-saturate-150">
       <motion.nav
         initial={false}
         animate={{ height: scrolled ? 72 : 96 }}
@@ -51,7 +51,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
         className="container-header flex items-center justify-between"
       >
         <Link href={`/${lang}`} className="shrink-0" aria-label={dict.meta.siteName}>
-          <BrandLogo height={scrolled ? 34 : 46} onDark />
+          <BrandLogo height={scrolled ? 40 : 54} />
         </Link>
 
         <div className="hidden items-center gap-8 nav:flex">
@@ -61,8 +61,8 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
                 <Link
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium uppercase tracking-wide transition-colors drop-shadow-[0_1px_4px_rgba(4,8,15,0.6)]",
-                    isActive(link.href) ? "text-button" : "text-cream/90 hover:text-cream"
+                    "text-sm font-medium uppercase tracking-wide transition-colors",
+                    isActive(link.href) ? "text-button" : "text-slate-dark hover:text-navy"
                   )}
                   aria-current={isActive(link.href) ? "page" : undefined}
                 >
@@ -72,9 +72,9 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
             ))}
           </ul>
 
-          <div className="flex items-center gap-4 border-s border-cream/20 ps-6">
-            <LanguageSwitcher currentLang={lang} onDark />
-            <DarkModeToggle labels={{ light: dict.nav.toggleLight, dark: dict.nav.toggleDark }} onDark />
+          <div className="flex items-center gap-4 border-s border-navy/15 ps-6">
+            <LanguageSwitcher currentLang={lang} />
+            <DarkModeToggle labels={{ light: dict.nav.toggleLight, dark: dict.nav.toggleDark }} />
           </div>
         </div>
 
@@ -82,7 +82,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
           type="button"
           onClick={() => setMobileOpen(true)}
           aria-label={dict.nav.openMenu}
-          className="flex h-10 w-10 items-center justify-center text-cream nav:hidden"
+          className="flex h-10 w-10 items-center justify-center text-navy nav:hidden"
         >
           <Menu size={22} strokeWidth={1.75} />
         </button>

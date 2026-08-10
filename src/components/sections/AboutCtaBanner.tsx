@@ -18,21 +18,12 @@ export function AboutCtaBanner({ dict, lang }: { dict: Dictionary; lang: Locale 
   return (
     <section className="bg-navy py-24 text-center text-cream">
       <div className="container-institutional mx-auto max-w-xl">
-        <motion.p
-          initial={entrance ?? { opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: EASE }}
-          className="text-sm font-semibold uppercase tracking-[0.2em] text-accent"
-        >
-          {banner.eyebrow}
-        </motion.p>
         <motion.h2
           initial={entrance ?? { opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.55, delay: 0.1, ease: EASE }}
-          className="mt-4 text-4xl font-medium md:text-5xl"
+          transition={{ duration: 0.55, ease: EASE }}
+          className="text-4xl font-medium md:text-5xl"
         >
           {banner.heading}
         </motion.h2>
