@@ -1192,16 +1192,8 @@
     "formSuccess": "Thank you — your message has been sent. Our team will be in touch shortly.",
     "formError": "Something went wrong sending your message. Please try again or email us directly.",
     "offices": {
-      "heading": "Global Offices",
+      "heading": "Our Office",
       "items": [
-        {
-          "id": "uk",
-          "country": "United Kingdom",
-          "flagCode": "gb",
-          "address": "Devonshire House, Level 1, One Mayfair Place, W1J 8AJ London, United Kingdom",
-          "phone": "0044 203 205 7010",
-          "email": "europe@northmansterling.legal"
-        },
         {
           "id": "ksa",
           "country": "Saudi Arabia",
@@ -1209,46 +1201,6 @@
           "address": "Level 18, Al Faisaliah Tower, King Fahad Road, Olaya District, Riyadh, Saudi Arabia",
           "phone": "00966 112 978 293",
           "email": "gcc@northmansterling.legal"
-        },
-        {
-          "id": "uae",
-          "country": "United Arab Emirates",
-          "flagCode": "ae",
-          "address": "Emirates Towers, Level 41, Sheikh Zayed Road, Dubai, United Arab Emirates",
-          "phone": "00971 43 132 784",
-          "email": "gcc@northmansterling.legal"
-        },
-        {
-          "id": "brussels",
-          "country": "Brussels",
-          "flagCode": "be",
-          "email": "europe@northmansterling.legal"
-        },
-        {
-          "id": "frankfurt",
-          "country": "Frankfurt",
-          "flagCode": "de",
-          "email": "europe@northmansterling.legal"
-        },
-        {
-          "id": "delhi",
-          "country": "Delhi",
-          "flagCode": "in",
-          "email": "asia@northmansterling.legal"
-        },
-        {
-          "id": "washington",
-          "country": "Washington",
-          "flagCode": "us",
-          "phone": "+1 (202) 569-8971",
-          "email": "americas@northmansterling.legal"
-        },
-        {
-          "id": "houston",
-          "country": "Houston",
-          "flagCode": "us",
-          "phone": "+1 (713) 352-0919",
-          "email": "americas@northmansterling.legal"
         }
       ]
     }

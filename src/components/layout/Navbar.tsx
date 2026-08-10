@@ -17,15 +17,24 @@ import { cn } from "@/lib/utils";
 
 const SCROLL_THRESHOLD = 24;
 
+// These pages have no navy band under the navbar (plain cream page
+// background from the very top), so a transparent white-text navbar would
+// be unreadable there. They always render the navbar in its "scrolled"
+// light-glass state instead.
+const ALWAYS_LIGHT_NAV_PATHS = ["/privacy-policy", "/disclaimer", "/terms-and-conditions"];
+
 export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const pathname = usePathname() ?? `/${lang}`;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolledPast, setScrolledPast] = useState(false);
   const [mounted, setMounted] = useState(false);
+
+  const forceLightNav = ALWAYS_LIGHT_NAV_PATHS.some((path) => pathname.startsWith(`/${lang}${path}`));
+  const scrolled = scrolledPast || forceLightNav;
 
   useEffect(() => {
     setMounted(true);
-    const onScroll = () => setScrolled(window.scrollY > SCROLL_THRESHOLD);
+    const onScroll = () => setScrolledPast(window.scrollY > SCROLL_THRESHOLD);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -43,49 +52,77 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
     href === `/${lang}` ? pathname === href : pathname.startsWith(href);
 
   const headerElement = (
-    <header className="sticky top-0 z-50 border-b border-navy/10 !bg-cream/70 backdrop-blur-lg backdrop-saturate-150">
+    <header
+      className={cn(
+        "sticky top-0 z-50 transition-colors duration-300",
+        scrolled
+          ? "border-b border-navy/10 !bg-cream/70 backdrop-blur-lg backdrop-saturate-150"
+          : "border-b border-transparent bg-transparent"
+      )}
+    >
       <motion.nav
         initial={false}
         animate={{ height: scrolled ? 72 : 96 }}
         transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-        className="container-header flex items-center justify-between"
+        className="container-header grid grid-cols-[auto_1fr_auto] items-center gap-6"
       >
-        <Link href={`/${lang}`} className="shrink-0" aria-label={dict.meta.siteName}>
-          <BrandLogo height={scrolled ? 40 : 54} />
+        <Link href={`/${lang}`} className="relative shrink-0" aria-label={dict.meta.siteName}>
+          {!scrolled && (
+            <span
+              className="pointer-events-none absolute -inset-x-4 -bottom-3 -top-1 -z-10 rounded-[50%] bg-white opacity-95 blur-lg"
+              aria-hidden="true"
+            />
+          )}
+          <BrandLogo height={scrolled ? 48 : 60} />
         </Link>
 
-        <div className="hidden items-center gap-8 nav:flex">
-          <ul className="flex items-center gap-6">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={cn(
-                    "text-sm font-medium uppercase tracking-wide transition-colors",
-                    isActive(link.href) ? "text-button" : "text-slate-dark hover:text-navy"
-                  )}
-                  aria-current={isActive(link.href) ? "page" : undefined}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <ul className="hidden items-center justify-center gap-6 nav:flex">
+          {links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className={cn(
+                  "text-sm font-medium uppercase tracking-wide transition-colors",
+                  isActive(link.href)
+                    ? "text-button"
+                    : scrolled
+                      ? "text-slate-dark hover:text-navy"
+                      : "text-white drop-shadow-[0_1px_4px_rgba(4,8,15,0.6)] hover:text-white/80"
+                )}
+                aria-current={isActive(link.href) ? "page" : undefined}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-          <div className="flex items-center gap-4 border-s border-navy/15 ps-6">
-            <LanguageSwitcher currentLang={lang} />
-            <DarkModeToggle labels={{ light: dict.nav.toggleLight, dark: dict.nav.toggleDark }} />
+        <div className="flex items-center justify-end gap-4">
+          <div
+            className={cn(
+              "hidden items-center gap-4 border-s ps-6 nav:flex",
+              scrolled ? "border-navy/15" : "border-white/25"
+            )}
+          >
+            <LanguageSwitcher currentLang={lang} onDark={!scrolled} />
+            <DarkModeToggle
+              labels={{ light: dict.nav.toggleLight, dark: dict.nav.toggleDark }}
+              onDark={!scrolled}
+            />
           </div>
-        </div>
 
-        <button
-          type="button"
-          onClick={() => setMobileOpen(true)}
-          aria-label={dict.nav.openMenu}
-          className="flex h-10 w-10 items-center justify-center text-navy nav:hidden"
-        >
-          <Menu size={22} strokeWidth={1.75} />
-        </button>
+          <button
+            type="button"
+            onClick={() => setMobileOpen(true)}
+            aria-label={dict.nav.openMenu}
+            className={cn(
+              "flex h-10 w-10 items-center justify-center nav:hidden",
+              scrolled ? "text-navy" : "text-white"
+            )}
+          >
+            <Menu size={22} strokeWidth={1.75} />
+          </button>
+        </div>
       </motion.nav>
     </header>
   );

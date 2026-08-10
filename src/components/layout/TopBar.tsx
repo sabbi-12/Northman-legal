@@ -1,6 +1,5 @@
 import { Bell } from "lucide-react";
 import { Ticker } from "@/components/ui/Ticker";
-import { CLIENT_PORTAL_URL } from "@/lib/seo/constants";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 import type { NewsPost } from "@/lib/sanity/types";
@@ -33,15 +32,6 @@ export function TopBar({
           previousLabel={dict.topBar.previousUpdate}
           nextLabel={dict.topBar.nextUpdate}
         />
-
-        <a
-          href={CLIENT_PORTAL_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ms-auto flex shrink-0 items-center rounded-institutional bg-button px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white transition-colors hover:bg-button-hover"
-        >
-          {dict.topBar.clientPortal}
-        </a>
       </div>
     </div>
   );
