@@ -29,7 +29,6 @@ export function TopBar({
 
         <Ticker
           posts={posts}
-          lang={lang}
           latestNewsLabel={dict.topBar.latestNewsLabel}
           previousLabel={dict.topBar.previousUpdate}
           nextLabel={dict.topBar.nextUpdate}

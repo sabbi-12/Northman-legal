@@ -6,19 +6,16 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import type { NewsPost } from "@/lib/sanity/types";
-import type { Locale } from "@/lib/i18n/config";
 
 const AUTO_ADVANCE_MS = 6000;
 
 export function Ticker({
   posts,
-  lang,
   latestNewsLabel,
   previousLabel,
   nextLabel,
 }: {
   posts: NewsPost[];
-  lang: Locale;
   latestNewsLabel: string;
   previousLabel: string;
   nextLabel: string;
@@ -58,7 +55,7 @@ export function Ticker({
             className="absolute inset-0 flex items-center"
           >
             <Link
-              href={`/${lang}/news-updates/${active.slug}`}
+              href={`/${active.language}/news-updates/${active.slug}`}
               className="truncate px-3.5 py-1.5 text-sm font-medium text-navy transition-colors hover:text-button"
             >
               {active.title}

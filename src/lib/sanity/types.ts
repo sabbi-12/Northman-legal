@@ -29,4 +29,5 @@ export type NewsPost = {
   featuredImage: { url: string; alt: string } | null;
   categories: string[];
   authorName: string | null;
+  language: "en" | "ar";
 };

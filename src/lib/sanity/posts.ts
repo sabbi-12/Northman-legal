@@ -21,6 +21,7 @@ function normalizePost(doc: SanityPostDoc): NewsPost {
       : null,
     categories: doc.category ? [doc.category] : [],
     authorName: doc.author ?? null,
+    language: doc.language,
   };
 }
 
@@ -106,6 +107,15 @@ export async function getAllPostSlugs(lang: Locale): Promise<string[]> {
 
 export async function getLatestPosts(lang: Locale, count = 3): Promise<NewsPost[]> {
   const { posts } = await getPosts({ lang, page: 1, perPage: count });
+  // No Arabic posts exist in Sanity yet (all 56 migrated posts are
+  // English-only) — without this fallback the TopBar ticker and Home's
+  // "Latest Insights" would silently render nothing on /ar. Falling back
+  // to the English posts keeps those sections visible; each still links to
+  // its real /en/news-updates/[slug] post rather than a nonexistent /ar one.
+  if (posts.length === 0 && lang !== "en") {
+    const fallback = await getPosts({ lang: "en", page: 1, perPage: count });
+    return fallback.posts;
+  }
   return posts;
 }
 
