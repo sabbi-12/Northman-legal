@@ -19,7 +19,7 @@ export function WhyChooseUs({ dict, lang }: { dict: Dictionary; lang: Locale }) 
 
   return (
     <section className="border-y border-navy/10 bg-white py-24 dark:border-cream/10 dark:bg-navy/30">
-      <div className="container-institutional grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-start">
+      <div className="container-header grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-start">
         <div>
           <motion.span
             initial={entrance ?? { scaleX: 0 }}

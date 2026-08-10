@@ -10,7 +10,7 @@ import { ORGANIZATION } from "@/lib/seo/constants";
 export function LetsConnect({ dict }: { dict: Dictionary }) {
   return (
     <section id="lets-connect" className="bg-cream py-24 dark:bg-navy-dark">
-      <div className="container-institutional grid gap-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)]">
+      <div className="container-header grid gap-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)]">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}

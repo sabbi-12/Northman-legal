@@ -24,7 +24,7 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
 
   return (
     <section className="bg-cream py-24 dark:bg-navy-dark">
-      <div className="container-institutional">
+      <div className="container-header">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <motion.span

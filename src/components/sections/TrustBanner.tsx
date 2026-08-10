@@ -17,7 +17,7 @@ export function TrustBanner({ dict, lang }: { dict: Dictionary; lang: Locale }) 
 
   return (
     <section className="border-y border-navy/10 bg-cream py-24 dark:border-cream/10 dark:bg-navy-dark">
-      <div className="container-institutional text-center">
+      <div className="container-header text-center">
         <motion.p
           initial={entrance ?? { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}

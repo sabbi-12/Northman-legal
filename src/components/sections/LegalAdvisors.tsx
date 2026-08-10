@@ -23,7 +23,7 @@ export function LegalAdvisors({ dict, lang }: { dict: Dictionary; lang: Locale }
 
   return (
     <section className="bg-cream py-24 dark:bg-navy-dark">
-      <div className="container-institutional grid gap-14 lg:grid-cols-2 lg:items-center">
+      <div className="container-header grid gap-14 lg:grid-cols-2 lg:items-center">
         <motion.div
           initial={entrance ?? { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}

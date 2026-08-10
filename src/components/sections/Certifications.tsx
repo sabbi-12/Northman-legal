@@ -13,7 +13,7 @@ export function Certifications({ dict }: { dict: Dictionary }) {
 
   return (
     <section className="border-b border-navy/10 bg-white py-20 dark:border-cream/10 dark:bg-navy/30">
-      <div className="container-institutional text-center">
+      <div className="container-header text-center">
         <motion.span
           initial={entrance ?? { scaleX: 0 }}
           whileInView={{ scaleX: 1 }}

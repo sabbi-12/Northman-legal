@@ -15,7 +15,7 @@ export function EventGallery({ dict }: { dict: Dictionary }) {
 
   return (
     <section id="event-gallery" className="scroll-mt-24 bg-navy py-24 text-cream">
-      <div className="container-institutional text-center">
+      <div className="container-header text-center">
         <h2 className="text-3xl font-medium md:text-4xl">{dict.eventGallery.title}</h2>
       </div>
 

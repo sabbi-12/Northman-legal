@@ -35,7 +35,7 @@ export function LatestInsights({
 
   return (
     <section className="bg-white py-24 dark:bg-navy/20">
-      <div className="container-institutional">
+      <div className="container-header">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <span className="block h-px w-14 origin-left bg-accent rtl:origin-right" aria-hidden="true" />
