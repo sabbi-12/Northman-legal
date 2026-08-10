@@ -688,11 +688,18 @@ this back up tomorrow, start here:
 - [x] Carry over any existing content worth keeping — Terms & Conditions
       full text copied verbatim from WP (see below); the 56 blog posts were
       already migrated to Sanity earlier in the project.
-- [ ] Generate real `og-default-en.jpg` / `og-default-ar.jpg` (1200×630) —
-      currently referenced but absent from `public/images/`.
-- [ ] Fill every blank in `.env.local` for prod (Sanity project ID, SMTP,
-      GTM/GA4/Clarity/HubSpot IDs, revalidate secret) — see
-      `.env.local.example` for the full list.
+- [x] Generate real `og-default-en.jpg` / `og-default-ar.jpg` (1200×630) —
+      done 2026-08-10, see "OG image generation" below for how (and the
+      Windows/`next/og` bug worked around to get there).
+- [~] Fill every blank in `.env.local` for prod — partially done 2026-08-10:
+      Sanity project ID/token were already set; `SANITY_REVALIDATE_SECRET`
+      generated, `SMTP_HOST` confirmed from cPanel
+      (`mail.northmansterling.legal`). Still open: `SMTP_PASS` (user will
+      confirm the mailbox password later), `NEXT_PUBLIC_HUBSPOT_PORTAL_ID`
+      (user is deferring HubSpot setup — "hubspot baad mei set krty hain").
+      GTM/GA4/Clarity: user confirmed no accounts exist yet — left blank,
+      not a blocker (each analytics component already no-ops cleanly when
+      its env var is unset, see `subscribeToConsent` call sites).
 - [ ] Add Search Console verification meta tag.
 - [ ] Decide the Vercel domain/DNS cutover plan (nameserver move vs.
       A/CNAME record) — not yet discussed with the user beyond confirming
@@ -905,6 +912,67 @@ wordmark glyph, since lucide's icon is a generic outline, not the real
 brand mark. Both the clickable and the decorative (Qadri) variant use the
 same `LinkedInGlyph` now — no visual inconsistency between "has a link" and
 "doesn't" beyond color/opacity.
+
+## OG image generation + first pre-launch checklist items closed (2026-08-10)
+
+Started working through the pre-launch checklist for real, in order.
+
+**OG images**: `next/og`'s `ImageResponse` (Next's built-in Satori-based
+generator) crashes unconditionally on this dev machine — importing
+`next/og` at all triggers `@vercel/og`'s bundled default-font loader,
+which builds a malformed `file:` URL and throws `ERR_INVALID_URL` because
+the project's path contains spaces and parentheses
+(`Northman legal next.js\files (4)\...`). Passing custom fonts via the
+`fonts` option didn't help since the crash happens at module-init, before
+any of that code runs. This is a Windows-path bug, not a code bug — it
+would not occur on Vercel's Linux build environment, but it did block
+generating the images locally via that route.
+
+Worked around it entirely: `scripts/generate-og-images.mjs` builds each
+image as an SVG string (brand navy background, radial accent-blue glow,
+the real logo embedded as base64, headline/tagline text) and rasterizes it
+with `sharp` (added as a devDependency, used only by this script) via
+`sharp(Buffer.from(svg)).jpeg(...).toFile(...)`. sharp's librsvg/harfbuzz/
+fribidi stack handles Arabic text shaping correctly, so the `ar` variant
+renders with proper joined glyphs, not tofu/boxes. Wrote both
+`public/images/og-default-en.jpg` and `-ar.jpg` at the exact 1200×630 size
+`[lang]/layout.tsx`'s existing `openGraph.images` metadata already
+references — no metadata code changes needed, just the missing files.
+Re-run the script (`node scripts/generate-og-images.mjs`) if the copy or
+design ever needs to change; it's a one-off generator, not part of the
+build.
+
+**`.env.local` production values — partially filled in.** Sanity project
+ID/dataset/API token were already set from earlier in the project (that's
+why News & Updates already worked in dev). Added this session:
+- `SANITY_REVALIDATE_SECRET` — generated a random 24-byte hex string
+  (`crypto.randomBytes(24).toString("hex")`). **Still needs to be entered
+  as the `Authorization: Bearer <secret>` header value when the Sanity
+  webhook is configured** (sanity.io/manage → API → Webhooks → URL
+  `https://northmansterling.legal/api/revalidate`, filter
+  `_type == "post"` — the exact steps are already documented in
+  `src/app/api/revalidate/route.ts`'s own comment). Not done yet since
+  there's no deployed URL to point the webhook at.
+- `SMTP_HOST` — the user pulled the real value from cPanel's Email
+  Accounts → "Connect Devices" panel: `mail.northmansterling.legal`, port
+  465, confirming the existing `SMTP_PORT`/`SMTP_USER` values in the env
+  file were already correct.
+
+**Still blank, explicitly deferred by the user, not blockers right now:**
+- `SMTP_PASS` — the user doesn't have the `info@northmansterling.legal`
+  mailbox password on hand; they'll confirm it later. Until it's filled
+  in, the contact form and newsletter signup will fail at send-time in
+  production (`mailer.ts` throws if any of `SMTP_HOST`/`USER`/`PASS`/`TO`
+  is missing) — don't forget this before actually launching.
+- `NEXT_PUBLIC_HUBSPOT_PORTAL_ID` — the user has a HubSpot account but
+  said "hubspot baad mei set krty hain" (we'll set up HubSpot later) —
+  deliberately deferred, not forgotten.
+- `NEXT_PUBLIC_GTM_ID`/`GA4_ID`/`CLARITY_ID` — user confirmed none of
+  these accounts exist yet. Left blank on purpose; each analytics
+  component (`GA4.tsx`, `GoogleTagManager.tsx`, `MicrosoftClarity.tsx`)
+  already no-ops cleanly when its env var is unset (checked before the
+  consent-gated `<Script>` even renders), so this is not something that
+  needs revisiting until those accounts actually exist.
 
 ## Conventions to hold the line on
 
