@@ -192,7 +192,7 @@
     "items": [
       { "id": "iso-27001", "name": "ISO 27001 — Information Security Management", "imageSrc": "/images/certifications/iso-27001.png" },
       { "id": "iso-37001", "name": "ISO 37001 — Anti-Bribery Management", "imageSrc": "/images/certifications/iso-37001.png" },
-      { "id": "iso-9001", "name": "ISO 9001:2015 — Quality Management", "imageSrc": "/images/certifications/iso-9001-2015.jpg" }
+      { "id": "iso-9001", "name": "ISO 9001:2015 — Quality Management", "imageSrc": "/images/certifications/iso-9001-2015.png" }
     ]
   },
   "globalPresence": {

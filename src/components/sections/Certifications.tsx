@@ -35,26 +35,27 @@ export function Certifications({ dict }: { dict: Dictionary }) {
           {dict.certifications.subtitle}
         </p>
 
-        <div className="mt-14 flex flex-wrap items-center justify-center divide-x divide-navy/10 dark:divide-cream/10">
+        <div className="mt-14 grid gap-6 sm:grid-cols-3">
           {dict.certifications.items.map((cert, index) => (
             <motion.div
               key={cert.id}
-              initial={entrance ?? { opacity: 0, y: 12 }}
+              initial={entrance ?? { opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: index * 0.08, ease: EASE }}
-              className="flex flex-col items-center gap-3 px-10"
+              className="flex flex-col items-center gap-5 rounded-institutional border border-navy/10 bg-white p-8 shadow-institutional dark:border-cream/10 dark:bg-navy/40 lg:p-10"
             >
-              <div className="relative h-28 w-28 sm:h-32 sm:w-32">
+              <div className="relative h-40 w-40 sm:h-48 sm:w-48">
                 <Image
                   src={cert.imageSrc}
                   alt={cert.name}
                   fill
-                  sizes="128px"
+                  sizes="(min-width: 640px) 192px, 160px"
                   quality={100}
                   className="object-contain"
                 />
               </div>
+              <p className="text-sm font-medium text-slate-dark dark:text-cream">{cert.name}</p>
             </motion.div>
           ))}
         </div>

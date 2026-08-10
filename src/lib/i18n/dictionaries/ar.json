@@ -192,7 +192,7 @@
     "items": [
       { "id": "iso-27001", "name": "أيزو 27001 — إدارة أمن المعلومات", "imageSrc": "/images/certifications/iso-27001.png" },
       { "id": "iso-37001", "name": "أيزو 37001 — إدارة مكافحة الرشوة", "imageSrc": "/images/certifications/iso-37001.png" },
-      { "id": "iso-9001", "name": "أيزو 9001:2015 — إدارة الجودة", "imageSrc": "/images/certifications/iso-9001-2015.jpg" }
+      { "id": "iso-9001", "name": "أيزو 9001:2015 — إدارة الجودة", "imageSrc": "/images/certifications/iso-9001-2015.png" }
     ]
   },
   "globalPresence": {
