@@ -14,7 +14,7 @@ ships if server-rendering would do; no redirect is "close enough"; no visual
 choice undermines an "institutional law firm" register in favor of a
 "tech startup" one.
 
-## Current status (last updated 2026-08-07)
+## Current status (last updated 2026-08-10)
 
 The Next.js 14 App Router scaffold is **already substantially built** —
 this is not a greenfield start. Verified present and wired correctly:
@@ -72,7 +72,7 @@ pre-launch migration data (full WP crawl, real OG images, credentials).
 |---|---|---|---|---|
 | Home | ✅ 2026-08-04, full 10-section brief | ✅ (existing root layout metadata covers it) | Org/LegalService/Attorney (sitewide) | See "Home page build" + "Home page bolder pass" below |
 | About Us | ✅ 2026-08-05, full 10-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide), Core Pillars anchors, FAQPage (pre-existing) | See "About Us page build" below |
-| Contact Us | ✅ 2026-08-05, full 8-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide) | See "Contact Us page build" below |
+| Contact Us | ✅ 2026-08-05, full 8-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide) | See "Contact Us page build" below + "Session 2026-08-10" for the hero photo/`-mt-24` rework and Global Offices trim to KSA-only |
 | Services (replaces Regions in nav) | ✅ 2026-08-05, full 6-section brief | ✅ (title/description updated for new content) | Org/LegalService/Attorney (sitewide) | See "Services page build" below |
 | Services → Corporate Immigration detail | ✅ 2026-08-05 | ✅ | Org/LegalService/Attorney (sitewide) | `/services/corporate-immigration`, "pillars" layout |
 | Services → Company Incorporation detail | ✅ 2026-08-05 | ✅ | Org/LegalService/Attorney (sitewide) | `/services/company-incorporation`, "ksa-guide" layout |
@@ -1049,6 +1049,187 @@ console error**: check `sanity.config.ts`'s `plugins` array first, before
 spending time in browser DevTools — a missing plugin registration fails
 silently by design (no error to catch), unlike almost everything else in
 this codebase which either throws or degrades to a visible fallback.
+
+## Session 2026-08-10: sitemap dedup check, Home page media swaps, Event Gallery rebuild, About Us copy + team template, Navbar rework, Contact Us hero, TopBar/Offices trim
+
+A long, mostly design-iteration session across several pages. In rough order:
+
+**Sitemap duplicate-content check (.com vs .legal).** User asked to compare
+blog posts between `northmansterling.com` and `northmansterling.legal` for
+duplicates. Both are **live WordPress sites** right now, not this Next.js
+rebuild — `.com` has a working `post-sitemap.xml` (56 posts), `.legal`'s
+standard sitemap paths all 404 (consistent with the earlier 2026-08-07 WP
+crawl notes below), so its ~57 posts were crawled from `/news-updates/`
+pagination instead. Found exactly **2 confirmed duplicates** (identical
+slug + verified matching author/date/body via WebFetch, not just slug
+matching): `saudi-arabia-ranks-2nd-best-country-for-expats-a-transformational-journey`
+and `riyadh-to-design-worlds-tallest-sports-tower`. A handful of
+similar-sounding pairs (ETA visa posts, visa-comparison posts) were checked
+by actually reading both articles and confirmed as topically related but
+distinct, not duplicates. **`.legal` being live WordPress right now is
+itself a fact worth flagging before launch** — need to confirm with the
+user whether that's the intentional pre-launch state or whether the
+Next.js build is supposed to already be live somewhere.
+
+**Legal Advisors section (Home) — photo swap + stats moved onto photo.**
+Replaced `/images/about/legal-advisor.png` with a new real photo the user
+supplied, `legal-advisor-ksa.jpg` (gavel + rice on the Saudi flag) in
+`LegalAdvisors.tsx`. Went through several iterations per direct feedback:
+first removed the "35+ Countries / Riyadh / 24-7" stats row entirely along
+with a bottom blur/gradient on the photo, then user asked to bring the
+stats back but **overlaid directly on the photo's blurred bottom band**
+instead of below it as a separate row — implemented as white text with a
+drop-shadow and vertical dividers sitting on top of the gradient, keeping
+the original side-by-side (text left/photo right) layout throughout, never
+switched to stacked.
+
+**Event Gallery rebuilt from scroll-pin to a manual+auto scrollable strip.**
+The previous "sticky stack" scroll-pin effect (see 2026-08-05 entry below)
+was replaced per the user's request for a locale-aware marquee. Went
+through a few architecture changes before landing:
+1. First built a pure CSS `@keyframes` marquee (`animate-marquee-ltr`/`-rtl`
+   in `globals.css`), direction driven by `lang`.
+2. User reported the overlaid title/description text wasn't legible against
+   the real event photos — root-caused to relying on a gradient over
+   arbitrary photo content; fixed by moving the caption onto a **solid
+   `bg-navy` plate below the photo** instead of overlaid on top of it, so
+   contrast no longer depends on what's in each specific photo.
+3. User asked for hover-to-expand-and-read-full-text — added
+   `group-hover/card:line-clamp-none` behavior, with the card's own height
+   growing (not the fixed-aspect photo squashing) via `items-start` on the
+   track instead of stretched-height siblings.
+4. User asked for manual left/right arrows too — since CSS `@keyframes`
+   can't cleanly be "stepped," rebuilt Event Gallery entirely as a native
+   `overflow-x-auto` scroll container (`EventGallery.tsx`) with `scrollBy`-
+   driven prev/next buttons and a `setInterval`-based auto-advance (not
+   continuous `rAF`, which would fight the buttons' own smooth-scroll) that
+   pauses on hover/focus/manual use and resumes after a delay — same
+   "auto-advance + manual override" shape as the existing `Ticker.tsx`.
+5. Arrow **placement bug**: first attempt absolutely positioned the arrows
+   at the container edges with a `-translate-x-1/2`/`translate-x-1/2`
+   straddle, which pushed them half-outside the padded container (and off
+   fully on narrow viewports). Fixed by moving them into normal document
+   flow, right-aligned next to the section heading (`sm:flex`, hidden below
+   `sm` since touch/swipe is the natural mobile interaction there) — no
+   absolute positioning, no transform-based edge-straddle, can't escape the
+   visible container again.
+- Added `eventGallery.previous`/`.next` dictionary keys (EN+AR) for the
+  arrow `aria-label`s; removed the now-dead CSS marquee keyframes and added
+  a small reusable `.scrollbar-hide` utility to `globals.css`.
+
+**About Us copy rewrite, benchmarked against real regional firms.** User
+pushed back twice on an initial copy draft — first for not being
+"humanised/SEO-riched" and using em-dashes, then for not having actually
+cross-checked how established Saudi/GCC firms position themselves. Ran a
+research agent against Al Tamimi & Company, AlGhazzawi & Partners, and
+Zamakhchary & Co.'s real About Us pages (via WebFetch/search, sources cited
+in the agent's own report) before finalizing. **Key finding used**: don't
+compete on Al Tamimi's "largest/leading" superlative axis (not a credible
+claim for this firm's size) — instead follow the AlGhazzawi/Zamakhchary
+pattern of an identity-first, fact-led opener, leading trust signals with
+real verifiable credentials (this firm's ISO 27001/37001/9001 certification
+and notary/POA authorization are genuinely rare at this size and should
+carry the credibility weight instead of adjectives). Rewrote and shipped in
+both EN+AR: **Company Overview** heading/both paragraphs, **What We
+Believe**, **We Embrace Ownership**, **CTA Banner** ("Our Experts!" → "Our
+Legal Team"), and the **Team section intro** (now states the real "35+
+countries" + real named events fact, worded as "represented at" rather than
+implying unverified wins). No em-dashes in any of the new copy. Vision/
+Mission/Purpose, Ownership's bullet list, FAQ, and Office/Registration
+sections were explicitly left untouched (out of scope, factual/legal
+content).
+
+**Team section reset to an empty template.** Per explicit user request, all
+5 team members' `name`/`role`/`location`/`imageSrc`/`linkedinUrl` were
+blanked to empty strings in both dictionaries (real names/photos/LinkedIn
+URLs removed entirely — the user will supply new details later, possibly
+different people). `Team.tsx` now branches on `Boolean(member.name)`: empty
+slots render a dashed-border card with a generic person-icon avatar and
+faint "Name / Role / Location" placeholder labels, instead of a broken
+`<Image src="">` or blank text. Grid stayed at 5 slots, same layout —
+dropping in real data later is a pure content edit, no component changes
+needed. **The user has not yet supplied the new details — this is a
+genuinely empty placeholder state right now, not real content.**
+
+**Navbar: transparent-before-scroll, cream-glass-after, with several
+follow-up passes on the logo treatment.** Multiple rounds of direct
+feedback, in order:
+1. **Base problem**: the real logo (`logo-real.png`) is navy ink with no
+   light/inverted variant. The old navbar was navy-glass with the logo
+   wrapped in a solid cream card (`onDark` prop on `BrandLogo`) to stay
+   legible. User wanted the logo *without* a card and asked to pick a
+   navbar background where it's actually visible instead.
+2. Landed on: navbar **fully transparent before scrolling** (`bg-transparent`,
+   no blur, hero photo shows straight through — this only works cleanly on
+   pages with a navy band directly under the nav, see point 5), all nav
+   text/icons/toggles render **white**; **on scroll past 24px**, navbar
+   becomes the existing blurred cream-glass bar and everything reverts to
+   navy/slate-dark coloring. `scrolled` boolean now also drives this
+   color-scheme swap, not just the height-shrink it already did.
+3. **Header layout recentered**: switched from a 2-group `flex justify-between`
+   to a `grid-cols-[auto_1fr_auto]` — logo fixed-left, nav links
+   (Home/About Us/Services/News & Updates/Contact Us) centered in the
+   flexible middle column, language switcher + dark-mode toggle + mobile
+   menu button fixed-right.
+4. **Logo-visibility treatment went through several iterations** before
+   landing: glow-all-around → straddling white card (user: "don't want a
+   white card") → drop-shadow on the ink itself → back to a positioned
+   glow specifically **beneath** the logo (not surrounding it), sized to
+   actually cover its footprint (`-inset-x-4 -bottom-3 -top-1`, `opacity-95`,
+   `blur-lg`) rather than a thin sliver — each earlier attempt was reported
+   back as "not visible enough" or "not what I meant," so don't assume the
+   current one is final without a live look. Logo size was bumped up twice
+   over the session (46px → 54px → 60px pre-scroll; 34px → 40px → 44px →
+   48px scrolled) per repeated "make it bigger" requests.
+5. **Legal pages exception, real edge case found**: Privacy Policy,
+   Disclaimer, and Terms & Conditions have **no navy band** under the
+   navbar — plain cream page background from the very top. A transparent
+   white-text nav would be unreadable there. Fixed by forcing the navbar
+   into its "scrolled" (light-glass, navy text) state permanently on those
+   3 routes, detected via `pathname` in `Navbar.tsx` (`ALWAYS_LIGHT_NAV_PATHS`)
+   since `Navbar` mounts once sitewide in `[lang]/layout.tsx` with no
+   per-page props — don't add a prop for this without checking that
+   constant first.
+6. Mobile drawer (`bg-navy-dark` solid panel, not glass-over-photo) was
+   deliberately left untouched — still uses the `onDark` cream card, since
+   it's a genuinely solid dark surface, not in conflict with any photo.
+
+**Contact Us hero rebuilt to match Home/Services's `-mt-24` pattern.**
+Previously a flat `bg-navy` band with no photo (per the 2026-08-07 entry
+below, which had deliberately removed the `-mt-24` treatment from Contact
+Us). User asked to bring it back "like home page and service page" — added
+a real photo (`top-view-of-group-business-leader-presenting-infor...jpg`
+from the media folder, copied to `public/images/contact/contact-hero.jpg`,
+chosen since it fits "connect with our team" and wasn't already used
+elsewhere) with the same `-mt-24`/gradient/drop-shadow treatment as
+Services' hero. **This reverses a documented prior decision** — if Contact
+Us's hero looks inconsistent with About Us (which still has no `-mt-24`
+per the 2026-08-07 entry) that's expected right now, not a bug; both were
+deliberate, just from different sessions/instructions.
+
+**TopBar Client Portal link removed, Global Offices trimmed to KSA only.**
+Per explicit request: `TopBar.tsx`'s "Client Portal" button (and its
+`CLIENT_PORTAL_URL` import) is gone — the dictionary label strings
+(`topBar.clientPortal`) still exist as unused data, harmless, not wired to
+anything. `GlobalOffices.tsx`'s office grid (previously 8: UK, KSA, UAE,
+Brussels, Frankfurt, Delhi, Washington, Houston) is now **Saudi Arabia
+only** in both dictionaries — heading changed "Global Offices" → "Our
+Office" (AR: "مكتبنا حول العالم" → "مكتبنا"), grid layout changed from a
+3-column grid to a single centered card (`max-w-md`, no grid-cols) since a
+lone card in a 3-column grid would float awkwardly left.
+
+**Session ended here per user's own sign-off ("that's all for today").**
+Everything above is committed to the working tree but not yet verified
+with a live browser screenshot in this session — this environment had no
+`chromium-cli`/Playwright available, and the local dev server was
+restarted several times (killed stale processes on 3000-3002, cleared a
+corrupted `.next` cache that was throwing an `EINVAL: readlink` error on a
+OneDrive-synced path — a Windows/OneDrive filesystem quirk, not a code
+bug). **Next session should start with a live visual pass** on: the
+Legal Advisors photo/stats overlay, Event Gallery's arrows + hover-expand +
+auto-scroll interplay, the Navbar's white-glow-under-logo strength/size
+(went through 4+ rounds of "not visible"/"not what I meant" without a
+screenshot to confirm against), and the new Contact Us hero photo crop.
 
 ## Conventions to hold the line on
 
