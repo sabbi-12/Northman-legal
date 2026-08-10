@@ -20,8 +20,7 @@ export function GlobalOffices({ dict }: { dict: Dictionary }) {
   return (
     <section className="bg-cream py-24 dark:bg-navy-dark">
       <div className="container-institutional">
-        <span className="mx-auto block h-px w-14 origin-left bg-accent rtl:origin-right" aria-hidden="true" />
-        <h2 className="mt-5 text-center text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
+        <h2 className="text-center text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
           {offices.heading}
         </h2>
 

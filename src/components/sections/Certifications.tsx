@@ -14,20 +14,12 @@ export function Certifications({ dict }: { dict: Dictionary }) {
   return (
     <section className="border-b border-navy/10 bg-white py-20 dark:border-cream/10 dark:bg-navy/30">
       <div className="container-header text-center">
-        <motion.span
-          initial={entrance ?? { scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: EASE }}
-          className="mx-auto block h-px w-14 bg-accent"
-          aria-hidden="true"
-        />
         <motion.h2
           initial={entrance ?? { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
-          className="mt-5 text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream"
+          className="text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream"
         >
           {dict.certifications.title}
         </motion.h2>

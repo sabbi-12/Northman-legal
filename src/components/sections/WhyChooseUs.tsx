@@ -21,20 +21,12 @@ export function WhyChooseUs({ dict, lang }: { dict: Dictionary; lang: Locale }) 
     <section className="border-y border-navy/10 bg-white py-24 dark:border-cream/10 dark:bg-navy/30">
       <div className="container-header grid gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:items-start">
         <div>
-          <motion.span
-            initial={entrance ?? { scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: EASE }}
-            className="block h-px w-14 origin-left bg-accent rtl:origin-right"
-            aria-hidden="true"
-          />
           <motion.h2
             initial={entrance ?? { opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
-            className="mt-5 text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream"
+            className="text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream"
           >
             {dict.whyChooseUs.title}
           </motion.h2>

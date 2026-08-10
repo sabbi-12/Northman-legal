@@ -18,21 +18,12 @@ export function ComplianceHighlights({ dict }: { dict: Dictionary }) {
   return (
     <section className="bg-cream py-24 dark:bg-navy-dark">
       <div className="container-header">
-        <motion.span
-          initial={entrance ?? { scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: EASE }}
-          style={{ transformOrigin: "left" }}
-          className="block h-px w-14 origin-left bg-accent rtl:origin-right"
-          aria-hidden="true"
-        />
         <motion.h2
           initial={entrance ?? { opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
-          className="mt-5 max-w-2xl text-3xl font-medium leading-tight text-slate-dark md:text-4xl dark:text-cream"
+          className="max-w-2xl text-3xl font-medium leading-tight text-slate-dark md:text-4xl dark:text-cream"
         >
           {dict.complianceHighlights.title}
         </motion.h2>

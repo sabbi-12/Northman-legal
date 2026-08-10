@@ -27,15 +27,7 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
       <div className="container-header">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
-            <motion.span
-              initial={entrance ?? { scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, ease: EASE }}
-              className="block h-px w-14 origin-left bg-accent rtl:origin-right"
-              aria-hidden="true"
-            />
-            <h2 className="mt-5 text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
+            <h2 className="text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
               {dict.coreServices.title}
             </h2>
             <p className="mt-4 text-base leading-relaxed text-slate-mid dark:text-cream/70">

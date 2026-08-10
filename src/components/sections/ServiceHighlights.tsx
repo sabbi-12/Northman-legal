@@ -22,8 +22,7 @@ export function ServiceHighlights({ items }: { items: Highlight[] }) {
             transition={{ duration: 0.5, delay: index * 0.1, ease: EASE }}
             className="pt-8 first:pt-0 sm:px-8 sm:pt-0 sm:first:ps-0"
           >
-            <span className="block h-px w-10 bg-accent" aria-hidden="true" />
-            <h3 className="mt-4 text-xl font-medium text-slate-dark dark:text-cream">{item.title}</h3>
+            <h3 className="text-xl font-medium text-slate-dark dark:text-cream">{item.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-slate-mid dark:text-cream/70">
               {item.description}
             </p>

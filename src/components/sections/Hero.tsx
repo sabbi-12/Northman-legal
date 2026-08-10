@@ -45,15 +45,6 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
       />
 
       <div className="container-institutional relative">
-        <motion.span
-          initial={entrance ?? { scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.4, ease: EASE }}
-          style={{ transformOrigin: isRtl ? "right" : "left" }}
-          className="mb-4 block h-px w-14 bg-accent"
-          aria-hidden="true"
-        />
-
         <motion.p
           initial={entrance ?? { opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}

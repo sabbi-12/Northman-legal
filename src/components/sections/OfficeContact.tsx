@@ -16,8 +16,7 @@ export function OfficeContact({ dict }: { dict: Dictionary }) {
   return (
     <section className="bg-white py-24 dark:bg-navy/30">
       <div className="container-institutional">
-        <span className="block h-px w-14 origin-left bg-accent rtl:origin-right" aria-hidden="true" />
-        <h2 className="mt-5 text-2xl font-medium uppercase tracking-wide text-slate-dark md:text-3xl dark:text-cream">
+        <h2 className="text-2xl font-medium uppercase tracking-wide text-slate-dark md:text-3xl dark:text-cream">
           {office.heading}
         </h2>
 

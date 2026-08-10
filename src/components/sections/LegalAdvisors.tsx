@@ -30,8 +30,7 @@ export function LegalAdvisors({ dict, lang }: { dict: Dictionary; lang: Locale }
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE }}
         >
-          <span className="block h-px w-14 origin-left bg-accent rtl:origin-right" aria-hidden="true" />
-          <h2 className="mt-5 text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
+          <h2 className="text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
             {dict.legalAdvisors.title}
           </h2>
           <div className="mt-6 space-y-5">

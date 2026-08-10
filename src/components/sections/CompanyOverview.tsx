@@ -18,20 +18,12 @@ export function CompanyOverview({ dict, lang }: { dict: Dictionary; lang: Locale
   return (
     <section className="bg-white py-24 dark:bg-navy/30">
       <div className="container-institutional max-w-3xl">
-        <motion.span
-          initial={entrance ?? { scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: EASE }}
-          className="block h-px w-14 origin-left bg-accent rtl:origin-right"
-          aria-hidden="true"
-        />
         <motion.p
           initial={entrance ?? { opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.05, ease: EASE }}
-          className="mt-5 text-sm font-semibold uppercase tracking-[0.15em] text-accent"
+          className="text-sm font-semibold uppercase tracking-[0.15em] text-accent"
         >
           {overview.subheading}
         </motion.p>

@@ -26,8 +26,7 @@ export function Team({ dict }: { dict: Dictionary }) {
     <section className="bg-cream py-24 dark:bg-navy-dark">
       <div className="container-institutional">
         <div className="max-w-2xl">
-          <span className="block h-px w-14 origin-left bg-accent rtl:origin-right" aria-hidden="true" />
-          <h2 className="mt-5 text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
+          <h2 className="text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
             {team.heading}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-mid dark:text-cream/70">{team.body}</p>

@@ -16,8 +16,7 @@ export function Ownership({ dict }: { dict: Dictionary }) {
     <section className="bg-cream py-24 dark:bg-navy-dark">
       <div className="container-institutional grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)] lg:items-start">
         <div>
-          <span className="block h-px w-14 origin-left bg-accent rtl:origin-right" aria-hidden="true" />
-          <h2 className="mt-5 text-3xl font-medium leading-tight text-slate-dark md:text-4xl dark:text-cream">
+          <h2 className="text-3xl font-medium leading-tight text-slate-dark md:text-4xl dark:text-cream">
             {ownership.heading}
           </h2>
           <p className="mt-5 text-base leading-relaxed text-slate-mid dark:text-cream/70">{ownership.body}</p>
