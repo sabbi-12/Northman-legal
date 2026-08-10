@@ -20,10 +20,14 @@ const staticRedirects = [
   { source: "/company-incorporation-saudi-arabia/", destination: "/en/services/company-incorporation", permanent: true },
   { source: "/company-incorporation", destination: "/en/services/company-incorporation", permanent: true },
   { source: "/company-incorporation/", destination: "/en/services/company-incorporation", permanent: true },
-  { source: "/corporate-immigration", destination: "/en/services/corporate-immigration", permanent: true },
-  { source: "/corporate-immigration/", destination: "/en/services/corporate-immigration", permanent: true },
-  { source: "/corporate-immigration-2", destination: "/en/services/corporate-immigration", permanent: true },
-  { source: "/corporate-immigration-2/", destination: "/en/services/corporate-immigration", permanent: true },
+  // corporate-immigration's own detail page was retired — immigration is
+  // no longer a service the firm offers (2026-08-10 repositioning). These
+  // legacy WP URLs now land on the general services listing instead of a
+  // now-nonexistent detail page.
+  { source: "/corporate-immigration", destination: "/en/services", permanent: true },
+  { source: "/corporate-immigration/", destination: "/en/services", permanent: true },
+  { source: "/corporate-immigration-2", destination: "/en/services", permanent: true },
+  { source: "/corporate-immigration-2/", destination: "/en/services", permanent: true },
   { source: "/news", destination: "/en/news-updates", permanent: true },
   { source: "/news/", destination: "/en/news-updates", permanent: true },
   { source: "/blog", destination: "/en/news-updates", permanent: true },

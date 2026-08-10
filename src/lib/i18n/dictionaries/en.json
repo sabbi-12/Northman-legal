@@ -61,38 +61,116 @@
     "badges": ["Corporate & Commercial", "Dispute Resolution", "Regulatory Compliance"]
   },
   "coreServices": {
-    "title": "We can help solve all your Legal disputes in Saudi Arabia",
-    "description": "Expertly steering your organization through the intricacies of immigration law and regulations. We focus on streamlining your global workforce mobility with accuracy and operational excellence.",
+    "title": "Legal Services for Businesses Operating in Saudi Arabia",
+    "description": "From company formation to dispute resolution, we provide end-to-end legal support for companies doing business in the Kingdom — combining deep knowledge of Saudi law with the standards of an international practice.",
     "exploreAll": "Explore All",
     "learnMore": "Learn More",
     "items": [
       {
-        "id": "corporate-immigration",
-        "title": "Corporate Immigration",
-        "description": "When it comes to corporate immigration matters, we assist businesses, corporations, and individuals seeking to relocate employees, expand operations internationally, or hire foreign talent needed for international projects while staying compliant with immigration laws and policies. We align immigration strategies with your business goals to optimize talent acquisition and mobility.",
-        "imageSrc": "/images/services/corporate-immigration.png",
-        "imageAlt": "Corporate Immigration icon"
-      },
-      {
         "id": "company-incorporation",
-        "title": "Company Incorporation",
-        "description": "Northman Sterling is dedicated to assisting its global clients at every stage of their company setup journey. We lead companies looking to expand through the entire process of business incorporation and provide guidance on compliance matters, such as corporate registration, licensing, permits, and annual reporting to maintain your business status.",
+        "title": "Company Setup & KSA Market Entry",
+        "subtext": "End-to-end legal support for foreign investors entering the Saudi market, from licensing to full incorporation.",
+        "description": "Northman Sterling guides foreign investors through every stage of Saudi market entry — MISA licensing, entity structuring, and full company incorporation — so your business is registered, licensed, and compliant from day one.",
         "imageSrc": "/images/services/company-incorporation.png",
-        "imageAlt": "Company Incorporation icon"
+        "imageAlt": "Company Setup and KSA Market Entry icon"
       },
       {
-        "id": "outbound-visas",
-        "title": "Outbound Visas",
-        "description": "Northman Sterling offers assistance with immigration matters for the UK, Canada, USA and Australia from the UAE and Saudi Arabia. Depending on our client's choice of visa, they can collaborate with us to procure necessary documents, review application materials for quality assurance prior to submission, and monitor the status and progress of the case.",
-        "imageSrc": "/images/services/outbound-visas.png",
-        "imageAlt": "Outbound Visas icon"
+        "id": "dispute-resolution",
+        "title": "Dispute Resolution",
+        "subtext": "Litigation, arbitration, and mediation before Saudi courts and tribunals.",
+        "description": "We represent clients in commercial disputes before Saudi courts, the SCCA, and international arbitration tribunals — covering litigation, arbitration, and mediation — and support enforcement of judgments and arbitral awards.",
+        "imageAlt": "Dispute resolution icon"
       },
       {
-        "id": "document-attestation",
-        "title": "Document Attestation",
-        "description": "Managing documents effectively is crucial for businesses and organizations to maintain efficiency, compliance, and security. We ensure that you meet all regulatory requirements whether you are a professional, a corporate entity, or a small business, our comprehensive solution is tailored to your specific needs.",
-        "imageSrc": "/images/services/document-attestation.png",
-        "imageAlt": "Document Attestation icon"
+        "id": "real-estate-construction",
+        "title": "Real Estate, Construction & Infrastructure",
+        "subtext": "Legal support across acquisitions, leasing, construction contracts, and major infrastructure projects.",
+        "description": "Our team advises developers, contractors, and investors on real estate acquisitions, leasing, construction contracts, and infrastructure projects across the Kingdom's fast-growing built environment.",
+        "imageAlt": "Real Estate, Construction and Infrastructure icon"
+      },
+      {
+        "id": "employment-law",
+        "title": "Employment Law",
+        "subtext": "Saudi labor law compliance, contracts, Saudization, and workforce disputes.",
+        "description": "We advise employers on Saudi Labor Law compliance, employment contracts, Saudization (Nitaqat) requirements, workplace policies, and the resolution of labor disputes before the Ministry of Human Resources and labor courts.",
+        "imageAlt": "Employment Law icon"
+      },
+      {
+        "id": "intellectual-property",
+        "title": "Intellectual Property",
+        "subtext": "Trademark, patent, and copyright protection and enforcement in Saudi Arabia.",
+        "description": "We register, manage, and enforce trademarks, patents, copyrights, and trade secrets in Saudi Arabia, helping businesses protect their brands and innovations in one of the region's fastest-growing markets.",
+        "imageAlt": "Intellectual Property icon"
+      },
+      {
+        "id": "technology-media-telecom",
+        "title": "Technology, Media & Telecom",
+        "subtext": "Digital, data protection, and TMT regulatory advice for the Kingdom's digital economy.",
+        "description": "We advise technology, media, and telecommunications businesses on data protection under the Personal Data Protection Law (PDPL), digital regulatory compliance, e-commerce, and licensing as Saudi Arabia's digital economy expands.",
+        "imageAlt": "Technology, Media and Telecommunications icon"
+      },
+      {
+        "id": "regulatory-compliance",
+        "title": "Regulatory & Compliance",
+        "subtext": "Licensing, sector-specific regulation, and compliance programs across the Kingdom.",
+        "description": "We help businesses meet Saudi regulatory requirements — including sector-specific licensing, compliance program design, and engagement with Saudi regulators — so you can operate with confidence in the Kingdom.",
+        "imageAlt": "Regulatory and compliance icon"
+      },
+      {
+        "id": "tax",
+        "title": "Tax",
+        "subtext": "Corporate tax, VAT, Zakat, and cross-border tax structuring advice.",
+        "description": "Our tax team advises on corporate income tax, VAT, Zakat obligations, withholding tax, and cross-border structuring, helping businesses remain compliant with ZATCA while optimizing their tax position in Saudi Arabia.",
+        "imageAlt": "Tax icon"
+      },
+      {
+        "id": "restructuring-insolvency",
+        "title": "Restructuring & Insolvency",
+        "subtext": "Financial restructuring, insolvency proceedings, and creditor protection under Saudi law.",
+        "description": "We advise creditors, investors, and distressed businesses on financial restructuring and insolvency proceedings under the Saudi Bankruptcy Law, protecting stakeholder interests through preventive settlement, restructuring, and liquidation processes.",
+        "imageAlt": "Restructuring and Insolvency icon"
+      },
+      {
+        "id": "white-collar-crime",
+        "title": "White-Collar Crime & Investigations",
+        "subtext": "Anti-bribery, fraud, and internal investigations for businesses operating in the Kingdom.",
+        "description": "We advise on anti-bribery and anti-corruption compliance, conduct internal investigations, and represent clients in white-collar criminal matters before Saudi authorities, drawing on our own ISO 37001-certified anti-bribery standards.",
+        "imageAlt": "White-Collar Crime and Investigations icon"
+      },
+      {
+        "id": "competition-antitrust",
+        "title": "Competition & Antitrust",
+        "subtext": "Merger control filings, market dominance reviews, and GAC compliance advice.",
+        "description": "We advise on merger control filings, market dominance and anti-competitive conduct reviews, and compliance with the General Authority for Competition (GAC), helping businesses navigate Saudi Arabia's competition law framework.",
+        "imageAlt": "Competition and Antitrust icon"
+      },
+      {
+        "id": "family-business",
+        "title": "Family Business & Private Client",
+        "subtext": "Succession planning, governance, and private wealth structuring for family-owned enterprises.",
+        "description": "We advise family-owned businesses and high-net-worth individuals on succession planning, family charters, corporate governance, and private wealth structuring, helping preserve legacy across generations.",
+        "imageAlt": "Family Business and Private Client icon"
+      },
+      {
+        "id": "corporate-commercial-ma",
+        "title": "Corporate & Commercial / M&A",
+        "subtext": "Mergers, acquisitions, joint ventures, and commercial contracts across the Kingdom.",
+        "description": "We advise businesses on corporate structuring, mergers and acquisitions, joint ventures, and commercial contracts — helping companies establish, grow, and transact in Saudi Arabia with a solid legal foundation.",
+        "imageAlt": "Corporate and Commercial M&A icon"
+      },
+      {
+        "id": "banking-finance",
+        "title": "Banking & Finance",
+        "subtext": "Financing transactions, Shariah-compliant structures, and lending advice for banks and borrowers.",
+        "description": "We advise banks, lenders, and borrowers on financing transactions, security arrangements, and Shariah-compliant (Islamic finance) structures under the regulatory oversight of the Saudi Central Bank (SAMA).",
+        "imageAlt": "Banking and Finance icon"
+      },
+      {
+        "id": "capital-markets",
+        "title": "Capital Markets",
+        "subtext": "IPOs, debt issuances, and CMA-regulated capital markets transactions.",
+        "description": "We advise issuers, underwriters, and investors on IPOs, debt issuances, and other capital markets transactions regulated by the Capital Market Authority (CMA) and Saudi Exchange (Tadawul).",
+        "imageAlt": "Capital Markets icon"
       }
     ]
   },
@@ -155,7 +233,7 @@
   },
   "firmIdentity": {
     "heading": "Northman Sterling Legal",
-    "body": "Northman Sterling Legal is a division of Northman & Sterling focused on legal services in Saudi Arabia as a registered law firm."
+    "body": "Northman Sterling Legal is a registered law firm focused on legal services in Saudi Arabia."
   },
   "newsletter": {
     "title": "Subscribe to our Newsletter",
@@ -224,7 +302,7 @@
     "intro": "Northman Sterling Legal is a registered law firm in Saudi Arabia, providing legal advisory and compliance services for enterprises and individuals operating in the Kingdom.",
     "companyOverview": {
       "subheading": "About Our Company",
-      "heading": "Northman & Sterling is the Leading Provider of Legal Advisory & Compliance Services in Saudi Arabia",
+      "heading": "Northman Sterling Legal is the Leading Provider of Legal Advisory & Compliance Services in Saudi Arabia",
       "paragraphs": [
         "We assist companies operating and expanding in Saudi Arabia by managing their legal and compliance requirements. We ensure businesses remain aligned with Saudi regulations while focusing on growth and operational efficiency.",
         "Our team assists with legal documentation, regulatory approvals, and risk management, making corporate expansion in the Kingdom structured and secure."
@@ -259,7 +337,7 @@
     },
     "team": {
       "heading": "Global Team, Local Expertise",
-      "body": "At Northman & Sterling, our experts are committed to understanding your unique goals and simplifying the immigration process. With a global presence, we deliver strategic solutions and comprehensive support for your business.",
+      "body": "At Northman Sterling Legal, our experts are committed to understanding your unique goals and simplifying the immigration process. With a global presence, we deliver strategic solutions and comprehensive support for your business.",
       "members": [
         { "name": "Murtaza Shah", "role": "Partner - EMEA Region", "location": "London, UK", "imageSrc": "/images/team/murtaza-shah.png", "linkedinUrl": "https://www.linkedin.com/in/shahmurtaza/" },
         { "name": "Manisha Gami", "role": "Manager - Global Immigration", "location": "Dubai, UAE", "imageSrc": "/images/team/manisha-gami.png", "linkedinUrl": "https://www.linkedin.com/in/manisha-gami-23903b154/" },
@@ -317,90 +395,14 @@
     ]
   },
   "serviceDetails": {
-    "corporate-immigration": {
-      "layout": "pillars",
-      "title": "Corporate Immigration",
-      "intro": "Expert guidance on corporate immigration policy, compliance, visas, and tracking for organizations relocating and managing a global workforce.",
-      "imageSrc": "/images/services/corporate-immigration-hero.jpg",
-      "imageAlt": "A passport and a toy airplane on a two-tone background, representing corporate immigration and travel",
-      "solutions": {
-        "heading": "Immigration Solutions",
-        "pillars": [
-          {
-            "id": "consultation",
-            "title": "Consultation",
-            "description": "We offer expert advice on immigration policies, procedures, and regulations, helping individuals and organizations understand their options and requirements.",
-            "items": [
-              "Immigration Policy Consultation of different countries and regions",
-              "Document and Visa Consultation",
-              "Immigration Planning including timelines and required steps",
-              "Visa Eligibility Assessment for specific visas and immigration programs",
-              "Immigration Options Analysis"
-            ]
-          },
-          {
-            "id": "compliance",
-            "title": "Compliance",
-            "description": "We ensure maintaining compliance with immigration regulations, including work permits and visa renewals.",
-            "items": [
-              "Validating the authenticity and accuracy of immigration-related documents",
-              "Regulatory Updates",
-              "Compliance Audits",
-              "Protect sensitive immigration-related data and ensure data privacy compliance",
-              "Risk mitigation related to non-compliance with immigration laws"
-            ]
-          },
-          {
-            "id": "visas",
-            "title": "Visas",
-            "description": "We offer assistance for a wide array of visa and work permit applications and related services, such as:",
-            "cards": [
-              "Applications for permanent residency and citizenship",
-              "Consular services and cross-border assistance",
-              "Document procurement and authentication services",
-              "Support tailored for private clients"
-            ]
-          },
-          {
-            "id": "tracking",
-            "title": "Tracking and Reporting",
-            "description": "Our exclusive tracking tools keep a close watch on your visa applicants, delivering valuable insights:",
-            "items": [
-              "Monitoring work permit and visa expiration, tracking, and renewal",
-              "Tracking business travelers",
-              "Providing a management dashboard with analytics"
-            ]
-          }
-        ]
-      },
-      "distinctApproach": {
-        "heading": "How Our Distinct Approach Benefits You",
-        "body": "When it comes to immigration, it's not just about relocating people across borders; it's about skillfully navigating the challenges of visas, permits, and cross-border compliance. Our unwavering focus, both in our people and our expertise, is dedicated to assisting you with all your mobility requirements, including immigration."
-      },
-      "highlights": [
-        {
-          "title": "Team Presence",
-          "description": "With a global presence, our operations span time zones around the world. Wherever you are located and whatever time zone you're in, you can count on us to have experts available who understand your immigration needs."
-        },
-        {
-          "title": "Adaptability and Swiftness",
-          "description": "Our teams are designed for speed. In the face of sudden global events that demand rapid action, we can swiftly assemble specialized teams to respond. Our independence from regulatory constraints enables us to act promptly and establish innovative practices as the situation requires."
-        },
-        {
-          "title": "A Global Perspective",
-          "description": "We take pride in being at the forefront of the industry, offering valuable insights into immigration trends and their broader implications in the field of global mobility."
-        }
-      ],
-      "cta": "Get in touch"
-    },
     "company-incorporation": {
       "layout": "ksa-guide",
       "title": "Company Incorporation Saudi Arabia",
-      "intro": "A guide to establishing a business in Saudi Arabia with Northman & Sterling — legal entity types, foreign ownership rules, and the incorporation timeline.",
+      "intro": "A guide to establishing a business in Saudi Arabia with Northman Sterling Legal — legal entity types, foreign ownership rules, and the incorporation timeline.",
       "heroImageSrc": "/images/services/ksa-flag-banner.jpg",
       "quoteIntro": {
-        "heading": "Establishing a Business in Saudi Arabia with Northman & Sterling",
-        "body": "Expanding your business to Saudi Arabia offers exciting opportunities. Northman & Sterling provides options for establishing your business with different legal entity types. Here's a simplified overview to help you decide:",
+        "heading": "Establishing a Business in Saudi Arabia with Northman Sterling Legal",
+        "body": "Expanding your business to Saudi Arabia offers exciting opportunities. Northman Sterling Legal provides options for establishing your business with different legal entity types. Here's a simplified overview to help you decide:",
         "cta": "Request a Quote",
         "imageSrc": "/images/services/riyadh-towers.jpg",
         "imageAlt": "The Kingdom Centre tower under a evening sky among Riyadh's skyline"
@@ -423,7 +425,7 @@
         "heading": "Why Saudi?",
         "paragraphs": [
           "Saudi Arabia has recently undergone significant economic reforms, resulting in increased opportunities for foreign investment. The country's rich natural resources, including oil and minerals, make it a prime location for businesses to thrive. In addition, the government's efforts to open up the economy and attract international investment further enhance the attractiveness of Saudi Arabia as a destination for business ventures.",
-          "Northman & Sterling is a company that has been serving the region for over 10 years, offering a range of services to support the establishment of businesses in Saudi Arabia. Our 360 degree service delivery model covers all aspects of the process, from the initial formation of the company to post-launch business support. With a wealth of experience and a comprehensive approach, Northman & Sterling is well-equipped to guide investors through the journey of setting up a business in Saudi Arabia. Whether you are a seasoned investor or new to the market, Northman & Sterling can provide the expert assistance and support you need to succeed in the thriving business environment of Saudi Arabia."
+          "Northman Sterling Legal is a company that has been serving the region for over 10 years, offering a range of services to support the establishment of businesses in Saudi Arabia. Our 360 degree service delivery model covers all aspects of the process, from the initial formation of the company to post-launch business support. With a wealth of experience and a comprehensive approach, Northman Sterling Legal is well-equipped to guide investors through the journey of setting up a business in Saudi Arabia. Whether you are a seasoned investor or new to the market, Northman Sterling Legal can provide the expert assistance and support you need to succeed in the thriving business environment of Saudi Arabia."
         ]
       },
       "ownership": {
@@ -473,7 +475,7 @@
             ],
             "recommendedPractices": [
               "Seek tax and corporate structuring advice",
-              "Engage Northman & Sterling for compliance guidance",
+              "Engage Northman Sterling Legal for compliance guidance",
               "Appoint an auditor post company formation"
             ]
           },
@@ -561,59 +563,713 @@
       },
       "finalCallout": {
         "heading": "Set up Business in KSA",
-        "body": "For comprehensive guidance and support in establishing your business in Saudi Arabia, reach out to Northman & Sterling. Our expert consultants will ensure your business meets all current regulations and assist you in navigating the setup process seamlessly.",
+        "body": "For comprehensive guidance and support in establishing your business in Saudi Arabia, reach out to Northman Sterling Legal. Our expert consultants will ensure your business meets all current regulations and assist you in navigating the setup process seamlessly.",
         "cta": "Request Quote",
         "imageSrc": "/images/services/company-formation-cta.png",
         "imageAlt": "Official corporate licensing and document signing for a company formation in Saudi Arabia"
       }
+    },
+    "dispute-resolution": {
+      "layout": "simple",
+      "title": "Dispute Resolution Lawyers in Saudi Arabia",
+      "intro": "Northman Sterling represents businesses in commercial litigation, arbitration, and mediation before Saudi courts and tribunals, protecting your interests from the first notice of dispute through to enforcement.",
+      "sections": [
+        {
+          "heading": "Commercial Litigation Before Saudi Courts",
+          "body": "We represent local and international businesses in commercial disputes before the Saudi commercial courts and specialized tribunals, including contract disputes, shareholder disputes, and claims arising from construction, distribution, and agency agreements.",
+          "items": [
+            "Contract and commercial disputes",
+            "Shareholder and joint venture disputes",
+            "Construction and agency claims",
+            "Debt recovery and enforcement actions"
+          ]
+        },
+        {
+          "heading": "Arbitration & Mediation",
+          "body": "Where contracts provide for arbitration, we represent clients before the Saudi Center for Commercial Arbitration (SCCA) and international arbitral institutions, and advise on drafting effective dispute resolution clauses at the contracting stage. We also support commercial mediation as a faster, lower-cost alternative to litigation.",
+          "items": [
+            "SCCA and international arbitration representation",
+            "Arbitration clause drafting and strategy",
+            "Commercial mediation and settlement negotiation"
+          ]
+        },
+        {
+          "heading": "Enforcement of Judgments & Arbitral Awards",
+          "body": "Winning a case is only half the outcome — we support clients through the enforcement of Saudi court judgments and both domestic and foreign arbitral awards, including recognition proceedings under Saudi Arabia's accession to the New York Convention."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "Court & Tribunal Experience",
+          "description": "Direct experience before Saudi commercial courts, labor courts, and the SCCA."
+        },
+        {
+          "title": "Cross-Border Enforcement",
+          "description": "Recognition and enforcement of foreign arbitral awards under the New York Convention."
+        },
+        {
+          "title": "Commercial Focus",
+          "description": "Dispute strategy built around your commercial objectives, not litigation for its own sake."
+        }
+      ],
+      "cta": "Discuss Your Dispute"
+    },
+    "real-estate-construction": {
+      "layout": "simple",
+      "title": "Real Estate, Construction & Infrastructure Lawyers",
+      "intro": "We advise developers, contractors, investors, and lenders on real estate transactions, construction contracts, and infrastructure projects across Saudi Arabia's fast-growing built environment.",
+      "sections": [
+        {
+          "heading": "Real Estate Acquisitions & Leasing",
+          "body": "We advise on the acquisition, sale, and leasing of commercial and residential real estate in Saudi Arabia, including due diligence, title verification, and foreign ownership restrictions relevant to real estate transactions.",
+          "items": [
+            "Property acquisition and disposal",
+            "Commercial and residential leasing",
+            "Title and regulatory due diligence"
+          ]
+        },
+        {
+          "heading": "Construction Contracts & Disputes",
+          "body": "Our team drafts and negotiates construction contracts (including FIDIC-based forms), advises on project risk allocation, and represents clients in disputes arising from delay, defects, and payment claims on construction and EPC projects.",
+          "items": [
+            "FIDIC and bespoke construction contracts",
+            "Delay, defect, and payment disputes",
+            "EPC and subcontractor agreements"
+          ]
+        },
+        {
+          "heading": "Infrastructure & Giga-Project Support",
+          "body": "As Saudi Arabia's Vision 2030 giga-projects continue to expand, we support contractors, subcontractors, and investors on infrastructure procurement, PPP structuring, and regulatory approvals tied to major development zones."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "Vision 2030 Alignment",
+          "description": "Advisory experience aligned with Saudi Arabia's giga-project and infrastructure expansion."
+        },
+        {
+          "title": "Full Project Lifecycle",
+          "description": "Support from acquisition and contracting through to dispute resolution."
+        },
+        {
+          "title": "Local Regulatory Knowledge",
+          "description": "Direct familiarity with Saudi real estate and construction regulation."
+        }
+      ],
+      "cta": "Speak With Our Lawyers"
+    },
+    "employment-law": {
+      "layout": "simple",
+      "title": "Employment Law Services in Saudi Arabia",
+      "intro": "We advise employers on Saudi Labor Law compliance, employment contracts, Saudization requirements, and the resolution of workforce disputes.",
+      "sections": [
+        {
+          "heading": "Employment Contracts & Policies",
+          "body": "We draft and review employment contracts, workplace policies, and HR handbooks compliant with the Saudi Labor Law, covering probation, termination, end-of-service benefits, and non-compete provisions.",
+          "items": [
+            "Employment contracts and offer letters",
+            "HR policies and workplace handbooks",
+            "End-of-service benefits and termination"
+          ]
+        },
+        {
+          "heading": "Saudization (Nitaqat) & Workforce Planning",
+          "body": "We advise businesses on Saudization requirements under the Nitaqat program, work permit and Iqama processes for foreign employees, and workforce planning strategies to remain compliant with Ministry of Human Resources and Social Development (MHRSD) targets.",
+          "items": [
+            "Nitaqat compliance strategy",
+            "Iqama and work permit coordination",
+            "Workforce localization planning"
+          ]
+        },
+        {
+          "heading": "Labor Disputes & Terminations",
+          "body": "We represent employers in labor disputes before the MHRSD and Saudi labor courts, including wrongful termination claims, wage disputes, and disciplinary matters, aiming to resolve disputes efficiently while protecting the business."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "Nitaqat Expertise",
+          "description": "Practical guidance on Saudization compliance for businesses of every size."
+        },
+        {
+          "title": "Preventive Advisory",
+          "description": "Well-drafted contracts and policies that reduce the risk of disputes before they start."
+        },
+        {
+          "title": "Labor Court Representation",
+          "description": "Direct experience representing employers before Saudi labor authorities and courts."
+        }
+      ],
+      "cta": "Speak With Our Lawyers"
+    },
+    "intellectual-property": {
+      "layout": "simple",
+      "title": "Intellectual Property Lawyers in Saudi Arabia",
+      "intro": "We help businesses register, manage, and enforce trademarks, patents, copyrights, and trade secrets in Saudi Arabia and across the region.",
+      "sections": [
+        {
+          "heading": "Trademark & Patent Registration",
+          "body": "We handle trademark filings and prosecution before the Saudi Authority for Intellectual Property (SAIP), patent applications, and IP portfolio management for businesses entering or expanding in the Saudi market.",
+          "items": [
+            "Trademark search, filing, and prosecution",
+            "Patent applications and portfolio management",
+            "IP due diligence for transactions"
+          ]
+        },
+        {
+          "heading": "Copyright & Trade Secret Protection",
+          "body": "We advise on copyright registration and protection for creative and software works, and help businesses protect confidential information and trade secrets through contractual and regulatory measures.",
+          "items": [
+            "Copyright registration and licensing",
+            "Confidentiality and trade secret agreements",
+            "Software and digital content protection"
+          ]
+        },
+        {
+          "heading": "IP Enforcement & Anti-Counterfeiting",
+          "body": "When rights are infringed, we act quickly — pursuing enforcement action before SAIP and Saudi courts, coordinating anti-counterfeiting measures, and negotiating settlements to protect brand value and innovation."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "SAIP Filing Experience",
+          "description": "Direct experience filing and prosecuting IP rights before the Saudi Authority for Intellectual Property."
+        },
+        {
+          "title": "Regional Coverage",
+          "description": "IP protection strategies that extend across Saudi Arabia and the wider GCC."
+        },
+        {
+          "title": "Enforcement-Ready",
+          "description": "Practical enforcement action when your rights are infringed, not just registration paperwork."
+        }
+      ],
+      "cta": "Protect Your IP"
+    },
+    "technology-media-telecom": {
+      "layout": "simple",
+      "title": "Technology, Media & Telecom (TMT) Lawyers",
+      "intro": "We advise technology, media, and telecommunications businesses on data protection, digital regulation, and TMT-specific commercial matters as Saudi Arabia's digital economy expands.",
+      "sections": [
+        {
+          "heading": "Data Protection & PDPL Compliance",
+          "body": "We advise businesses on compliance with Saudi Arabia's Personal Data Protection Law (PDPL), including data processing agreements, cross-border data transfer requirements, and data breach response.",
+          "items": [
+            "PDPL compliance programs",
+            "Data processing and transfer agreements",
+            "Data breach response and notification"
+          ]
+        },
+        {
+          "heading": "Technology & E-Commerce Contracts",
+          "body": "Our team drafts and negotiates software licensing, SaaS agreements, e-commerce terms, and technology services contracts, and advises on regulatory requirements for digital platforms operating in Saudi Arabia.",
+          "items": [
+            "Software and SaaS licensing agreements",
+            "E-commerce platform terms and compliance",
+            "Cloud services and outsourcing contracts"
+          ]
+        },
+        {
+          "heading": "Telecom & Media Regulatory Advice",
+          "body": "We advise telecommunications and media businesses on licensing requirements before the Communications, Space & Technology Commission (CST), content regulation, and sector-specific compliance obligations."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "PDPL Ready",
+          "description": "Practical, compliance-first approach to Saudi Arabia's Personal Data Protection Law."
+        },
+        {
+          "title": "Digital Economy Focus",
+          "description": "Advisory built for the pace of technology, media, and e-commerce businesses."
+        },
+        {
+          "title": "Regulator Engagement",
+          "description": "Direct experience engaging with CST and other digital-sector regulators."
+        }
+      ],
+      "cta": "Speak With Our Lawyers"
+    },
+    "regulatory-compliance": {
+      "layout": "simple",
+      "title": "Regulatory & Compliance Advisory in Saudi Arabia",
+      "intro": "We help businesses meet Saudi regulatory requirements across licensing, sector-specific regulation, and compliance program design, so you can operate with confidence in the Kingdom.",
+      "sections": [
+        {
+          "heading": "Licensing & Regulatory Approvals",
+          "body": "We guide businesses through sector-specific licensing requirements and approvals from Saudi regulators, including MISA, municipal authorities, and industry-specific bodies, streamlining the path to operate compliantly.",
+          "items": [
+            "Sector-specific licensing and permits",
+            "Regulator liaison and approvals",
+            "Ongoing compliance monitoring"
+          ]
+        },
+        {
+          "heading": "Compliance Program Design",
+          "body": "We design and implement compliance programs tailored to your industry and risk profile, covering policies, training, and internal controls aligned with Saudi regulatory expectations.",
+          "items": [
+            "Compliance policy design and rollout",
+            "Internal controls and risk assessments",
+            "Staff training and compliance audits"
+          ]
+        },
+        {
+          "heading": "Regulatory Investigations & Enforcement",
+          "body": "When regulators raise concerns, we represent businesses in regulatory inquiries and enforcement proceedings, working to resolve matters efficiently while protecting your license to operate."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "Sector Depth",
+          "description": "Regulatory experience across multiple industries operating in Saudi Arabia."
+        },
+        {
+          "title": "ISO-Certified Standards",
+          "description": "Our own compliance framework is backed by ISO 27001, 37001, and 9001:2015 certification."
+        },
+        {
+          "title": "Proactive Approach",
+          "description": "Compliance programs designed to prevent issues, not just respond to them."
+        }
+      ],
+      "cta": "Speak With Our Lawyers"
+    },
+    "tax": {
+      "layout": "simple",
+      "title": "Tax Lawyers in Saudi Arabia",
+      "intro": "We advise businesses on corporate tax, VAT, Zakat, and cross-border tax structuring, helping you remain compliant with ZATCA while managing your overall tax position in Saudi Arabia.",
+      "sections": [
+        {
+          "heading": "Corporate Tax, VAT & Zakat",
+          "body": "We advise on corporate income tax obligations, VAT registration and compliance, and Zakat calculations for Saudi and GCC-owned entities, helping businesses meet their filing obligations with the Zakat, Tax and Customs Authority (ZATCA).",
+          "items": [
+            "Corporate income tax advisory",
+            "VAT registration and compliance",
+            "Zakat assessment and filing support"
+          ]
+        },
+        {
+          "heading": "Cross-Border Tax Structuring",
+          "body": "For businesses operating across multiple jurisdictions, we advise on withholding tax, transfer pricing considerations, and tax-efficient structuring of cross-border transactions and investments into Saudi Arabia.",
+          "items": [
+            "Withholding tax advisory",
+            "Transfer pricing considerations",
+            "Cross-border investment structuring"
+          ]
+        },
+        {
+          "heading": "Tax Disputes & ZATCA Engagement",
+          "body": "We represent clients in tax assessments, objections, and disputes with ZATCA, working to resolve matters efficiently and minimize financial and reputational exposure."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "ZATCA Experience",
+          "description": "Direct experience engaging with Saudi Arabia's tax and customs authority."
+        },
+        {
+          "title": "Cross-Border Focus",
+          "description": "Tax structuring built for businesses operating across multiple jurisdictions."
+        },
+        {
+          "title": "Commercially Aware",
+          "description": "Tax advice integrated with your broader corporate and commercial strategy."
+        }
+      ],
+      "cta": "Speak With Our Lawyers"
+    },
+    "restructuring-insolvency": {
+      "layout": "simple",
+      "title": "Restructuring & Insolvency Lawyers",
+      "intro": "We advise creditors, investors, and distressed businesses on financial restructuring and insolvency proceedings under the Saudi Bankruptcy Law.",
+      "sections": [
+        {
+          "heading": "Financial Restructuring",
+          "body": "We advise financially distressed businesses and their creditors on out-of-court restructuring, debt renegotiation, and preventive settlement procedures under the Saudi Bankruptcy Law, aiming to preserve business value wherever possible.",
+          "items": [
+            "Out-of-court debt restructuring",
+            "Preventive settlement procedures",
+            "Creditor negotiations"
+          ]
+        },
+        {
+          "heading": "Insolvency & Liquidation Proceedings",
+          "body": "Where formal proceedings are necessary, we guide clients through financial reorganization and liquidation processes under the Bankruptcy Law, representing both debtors and creditors in Saudi bankruptcy proceedings.",
+          "items": [
+            "Financial reorganization proceedings",
+            "Liquidation and asset realization",
+            "Creditor committee representation"
+          ]
+        },
+        {
+          "heading": "Creditor & Investor Protection",
+          "body": "We advise lenders and investors on protecting their position in distressed situations, including security enforcement, priority of claims, and cross-border recognition of insolvency proceedings."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "Bankruptcy Law Expertise",
+          "description": "Direct experience under Saudi Arabia's modern Bankruptcy Law framework."
+        },
+        {
+          "title": "Both Sides of the Table",
+          "description": "Advisory experience representing both distressed businesses and their creditors."
+        },
+        {
+          "title": "Value Preservation",
+          "description": "A restructuring-first approach that looks to preserve business value before liquidation."
+        }
+      ],
+      "cta": "Speak With Our Lawyers"
+    },
+    "white-collar-crime": {
+      "layout": "simple",
+      "title": "White-Collar Crime & Investigations",
+      "intro": "We advise on anti-bribery and anti-corruption compliance, conduct internal investigations, and represent clients in white-collar criminal matters before Saudi authorities.",
+      "sections": [
+        {
+          "heading": "Anti-Bribery & Anti-Corruption Compliance",
+          "body": "We design and implement anti-bribery and anti-corruption compliance programs aligned with Saudi law and international standards, drawing on our own ISO 37001-certified anti-bribery management system.",
+          "items": [
+            "Anti-bribery policy design",
+            "Third-party and agent due diligence",
+            "Compliance training programs"
+          ]
+        },
+        {
+          "heading": "Internal Investigations",
+          "body": "We conduct independent internal investigations into allegations of fraud, bribery, and misconduct, helping businesses respond promptly, protect privilege, and take appropriate remedial action.",
+          "items": [
+            "Fraud and misconduct investigations",
+            "Whistleblower complaint handling",
+            "Remedial action and reporting"
+          ]
+        },
+        {
+          "heading": "White-Collar Defense",
+          "body": "Where matters escalate, we represent individuals and businesses in white-collar criminal proceedings before Saudi authorities, working to protect our clients' interests and reputation throughout the process."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "ISO 37001 Certified",
+          "description": "Our own anti-bribery management system is independently certified to ISO 37001."
+        },
+        {
+          "title": "Discreet & Independent",
+          "description": "Internal investigations conducted with independence and appropriate confidentiality."
+        },
+        {
+          "title": "Authority Experience",
+          "description": "Direct experience engaging with Saudi investigative and enforcement authorities."
+        }
+      ],
+      "cta": "Speak With Our Lawyers"
+    },
+    "competition-antitrust": {
+      "layout": "simple",
+      "title": "Competition & Antitrust Lawyers in Saudi Arabia",
+      "intro": "We advise on merger control filings, market dominance reviews, and compliance with the General Authority for Competition (GAC), helping businesses navigate Saudi Arabia's competition law framework.",
+      "sections": [
+        {
+          "heading": "Merger Control & Filings",
+          "body": "We advise on the competition law implications of mergers, acquisitions, and joint ventures in Saudi Arabia, including merger notification thresholds and preparing filings before the General Authority for Competition (GAC).",
+          "items": [
+            "Merger notification assessments",
+            "GAC filing preparation and submission",
+            "Deal timing and closing conditions"
+          ]
+        },
+        {
+          "heading": "Market Dominance & Conduct Reviews",
+          "body": "We advise businesses on avoiding anti-competitive conduct, including abuse of market dominance, restrictive agreements, and pricing practices, helping clients structure commercial arrangements that hold up to regulatory scrutiny.",
+          "items": [
+            "Market dominance risk assessments",
+            "Distribution and pricing agreement review",
+            "Competition compliance training"
+          ]
+        },
+        {
+          "heading": "GAC Investigations & Enforcement",
+          "body": "Where the GAC opens an inquiry, we represent businesses through the investigation process, working to resolve competition concerns while protecting our clients' commercial position."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "GAC Experience",
+          "description": "Direct experience filing before and engaging with Saudi Arabia's competition regulator."
+        },
+        {
+          "title": "Deal-Ready Advice",
+          "description": "Merger control advice built around real transaction timelines."
+        },
+        {
+          "title": "Practical Compliance",
+          "description": "Competition compliance guidance that fits how your business actually operates."
+        }
+      ],
+      "cta": "Speak With Our Lawyers"
+    },
+    "family-business": {
+      "layout": "simple",
+      "title": "Family Business & Private Client Advisory",
+      "intro": "We advise family-owned businesses and high-net-worth individuals on succession planning, governance, and private wealth structuring, helping preserve legacy across generations.",
+      "sections": [
+        {
+          "heading": "Succession Planning",
+          "body": "We help family business owners plan for leadership and ownership transitions, structuring succession arrangements that reduce the risk of disputes and protect the business through generational change.",
+          "items": [
+            "Succession structuring and planning",
+            "Shareholder and family agreements",
+            "Dispute prevention between family members"
+          ]
+        },
+        {
+          "heading": "Governance & Family Charters",
+          "body": "We advise on establishing family charters, governance frameworks, and family council structures that separate family and business decision-making, supporting long-term stability as the business and family grow.",
+          "items": [
+            "Family charter drafting",
+            "Family council and governance structures",
+            "Roles and decision-making frameworks"
+          ]
+        },
+        {
+          "heading": "Private Wealth Structuring",
+          "body": "For high-net-worth individuals and families, we advise on private wealth structuring, including holding company structures and asset protection arrangements appropriate under Saudi law."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "Generational Perspective",
+          "description": "Advisory built around the long-term interests of the family, not just the current transaction."
+        },
+        {
+          "title": "Discreet Advisory",
+          "description": "Sensitive family and ownership matters handled with appropriate discretion."
+        },
+        {
+          "title": "Governance Focus",
+          "description": "Practical governance structures that keep family businesses stable through transition."
+        }
+      ],
+      "cta": "Speak With Our Lawyers"
+    },
+    "corporate-commercial-ma": {
+      "layout": "simple",
+      "title": "Corporate & Commercial / M&A Lawyers",
+      "intro": "We advise businesses on corporate structuring, mergers and acquisitions, joint ventures, and commercial contracts — helping companies establish, grow, and transact in Saudi Arabia with a solid legal foundation.",
+      "sections": [
+        {
+          "heading": "Mergers & Acquisitions",
+          "body": "We advise buyers, sellers, and investors on the full M&A process in Saudi Arabia, including due diligence, transaction structuring, negotiation, and regulatory approvals for share and asset acquisitions.",
+          "items": [
+            "Buy-side and sell-side due diligence",
+            "Transaction structuring and negotiation",
+            "Regulatory approvals and closing"
+          ]
+        },
+        {
+          "heading": "Joint Ventures & Corporate Structuring",
+          "body": "We structure joint ventures and corporate arrangements between local and foreign partners, drafting shareholder agreements and governance frameworks that reflect each partner's commercial interests.",
+          "items": [
+            "Joint venture structuring and agreements",
+            "Shareholder and governance arrangements",
+            "Corporate reorganizations"
+          ]
+        },
+        {
+          "heading": "Commercial Contracts",
+          "body": "We draft and negotiate the commercial contracts that keep a business running — supply, distribution, agency, and services agreements — with terms that protect your position under Saudi law."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "Full Transaction Support",
+          "description": "From due diligence through to closing and post-completion integration."
+        },
+        {
+          "title": "Local & Cross-Border",
+          "description": "Experience structuring both domestic Saudi deals and cross-border transactions."
+        },
+        {
+          "title": "Commercially Grounded",
+          "description": "Contract drafting that reflects how the deal actually needs to work in practice."
+        }
+      ],
+      "cta": "Speak With Our Lawyers"
+    },
+    "banking-finance": {
+      "layout": "simple",
+      "title": "Banking & Finance Lawyers in Saudi Arabia",
+      "intro": "We advise banks, lenders, and borrowers on financing transactions and Shariah-compliant structures under the regulatory oversight of the Saudi Central Bank (SAMA).",
+      "sections": [
+        {
+          "heading": "Financing Transactions",
+          "body": "We advise lenders and borrowers on structuring, negotiating, and documenting financing transactions, including corporate loans, project finance, and syndicated facilities in the Saudi market.",
+          "items": [
+            "Corporate and project finance",
+            "Syndicated loan facilities",
+            "Security and guarantee arrangements"
+          ]
+        },
+        {
+          "heading": "Islamic (Shariah-Compliant) Finance",
+          "body": "We structure Shariah-compliant financing arrangements, including Murabaha, Ijara, and Sukuk-based structures, for clients seeking financing that complies with Islamic finance principles alongside conventional facilities.",
+          "items": [
+            "Murabaha and Ijara structuring",
+            "Sukuk issuances",
+            "Shariah-compliant security structures"
+          ]
+        },
+        {
+          "heading": "SAMA Regulatory Compliance",
+          "body": "We advise banks and financial institutions on compliance with Saudi Central Bank (SAMA) regulations, licensing requirements, and prudential obligations relevant to their Saudi operations."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "Conventional & Islamic Finance",
+          "description": "Experience structuring both conventional and Shariah-compliant financing."
+        },
+        {
+          "title": "SAMA-Aware",
+          "description": "Advisory grounded in the Saudi Central Bank's regulatory framework."
+        },
+        {
+          "title": "Lender & Borrower Experience",
+          "description": "Perspective from both sides of the financing table."
+        }
+      ],
+      "cta": "Speak With Our Lawyers"
+    },
+    "capital-markets": {
+      "layout": "simple",
+      "title": "Capital Markets Lawyers in Saudi Arabia",
+      "intro": "We advise issuers, underwriters, and investors on IPOs, debt issuances, and other capital markets transactions regulated by the Capital Market Authority (CMA) and Saudi Exchange (Tadawul).",
+      "sections": [
+        {
+          "heading": "IPOs & Equity Offerings",
+          "body": "We advise companies and underwriters on initial public offerings and equity capital raises on the Saudi Exchange (Tadawul), including prospectus preparation, CMA approvals, and listing requirements.",
+          "items": [
+            "IPO structuring and CMA approval",
+            "Prospectus and disclosure documents",
+            "Tadawul listing requirements"
+          ]
+        },
+        {
+          "heading": "Debt Capital Markets",
+          "body": "We advise on debt issuances, including bonds and Sukuk, structuring offerings that comply with CMA regulations and meet the requirements of institutional and retail investors.",
+          "items": [
+            "Bond and Sukuk issuances",
+            "Offering documentation",
+            "Investor disclosure requirements"
+          ]
+        },
+        {
+          "heading": "CMA Regulatory Advisory",
+          "body": "We advise listed companies and market participants on ongoing compliance with CMA rules, corporate governance requirements, and disclosure obligations under Saudi securities regulation."
+        }
+      ],
+      "highlights": [
+        {
+          "title": "CMA & Tadawul Experience",
+          "description": "Direct familiarity with Saudi Arabia's capital markets regulator and exchange."
+        },
+        {
+          "title": "Issuer & Underwriter Side",
+          "description": "Advisory experience from both the issuer and underwriter perspective."
+        },
+        {
+          "title": "Governance-Focused",
+          "description": "Ongoing compliance support, not just one-time transaction advice."
+        }
+      ],
+      "cta": "Speak With Our Lawyers"
     }
   },
   "servicesPage": {
     "title": "Services",
-    "intro": "Corporate immigration, incorporation, visas, and document attestation support for organizations operating in Saudi Arabia.",
+    "intro": "Corporate, commercial, and regulatory legal services for businesses operating in Saudi Arabia — from market entry to dispute resolution.",
     "valueProp": {
-      "heading": "Streamlining Global Talent Acquisition",
-      "subtext": "Expertly steering your organization through the intricacies of immigration law and regulations. We focus on streamlining your global workforce mobility with accuracy and operational excellence."
+      "heading": "Full-Service Legal Support for Business in Saudi Arabia",
+      "subtext": "From company formation to complex commercial disputes, we provide the depth of a full-service law firm with the local knowledge of Saudi law and the standards of an international practice."
     },
     "learnMore": "Learn More",
     "items": [
       {
-        "id": "corporate-immigration",
-        "title": "Corporate Immigration",
-        "description": "When it comes to Corporate immigration matters, we assist businesses, corporations, and individuals seeking to relocate employees, expand operations internationally, or hire foreign talent needed for international projects while staying compliant with immigration laws and policies. Aligning immigration strategies with your business goals to optimize talent acquisition and mobility.",
-        "imageSrc": "/images/services/corporate-immigration.png",
-        "imageAlt": "Corporate Immigration icon"
-      },
-      {
         "id": "company-incorporation",
-        "title": "Company Incorporation",
-        "description": "Northman & Sterling is dedicated to assisting its global clients at every stage of their company setup journey. We lead companies looking to expand through the entire process of business incorporation and provide guidance on compliance matters, such as corporate registration, licensing, permits, and annual reporting to maintain your business status.",
-        "imageSrc": "/images/services/company-incorporation.png",
-        "imageAlt": "Company Incorporation icon"
+        "title": "Company Setup & KSA Market Entry",
+        "subtext": "End-to-end legal support for foreign investors entering the Saudi market, from licensing to full incorporation."
       },
       {
-        "id": "outbound-visas",
-        "title": "Outbound Visas",
-        "description": "Northman & Sterling offers assistance with immigration matters for UK, Canada, USA and Australia from UAE and Saudi Arabia. Depending on our client's choice for visa, they can collaborate with us to procure necessary documents, reviewing application materials for quality assurance prior to submission, and monitoring the status and progress of the case.",
-        "imageSrc": "/images/services/outbound-visas.png",
-        "imageAlt": "Outbound Visas icon"
+        "id": "dispute-resolution",
+        "title": "Dispute Resolution",
+        "subtext": "Litigation, arbitration, and mediation before Saudi courts and tribunals."
       },
       {
-        "id": "consular-visa",
-        "title": "Consular Visa",
-        "description": "We begin by discussing your travel plans and the specific visa requirements of your destination country. Our experienced advisors provide guidance on the appropriate visa type, necessary documentation, and the application process. We are dedicated to assisting you in preventing any potential delays or rejections caused by minor errors."
+        "id": "real-estate-construction",
+        "title": "Real Estate, Construction & Infrastructure",
+        "subtext": "Legal support across acquisitions, leasing, construction contracts, and major infrastructure projects."
       },
       {
-        "id": "employee-outsourcing",
-        "title": "Employee Outsourcing",
-        "description": "By outsourcing your employee management to us in Saudi Arabia, you gain the advantage of managing administrative tasks, minimized risks, and improved focus on your core business objectives. We have a team of HR professionals who are well-versed in Saudi labor laws and best practices, ensuring a seamless and compliant HR operation."
+        "id": "employment-law",
+        "title": "Employment Law",
+        "subtext": "Saudi labor law compliance, contracts, Saudization, and workforce disputes."
       },
       {
-        "id": "document-attestation",
-        "title": "Document Attestation",
-        "description": "Managing documents effectively is crucial for businesses and organizations to maintain efficiency, compliance, and security. We ensure that you meet all regulatory requirements whether you are a professional, a corporate entity, or a small business, our comprehensive solution is tailored to your specific needs.",
-        "imageSrc": "/images/services/document-attestation.png",
-        "imageAlt": "Document Attestation icon"
+        "id": "intellectual-property",
+        "title": "Intellectual Property",
+        "subtext": "Trademark, patent, and copyright protection and enforcement in Saudi Arabia."
+      },
+      {
+        "id": "technology-media-telecom",
+        "title": "Technology, Media & Telecom",
+        "subtext": "Digital, data protection, and TMT regulatory advice for the Kingdom's digital economy."
+      },
+      {
+        "id": "regulatory-compliance",
+        "title": "Regulatory & Compliance",
+        "subtext": "Licensing, sector-specific regulation, and compliance programs across the Kingdom."
+      },
+      {
+        "id": "tax",
+        "title": "Tax",
+        "subtext": "Corporate tax, VAT, Zakat, and cross-border tax structuring advice."
+      },
+      {
+        "id": "restructuring-insolvency",
+        "title": "Restructuring & Insolvency",
+        "subtext": "Financial restructuring, insolvency proceedings, and creditor protection under Saudi law."
+      },
+      {
+        "id": "white-collar-crime",
+        "title": "White-Collar Crime & Investigations",
+        "subtext": "Anti-bribery, fraud, and internal investigations for businesses operating in the Kingdom."
+      },
+      {
+        "id": "competition-antitrust",
+        "title": "Competition & Antitrust",
+        "subtext": "Merger control filings, market dominance reviews, and GAC compliance advice."
+      },
+      {
+        "id": "family-business",
+        "title": "Family Business & Private Client",
+        "subtext": "Succession planning, governance, and private wealth structuring for family-owned enterprises."
+      },
+      {
+        "id": "corporate-commercial-ma",
+        "title": "Corporate & Commercial / M&A",
+        "subtext": "Mergers, acquisitions, joint ventures, and commercial contracts across the Kingdom."
+      },
+      {
+        "id": "banking-finance",
+        "title": "Banking & Finance",
+        "subtext": "Financing transactions, Shariah-compliant structures, and lending advice for banks and borrowers."
+      },
+      {
+        "id": "capital-markets",
+        "title": "Capital Markets",
+        "subtext": "IPOs, debt issuances, and CMA-regulated capital markets transactions."
       }
     ]
   },
@@ -762,11 +1418,11 @@
     },
     "termsAndConditions": {
       "title": "Terms and Conditions",
-      "intro": "These terms and conditions (\"Agreement\") govern the use of Immigration and Visa services offered by Northman & Sterling. By engaging with our services, you agree to comply with these terms and conditions in their entirety.",
+      "intro": "These terms and conditions (\"Agreement\") govern the use of Immigration and Visa services offered by Northman Sterling Legal. By engaging with our services, you agree to comply with these terms and conditions in their entirety.",
       "sections": [
         {
           "heading": "Scope of Services",
-          "body": "Northman and Sterling offers professional immigration and visa services to corporates and businesses seeking assistance in various immigration and Visa matters in different regions. Our services include but are not limited to visa processing, residency permits, company registration, legal compliance, and related advisory services."
+          "body": "Northman Sterling Legal offers professional immigration and visa services to corporates and businesses seeking assistance in various immigration and Visa matters in different regions. Our services include but are not limited to visa processing, residency permits, company registration, legal compliance, and related advisory services."
         },
         {
           "heading": "Client Obligations",
@@ -782,7 +1438,7 @@
         },
         {
           "heading": "Limitation of Liability",
-          "body": "Northman & Sterling will exercise reasonable care and skill in delivering its services. However, we do not guarantee the outcome of any immigration or Visa application, as the final decision lies with the relevant authorities. We shall not be liable for any direct, indirect, or consequential damages arising from the use or inability to use our services."
+          "body": "Northman Sterling Legal will exercise reasonable care and skill in delivering its services. However, we do not guarantee the outcome of any immigration or Visa application, as the final decision lies with the relevant authorities. We shall not be liable for any direct, indirect, or consequential damages arising from the use or inability to use our services."
         },
         {
           "heading": "Termination of Services",
@@ -790,11 +1446,11 @@
         },
         {
           "heading": "Intellectual Property",
-          "body": "All intellectual property rights, including but not limited to trademarks, logos, and content, associated with Northman's services and website, are the sole property of Northman and Sterling. You agree not to use, reproduce, or distribute any of our intellectual property without prior written consent."
+          "body": "All intellectual property rights, including but not limited to trademarks, logos, and content, associated with Northman's services and website, are the sole property of Northman Sterling Legal. You agree not to use, reproduce, or distribute any of our intellectual property without prior written consent."
         },
         {
           "heading": "Amendments to the Agreement",
-          "body": "Northman & Sterling reserves the right to modify these terms and conditions at any time without prior notice. It is the client's responsibility to review the updated terms on our website periodically."
+          "body": "Northman Sterling Legal reserves the right to modify these terms and conditions at any time without prior notice. It is the client's responsibility to review the updated terms on our website periodically."
         },
         {
           "heading": "Governing Law and Jurisdiction",
@@ -804,7 +1460,7 @@
     }
   },
   "footer": {
-    "description": "We are a registered law firm in Saudi Arabia as a division of Northman & Sterling global mobility services.",
+    "description": "We are a registered law firm in Saudi Arabia providing legal services under Northman Sterling Legal.",
     "quickLinksTitle": "Quick Links",
     "contactTitle": "Contact",
     "officeName": "Northman Sterling Legal",

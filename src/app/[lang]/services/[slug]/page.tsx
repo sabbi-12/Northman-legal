@@ -5,11 +5,9 @@ import { notFound } from "next/navigation";
 import { getDictionary, type Dictionary } from "@/lib/i18n/getDictionary";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n/config";
 import { SITE_URL } from "@/lib/seo/constants";
-import { ServiceFeaturedImage } from "@/components/sections/ServiceFeaturedImage";
-import { ServiceSolutions } from "@/components/sections/ServiceSolutions";
-import { ServiceDistinctApproach } from "@/components/sections/ServiceDistinctApproach";
 import { ServiceHighlights } from "@/components/sections/ServiceHighlights";
 import { ServiceCta } from "@/components/sections/ServiceCta";
+import { SimpleServiceDetail } from "@/components/sections/SimpleServiceDetail";
 import { ServiceQuoteIntro } from "@/components/sections/ServiceQuoteIntro";
 import { ServiceVideoBanner } from "@/components/sections/ServiceVideoBanner";
 import { ServiceWhySaudi } from "@/components/sections/ServiceWhySaudi";
@@ -25,23 +23,11 @@ import { OfficeContact } from "@/components/sections/OfficeContact";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import enDictionary from "@/lib/i18n/dictionaries/en.json";
 
-type PillarsDetail = {
-  layout?: "pillars";
+type SimpleDetail = {
+  layout: "simple";
   title: string;
   intro: string;
-  imageSrc?: string;
-  imageAlt?: string;
-  solutions: {
-    heading: string;
-    pillars: Array<{
-      id: string;
-      title: string;
-      description: string;
-      items?: string[];
-      cards?: string[];
-    }>;
-  };
-  distinctApproach: { heading: string; body: string };
+  sections: Array<{ heading: string; body: string; items?: string[] }>;
   highlights: Array<{ title: string; description: string }>;
   cta: string;
 };
@@ -93,7 +79,7 @@ type KsaGuideDetail = {
   finalCallout: { heading: string; body: string; cta: string; imageSrc: string; imageAlt: string };
 };
 
-type ServiceDetail = PillarsDetail | KsaGuideDetail;
+type ServiceDetail = KsaGuideDetail | SimpleDetail;
 
 const SERVICE_SLUGS = Object.keys(enDictionary.serviceDetails);
 
@@ -151,43 +137,39 @@ export default async function ServiceDetailPage({
     );
   }
 
-  return <PillarsPage detail={detail} lang={lang} slug={params.slug} dict={dict} />;
+  return <SimpleDetailPage detail={detail} lang={lang} slug={params.slug} dict={dict} />;
 }
 
-function PillarsPage({
+function SimpleDetailPage({
   detail,
   lang,
   slug,
   dict,
 }: {
-  detail: PillarsDetail;
+  detail: SimpleDetail;
   lang: Locale;
   slug: string;
   dict: Dictionary;
 }) {
   return (
     <>
-      <section className="-mt-24 bg-navy pb-20 pt-[calc(theme(spacing.4)+theme(spacing.24))] text-cream md:pb-28 md:pt-[calc(theme(spacing.4)+theme(spacing.24))]">
+      <section className="-mt-24 bg-navy pb-16 pt-[calc(theme(spacing.4)+theme(spacing.24))] text-cream md:pb-20 md:pt-[calc(theme(spacing.4)+theme(spacing.24))]">
         <Breadcrumbs
           lang={lang}
           onDark
           items={[
             { name: dict.nav.home, href: `/${lang}` },
+            { name: dict.servicesPage.title, href: `/${lang}/services` },
             { name: detail.title, href: `/${lang}/services/${slug}` },
           ]}
         />
         <div className="container-institutional max-w-3xl">
-          <h1 className="inline-block border-b-2 border-accent pb-2 text-3xl font-bold md:text-4xl">
-            {detail.title}
-          </h1>
+          <h1 className="text-3xl font-bold md:text-4xl">{detail.title}</h1>
+          <p className="mt-5 text-lg leading-relaxed text-cream/80">{detail.intro}</p>
         </div>
       </section>
 
-      <ServiceFeaturedImage imageSrc={detail.imageSrc} imageAlt={detail.imageAlt ?? detail.title} />
-
-      <ServiceSolutions heading={detail.solutions.heading} pillars={detail.solutions.pillars} />
-
-      <ServiceDistinctApproach heading={detail.distinctApproach.heading} body={detail.distinctApproach.body} />
+      <SimpleServiceDetail sections={detail.sections} />
 
       <ServiceHighlights items={detail.highlights} />
 

@@ -1,22 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, ArrowLeft } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 import { SERVICE_DETAIL_SLUGS } from "@/lib/data/serviceSlugs";
+import { ServicePhotoCard } from "@/components/sections/ServicePhotoCard";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale }) {
-  const ArrowIcon = lang === "ar" ? ArrowLeft : ArrowRight;
   const reduceMotion = useReducedMotion();
   const entrance = reduceMotion ? false : undefined;
 
-  const [featured, ...rest] = dict.coreServices.items;
+  // Home shows only the first 6 practice areas, in the firm's stated
+  // priority order — the full 15 live on /services.
+  const items: Array<{ id: string; title: string; subtext: string }> = dict.coreServices.items.slice(0, 6);
 
   function learnMoreHref(id: string) {
     return SERVICE_DETAIL_SLUGS.has(id) ? `/${lang}/services/${id}` : `/${lang}/contact-us`;
@@ -50,72 +50,16 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
           </Link>
         </div>
 
-        {featured && (
-          <motion.div
-            initial={entrance ?? { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, ease: EASE }}
-            className="mt-14 grid gap-8 rounded-institutional border border-navy/10 bg-white p-8 shadow-institutional dark:border-cream/10 dark:bg-navy/40 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)] md:items-center md:p-12"
-          >
-            <div className="flex h-32 w-32 items-center justify-center rounded-institutional bg-accent/10 p-6 md:h-40 md:w-40">
-              <Image
-                src={featured.imageSrc}
-                alt={featured.imageAlt}
-                width={72}
-                height={72}
-                className="h-full w-full object-contain"
-              />
-            </div>
-            <div>
-              <h3 className="text-2xl font-medium text-slate-dark dark:text-cream">{featured.title}</h3>
-              <p className="mt-3 max-w-xl text-base leading-relaxed text-slate-mid dark:text-cream/70">
-                {featured.description}
-              </p>
-              <Link
-                href={learnMoreHref(featured.id)}
-                className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors hover:text-accent dark:text-cream"
-              >
-                {dict.coreServices.learnMore}
-                <ArrowIcon size={14} strokeWidth={2} className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
-              </Link>
-            </div>
-          </motion.div>
-        )}
-
-        <div className="mt-4 divide-y divide-navy/10 dark:divide-cream/10">
-          {rest.map((item, index) => (
-            <motion.div
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-3">
+          {items.map((item, index) => (
+            <ServicePhotoCard
               key={item.id}
-              initial={entrance ?? { opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: index * 0.08, ease: EASE }}
-              className="flex flex-col gap-5 py-8 sm:flex-row sm:items-center"
-            >
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-institutional bg-accent/10 p-2.5">
-                <Image
-                  src={item.imageSrc}
-                  alt={item.imageAlt}
-                  width={36}
-                  height={36}
-                  className="h-full w-full object-contain"
-                />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-medium text-slate-dark dark:text-cream">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-mid dark:text-cream/70">
-                  {item.description}
-                </p>
-              </div>
-              <Link
-                href={learnMoreHref(item.id)}
-                className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-navy transition-colors hover:text-accent dark:text-cream sm:self-center"
-              >
-                {dict.coreServices.learnMore}
-                <ArrowIcon size={14} strokeWidth={2} className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
-              </Link>
-            </motion.div>
+              service={item}
+              lang={lang}
+              learnMoreLabel={dict.coreServices.learnMore}
+              href={learnMoreHref(item.id)}
+              index={index}
+            />
           ))}
         </div>
       </div>
