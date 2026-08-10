@@ -10,7 +10,7 @@ export function GlobalPresence({ dict }: { dict: Dictionary }) {
     <section className="bg-navy py-20 text-cream">
       <div className="container-institutional flex flex-col items-start justify-between gap-10 md:flex-row md:items-center">
         <div className="max-w-xl">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-button">
             {dict.globalPresence.eyebrow}
           </p>
           <p className="mt-4 text-2xl font-medium leading-relaxed md:text-3xl">

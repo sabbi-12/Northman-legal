@@ -22,7 +22,7 @@ export function ValuesGrid({ dict }: { dict: Dictionary }) {
             transition={{ duration: 0.5, delay: index * 0.1, ease: EASE }}
             className="px-2 pt-10 first:pt-0 sm:px-10 sm:pt-0 sm:first:px-0 sm:first:ps-0"
           >
-            <h2 className="text-2xl font-medium text-accent">{item.title}</h2>
+            <h2 className="text-2xl font-medium text-button">{item.title}</h2>
             <p className="mt-4 text-base leading-relaxed text-cream/80">{item.description}</p>
           </motion.div>
         ))}
