@@ -21,8 +21,7 @@ export default function NotFound() {
   return (
     <section dir={dir} className="flex min-h-[60vh] items-center bg-cream py-24 dark:bg-navy-dark">
       <div className="container-institutional text-center">
-        <span className="mx-auto block h-px w-14 bg-accent" aria-hidden="true" />
-        <p className="mt-5 text-sm font-medium uppercase tracking-widest text-accent">
+        <p className="text-sm font-medium uppercase tracking-widest text-accent">
           {dict.notFound.eyebrow}
         </p>
         <h1 className="mt-3 text-4xl font-medium text-slate-dark md:text-5xl dark:text-cream">

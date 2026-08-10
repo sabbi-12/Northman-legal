@@ -49,8 +49,7 @@ export default async function ServicesPage({ params }: { params: { lang: string 
     <>
       <section className="bg-navy py-20 text-cream md:py-28">
         <div className="container-institutional max-w-3xl">
-          <span className="block h-px w-14 bg-accent" aria-hidden="true" />
-          <h1 className="mt-5 text-4xl font-medium leading-tight md:text-5xl">
+          <h1 className="text-4xl font-medium leading-tight md:text-5xl">
             {dict.servicesPage.valueProp.heading}
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-cream/80">
