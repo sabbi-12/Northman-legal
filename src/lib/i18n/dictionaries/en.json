@@ -36,22 +36,22 @@
     "cta": "Speak With Our Lawyers"
   },
   "complianceHighlights": {
-    "title": "Complete Compliance & Legal Support",
+    "title": "Legal Support Built Around Your Business in Saudi Arabia",
     "items": [
       {
-        "id": "immigration",
-        "title": "Global Immigration Solutions",
-        "description": "We can assist with all your corporate support needs in the Kingdom"
+        "id": "corporate",
+        "title": "Corporate & Commercial Advisory",
+        "description": "From incorporation and joint ventures to commercial contracts, we advise businesses on the corporate and regulatory requirements of operating in Saudi Arabia."
       },
       {
-        "id": "partnerships",
-        "title": "Expertise and Partnerships",
-        "description": "We can assist with your commercial disputes and court orders enforcement needs."
+        "id": "disputes",
+        "title": "Dispute Resolution & Litigation",
+        "description": "We represent clients in commercial disputes before Saudi courts and arbitration tribunals, and support enforcement of judgments and awards."
       },
       {
-        "id": "mobility",
-        "title": "Strategic Mobility Optimization",
-        "description": "We are authorised notary and POA issuance service providers in KSA"
+        "id": "regulatory",
+        "title": "Regulatory & Compliance Support",
+        "description": "We help businesses meet Saudi regulatory requirements — including labor law, licensing, and sector-specific compliance obligations."
       }
     ]
   },
