@@ -8,6 +8,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // Dedicated breakpoint for the Navbar's desktop-nav/hamburger switch.
+      // The default `lg` (1024px) isn't wide enough to fit the logo + 5 nav
+      // links + language switcher + dark-mode toggle on one line — between
+      // ~1024px–1200px the links wrapped to two lines instead, which is
+      // what made the header look broken on real laptop/monitor widths
+      // (not just phones/tablets). `lg` itself stays untouched since other
+      // layouts (grids, etc.) rely on its normal 1024px meaning.
+      screens: {
+        nav: "1200px",
+      },
       colors: {
         // Brand palette per the client's technical color-code summary
         // (2026-08-04): dark navy primary, white/off-white backgrounds,
@@ -96,6 +106,11 @@ module.exports = {
       },
       maxWidth: {
         content: "1280px",
+        // Header (TopBar + Navbar) cap — wider than body-copy content so
+        // the header bar doesn't look like a narrow island on large
+        // monitors (1440px–2560px+), while still capping before it
+        // stretches edge-to-edge on ultra-wide displays.
+        header: "1680px",
       },
       keyframes: {
         marquee: {

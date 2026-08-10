@@ -16,7 +16,7 @@ export function TopBar({
 }) {
   return (
     <div className="hidden !bg-white md:block">
-      <div className="container-institutional flex h-14 items-center gap-5">
+      <div className="container-header flex h-14 items-center gap-5">
         <a
           href={`/${lang}/news-updates`}
           className="flex shrink-0 items-center gap-2 text-xs font-medium uppercase tracking-widest text-slate-mid transition-colors hover:text-navy"

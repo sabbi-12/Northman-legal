@@ -24,24 +24,15 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   return (
     <section className="relative -mt-24 overflow-hidden bg-navy pb-24 pt-[calc(theme(spacing.28)+theme(spacing.24))] text-cream md:pb-32 md:pt-[calc(theme(spacing.36)+theme(spacing.24))]">
       <Image
-        src="/images/hero/westminster-sunset.jpg"
+        src="/images/hero/kingdom-tower-riyadh.jpg"
         alt=""
         fill
         priority
         sizes="100vw"
         quality={90}
-        className="object-cover dark:hidden"
+        className="object-cover"
       />
-      <Image
-        src="/images/hero/westminster-night.png"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        quality={90}
-        className="hidden object-cover dark:block"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/40 to-navy/65 dark:from-navy-dark/80 dark:via-navy-dark/45 dark:to-navy-dark/75" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy/75 via-navy/50 to-navy/80 dark:from-navy-dark/85 dark:via-navy-dark/60 dark:to-navy-dark/90" />
 
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
@@ -102,7 +93,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
           className="mt-10"
         >
           <Link
-            href={`/${lang}/about-us`}
+            href={`/${lang}/contact-us`}
             className="group inline-flex items-center gap-3 rounded-institutional bg-button px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-button-hover"
           >
             {dict.hero.cta}

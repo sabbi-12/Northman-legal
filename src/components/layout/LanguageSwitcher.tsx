@@ -44,7 +44,9 @@ export function LanguageSwitcher({
             className={cn(
               "px-1 py-0.5 font-medium uppercase tracking-wide transition-colors",
               locale === currentLang
-                ? "text-accent"
+                ? onDark
+                  ? "text-button"
+                  : "text-accent"
                 : onDark
                   ? "text-cream/70 hover:text-cream"
                   : "text-navy/60 hover:text-navy dark:text-cream/60 dark:hover:text-cream"
