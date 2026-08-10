@@ -42,14 +42,14 @@ export function WhyChooseUs({ dict, lang }: { dict: Dictionary; lang: Locale }) 
               className="absolute -bottom-3 -end-3 h-full w-full rounded-institutional border border-accent/40"
               aria-hidden="true"
             />
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-institutional border border-navy/10 shadow-institutional dark:border-cream/10">
+            <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-institutional border border-navy/10 bg-cream shadow-institutional dark:border-cream/10 dark:bg-white">
               <Image
-                src="/images/about/why-choose-us.png"
-                alt={dict.whyChooseUs.imageAlt}
-                fill
-                sizes="(min-width: 1024px) 384px, 90vw"
+                src="/images/logo-real.png"
+                alt="Northman Sterling Legal"
+                width={300}
+                height={89}
                 quality={95}
-                className="object-cover"
+                className="h-auto w-[62%] max-w-[220px]"
               />
             </div>
           </motion.div>
