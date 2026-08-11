@@ -14,7 +14,7 @@ export const ORGANIZATION = {
   email: "ksa@northmansterling.legal",
   // General/global enquiries inbox — distinct from the KSA-specific address
   // above. Shown on the Contact Us page's "Let's Connect" section.
-  generalEmail: "info@northmansterling.legal",
+  generalEmail: "ksa@northmansterling.legal",
   // Social profile URLs — sourced from the live WordPress site's footer
   // (2026-08-07).
   facebookUrl: "https://www.facebook.com/northmansterling",
