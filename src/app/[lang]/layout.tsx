@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cinzel, Amiri, Inter, Readex_Pro } from "next/font/google";
 import { notFound } from "next/navigation";
+import { Analytics } from "@vercel/analytics/next";
 
 import { locales, localeDirection, localeHtmlLang, isValidLocale, type Locale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/getDictionary";
@@ -174,6 +175,7 @@ export default async function RootLayout({
         <GA4 />
         <MicrosoftClarity />
         <HubSpotTracking />
+        <Analytics />
       </body>
     </html>
   );
