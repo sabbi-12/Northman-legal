@@ -17,11 +17,14 @@ import { cn } from "@/lib/utils";
 
 const SCROLL_THRESHOLD = 24;
 
-// These pages have no navy band under the navbar (plain cream page
-// background from the very top), so a transparent white-text navbar would
-// be unreadable there. They always render the navbar in its "scrolled"
-// light-glass state instead.
-const ALWAYS_LIGHT_NAV_PATHS = ["/privacy-policy", "/disclaimer", "/terms-and-conditions"];
+// Only Home keeps the transparent-before-scroll navbar (its hero photo
+// extends up behind the navbar via the -mt-24 fill pattern). Every other
+// page — including ones with their own navy hero band — always renders the
+// navbar in its "scrolled" light-glass state, so header text/logo is never
+// invisible against a page that doesn't share Home's exact treatment.
+function isHomePath(pathname: string, lang: Locale) {
+  return pathname === `/${lang}` || pathname === `/${lang}/`;
+}
 
 export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const pathname = usePathname() ?? `/${lang}`;
@@ -29,7 +32,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const [scrolledPast, setScrolledPast] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  const forceLightNav = ALWAYS_LIGHT_NAV_PATHS.some((path) => pathname.startsWith(`/${lang}${path}`));
+  const forceLightNav = !isHomePath(pathname, lang);
   const scrolled = scrolledPast || forceLightNav;
 
   useEffect(() => {

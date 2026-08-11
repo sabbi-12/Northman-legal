@@ -49,7 +49,7 @@ export default async function ContactUsPage({ params }: { params: { lang: string
 
   return (
     <>
-      <section className="relative -mt-24 overflow-hidden bg-navy pb-20 pt-[calc(theme(spacing.20)+theme(spacing.24))] text-cream md:pb-28 md:pt-[calc(theme(spacing.28)+theme(spacing.24))]">
+      <section className="relative overflow-hidden bg-navy py-20 text-cream md:py-28">
         <Image
           src="/images/contact/contact-hero.jpg"
           alt=""

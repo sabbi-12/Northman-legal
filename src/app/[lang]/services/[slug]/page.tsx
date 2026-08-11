@@ -88,7 +88,7 @@ function ServiceDetailContent({
 }) {
   return (
     <>
-      <section className="-mt-24 bg-navy pb-16 pt-[calc(theme(spacing.4)+theme(spacing.24))] text-cream md:pb-20 md:pt-[calc(theme(spacing.4)+theme(spacing.24))]">
+      <section className="bg-navy pb-16 pt-8 text-cream md:pb-20 md:pt-10">
         <Breadcrumbs
           lang={lang}
           onDark
