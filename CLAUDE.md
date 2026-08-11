@@ -691,19 +691,23 @@ this back up tomorrow, start here:
 - [x] Generate real `og-default-en.jpg` / `og-default-ar.jpg` (1200×630) —
       done 2026-08-10, see "OG image generation" below for how (and the
       Windows/`next/og` bug worked around to get there).
-- [~] Fill every blank in `.env.local` for prod — partially done 2026-08-10:
-      Sanity project ID/token were already set; `SANITY_REVALIDATE_SECRET`
-      generated, `SMTP_HOST` confirmed from cPanel
-      (`mail.northmansterling.legal`). Still open: `SMTP_PASS` (user will
-      confirm the mailbox password later), `NEXT_PUBLIC_HUBSPOT_PORTAL_ID`
-      (user is deferring HubSpot setup — "hubspot baad mei set krty hain").
-      GTM/GA4/Clarity: user confirmed no accounts exist yet — left blank,
-      not a blocker (each analytics component already no-ops cleanly when
-      its env var is unset, see `subscribeToConsent` call sites).
+- [~] Fill every blank in `.env.local` for prod — still open as of
+      2026-08-11: `SMTP_PASS` for `ksa@northmansterling.legal` — see
+      "Session 2026-08-11" below, this is now a real blocker with a
+      confirmed root cause (Google rejects the app password we were given —
+      535-5.7.8 auth failure, reproduced independently of our code). Needs a
+      freshly-generated app password from someone with direct account
+      access. `NEXT_PUBLIC_HUBSPOT_PORTAL_ID` still deferred by user.
+      GTM/GA4/Clarity: still no accounts, still not a blocker.
 - [ ] Add Search Console verification meta tag.
-- [ ] Decide the Vercel domain/DNS cutover plan (nameserver move vs.
-      A/CNAME record) — not yet discussed with the user beyond confirming
-      the bilingual `/en`/`/ar` URL structure stays as-is (see below).
+- [x] Vercel domain/DNS cutover — **done**, confirmed 2026-08-11.
+      `northmansterling.legal` now resolves to Vercel (216.198.79.1) and
+      serves this Next.js/Sanity build directly — the WordPress site is no
+      longer live at this domain. This happened between sessions without
+      being logged here; if picking this up cold, verify current DNS state
+      with `nslookup` before assuming anything in this doc about "the live
+      WP site" is still true — see "Session 2026-08-11" below for what else
+      that cutover broke (mail DNS) that needed fixing.
 - [ ] After deploy: submit new sitemap in Search Console, monitor Coverage
       report for 404s/soft-404s and ranking movement for at least 4–6 weeks.
 
