@@ -9,6 +9,7 @@ import { Menu, X } from "lucide-react";
 
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { DarkModeToggle } from "@/components/layout/DarkModeToggle";
+import { SpotlightFlicker } from "@/components/layout/SpotlightFlicker";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
@@ -32,7 +33,8 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const [scrolledPast, setScrolledPast] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  const forceLightNav = !isHomePath(pathname, lang);
+  const isHome = isHomePath(pathname, lang);
+  const forceLightNav = !isHome;
   const scrolled = scrolledPast || forceLightNav;
 
   useEffect(() => {
@@ -70,13 +72,21 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
         className="container-header grid grid-cols-[auto_1fr_auto] items-center gap-6"
       >
         <Link href={`/${lang}`} className="relative shrink-0" aria-label={dict.meta.siteName}>
-          {!scrolled && (
-            <span
-              className="pointer-events-none absolute -inset-x-4 -bottom-3 -top-1 -z-10 rounded-[50%] bg-white opacity-95 blur-lg"
-              aria-hidden="true"
-            />
+          {/* Home renders a light pool behind the logo via SpotlightFlicker,
+              fading out on scroll along with the rest of the transparent
+              pre-scroll header treatment. Every other page keeps the plain
+              pre-scroll legibility blob. */}
+          {isHome ? (
+            <SpotlightFlicker active={!scrolled} />
+          ) : (
+            !scrolled && (
+              <span
+                className="pointer-events-none absolute -inset-x-4 -bottom-3 -top-1 -z-10 rounded-[50%] bg-white opacity-95 blur-lg"
+                aria-hidden="true"
+              />
+            )
           )}
-          <BrandLogo height={scrolled ? 48 : 60} />
+          <BrandLogo height={scrolled ? 48 : 60} className="relative z-10" />
         </Link>
 
         <ul className="hidden items-center justify-center gap-6 nav:flex">

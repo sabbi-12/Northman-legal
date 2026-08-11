@@ -84,3 +84,61 @@
   }
 }
 
+/* Home hero spotlight flicker-on — plays once per session against the
+   transparent pre-scroll header only. Kept as raw keyframes (not
+   framer-motion) so the irregular flicker timing below is exact instead of
+   spring-approximated. The logo itself is never a target of this animation;
+   only the light layers behind/around it flicker. */
+@keyframes flicker-on {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 0.7;
+  }
+  6% {
+    opacity: 0.05;
+  }
+  10% {
+    opacity: 0.55;
+  }
+  14% {
+    opacity: 0.08;
+  }
+  19% {
+    opacity: 0.65;
+  }
+  24% {
+    opacity: 0.12;
+  }
+  30% {
+    opacity: 0.45;
+  }
+  38% {
+    opacity: 0.18;
+  }
+  48% {
+    opacity: 0.75;
+  }
+  60% {
+    opacity: 0.35;
+  }
+  74% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.flicker-run {
+  animation: flicker-on 1.9s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flicker-run {
+    animation: none;
+    opacity: 1;
+  }
+}
+
