@@ -2,6 +2,7 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schemaTypes";
+import { deskStructure } from "./deskStructure";
 
 // These must match NEXT_PUBLIC_SANITY_PROJECT_ID / NEXT_PUBLIC_SANITY_DATASET
 // in the Next.js app's .env.local — both point at the same Sanity project.
@@ -20,7 +21,7 @@ export default defineConfig({
     // document" flow) — without this the Studio has no desk structure
     // registered at all, so clicking "New document" resolves the route but
     // renders a blank pane instead of a form.
-    structureTool(),
+    structureTool({ structure: deskStructure }),
     // Vision lets an editor run raw GROQ queries from within the Studio —
     // useful for sanity-checking the same queries lib/sanity/posts.ts uses.
     visionTool(),
