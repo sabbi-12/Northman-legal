@@ -9,7 +9,6 @@ import { Menu, X } from "lucide-react";
 
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { DarkModeToggle } from "@/components/layout/DarkModeToggle";
-import { SpotlightFlicker } from "@/components/layout/SpotlightFlicker";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
@@ -61,7 +60,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
       className={cn(
         "sticky top-0 z-50 transition-colors duration-300",
         scrolled
-          ? "border-b border-navy/10 !bg-cream/70 backdrop-blur-lg backdrop-saturate-150"
+          ? "border-b border-navy/10 bg-cream/70 backdrop-blur-lg backdrop-saturate-150 dark:border-cream/10 dark:bg-navy-dark/80"
           : "border-b border-transparent bg-transparent"
       )}
     >
@@ -72,21 +71,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
         className="container-header grid grid-cols-[auto_1fr_auto] items-center gap-6"
       >
         <Link href={`/${lang}`} className="relative shrink-0" aria-label={dict.meta.siteName}>
-          {/* Home renders a light pool behind the logo via SpotlightFlicker,
-              fading out on scroll along with the rest of the transparent
-              pre-scroll header treatment. Every other page keeps the plain
-              pre-scroll legibility blob. */}
-          {isHome ? (
-            <SpotlightFlicker active={!scrolled} />
-          ) : (
-            !scrolled && (
-              <span
-                className="pointer-events-none absolute -inset-x-4 -bottom-3 -top-1 -z-10 rounded-[50%] bg-white opacity-95 blur-lg"
-                aria-hidden="true"
-              />
-            )
-          )}
-          <BrandLogo height={scrolled ? 48 : 60} className="relative z-10" />
+          <BrandLogo height={scrolled ? 40 : 48} onDark className="relative z-10" />
         </Link>
 
         <ul className="hidden items-center justify-center gap-6 nav:flex">
@@ -99,7 +84,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
                   isActive(link.href)
                     ? "text-button"
                     : scrolled
-                      ? "text-slate-dark hover:text-navy"
+                      ? "text-slate-dark hover:text-navy dark:text-cream/90 dark:hover:text-cream"
                       : "text-white drop-shadow-[0_1px_4px_rgba(4,8,15,0.6)] hover:text-white/80"
                 )}
                 aria-current={isActive(link.href) ? "page" : undefined}
@@ -114,7 +99,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
           <div
             className={cn(
               "hidden items-center gap-4 border-s ps-6 nav:flex",
-              scrolled ? "border-navy/15" : "border-white/25"
+              scrolled ? "border-navy/15 dark:border-cream/15" : "border-white/25"
             )}
           >
             <LanguageSwitcher currentLang={lang} onDark={!scrolled} />
@@ -130,7 +115,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
             aria-label={dict.nav.openMenu}
             className={cn(
               "flex h-10 w-10 items-center justify-center nav:hidden",
-              scrolled ? "text-navy" : "text-white"
+              scrolled ? "text-navy dark:text-cream" : "text-white"
             )}
           >
             <Menu size={22} strokeWidth={1.75} />
