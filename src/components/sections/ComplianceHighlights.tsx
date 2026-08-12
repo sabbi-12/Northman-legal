@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Building2, Gavel, ShieldCheck } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -38,23 +39,25 @@ export function ComplianceHighlights({ dict }: { dict: Dictionary }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: EASE }}
-                className="relative overflow-hidden rounded-institutional border-2 border-navy bg-accent/10 p-8 shadow-institutional transition-colors duration-300 hover:border-accent dark:border-accent dark:bg-navy/40 lg:p-10"
+                className="h-full"
               >
-                <div
-                  className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-accent/60 blur-[100px]"
-                  aria-hidden="true"
-                />
-                <div
-                  className="pointer-events-none absolute -bottom-14 -left-14 h-44 w-44 rounded-full bg-button/50 blur-[100px]"
-                  aria-hidden="true"
-                />
-                <div className="relative flex h-14 w-14 items-center justify-center rounded-institutional bg-accent/10">
-                  <Icon size={26} strokeWidth={1.5} className="text-accent" aria-hidden="true" />
-                </div>
-                <h3 className="relative mt-6 text-lg font-medium text-black dark:text-cream">{item.title}</h3>
-                <p className="relative mt-2.5 text-sm leading-relaxed text-slate-mid dark:text-cream/70">
-                  {item.description}
-                </p>
+                <TiltCard className="relative block h-full overflow-hidden rounded-institutional border-2 border-navy bg-accent/10 p-8 shadow-institutional transition-colors duration-300 hover:border-accent dark:border-accent dark:bg-navy/40 lg:p-10">
+                  <div
+                    className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-accent/60 blur-[100px]"
+                    aria-hidden="true"
+                  />
+                  <div
+                    className="pointer-events-none absolute -bottom-14 -left-14 h-44 w-44 rounded-full bg-button/50 blur-[100px]"
+                    aria-hidden="true"
+                  />
+                  <div className="relative flex h-14 w-14 items-center justify-center rounded-institutional bg-accent/10">
+                    <Icon size={26} strokeWidth={1.5} className="text-accent" aria-hidden="true" />
+                  </div>
+                  <h3 className="relative mt-6 text-lg font-medium text-black dark:text-cream">{item.title}</h3>
+                  <p className="relative mt-2.5 text-sm leading-relaxed text-slate-mid dark:text-cream/70">
+                    {item.description}
+                  </p>
+                </TiltCard>
               </motion.div>
             );
           })}

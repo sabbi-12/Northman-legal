@@ -7,6 +7,7 @@ import { MapPin, Building2, Gavel, ShieldCheck } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const BADGE_ICONS = [Building2, Gavel, ShieldCheck];
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -23,23 +24,25 @@ export function TrustBanner({ dict, lang }: { dict: Dictionary; lang: Locale }) 
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: EASE }}
-          className="group relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-institutional lg:mx-0 lg:w-full lg:max-w-none"
+          className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none"
         >
-          <Image
-            src="/images/home/globe-countries-served.jpg"
-            alt={dict.globalPresence.countriesLabel}
-            fill
-            sizes="(min-width: 1024px) 448px, 100vw"
-            quality={90}
-            className="object-cover transition-all duration-500 ease-out group-hover:scale-105 group-hover:blur-sm"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent transition-opacity duration-500 group-hover:from-navy/85 group-hover:via-navy/40" />
-          <div className="absolute inset-x-0 bottom-0 translate-y-2 p-6 opacity-90 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-            <p className="text-3xl font-bold text-white md:text-4xl">{dict.globalPresence.countriesValue}</p>
-            <p className="mt-1 text-sm font-semibold uppercase tracking-[0.15em] text-white/90">
-              {dict.globalPresence.countriesLabel}
-            </p>
-          </div>
+          <TiltCard className="group relative block aspect-square w-full overflow-hidden rounded-institutional">
+            <Image
+              src="/images/home/globe-countries-served.jpg"
+              alt={dict.globalPresence.countriesLabel}
+              fill
+              sizes="(min-width: 1024px) 448px, 100vw"
+              quality={90}
+              className="object-cover transition-all duration-500 ease-out group-hover:scale-105 group-hover:blur-sm"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent transition-opacity duration-500 group-hover:from-navy/85 group-hover:via-navy/40" />
+            <div className="absolute inset-x-0 bottom-0 translate-y-2 p-6 opacity-90 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+              <p className="text-3xl font-bold text-white md:text-4xl">{dict.globalPresence.countriesValue}</p>
+              <p className="mt-1 text-sm font-semibold uppercase tracking-[0.15em] text-white/90">
+                {dict.globalPresence.countriesLabel}
+              </p>
+            </div>
+          </TiltCard>
         </motion.div>
 
         <div className="text-center lg:text-start">

@@ -7,8 +7,6 @@ import type { Locale } from "@/lib/i18n/config";
 import { SERVICE_DETAIL_SLUGS } from "@/lib/data/serviceSlugs";
 import { ServicePhotoCard, type ServiceCardData } from "@/components/sections/ServicePhotoCard";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
-
 export function ServicesGrid({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const items: ServiceCardData[] = dict.servicesPage.items;
   const reduceMotion = useReducedMotion();
@@ -22,10 +20,13 @@ export function ServicesGrid({ dict, lang }: { dict: Dictionary; lang: Locale })
     <section className="bg-cream py-24 dark:bg-navy-dark">
       <div className="container-header">
         <motion.div
-          initial={entrance ?? { opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: EASE }}
+          initial={entrance ?? { opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{
+            opacity: { duration: 0.4, ease: "easeOut" },
+            x: { type: "spring", stiffness: 120, damping: 16, mass: 0.7 },
+          }}
           className="max-w-2xl"
         >
           <span className="block h-px w-12 bg-accent" aria-hidden="true" />

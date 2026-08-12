@@ -75,7 +75,6 @@
         "title": "Company Setup & KSA Market Entry",
         "subtext": "End-to-end legal support for foreign investors entering the Saudi market, from licensing to full incorporation.",
         "description": "Northman Sterling Legal guides foreign investors through every stage of Saudi market entry — MISA licensing, entity structuring, and full company incorporation — so your business is registered, licensed, and compliant from day one.",
-        "imageSrc": "/images/services/company-incorporation.png",
         "imageAlt": "Company Setup and KSA Market Entry icon"
       },
       {
@@ -1219,10 +1218,13 @@
   },
   "contactPage": {
     "title": "Contact Us",
+    "heroEyebrow": "Get In Touch",
+    "heroHeadline": "Let's Start The Conversation",
     "intro": "Send us a few details about your matter and our team will respond promptly.",
     "connect": {
       "heading": "Let's Connect !",
-      "subheading": "We would love to discuss your legal and compliance needs…"
+      "subheading": "We would love to discuss your legal and compliance needs…",
+      "supportLabel": "24/7 Client Support"
     },
     "formSectionSubtitle": "General Enquiries Form",
     "formName": "Full Name",
@@ -1266,7 +1268,7 @@
           "flagCode": "sa",
           "address": "Level 18, Al Faisaliah Tower, King Fahad Road, Olaya District, Riyadh, Saudi Arabia",
           "phone": "00966 112 978 293",
-          "email": "gcc@northmansterling.legal"
+          "email": "ksa@northmansterling.legal"
         }
       ]
     }

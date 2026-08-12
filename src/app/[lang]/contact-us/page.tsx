@@ -8,7 +8,6 @@ import { ConnectBanner } from "@/components/sections/ConnectBanner";
 import { GlobalOffices } from "@/components/sections/GlobalOffices";
 import { FirmIdentity } from "@/components/sections/FirmIdentity";
 import { Newsletter } from "@/components/sections/Newsletter";
-import { OfficeContact } from "@/components/sections/OfficeContact";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { ParallaxHeroImage } from "@/components/ui/ParallaxHeroImage";
 
@@ -49,14 +48,22 @@ export default async function ContactUsPage({ params }: { params: { lang: string
 
   return (
     <>
-      <section className="relative overflow-hidden bg-navy py-20 text-cream md:py-28">
+      <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-navy py-28 text-cream md:min-h-[80vh] md:py-36">
         <ParallaxHeroImage src="/images/contact/contact-hero.jpg" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/60 to-navy/85 dark:from-navy-dark/85 dark:via-navy-dark/65 dark:to-navy-dark/90" />
 
         <div className="container-institutional relative max-w-3xl">
-          <h1 className="text-4xl font-medium leading-tight drop-shadow-[0_2px_10px_rgba(8,18,32,0.7)] md:text-5xl">
-            {dict.contactPage.title}
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-white drop-shadow-[0_1px_6px_rgba(8,18,32,0.75)]">
+            {dict.contactPage.heroEyebrow}
+          </p>
+
+          <h1 className="mt-6 text-4xl font-medium leading-tight drop-shadow-[0_2px_10px_rgba(8,18,32,0.7)] md:text-5xl lg:text-6xl">
+            {dict.contactPage.heroHeadline}
           </h1>
+
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/90 drop-shadow-[0_1px_6px_rgba(8,18,32,0.65)]">
+            {dict.contactPage.intro}
+          </p>
         </div>
       </section>
 
@@ -72,7 +79,6 @@ export default async function ContactUsPage({ params }: { params: { lang: string
       <GlobalOffices dict={dict} />
       <FirmIdentity dict={dict} />
       <Newsletter dict={dict} />
-      <OfficeContact dict={dict} />
     </>
   );
 }

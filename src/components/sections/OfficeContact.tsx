@@ -6,6 +6,7 @@ import { MapPin, Phone, PhoneCall, Mail } from "lucide-react";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import { ORGANIZATION } from "@/lib/seo/constants";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -27,7 +28,7 @@ export function OfficeContact({ dict, withForm = false }: { dict: Dictionary; wi
       className={
         withForm
           ? "grid gap-6 rounded-institutional border border-navy/10 bg-cream p-8 shadow-institutional dark:border-cream/10 dark:bg-navy/40"
-          : "mt-8 grid gap-8 rounded-institutional border border-navy/10 bg-cream p-8 shadow-institutional dark:border-cream/10 dark:bg-navy/40 sm:grid-cols-2 md:grid-cols-4 md:p-10"
+          : "grid gap-8 rounded-institutional border border-navy/10 bg-cream p-8 shadow-institutional dark:border-cream/10 dark:bg-navy/40 sm:grid-cols-2 md:grid-cols-4 md:p-10"
       }
     >
       <div>
@@ -80,7 +81,9 @@ export function OfficeContact({ dict, withForm = false }: { dict: Dictionary; wi
           <h2 className="text-2xl font-medium uppercase tracking-wide text-slate-dark md:text-3xl dark:text-cream">
             {office.heading}
           </h2>
-          {infoCard}
+          <TiltCard maxTilt={5} className="mt-8 block">
+            {infoCard}
+          </TiltCard>
         </div>
       </section>
     );
@@ -101,14 +104,18 @@ export function OfficeContact({ dict, withForm = false }: { dict: Dictionary; wi
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
-          className="rounded-institutional border border-navy/10 bg-cream p-8 shadow-institutional dark:border-cream/10 dark:bg-navy/40 md:p-10"
         >
-          <p className="text-base font-medium text-slate-dark dark:text-cream">
-            {dict.contactPage.formSectionSubtitle}
-          </p>
-          <div className="mt-6">
-            <ContactForm dict={dict} />
-          </div>
+          <TiltCard
+            maxTilt={2.5}
+            className="block rounded-institutional border border-navy/10 bg-cream p-8 shadow-institutional dark:border-cream/10 dark:bg-navy/40 md:p-10"
+          >
+            <p className="text-base font-medium text-slate-dark dark:text-cream">
+              {dict.contactPage.formSectionSubtitle}
+            </p>
+            <div className="mt-6">
+              <ContactForm dict={dict} />
+            </div>
+          </TiltCard>
         </motion.div>
       </div>
     </section>

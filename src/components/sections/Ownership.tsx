@@ -6,6 +6,7 @@ import { CheckCircle2 } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -28,7 +29,7 @@ export function Ownership({ dict }: { dict: Dictionary }) {
             className="absolute -bottom-3 -end-3 h-full w-full rounded-institutional border border-accent/40"
             aria-hidden="true"
           />
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-institutional shadow-institutional">
+          <TiltCard className="relative block aspect-[4/5] w-full overflow-hidden rounded-institutional shadow-institutional">
             <ParallaxLayer strength={16} className="absolute inset-0">
               <Image
                 src="/images/about/gavel-and-scales-desk.jpg"
@@ -39,7 +40,7 @@ export function Ownership({ dict }: { dict: Dictionary }) {
                 className="object-cover"
               />
             </ParallaxLayer>
-          </div>
+          </TiltCard>
         </motion.div>
 
         <div>

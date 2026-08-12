@@ -125,6 +125,17 @@ const patternRedirects = [
 const nextConfig = {
   reactStrictMode: true,
 
+  // This project lives inside OneDrive's sync tree, and OneDrive's file
+  // locking/reparse-point behavior occasionally corrupts webpack's .next
+  // build cache mid-build (readlink EINVAL errors), crashing `next dev`.
+  // Tried relocating distDir outside OneDrive to remove the cause
+  // entirely, but Next's dev server can't resolve its internal Pages
+  // Router fallback (_document/_app) when distDir sits on an unrelated
+  // path/drive (MODULE_NOT_FOUND) — so that trades one crash for another.
+  // Staying on the default; use `npm run dev:clean` (see package.json)
+  // when the readlink error shows up instead.
+  distDir: ".next",
+
   images: {
     formats: ["image/avif", "image/webp"],
     dangerouslyAllowSVG: true,

@@ -7,6 +7,7 @@ import { ArrowRight, ArrowLeft, CheckCircle2 } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -68,7 +69,10 @@ export function CompanyOverview({ dict, lang }: { dict: Dictionary; lang: Locale
             className="absolute -bottom-3 -end-3 h-full w-full rounded-institutional border border-accent/40"
             aria-hidden="true"
           />
-          <div className="relative overflow-hidden rounded-institutional border-2 border-accent/60 bg-cream shadow-institutional ring-1 ring-accent/20 dark:border-accent/50 dark:bg-navy/40 dark:ring-accent/15">
+          <TiltCard
+            maxTilt={6}
+            className="relative block overflow-hidden rounded-institutional border-2 border-accent/60 bg-cream shadow-institutional ring-1 ring-accent/20 dark:border-accent/50 dark:bg-navy/40 dark:ring-accent/15"
+          >
             <div
               className="pointer-events-none absolute -top-24 -end-24 h-72 w-72 rounded-full bg-accent/45 blur-[100px]"
               style={{ maskImage: "radial-gradient(circle, black 0%, transparent 70%)" }}
@@ -114,7 +118,7 @@ export function CompanyOverview({ dict, lang }: { dict: Dictionary; lang: Locale
                 ))}
               </div>
             </div>
-          </div>
+          </TiltCard>
         </motion.div>
       </div>
     </section>

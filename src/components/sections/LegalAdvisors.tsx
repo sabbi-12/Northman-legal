@@ -8,6 +8,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -61,7 +62,7 @@ export function LegalAdvisors({ dict, lang }: { dict: Dictionary; lang: Locale }
               className="absolute -bottom-3 -end-3 h-full w-full rounded-institutional border border-accent/40"
               aria-hidden="true"
             />
-            <div className="relative aspect-[3/2] w-full overflow-hidden rounded-institutional border border-navy/10 shadow-institutional dark:border-cream/10">
+            <TiltCard className="relative block aspect-[3/2] w-full overflow-hidden rounded-institutional border border-navy/10 shadow-institutional dark:border-cream/10">
               <ParallaxLayer strength={18} className="absolute inset-0">
                 <Image
                   src="/images/about/legal-advisor-ksa.jpg"
@@ -88,7 +89,7 @@ export function LegalAdvisors({ dict, lang }: { dict: Dictionary; lang: Locale }
                   </div>
                 ))}
               </div>
-            </div>
+            </TiltCard>
           </div>
         </motion.div>
       </div>
