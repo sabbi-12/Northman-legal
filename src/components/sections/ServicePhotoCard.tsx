@@ -7,20 +7,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 
 import type { Locale } from "@/lib/i18n/config";
 import { TiltCard } from "@/components/ui/TiltCard";
-
-// 6 real photos supplied for the Home services grid, assigned to the 6
-// featured services by index (stable per-card, not re-randomized on every
-// render) rather than tied to a specific practice area's meaning — the
-// brief asked for the photos used "randomly" as texture, not as literal
-// illustrations of each practice.
-const SERVICE_PHOTOS = [
-  "/images/services-bg/service-bg-1.jpg",
-  "/images/services-bg/service-bg-2.jpg",
-  "/images/services-bg/service-bg-3.jpg",
-  "/images/services-bg/service-bg-4.jpg",
-  "/images/services-bg/service-bg-5.jpg",
-  "/images/services-bg/service-bg-6.jpg",
-];
+import { getServicePhoto } from "@/lib/data/servicePhotos";
 
 export type ServiceCardData = {
   id: string;
@@ -49,7 +36,7 @@ export function ServicePhotoCard({
   const ArrowIcon = lang === "ar" ? ArrowLeft : ArrowRight;
   const reduceMotion = useReducedMotion();
   const entrance = reduceMotion ? false : undefined;
-  const photo = service.imageSrc || SERVICE_PHOTOS[index % SERVICE_PHOTOS.length];
+  const photo = service.imageSrc || getServicePhoto(service.id, index);
 
   // Mixed entrance set, cycled by index so consecutive rows don't all move
   // the same way — some cards slide from the side, some rise up, some
