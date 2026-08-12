@@ -31,7 +31,7 @@ export function Ownership({ dict }: { dict: Dictionary }) {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-institutional shadow-institutional">
             <ParallaxLayer strength={16} className="absolute inset-0">
               <Image
-                src="/images/about/legal-advisor-ksa.jpg"
+                src="/images/about/gavel-and-scales-desk.jpg"
                 alt={ownership.imageAlt}
                 fill
                 sizes="(min-width: 1024px) 360px, 90vw"

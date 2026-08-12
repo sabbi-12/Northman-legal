@@ -392,12 +392,14 @@
         "FEM EMEA Summit",
         "HR Leaders Conference",
         "PIF Private Sector Forum"
-      ]
+      ],
+      "imageAlt": "A passport and a model airplane, representing international travel and cross-border legal support"
     },
     "belief": {
       "heading": "What we believe",
       "body": "Regulatory compliance in Saudi Arabia changes often. We stay close to those changes so our clients do not have to. Our team works through legal process and documentation in plain language, so you always know where a matter stands.",
-      "cta": "Learn More"
+      "cta": "Learn More",
+      "imageAlt": "A blindfolded statue of Lady Justice holding the scales of justice"
     },
     "ownership": {
       "heading": "We Embrace Ownership",
@@ -409,7 +411,7 @@
         "Executing matters efficiently and within agreed timelines and budgets",
         "Ensuring that our legal strategies deliver tangible value"
       ],
-      "imageAlt": "A judge's gavel resting on the flag of Saudi Arabia"
+      "imageAlt": "A judge's gavel and scales of justice beside a signed legal document on a desk"
     },
     "ctaBanner": {
       "heading": "Speak to Our Legal Team",

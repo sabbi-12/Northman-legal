@@ -68,31 +68,51 @@ export function CompanyOverview({ dict, lang }: { dict: Dictionary; lang: Locale
             className="absolute -bottom-3 -end-3 h-full w-full rounded-institutional border border-accent/40"
             aria-hidden="true"
           />
-          <div className="relative rounded-institutional border border-navy/10 bg-cream p-8 shadow-institutional dark:border-cream/10 dark:bg-navy/40 md:p-10">
-            <p className="text-base font-medium text-slate-dark dark:text-cream">{overview.featureListTitle}</p>
+          <div className="relative overflow-hidden rounded-institutional border-2 border-accent/60 bg-cream shadow-institutional ring-1 ring-accent/20 dark:border-accent/50 dark:bg-navy/40 dark:ring-accent/15">
+            <div
+              className="pointer-events-none absolute -top-24 -end-24 h-72 w-72 rounded-full bg-accent/45 blur-[100px]"
+              style={{ maskImage: "radial-gradient(circle, black 0%, transparent 70%)" }}
+              aria-hidden="true"
+            />
+            <div
+              className="pointer-events-none absolute -bottom-28 -start-20 h-72 w-72 rounded-full bg-button/40 blur-[100px]"
+              style={{ maskImage: "radial-gradient(circle, black 0%, transparent 70%)" }}
+              aria-hidden="true"
+            />
+            <div
+              className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/70 to-transparent"
+              aria-hidden="true"
+            />
 
-            <div className="mt-5 space-y-3 border-t border-navy/10 pt-5 dark:border-cream/10">
-              {overview.features.map((feature, index) => (
-                <motion.div
-                  key={feature}
-                  initial={entrance ?? { opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.4, delay: index * 0.06, ease: EASE }}
-                  className="flex items-center gap-3"
-                >
-                  <CheckCircle2 size={18} strokeWidth={1.75} className="shrink-0 text-accent" aria-hidden="true" />
-                  <span className="text-sm font-medium text-slate-dark dark:text-cream">{feature}</span>
-                </motion.div>
-              ))}
-            </div>
+            <div className="relative p-8 md:p-10">
+              <div className="flex items-center gap-3">
+                <span className="h-8 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                <p className="text-lg font-medium text-slate-dark dark:text-cream">{overview.featureListTitle}</p>
+              </div>
 
-            <div className="mt-7 flex items-center gap-5 border-t border-navy/10 pt-6 dark:border-cream/10">
-              {badges.map((badge) => (
-                <div key={badge.id} className="relative h-12 w-12 shrink-0 opacity-90">
-                  <Image src={badge.imageSrc} alt={badge.name} fill sizes="48px" quality={100} className="object-contain" />
-                </div>
-              ))}
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {overview.features.map((feature, index) => (
+                  <motion.div
+                    key={feature}
+                    initial={entrance ?? { opacity: 0, y: 8 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.4, delay: index * 0.06, ease: EASE }}
+                    className="flex items-start gap-2.5 rounded-institutional border border-navy/10 bg-white/60 p-3.5 dark:border-cream/10 dark:bg-navy/30"
+                  >
+                    <CheckCircle2 size={18} strokeWidth={1.75} className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
+                    <span className="text-sm font-medium leading-snug text-slate-dark dark:text-cream">{feature}</span>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-7 flex items-center justify-between gap-5 rounded-institutional border border-navy/10 bg-white/60 px-5 py-4 dark:border-cream/10 dark:bg-navy/30">
+                {badges.map((badge) => (
+                  <div key={badge.id} className="relative h-11 w-11 shrink-0 opacity-90">
+                    <Image src={badge.imageSrc} alt={badge.name} fill sizes="44px" quality={100} className="object-contain" />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>

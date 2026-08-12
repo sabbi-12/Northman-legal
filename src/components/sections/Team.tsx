@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
+import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -24,6 +26,25 @@ export function Team({ dict }: { dict: Dictionary }) {
           <p className="mt-3 text-sm font-semibold uppercase tracking-[0.15em] text-slate-mid dark:text-cream/60">
             {team.statLabel}
           </p>
+
+          <div className="relative mt-8 w-full max-w-xs">
+            <div
+              className="absolute -bottom-3 -end-3 h-full w-full rounded-institutional border border-accent/40"
+              aria-hidden="true"
+            />
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-institutional shadow-institutional">
+              <ParallaxLayer strength={16} className="absolute inset-0">
+                <Image
+                  src="/images/about/global-team.jpg"
+                  alt={team.imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 320px, 90vw"
+                  quality={95}
+                  className="object-cover"
+                />
+              </ParallaxLayer>
+            </div>
+          </div>
         </motion.div>
 
         <div>
