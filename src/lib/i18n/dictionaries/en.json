@@ -963,6 +963,8 @@
       "layout": "simple",
       "title": "Family Business & Private Client Advisory",
       "intro": "We advise family-owned businesses and high-net-worth individuals on succession planning, governance, and private wealth structuring, helping preserve legacy across generations.",
+      "imageSrc": "/images/services/family-business-handshake.jpg",
+      "imageAlt": "Business colleagues shaking hands and smiling together in a modern office",
       "sections": [
         {
           "heading": "Succession Planning",
