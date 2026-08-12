@@ -867,6 +867,8 @@
       "layout": "simple",
       "title": "White-Collar Crime & Investigations",
       "intro": "We advise on anti-bribery and anti-corruption compliance, conduct internal investigations, and represent clients in white-collar criminal matters before Saudi authorities.",
+      "imageSrc": "/images/services/white-collar-crime-investigation.jpg",
+      "imageAlt": "Investigators examining and tagging evidence at night",
       "sections": [
         {
           "heading": "Anti-Bribery & Anti-Corruption Compliance",
