@@ -687,6 +687,8 @@
       "layout": "simple",
       "title": "Technology, Media & Telecom (TMT) Lawyers",
       "intro": "We advise technology, media, and telecommunications businesses on data protection, digital regulation, and TMT-specific commercial matters as Saudi Arabia's digital economy expands.",
+      "imageSrc": "/images/services/technology-media-telecom-connection.jpg",
+      "imageAlt": "A global digital connection concept with devices laid out over a world map",
       "sections": [
         {
           "heading": "Data Protection & PDPL Compliance",
