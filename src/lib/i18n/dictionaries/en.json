@@ -309,6 +309,7 @@
   },
   "aboutPage": {
     "title": "About Us",
+    "heroEyebrow": "Who We Are",
     "intro": "Northman Sterling Legal is a registered law firm in Saudi Arabia, providing legal advisory and compliance services for enterprises and individuals operating in the Kingdom.",
     "companyOverview": {
       "subheading": "About Our Company",
