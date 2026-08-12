@@ -549,6 +549,8 @@
       "layout": "simple",
       "title": "Real Estate, Construction & Infrastructure Lawyers",
       "intro": "We advise developers, contractors, investors, and lenders on real estate transactions, construction contracts, and infrastructure projects across Saudi Arabia's fast-growing built environment.",
+      "imageSrc": "/images/services/real-estate-construction-blueprint.jpg",
+      "imageAlt": "An architectural model house on top of building blueprints",
       "sections": [
         {
           "heading": "Real Estate Acquisitions & Leasing",
