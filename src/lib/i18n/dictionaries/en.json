@@ -641,6 +641,8 @@
       "layout": "simple",
       "title": "Intellectual Property Lawyers in Saudi Arabia",
       "intro": "We help businesses register, manage, and enforce trademarks, patents, copyrights, and trade secrets in Saudi Arabia and across the region.",
+      "imageSrc": "/images/services/intellectual-property-office.jpg",
+      "imageAlt": "A modern office lounge with a glass wall and lounge seating",
       "sections": [
         {
           "heading": "Trademark & Patent Registration",
