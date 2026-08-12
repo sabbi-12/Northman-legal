@@ -1055,6 +1055,8 @@
       "layout": "simple",
       "title": "Banking & Finance Lawyers in Saudi Arabia",
       "intro": "We advise banks, lenders, and borrowers on financing transactions and Shariah-compliant structures under the regulatory oversight of the Saudi Central Bank (SAMA).",
+      "imageSrc": "/images/services/banking-finance-savings.jpg",
+      "imageAlt": "A businessman's hand beside a piggy bank and rising stacks of coins",
       "sections": [
         {
           "heading": "Financing Transactions",
@@ -1099,6 +1101,8 @@
       "layout": "simple",
       "title": "Capital Markets Lawyers in Saudi Arabia",
       "intro": "We advise issuers, underwriters, and investors on IPOs, debt issuances, and other capital markets transactions regulated by the Capital Market Authority (CMA) and Saudi Exchange (Tadawul).",
+      "imageSrc": "/images/services/capital-markets-ticker.jpg",
+      "imageAlt": "A close-up of a digital stock market ticker display showing live price movements",
       "sections": [
         {
           "heading": "IPOs & Equity Offerings",
