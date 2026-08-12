@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
@@ -31,6 +31,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolledPast, setScrolledPast] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   const isHome = isHomePath(pathname, lang);
   const forceLightNav = !isHome;
@@ -67,7 +68,7 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
       <motion.nav
         initial={false}
         animate={{ height: scrolled ? 72 : 96 }}
-        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: reduceMotion ? 0 : 0.25, ease: [0.16, 1, 0.3, 1] }}
         className="container-header grid grid-cols-[auto_1fr_auto] items-center gap-6"
       >
         <Link href={`/${lang}`} className="relative shrink-0" aria-label={dict.meta.siteName}>
@@ -137,10 +138,10 @@ export function Navbar({ dict, lang }: { dict: Dictionary; lang: Locale }) {
           onClick={() => setMobileOpen(false)}
         >
           <motion.div
-            initial={{ x: lang === "ar" ? "-100%" : "100%" }}
+            initial={reduceMotion ? false : { x: lang === "ar" ? "-100%" : "100%" }}
             animate={{ x: 0 }}
-            exit={{ x: lang === "ar" ? "-100%" : "100%" }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+            exit={reduceMotion ? undefined : { x: lang === "ar" ? "-100%" : "100%" }}
+            transition={{ duration: reduceMotion ? 0 : 0.25, ease: "easeOut" }}
             className="absolute inset-y-0 end-0 flex w-[82%] max-w-sm flex-col overflow-y-auto bg-navy-dark p-6 shadow-2xl"
             style={{ backgroundColor: "#04080F" }}
             onClick={(event) => event.stopPropagation()}

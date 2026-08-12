@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import type { NewsPost } from "@/lib/sanity/types";
 
@@ -21,6 +21,7 @@ export function Ticker({
   nextLabel: string;
 }) {
   const [index, setIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     if (posts.length < 2) return;
@@ -48,10 +49,10 @@ export function Ticker({
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={active.slug}
-            initial={{ opacity: 0, y: 6 }}
+            initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.25 }}
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -6 }}
+            transition={{ duration: reduceMotion ? 0.15 : 0.25 }}
             className="absolute inset-0 flex items-center"
           >
             <Link

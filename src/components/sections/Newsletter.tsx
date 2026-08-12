@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Mail, CheckCircle2, AlertCircle } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
@@ -10,6 +10,8 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 export function Newsletter({ dict }: { dict: Dictionary }) {
   const [status, setStatus] = useState<Status>("idle");
+  const reduceMotion = useReducedMotion();
+  const entrance = reduceMotion ? false : undefined;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -38,7 +40,7 @@ export function Newsletter({ dict }: { dict: Dictionary }) {
     <section className="bg-cream py-20 dark:bg-navy-dark">
       <div className="container-institutional">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={entrance ?? { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}

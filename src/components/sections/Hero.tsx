@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
 import { SearchBar } from "@/components/sections/SearchBar";
+import { ParallaxHeroImage } from "@/components/ui/ParallaxHeroImage";
 
 // Confident, non-elastic arrival — matches the institutional register.
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -23,15 +23,7 @@ export function Hero({ dict, lang }: { dict: Dictionary; lang: Locale }) {
 
   return (
     <section className="relative -mt-24 overflow-hidden bg-navy pb-24 pt-[calc(theme(spacing.28)+theme(spacing.24))] text-cream md:pb-32 md:pt-[calc(theme(spacing.36)+theme(spacing.24))]">
-      <Image
-        src="/images/hero/kingdom-tower-riyadh.jpg"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        quality={90}
-        className="object-cover"
-      />
+      <ParallaxHeroImage src="/images/hero/kingdom-tower-riyadh.jpg" />
       <div className="absolute inset-0 bg-gradient-to-b from-navy/75 via-navy/50 to-navy/80 dark:from-navy-dark/85 dark:via-navy-dark/60 dark:to-navy-dark/90" />
 
       <div

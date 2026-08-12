@@ -7,6 +7,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
+import { ParallaxLayer } from "@/components/ui/ParallaxLayer";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -61,14 +62,16 @@ export function LegalAdvisors({ dict, lang }: { dict: Dictionary; lang: Locale }
               aria-hidden="true"
             />
             <div className="relative aspect-[3/2] w-full overflow-hidden rounded-institutional border border-navy/10 shadow-institutional dark:border-cream/10">
-              <Image
-                src="/images/about/legal-advisor-ksa.jpg"
-                alt={dict.legalAdvisors.imageAlt}
-                fill
-                sizes="(min-width: 1024px) 560px, 90vw"
-                quality={95}
-                className="object-cover"
-              />
+              <ParallaxLayer strength={18} className="absolute inset-0">
+                <Image
+                  src="/images/about/legal-advisor-ksa.jpg"
+                  alt={dict.legalAdvisors.imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 560px, 90vw"
+                  quality={95}
+                  className="object-cover"
+                />
+              </ParallaxLayer>
               <div
                 className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent backdrop-blur-sm [mask-image:linear-gradient(to_top,black,transparent)]"
                 aria-hidden="true"

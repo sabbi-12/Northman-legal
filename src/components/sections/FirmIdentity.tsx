@@ -1,14 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 
 export function FirmIdentity({ dict }: { dict: Dictionary }) {
+  const reduceMotion = useReducedMotion();
+  const entrance = reduceMotion ? false : undefined;
+
   return (
     <section className="bg-navy py-16 text-center text-cream">
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
+        initial={entrance ?? { opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}

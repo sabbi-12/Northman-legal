@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 import { ContactForm } from "@/components/sections/ContactForm";
@@ -8,11 +8,14 @@ import type { Dictionary } from "@/lib/i18n/getDictionary";
 import { ORGANIZATION } from "@/lib/seo/constants";
 
 export function LetsConnect({ dict }: { dict: Dictionary }) {
+  const reduceMotion = useReducedMotion();
+  const entrance = reduceMotion ? false : undefined;
+
   return (
     <section id="lets-connect" className="bg-cream py-24 dark:bg-navy-dark">
       <div className="container-header grid gap-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.3fr)]">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={entrance ?? { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
@@ -47,7 +50,7 @@ export function LetsConnect({ dict }: { dict: Dictionary }) {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={entrance ?? { opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}

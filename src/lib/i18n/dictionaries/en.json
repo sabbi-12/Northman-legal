@@ -385,6 +385,13 @@
           "imageSrc": "",
           "linkedinUrl": ""
         }
+      ],
+      "statLabel": "Countries Represented",
+      "eventNames": [
+        "SME London Business Awards",
+        "FEM EMEA Summit",
+        "HR Leaders Conference",
+        "PIF Private Sector Forum"
       ]
     },
     "belief": {
@@ -401,7 +408,8 @@
         "Recommending solutions that are both legally robust and commercially practical",
         "Executing matters efficiently and within agreed timelines and budgets",
         "Ensuring that our legal strategies deliver tangible value"
-      ]
+      ],
+      "imageAlt": "A judge's gavel resting on the flag of Saudi Arabia"
     },
     "ctaBanner": {
       "heading": "Speak to Our Legal Team",

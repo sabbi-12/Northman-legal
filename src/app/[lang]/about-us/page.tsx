@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { getDictionary } from "@/lib/i18n/getDictionary";
@@ -17,6 +16,7 @@ import { OfficeContact } from "@/components/sections/OfficeContact";
 import { CorePillars } from "@/components/sections/CorePillars";
 import { FAQ } from "@/components/sections/FAQ";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { ParallaxHeroImage } from "@/components/ui/ParallaxHeroImage";
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -56,15 +56,7 @@ export default async function AboutUsPage({ params }: { params: { lang: string }
   return (
     <>
       <section className="relative overflow-hidden bg-navy py-20 text-cream md:py-28">
-        <Image
-          src="/images/about/about-hero.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          quality={90}
-          className="object-cover"
-        />
+        <ParallaxHeroImage src="/images/about/about-hero.jpg" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/60 to-navy/85 dark:from-navy-dark/85 dark:via-navy-dark/65 dark:to-navy-dark/90" />
 
         <div className="container-institutional relative max-w-3xl">
@@ -91,9 +83,9 @@ export default async function AboutUsPage({ params }: { params: { lang: string }
       <WhatWeBelieve dict={dict} lang={lang} />
       <Ownership dict={dict} />
       <AboutCtaBanner dict={dict} lang={lang} />
-      <FirmIdentity dict={dict} />
       <Newsletter dict={dict} />
-      <OfficeContact dict={dict} />
+      <FirmIdentity dict={dict} />
+      <OfficeContact dict={dict} withForm />
       <CorePillars dict={dict} />
       <FAQ dict={dict} />
     </>
