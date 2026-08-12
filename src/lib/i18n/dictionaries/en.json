@@ -779,6 +779,8 @@
       "layout": "simple",
       "title": "Tax Lawyers in Saudi Arabia",
       "intro": "We advise businesses on corporate tax, VAT, Zakat, and cross-border tax structuring, helping you remain compliant with ZATCA while managing your overall tax position in Saudi Arabia.",
+      "imageSrc": "/images/services/tax-gavel-handshake.jpg",
+      "imageAlt": "A gavel and scales of justice on a desk with two people shaking hands in the background",
       "sections": [
         {
           "heading": "Corporate Tax, VAT & Zakat",
