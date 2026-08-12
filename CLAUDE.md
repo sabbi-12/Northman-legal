@@ -702,7 +702,40 @@ this back up tomorrow, start here:
       freshly-generated app password from someone with direct account
       access. `NEXT_PUBLIC_HUBSPOT_PORTAL_ID` still deferred by user.
       GTM/GA4/Clarity: still no accounts, still not a blocker.
-- [ ] Add Search Console verification meta tag.
+- [x] Add Search Console verification — done 2026-08-12. Tried
+      `verification.google` meta tag first (Next.js `generateMetadata`),
+      then the user switched to the HTML-file method instead — added
+      `public/google0b74bd21e60966f1.html` (served automatically at the
+      site root by Next.js static file serving) and removed the meta tag
+      per the user's request, so only the HTML-file method is active now.
+      First verify attempt failed ("file not found") — root cause was
+      just deploy timing (file went live moments before the check, so
+      Google's crawl hit an older deployment); confirmed via direct
+      `curl` that the file is now live and byte-exact at
+      `northmansterling.legal/google0b74bd21e60966f1.html` — re-verifying
+      in Search Console should pass.
+- [x] **`www` SSL gap found and fixed, same day (2026-08-12)**:
+      `https://www.northmansterling.legal` had **no valid SSL
+      certificate at all** — the live cert's CN only covered the bare
+      `northmansterling.legal`, so any HTTPS request to the `www`
+      subdomain hard-failed at the TLS handshake
+      (`SEC_E_WRONG_PRINCIPAL`), confirmed via `curl -v` and
+      independently via a raw .NET `HttpWebRequest` cert check. Root
+      cause: `www.northmansterling.legal` had never been added as a
+      domain in the Vercel project (Project → Settings → Domains),
+      which is what triggers Vercel's automatic Let's Encrypt cert
+      issuance for a hostname — DNS itself was already fine (`www` was
+      already a correct alias to the same Vercel IP, 216.198.79.1).
+      **Fix**: user added `www.northmansterling.legal` as a domain in
+      Vercel (cert auto-provisioned, confirmed `CN=www.northmansterling.legal`
+      on re-check), then set `northmansterling.legal` (bare) as primary/
+      Production and `www` → **308 permanent** redirect to the bare
+      domain — chosen over a temporary redirect specifically to preserve
+      SEO signal, consistent with every other redirect in this project's
+      WP→Vercel migration (see "WP → Vercel migration" below). Verified
+      live end-to-end: bare domain serves directly, `www` returns a 308
+      with `Location: https://northmansterling.legal/`, verification
+      file still reachable on the primary domain.
 - [x] Vercel domain/DNS cutover — **done**, confirmed 2026-08-11.
       `northmansterling.legal` now resolves to Vercel (216.198.79.1) and
       serves this Next.js/Sanity build directly — the WordPress site is no
