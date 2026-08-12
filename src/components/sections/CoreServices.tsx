@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
 import type { Locale } from "@/lib/i18n/config";
@@ -25,21 +26,13 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
   return (
     <section className="bg-cream py-24 dark:bg-navy-dark">
       <div className="container-header">
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
-              {dict.coreServices.title}
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-mid dark:text-cream/70">
-              {dict.coreServices.description}
-            </p>
-          </div>
-          <Link
-            href={`/${lang}/services`}
-            className="shrink-0 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:text-accent dark:text-cream"
-          >
-            {dict.coreServices.exploreAll}
-          </Link>
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-medium text-slate-dark md:text-4xl dark:text-cream">
+            {dict.coreServices.title}
+          </h2>
+          <p className="mt-4 text-base leading-relaxed text-slate-mid dark:text-cream/70">
+            {dict.coreServices.description}
+          </p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 lg:grid-cols-3">
@@ -53,6 +46,20 @@ export function CoreServices({ dict, lang }: { dict: Dictionary; lang: Locale })
               index={index}
             />
           ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Link
+            href={`/${lang}/services`}
+            className="group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-navy transition-colors hover:text-accent dark:text-cream"
+          >
+            {dict.coreServices.exploreAll}
+            {lang === "ar" ? (
+              <ArrowLeft size={16} strokeWidth={2} className="transition-transform group-hover:-translate-x-1" />
+            ) : (
+              <ArrowRight size={16} strokeWidth={2} className="transition-transform group-hover:translate-x-1" />
+            )}
+          </Link>
         </div>
       </div>
     </section>
