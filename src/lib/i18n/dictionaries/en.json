@@ -1009,6 +1009,8 @@
       "layout": "simple",
       "title": "Corporate & Commercial / M&A Lawyers",
       "intro": "We advise businesses on corporate structuring, mergers and acquisitions, joint ventures, and commercial contracts — helping companies establish, grow, and transact in Saudi Arabia with a solid legal foundation.",
+      "imageSrc": "/images/services/corporate-commercial-ma-skyline.jpg",
+      "imageAlt": "A view looking up through tree branches at modern glass skyscrapers",
       "sections": [
         {
           "heading": "Mergers & Acquisitions",
