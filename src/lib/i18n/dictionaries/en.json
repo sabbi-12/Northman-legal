@@ -1126,79 +1126,96 @@
       {
         "id": "company-incorporation",
         "title": "Company Setup & KSA Market Entry",
-        "subtext": "End-to-end legal support for foreign investors entering the Saudi market, from licensing to full incorporation."
+        "subtext": "End-to-end legal support for foreign investors entering the Saudi market, from licensing to full incorporation.",
+        "imageSrc": ""
       },
       {
         "id": "dispute-resolution",
         "title": "Dispute Resolution",
-        "subtext": "Litigation, arbitration, and mediation before Saudi courts and tribunals."
+        "subtext": "Litigation, arbitration, and mediation before Saudi courts and tribunals.",
+        "imageSrc": ""
       },
       {
         "id": "real-estate-construction",
         "title": "Real Estate, Construction & Infrastructure",
-        "subtext": "Legal support across acquisitions, leasing, construction contracts, and major infrastructure projects."
+        "subtext": "Legal support across acquisitions, leasing, construction contracts, and major infrastructure projects.",
+        "imageSrc": ""
       },
       {
         "id": "employment-law",
         "title": "Employment Law",
-        "subtext": "Saudi labor law compliance, contracts, Saudization, and workforce disputes."
+        "subtext": "Saudi labor law compliance, contracts, Saudization, and workforce disputes.",
+        "imageSrc": ""
       },
       {
         "id": "intellectual-property",
         "title": "Intellectual Property",
-        "subtext": "Trademark, patent, and copyright protection and enforcement in Saudi Arabia."
+        "subtext": "Trademark, patent, and copyright protection and enforcement in Saudi Arabia.",
+        "imageSrc": ""
       },
       {
         "id": "technology-media-telecom",
         "title": "Technology, Media & Telecom",
-        "subtext": "Digital, data protection, and TMT regulatory advice for the Kingdom's digital economy."
+        "subtext": "Digital, data protection, and TMT regulatory advice for the Kingdom's digital economy.",
+        "imageSrc": ""
       },
       {
         "id": "regulatory-compliance",
         "title": "Regulatory & Compliance",
-        "subtext": "Licensing, sector-specific regulation, and compliance programs across the Kingdom."
+        "subtext": "Licensing, sector-specific regulation, and compliance programs across the Kingdom.",
+        "imageSrc": ""
       },
       {
         "id": "tax",
         "title": "Tax",
-        "subtext": "Corporate tax, VAT, Zakat, and cross-border tax structuring advice."
+        "subtext": "Corporate tax, VAT, Zakat, and cross-border tax structuring advice.",
+        "imageSrc": ""
       },
       {
         "id": "restructuring-insolvency",
         "title": "Restructuring & Insolvency",
-        "subtext": "Financial restructuring, insolvency proceedings, and creditor protection under Saudi law."
+        "subtext": "Financial restructuring, insolvency proceedings, and creditor protection under Saudi law.",
+        "imageSrc": ""
       },
       {
         "id": "white-collar-crime",
         "title": "White-Collar Crime & Investigations",
-        "subtext": "Anti-bribery, fraud, and internal investigations for businesses operating in the Kingdom."
+        "subtext": "Anti-bribery, fraud, and internal investigations for businesses operating in the Kingdom.",
+        "imageSrc": ""
       },
       {
         "id": "competition-antitrust",
         "title": "Competition & Antitrust",
-        "subtext": "Merger control filings, market dominance reviews, and GAC compliance advice."
+        "subtext": "Merger control filings, market dominance reviews, and GAC compliance advice.",
+        "imageSrc": ""
       },
       {
         "id": "family-business",
         "title": "Family Business & Private Client",
-        "subtext": "Succession planning, governance, and private wealth structuring for family-owned enterprises."
+        "subtext": "Succession planning, governance, and private wealth structuring for family-owned enterprises.",
+        "imageSrc": ""
       },
       {
         "id": "corporate-commercial-ma",
         "title": "Corporate & Commercial / M&A",
-        "subtext": "Mergers, acquisitions, joint ventures, and commercial contracts across the Kingdom."
+        "subtext": "Mergers, acquisitions, joint ventures, and commercial contracts across the Kingdom.",
+        "imageSrc": ""
       },
       {
         "id": "banking-finance",
         "title": "Banking & Finance",
-        "subtext": "Financing transactions, Shariah-compliant structures, and lending advice for banks and borrowers."
+        "subtext": "Financing transactions, Shariah-compliant structures, and lending advice for banks and borrowers.",
+        "imageSrc": ""
       },
       {
         "id": "capital-markets",
         "title": "Capital Markets",
-        "subtext": "IPOs, debt issuances, and CMA-regulated capital markets transactions."
+        "subtext": "IPOs, debt issuances, and CMA-regulated capital markets transactions.",
+        "imageSrc": ""
       }
-    ]
+    ],
+    "practiceAreasLabel": "Practice Areas",
+    "gridHeading": "Our Practice Areas"
   },
   "contactPage": {
     "title": "Contact Us",

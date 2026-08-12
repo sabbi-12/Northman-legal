@@ -27,6 +27,11 @@ export type ServiceCardData = {
   id: string;
   title: string;
   subtext: string;
+  // Optional per-service photo. Falls back to the cycled SERVICE_PHOTOS
+  // texture set below when a service doesn't have a real photo yet — fill
+  // this in per service as real photos are supplied, no component change
+  // needed.
+  imageSrc?: string;
 };
 
 export function ServicePhotoCard({
@@ -45,7 +50,7 @@ export function ServicePhotoCard({
   const ArrowIcon = lang === "ar" ? ArrowLeft : ArrowRight;
   const reduceMotion = useReducedMotion();
   const entrance = reduceMotion ? false : undefined;
-  const photo = SERVICE_PHOTOS[index % SERVICE_PHOTOS.length];
+  const photo = service.imageSrc || SERVICE_PHOTOS[index % SERVICE_PHOTOS.length];
 
   return (
     <motion.div
