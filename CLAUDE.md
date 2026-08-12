@@ -14,7 +14,10 @@ ships if server-rendering would do; no redirect is "close enough"; no visual
 choice undermines an "institutional law firm" register in favor of a
 "tech startup" one.
 
-## Current status (last updated 2026-08-10)
+## Current status (last updated 2026-08-11 — ⚠️ services list and domain
+hosting both changed since this table was last verified; see "Session
+2026-08-11" near the end of this file before trusting the Services row
+below or any note that assumes WordPress is still live)
 
 The Next.js 14 App Router scaffold is **already substantially built** —
 this is not a greenfield start. Verified present and wired correctly:
@@ -1234,6 +1237,144 @@ Legal Advisors photo/stats overlay, Event Gallery's arrows + hover-expand +
 auto-scroll interplay, the Navbar's white-glow-under-logo strength/size
 (went through 4+ rounds of "not visible"/"not what I meant" without a
 screenshot to confirm against), and the new Contact Us hero photo crop.
+
+## Session 2026-08-11: domain cutover discovered, services pivot, blog cleanup, SMTP/webhook fixes, favicon + logo card
+
+A wide-ranging session that started with small visual tweaks (Hero light-
+beam angle, favicon, navbar dark-mode contrast) and expanded into real
+infrastructure fixes once it became clear the site's actual live state had
+changed significantly since the last documented session, undocumented.
+**Continue from here tomorrow — nothing below is finished.**
+
+**Domain cutover already happened, silently.** `northmansterling.legal` now
+resolves to Vercel (confirmed via `nslookup` → 216.198.79.1) and serves
+this Next.js/Sanity build directly — WordPress is no longer live at this
+domain. This contradicts every earlier note in this doc that assumes WP is
+still live at `.legal` (e.g. the 2026-08-10 "sitemap duplicate-content
+check" entry). **Don't trust old notes about "the live WP site" without
+re-verifying current DNS/hosting state first** — this doc fell behind
+reality at least once already.
+
+**Services completely pivoted — immigration/mobility firm → full-service
+corporate/commercial law firm.** The services dictionary
+(`servicesPage.items`) now lists Company Setup & KSA Market Entry, Dispute
+Resolution, Real Estate/Construction/Infrastructure, Employment Law, IP,
+Technology/Media/Telecom, Regulatory & Compliance, Tax,
+Restructuring/Insolvency, White-Collar Crime, Competition/Antitrust,
+Family Business/Private Client, Corporate & Commercial/M&A, Banking &
+Finance, Capital Markets. **Every immigration-era service this doc
+documented earlier — Corporate Immigration, Outbound Visas, Consular Visa,
+Employee Outsourcing, Document Attestation, the whole
+`SERVICE_DETAIL_SLUGS`/`serviceDetails` detail-page system — is gone from
+the live services list.** This happened in a session not captured in this
+doc; whoever picks this up next should assume the "Page log" table's
+service-detail-page entries below are now stale and re-verify against
+`src/lib/i18n/dictionaries/en.json`'s actual `servicesPage`/`serviceDetails`
+content before touching that area again.
+
+- **22 blog posts unpublished** (converted to Sanity drafts, fully
+  reversible) because they were immigration/visa/mobility content with no
+  corresponding service left on the new lineup — ETA, Iqama, GCC/UAE/Qatar/
+  Japan/Schengen visa news, degree attestation, business-visa-vs-work-visa
+  comparisons, outsourcing, HR services. Kept "What Business Support
+  Services Are Required After Company Registration" and "What Keeps
+  Business Operations Moving in Saudi Arabia?" live per explicit user
+  instruction (they map loosely onto Company Setup). **Zero blog content
+  exists yet for most of the new practice areas** (Dispute Resolution, Real
+  Estate, Employment Law, IP, TMT, Tax, White-Collar Crime, Competition,
+  Family Business, Banking & Finance, Capital Markets) — worth flagging to
+  the user as a content gap, not something to fix unprompted.
+- **Sanity Studio's post list didn't match the live site** — root cause was
+  `structureTool()` had no custom desk structure, so it fell back to
+  Sanity's default "last edited" sort instead of `publishedAt desc`, which
+  looked completely different from the live site's list after the 56-post
+  WP migration touched them out of original publish order. Fixed with a new
+  `studio/deskStructure.ts` (posts list explicitly ordered by
+  `publishedAt desc`), wired into `sanity.config.ts`, redeployed to
+  `northman-sterling.sanity.studio`.
+- **One post had a broken slug** — `slug.current` was literally set to the
+  raw title text with spaces (`"Commercial Dispute Resolution for..."`)
+  instead of a hyphenated slug, causing a 404 with `%20` in the URL. Fixed
+  via a direct Sanity mutation to `commercial-dispute-resolution-for-foreign-companies-in-saudi-arabia`.
+  **If posts keep getting added directly in Studio without using the
+  auto-generate-slug button, this will recur** — worth a reminder to
+  whoever's posting.
+- **Sanity revalidation webhook wired up for real.** `SANITY_REVALIDATE_SECRET`
+  had existed since 2026-08-10 but was never connected — pages were stuck
+  on the hardcoded 3600s (1hr) ISR window with no way to force an update.
+  Added the webhook in sanity.io/manage (URL `https://northmansterling.legal/api/revalidate`,
+  filter `_type == "post"`, header `Authorization: Bearer <secret>`) —
+  first attempt failed because `SANITY_REVALIDATE_SECRET` was only in local
+  `.env.local`, not in Vercel's env vars; added there too and redeployed.
+  Confirmed working end-to-end (`{"revalidated":true}`, 200).
+
+**Contact form SMTP — real infrastructure bug found, still unresolved.**
+`SMTP_HOST=mail.northmansterling.legal` (set since 2026-08-10, matching what
+cPanel showed at the time) **no longer resolves in DNS at all** — the
+domain's actual MX record now points at `smtp.google.com`. This means the
+mail side of this domain moved to Google Workspace at some point, same as
+the web side moved to Vercel, and this doc was never updated for either.
+Switched `SMTP_HOST` to `smtp.gmail.com` (port 465, `SMTP_USER`/
+`CONTACT_TO_EMAIL` updated to `ksa@northmansterling.legal` per the user's
+new-mailbox instruction) in both `.env.local` and Vercel — that got past
+the DNS failure but hit a new wall: **Google rejects the app password with
+`535-5.7.8 Username and Password not accepted`**, reproduced independently
+with a standalone `nodemailer` script run directly against Google's real
+SMTP server (bypassing Vercel/Next.js entirely) — this conclusively proves
+the problem is the credential itself (or the Google account's 2FA/app-
+password state), not our code, config, or deployment. The user received
+this app password secondhand ("head ne diya tha") and doesn't have direct
+account access to regenerate it. **Next session: get a freshly-generated
+app password from someone with actual access to `ksa@northmansterling.legal`**
+(myaccount.google.com/apppasswords, requires 2-Step Verification to be
+genuinely on for that account) — this is the only remaining step; the code
+path is fully verified correct.
+
+**Favicon replaced twice.** First attempt cropped the fox mark from the
+opaque `logo-mark-square.png` — looked too dark/blob-like at favicon size.
+Root cause found: the fox's "white" fill in the real transparent logo file
+(`logo-real.png`) isn't actually white pixels — it's a fully transparent
+cut-out that only reads as white when composited over something light
+behind it (e.g. the navbar's white card). As a standalone favicon with
+nothing behind it, that transparent hole rendered as empty, leaving mostly
+the dark navy disc visible. Fixed by directly filling that transparent
+region with solid white in a raw pixel pass (`sharp` + manual RGBA
+buffer edit), then hard-masking everything outside the circular disc to
+transparent so there's no stray square-corner fringe. Final `src/app/icon.png`
+(256×256, alpha channel confirmed) is a clean navy disc + solid white wolf
++ blue rim, transparent everywhere outside the circle.
+
+**Navbar dark-mode bug fixed**: the scrolled header state
+(`!bg-cream/70 backdrop-blur-lg`) had a hard `!important` flag and no
+`dark:` variant at all on the header background, border, or nav-link text
+colors — switching to dark mode while scrolled left a light cream bar with
+navy text, completely wrong against the rest of the dark-mode site.
+Removed the `!` flag, added `dark:border-cream/10 dark:bg-navy-dark/80` to
+the header and matching `dark:` variants to the nav links/icons/border
+dividers. `LanguageSwitcher`/`DarkModeToggle` already had correct `dark:`
+variants — didn't need touching.
+
+**Home hero light-beam feature was removed since the last recorded state**
+(the detailed spotlight-flicker/converging-triangle-beam system documented
+earlier in this file, on `SpotlightFlicker.tsx`/`Hero.tsx`) — `Hero.tsx`
+was reset to a plain photo + gradient overlay with no beam elements, and
+`Navbar.tsx`'s logo `<Link>` no longer renders `SpotlightFlicker` at all
+(replaced with a plain `BrandLogo onDark` card, matching every non-Home
+page). This happened via direct user/linter edits mid-session, not a
+request to remove it — if the beam effect is wanted back, treat it as a
+new feature request, don't assume the old `SpotlightFlicker.tsx` file
+(still present on disk) is still wired in anywhere.
+
+**Logo card sizing/styling went through several rounds, final state as of
+this session's end**: `BrandLogo`'s `onDark` card is `bg-white px-2 py-1.5`
+(plain white, not the header's cream-glass blur — an explicit user revert
+away from an interim "match the header's glass exactly" version), logo
+height `40px`/`48px` (pre-scroll/scrolled) in the main header. **If asked
+to make the card "match the header background" again, note that a
+cream/70 + backdrop-blur-lg + backdrop-saturate-150 version was tried and
+then reverted by the user/linter — confirm current intent before
+re-applying it rather than assuming last session's version is still
+wanted.**
 
 ## Conventions to hold the line on
 
