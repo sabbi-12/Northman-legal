@@ -11,8 +11,6 @@ import { FirmIdentity } from "@/components/sections/FirmIdentity";
 import { Newsletter } from "@/components/sections/Newsletter";
 import { OfficeContact } from "@/components/sections/OfficeContact";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
-import { ParallaxHeroImage } from "@/components/ui/ParallaxHeroImage";
-import { getServicePhoto } from "@/lib/data/servicePhotos";
 import enDictionary from "@/lib/i18n/dictionaries/en.json";
 
 type ServiceDetail = {
@@ -93,32 +91,21 @@ function ServiceDetailContent({
   slug: string;
   dict: Dictionary;
 }) {
-  const photo = getServicePhoto(slug, SERVICE_SLUGS.indexOf(slug));
-
   return (
     <>
-      <section className="relative overflow-hidden bg-navy pb-16 pt-8 text-cream md:pb-24 md:pt-10">
-        <ParallaxHeroImage src={photo} />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/85 via-navy/70 to-navy/90 dark:from-navy-dark/90 dark:via-navy-dark/75 dark:to-navy-dark/95" />
-
-        <div className="relative">
-          <Breadcrumbs
-            lang={lang}
-            onDark
-            items={[
-              { name: dict.nav.home, href: `/${lang}` },
-              { name: dict.servicesPage.title, href: `/${lang}/services` },
-              { name: detail.title, href: `/${lang}/services/${slug}` },
-            ]}
-          />
-          <div className="container-institutional max-w-3xl">
-            <h1 className="text-3xl font-bold drop-shadow-[0_2px_10px_rgba(8,18,32,0.7)] md:text-4xl">
-              {detail.title}
-            </h1>
-            <p className="mt-5 text-lg leading-relaxed text-cream/90 drop-shadow-[0_1px_6px_rgba(8,18,32,0.65)]">
-              {detail.intro}
-            </p>
-          </div>
+      <section className="bg-navy pb-16 pt-8 text-cream md:pb-20 md:pt-10">
+        <Breadcrumbs
+          lang={lang}
+          onDark
+          items={[
+            { name: dict.nav.home, href: `/${lang}` },
+            { name: dict.servicesPage.title, href: `/${lang}/services` },
+            { name: detail.title, href: `/${lang}/services/${slug}` },
+          ]}
+        />
+        <div className="container-institutional max-w-3xl">
+          <h1 className="text-3xl font-bold md:text-4xl">{detail.title}</h1>
+          <p className="mt-5 text-lg leading-relaxed text-cream/80">{detail.intro}</p>
         </div>
       </section>
 
