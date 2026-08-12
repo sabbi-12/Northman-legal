@@ -595,6 +595,8 @@
       "layout": "simple",
       "title": "Employment Law Services in Saudi Arabia",
       "intro": "We advise employers on Saudi Labor Law compliance, employment contracts, Saudization requirements, and the resolution of workforce disputes.",
+      "imageSrc": "/images/services/employment-law-book.jpg",
+      "imageAlt": "An open law book with the words Employment Law beside a judge's gavel",
       "sections": [
         {
           "heading": "Employment Contracts & Policies",
