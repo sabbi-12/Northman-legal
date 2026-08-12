@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cinzel, Amiri, Inter, Readex_Pro } from "next/font/google";
+import { Cinzel, Cairo, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -42,15 +42,15 @@ const bodyEn = Inter({
   display: "swap",
 });
 
-// Arabic headings: Amiri. Arabic body: Readex Pro.
-const headingAr = Amiri({
+// Arabic headings + body: Cairo (replaces Amiri/Readex Pro).
+const headingAr = Cairo({
   subsets: ["arabic"],
-  weight: ["400", "700"],
+  weight: ["600", "700"],
   variable: "--font-heading-ar",
   display: "swap",
 });
 
-const bodyAr = Readex_Pro({
+const bodyAr = Cairo({
   subsets: ["arabic"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-body-ar",

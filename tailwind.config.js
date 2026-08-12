@@ -92,11 +92,11 @@ module.exports = {
         // Headings — English
         "heading-en": ["var(--font-heading-en)", "Cinzel", "Playfair Display", "serif"],
         // Headings — Arabic
-        "heading-ar": ["var(--font-heading-ar)", "Amiri", "Scheherazade New", "serif"],
+        "heading-ar": ["var(--font-heading-ar)", "Cairo", "system-ui", "sans-serif"],
         // Body — English
         "body-en": ["var(--font-body-en)", "Inter", "system-ui", "sans-serif"],
         // Body — Arabic
-        "body-ar": ["var(--font-body-ar)", "Readex Pro", "system-ui", "sans-serif"],
+        "body-ar": ["var(--font-body-ar)", "Cairo", "system-ui", "sans-serif"],
       },
       boxShadow: {
         institutional: "0 4px 24px -4px rgba(12, 30, 56, 0.12)",
