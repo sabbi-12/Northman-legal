@@ -58,7 +58,11 @@
   "trustBanner": {
     "countriesTitle": "Trusted by Businesses From Over 35 Countries Operating in Saudi Arabia",
     "hqNote": "Headquartered in Riyadh, Saudi Arabia",
-    "badges": ["Corporate & Commercial", "Dispute Resolution", "Regulatory Compliance"]
+    "badges": [
+      "Corporate & Commercial",
+      "Dispute Resolution",
+      "Regulatory Compliance"
+    ]
   },
   "coreServices": {
     "title": "Legal Services for Businesses Operating in Saudi Arabia",
@@ -210,20 +214,13 @@
         "description": "We had an outstanding experience at The Forum for Expatriate Management EMEA Summit, winning Best Stand with our robot Pepper. We were also honored with nominations for Immigration Provider of the Year and Global Mobility Professional of the Year. The event was full of valuable insights and networking with industry leaders.",
         "imageSrc": "/images/events/fem-emea-summit-2023.png",
         "imageAlt": "The Northman Sterling Legal stand at the FEM EMEA Summit 2023, featuring the robot Pepper"
-      },
-      {
-        "title": "HR Leaders Conference 2024",
-        "description": "Northman Sterling Legal had a valuable presence at the HRL Conference in Riyadh. Our participation reflected our commitment to staying at the forefront of industry development. We appreciate the ongoing support from our Riyadh management team in making this event a success.",
-        "imageSrc": "/images/events/hr-leaders-conference-2024.png",
-        "imageAlt": "The Northman Sterling Legal team at the HR Leaders Conference 2024 in Riyadh"
-      },
-      {
-        "title": "PIF Private Sector Forum",
-        "description": "At the prestigious PIF forum, our team was honored to be represented and connected with Chief Commercial Officer Mr. Vivek Bachhawat and other inspiring leaders.",
-        "imageSrc": "/images/events/pif-private-sector-forum.png",
-        "imageAlt": "Northman Sterling Legal representatives at the PIF Private Sector Forum"
       }
-    ]
+    ],
+    "eyebrow": "Moments That Matter",
+    "subtitle": "A record of the summits, awards, and industry forums where our team has represented the firm on the global stage.",
+    "kickerEngagements": "Client Engagements",
+    "kickerRecognition": "Industry Recognition",
+    "featuredBadge": "Featured Event"
   },
   "latestInsights": {
     "title": "Read our latest Insights"
@@ -270,9 +267,21 @@
     "title": "We Are Certified",
     "subtitle": "Independently audited and certified to internationally recognized standards.",
     "items": [
-      { "id": "iso-27001", "name": "ISO 27001 — Information Security Management", "imageSrc": "/images/certifications/iso-27001.png" },
-      { "id": "iso-37001", "name": "ISO 37001 — Anti-Bribery Management", "imageSrc": "/images/certifications/iso-37001.png" },
-      { "id": "iso-9001", "name": "ISO 9001:2015 — Quality Management", "imageSrc": "/images/certifications/iso-9001-2015.png" }
+      {
+        "id": "iso-27001",
+        "name": "ISO 27001 — Information Security Management",
+        "imageSrc": "/images/certifications/iso-27001.png"
+      },
+      {
+        "id": "iso-37001",
+        "name": "ISO 37001 — Anti-Bribery Management",
+        "imageSrc": "/images/certifications/iso-37001.png"
+      },
+      {
+        "id": "iso-9001",
+        "name": "ISO 9001:2015 — Quality Management",
+        "imageSrc": "/images/certifications/iso-9001-2015.png"
+      }
     ]
   },
   "globalPresence": {
@@ -341,11 +350,41 @@
       "heading": "Global Team, Local Expertise",
       "body": "Our team supports clients from more than 35 countries out of a single Riyadh base, and has represented Northman Sterling at industry events including the SME London Business Awards, the FEM EMEA Summit, the HR Leaders Conference, and the PIF Private Sector Forum.",
       "members": [
-        { "name": "", "role": "", "location": "", "imageSrc": "", "linkedinUrl": "" },
-        { "name": "", "role": "", "location": "", "imageSrc": "", "linkedinUrl": "" },
-        { "name": "", "role": "", "location": "", "imageSrc": "", "linkedinUrl": "" },
-        { "name": "", "role": "", "location": "", "imageSrc": "", "linkedinUrl": "" },
-        { "name": "", "role": "", "location": "", "imageSrc": "", "linkedinUrl": "" }
+        {
+          "name": "",
+          "role": "",
+          "location": "",
+          "imageSrc": "",
+          "linkedinUrl": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "location": "",
+          "imageSrc": "",
+          "linkedinUrl": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "location": "",
+          "imageSrc": "",
+          "linkedinUrl": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "location": "",
+          "imageSrc": "",
+          "linkedinUrl": ""
+        },
+        {
+          "name": "",
+          "role": "",
+          "location": "",
+          "imageSrc": "",
+          "linkedinUrl": ""
+        }
       ]
     },
     "belief": {
