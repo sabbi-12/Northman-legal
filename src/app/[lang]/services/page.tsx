@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n/config";
-import { SITE_URL } from "@/lib/seo/constants";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { FirmIdentity } from "@/components/sections/FirmIdentity";
 import { Newsletter } from "@/components/sections/Newsletter";
@@ -24,18 +24,12 @@ export async function generateMetadata({
   const lang = params.lang as Locale;
   const dict = await getDictionary(lang);
 
-  return {
+  return buildPageMetadata({
+    lang,
+    path: "services",
     title: dict.servicesPage.title,
     description: dict.servicesPage.intro,
-    alternates: {
-      canonical: `${SITE_URL}/${lang}/services`,
-      languages: {
-        en: `${SITE_URL}/en/services`,
-        ar: `${SITE_URL}/ar/services`,
-        "x-default": `${SITE_URL}/en/services`,
-      },
-    },
-  };
+  });
 }
 
 export default async function ServicesPage({ params }: { params: { lang: string } }) {

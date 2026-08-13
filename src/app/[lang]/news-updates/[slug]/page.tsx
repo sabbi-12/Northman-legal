@@ -8,6 +8,7 @@ import { getDictionary } from "@/lib/i18n/getDictionary";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n/config";
 import { getAdjacentPosts, getAllPostSlugs, getPostBySlug, NEWS_REVALIDATE_SECONDS } from "@/lib/sanity/posts";
 import { SITE_URL } from "@/lib/seo/constants";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildArticleSchema } from "@/components/seo/schemas/article";
@@ -49,15 +50,16 @@ export async function generateMetadata({
   const postUrl = `${SITE_URL}/${post.language}/news-updates/${post.slug}`;
 
   return {
-    title: post.title,
-    description: post.excerpt,
-    alternates: {
-      canonical: `${SITE_URL}/${lang}/news-updates/${post.slug}`,
+    ...buildPageMetadata({
+      lang,
+      path: `news-updates/${post.slug}`,
+      title: post.title,
+      description: post.excerpt,
       languages: {
         [post.language]: postUrl,
         "x-default": postUrl,
       },
-    },
+    }),
     openGraph: {
       type: "article",
       title: post.title,

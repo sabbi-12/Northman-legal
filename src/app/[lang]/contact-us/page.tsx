@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { getDictionary } from "@/lib/i18n/getDictionary";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n/config";
-import { SITE_URL } from "@/lib/seo/constants";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { ConnectBanner } from "@/components/sections/ConnectBanner";
 import { GlobalOffices } from "@/components/sections/GlobalOffices";
 import { FirmIdentity } from "@/components/sections/FirmIdentity";
@@ -24,18 +24,12 @@ export async function generateMetadata({
   const lang = params.lang as Locale;
   const dict = await getDictionary(lang);
 
-  return {
+  return buildPageMetadata({
+    lang,
+    path: "contact-us",
     title: dict.contactPage.title,
     description: dict.contactPage.intro,
-    alternates: {
-      canonical: `${SITE_URL}/${lang}/contact-us`,
-      languages: {
-        en: `${SITE_URL}/en/contact-us`,
-        ar: `${SITE_URL}/ar/contact-us`,
-        "x-default": `${SITE_URL}/en/contact-us`,
-      },
-    },
-  };
+  });
 }
 
 export default async function ContactUsPage({ params }: { params: { lang: string } }) {

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { getDictionary, type Dictionary } from "@/lib/i18n/getDictionary";
 import { isValidLocale, locales, type Locale } from "@/lib/i18n/config";
-import { SITE_URL } from "@/lib/seo/constants";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 import { ServiceHighlights } from "@/components/sections/ServiceHighlights";
 import { ServiceCta } from "@/components/sections/ServiceCta";
 import { SimpleServiceDetail } from "@/components/sections/SimpleServiceDetail";
@@ -45,18 +45,12 @@ export async function generateMetadata({
   const detail = details[params.slug];
   if (!detail) return {};
 
-  return {
+  return buildPageMetadata({
+    lang,
+    path: `services/${params.slug}`,
     title: detail.title,
     description: detail.intro,
-    alternates: {
-      canonical: `${SITE_URL}/${lang}/services/${params.slug}`,
-      languages: {
-        en: `${SITE_URL}/en/services/${params.slug}`,
-        ar: `${SITE_URL}/ar/services/${params.slug}`,
-        "x-default": `${SITE_URL}/en/services/${params.slug}`,
-      },
-    },
-  };
+  });
 }
 
 export default async function ServiceDetailPage({

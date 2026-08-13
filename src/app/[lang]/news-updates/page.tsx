@@ -9,7 +9,7 @@ import { getPosts, searchPosts, NEWS_REVALIDATE_SECONDS } from "@/lib/sanity/pos
 import { NewsCard } from "@/components/sections/NewsCard";
 import { SearchBar } from "@/components/sections/SearchBar";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
-import { SITE_URL } from "@/lib/seo/constants";
+import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const revalidate = NEWS_REVALIDATE_SECONDS;
 
@@ -26,18 +26,12 @@ export async function generateMetadata({
   const lang = params.lang as Locale;
   const dict = await getDictionary(lang);
 
-  return {
+  return buildPageMetadata({
+    lang,
+    path: "news-updates",
     title: dict.newsSection.title,
     description: dict.newsSection.subtitle,
-    alternates: {
-      canonical: `${SITE_URL}/${lang}/news-updates`,
-      languages: {
-        en: `${SITE_URL}/en/news-updates`,
-        ar: `${SITE_URL}/ar/news-updates`,
-        "x-default": `${SITE_URL}/en/news-updates`,
-      },
-    },
-  };
+  });
 }
 
 export default async function NewsUpdatesPage({
