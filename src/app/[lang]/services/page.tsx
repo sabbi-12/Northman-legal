@@ -84,7 +84,7 @@ export default async function ServicesPage({ params }: { params: { lang: string 
       <ServicesGrid dict={dict} lang={lang} />
       <FirmIdentity dict={dict} />
       <Newsletter dict={dict} />
-      <OfficeContact dict={dict} />
+      <OfficeContact dict={dict} withForm />
     </>
   );
 }

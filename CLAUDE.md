@@ -14,10 +14,13 @@ ships if server-rendering would do; no redirect is "close enough"; no visual
 choice undermines an "institutional law firm" register in favor of a
 "tech startup" one.
 
-## Current status (last updated 2026-08-11 — ⚠️ services list and domain
-hosting both changed since this table was last verified; see "Session
-2026-08-11" near the end of this file before trusting the Services row
-below or any note that assumes WordPress is still live)
+## Current status (table itself last verified 2026-08-11; several rows
+patched 2026-08-13 after a full codebase audit — see "Session 2026-08-13"
+near the end of this file for what changed and what's still open. ⚠️
+services list and domain hosting both changed since this table was
+originally written; see "Session 2026-08-11" near the end of this file
+before trusting the Services row below or any note that assumes WordPress
+is still live)
 
 The Next.js 14 App Router scaffold is **already substantially built** —
 this is not a greenfield start. Verified present and wired correctly:
@@ -30,7 +33,7 @@ this is not a greenfield start. Verified present and wired correctly:
 | EN–AR hreflang | ✅ | root layout + per-page `alternates.languages`, `sitemap.ts` |
 | LegalService/Organization/Attorney schema | ✅ wired site-wide | `[lang]/layout.tsx` + `components/seo/schemas/*` |
 | Article schema | ✅ on article pages | `news-updates/[slug]/page.tsx` |
-| FAQPage schema | ⚠️ builder exists (`schemas/faqPage.ts`), **not yet emitted** — `FAQ.tsx` renders visually but doesn't call `JsonLd` | fix when wiring About Us real content |
+| FAQPage schema | ✅ actually emitted — `FAQ.tsx` calls `buildFAQSchema` + `<JsonLd>` (this row was stale; confirmed live during the 2026-08-13 audit below) | `components/sections/FAQ.tsx` |
 | XML sitemap per language | ✅ | `src/app/sitemap.ts` (one entry per locale + hreflang alternates) |
 | robots.txt | ✅ | `src/app/robots.ts` |
 | Breadcrumbs (visual + schema) | ✅ | `components/seo/Breadcrumbs.tsx` |
@@ -1408,6 +1411,173 @@ cream/70 + backdrop-blur-lg + backdrop-saturate-150 version was tried and
 then reverted by the user/linter — confirm current intent before
 re-applying it rather than assuming last session's version is still
 wanted.**
+
+## Session 2026-08-13: full codebase audit + contact form overhaul
+
+A full security/structure/dead-code/Next.js-correctness/go-live/error-handling
+audit was run across the whole codebase (six parallel deep-dive passes, one
+per area), producing a prioritized 🔴/🟠/🟢 findings list. Fixes were applied
+one at a time, in priority order, with the user explicitly deciding what to
+fix vs. skip at each step — this is not everything from that list, only what
+was acted on. See below for what shipped and what was deliberately skipped
+(so a future session doesn't "re-fix" something that was already considered
+and declined).
+
+**🔴 Critical items closed:**
+- **Two live secrets were displayed in plaintext during the audit**
+  (`SANITY_API_TOKEN`, `SANITY_REVALIDATE_SECRET` from `.env.local`) — never
+  committed to git (confirmed against full history), but the user rotated/
+  updated credentials on the Sanity/Vercel side as a precaution.
+- **`SMTP_PASS` was blank, silently breaking every contact/newsletter
+  submission in production.** Root cause turned out to be broader than the
+  prior "just need a Gmail app password" plan documented earlier in this
+  file — the user instead **created a brand-new cPanel mailbox on a mail
+  subdomain**, `ksa@mail.northmansterling.legal` (not the bare-domain
+  Google Workspace address `ksa@northmansterling.legal` this doc previously
+  assumed). `.env.local` updated to `SMTP_HOST=mail.northmansterling.legal`,
+  `SMTP_USER`/`CONTACT_TO_EMAIL=ksa@mail.northmansterling.legal` — confirmed
+  via `nslookup` that this hostname resolves (the earlier stale in-file
+  comment claiming it "never resolves in DNS" was written before this new
+  mailbox existed and is no longer true). User confirmed live test
+  submissions are landing in the new mailbox. **If SMTP breaks again, check
+  which mailbox is actually configured before assuming the old Google
+  Workspace path from the "Session 2026-08-11" entry below.**
+- **Sitewide `LegalService` JSON-LD schema (`components/seo/schemas/legalService.ts`)
+  still hardcoded the retired immigration-era `serviceType` array**
+  (Global Immigration Solutions / Commercial Disputes / Notary & PoA) —
+  live on every page via `[lang]/layout.tsx`, actively misrepresenting the
+  firm's real 15 practice areas to search engines since the 2026-08-10/11
+  pivot. Fixed: `buildLegalServiceSchema(lang, serviceDetails)` now derives
+  `serviceType` from `dict.serviceDetails` (the same dictionary source the
+  real Services page reads from) instead of a hand-typed list — can't go
+  stale again the same way.
+- **10 orphaned debug/scratch files at the project root** (`contact.html`,
+  `multi.html`, `page.html`, `page2.html`, `page3.html`, `rel.html`,
+  `search-results.html`, `typo.html`, `typo2.html`, `sample-post.html`, plus
+  a stray `layout.css`) — all leftover browser-saved page dumps and a WP
+  export from the 2026-08-07 WP→Vercel migration crawl, confirmed
+  unreferenced by any code. Zipped to
+  `wp-migration-scratch-2026-08-07.zip` **one directory above the repo root**
+  (outside git entirely) before deleting the originals, per the user's
+  request to archive rather than hard-delete.
+- **No `error.tsx` existed anywhere in the App Router tree** — any uncaught
+  render exception fell through to Next's generic, unbranded, non-bilingual
+  default error page. Added `src/app/[lang]/error.tsx`, styled identically
+  to the existing (already-good) `not-found.tsx` pattern — same
+  `useParams()`-based locale detection workaround, same visual language —
+  with a "Try Again" (`reset()`) button and a "Back to Home" link. New
+  bilingual `errorPage.*` dictionary keys added (EN+AR) mirroring
+  `notFound.*`'s shape. **Verified live**, not just typechecked: temporarily
+  created a throwing test route, confirmed the branded error screen
+  rendered correctly in both `/en` and `/ar` with a real 500 status, then
+  removed the test route.
+- The 6th 🔴 item from the audit (an `/ar/news-updates` hreflang vs.
+  English-fallback-content mismatch) was explicitly **skipped** per the
+  user — not fixed, still open if picked back up later.
+
+**🟠 Important items closed:**
+- **Extracted a shared `buildPageMetadata()`/`languageAlternatesFor()`
+  helper** (`src/lib/seo/metadata.ts`) and migrated all 9 pages that had
+  hand-rolled the same ~15-line canonical/hreflang boilerplate: about-us,
+  contact-us, services, services/[slug], privacy-policy, disclaimer,
+  terms-and-conditions, news-updates, news-updates/[slug]. The news article
+  detail page's genuinely-different one-locale-only hreflang case (no `ar`
+  posts exist yet) is preserved via an explicit `languages` override param,
+  not flattened into the standard `{en, ar, x-default}` shape. **Verified,
+  not just typechecked**: compared actual rendered `<link rel="canonical">`/
+  `<link rel="alternate" hrefLang>` output across 10 pages before/after —
+  byte-identical. `[lang]/layout.tsx`'s own root-level metadata (different
+  job — site-wide OG/Twitter defaults, `metadataBase`) was deliberately
+  left as-is, not merged into this helper.
+- **`src/middleware.ts`'s bare-`/` locale-detection redirect changed from
+  302 to 308** — this project's own stated policy (see the `www` SSL entry
+  under "Pre-launch migration checklist") is permanent redirects everywhere
+  for SEO signal preservation, but this one was still 302. 308 (not 301)
+  specifically chosen to keep the existing `Accept-Language` sniffing
+  working correctly on repeat visits — a hard 301 risks browsers
+  aggressively caching "always go to /en" and skipping the language check
+  on a later visit with a different browser locale. Verified live with
+  `curl -H "Accept-Language: ar"` vs `en-US` — both still resolve to the
+  correct locale after the change.
+- **Systemic `"use client"` overuse (25 of ~30 section components) was
+  investigated but explicitly NOT fixed.** The audit's original framing
+  assumed this was copy-pasted generic `whileInView` fade-up boilerplate
+  that could be collapsed into one shared `<Reveal>` wrapper — reading the
+  actual code (`CoreServices`/`ServicePhotoCard`, `ValuesGrid`, etc.)
+  showed this is wrong: every section has genuinely bespoke, hand-tuned
+  entrance motion (different directions, spring constants, per-index
+  variety) consistent with this project's own documented "Home page bolder
+  pass" design principle of avoiding one repeated generic animation. A
+  generic wrapper would have visibly flattened the site's motion design for
+  a real but modest bundle-size win. **Correctly left alone — don't
+  re-attempt this as a mechanical "add a Reveal wrapper" refactor without
+  re-reading the actual per-component motion values first.**
+- Security headers (HSTS/CSP) and merging the 3 legal pages into one
+  template were both explained to the user and **explicitly skipped** by
+  their choice — still open if revisited later.
+
+**Contact form overhaul (went beyond the original audit scope, per direct
+user requests during this session):**
+- **Client-side 30-second resubmit cooldown** added to `ContactForm.tsx` —
+  after a *successful* submit, the button locks and shows a live countdown
+  (e.g. "Submit Enquiry (25s)"); a *failed* submission does not trigger the
+  cooldown, so a real error doesn't lock out a legitimate retry. User
+  explicitly confirmed this is browser-side only, no IP tracking/blocking —
+  a deliberate, informed choice, not an oversight; real abuse protection
+  (CAPTCHA/rate-limit) was deferred to a later session.
+- **Service field converted from a single-select dropdown to a checkbox
+  list** — visitors can now select multiple practice areas per the user's
+  request. `formData.getAll("service")` instead of `.get()`; API route
+  (`api/contact/route.ts`) updated to accept `service?: string[]` and joins
+  multiple selections as `Area(s) of interest: X, Y, Z` in the outbound
+  email. The old `formServicePlaceholder` dictionary string ("Choose
+  Service") was repurposed (not left dead) as a "Select all that apply"
+  hint shown next to the field label, in both EN+AR.
+- **New animated "thank you" popup** (`src/components/ui/ThankYouModal.tsx`)
+  replaces relying on the small inline success message alone — centered
+  modal, dimmed/blurred backdrop, animated checkmark, personalizes with the
+  visitor's actual submitted name ("Thank you, {{name}}."), states the
+  real "within one business day" response commitment (confirmed with the
+  user, not invented). **Had to be fixed once already**: it was first
+  rendered inline inside the form's component tree and appeared
+  off-center — root cause was that `position: fixed` gets trapped inside
+  any ancestor with an active CSS `transform` (which every `whileInView`-
+  animated section here has), so it was centering inside that section
+  instead of the viewport. Fixed by rendering it through a `createPortal`
+  straight onto `document.body`, the same pattern `Navbar.tsx`'s mobile
+  drawer already used for the identical underlying reason — confirm this
+  same portal pattern is used for any *future* full-screen overlay
+  component built in this codebase, don't reintroduce the inline version.
+- **Honeypot field removed entirely** (`website_url` hidden input in
+  `ContactForm.tsx` + its server-side check in `api/contact/route.ts`) —
+  the user reported real submissions were being silently swallowed (form
+  showed success, no email arrived). Likely cause: browser autofill
+  populating the hidden field despite the existing `tabIndex={-1}`/
+  `autoComplete="off"` safeguards (there was already a code comment noting
+  this exact failure mode from a prior client's site) — the honeypot logic
+  would then silently discard the submission before ever calling
+  `sendNotificationEmail`. **This form currently has zero spam/bot
+  filtering** — the user was told this explicitly and has deferred adding
+  CAPTCHA/a replacement honeypot to a later session. Don't add a new
+  honeypot back without re-checking this failure mode first.
+
+**Nice-to-have cleanup done:** removed the unused `CLIENT_PORTAL_URL`
+constant (`lib/seo/constants.ts`) and its 4 orphaned `clientPortal`
+dictionary strings (EN+AR `nav`/`topBar`) — leftover from the Client Portal
+button removal documented in "Session 2026-08-10" below; removed 3 leftover
+migration log files (`migrate-dry-run.log`, `migrate-final.log`,
+`migrate-fixed.log`) from the project root. **Explicitly left alone per
+user choice**: `public/images/logo-mark-square.png` (still unwired, still a
+real client asset, not scratch — see the original Rebrand section) and the
+`public/images/services/` vs `services-bg/` folder-naming ambiguity.
+
+**Open items from this session's audit, not yet acted on:** the
+`/ar/news-updates` hreflang/content-language mismatch (🔴, skipped by
+choice), HSTS/CSP security headers (🟠, skipped by choice), merging the 3
+legal page templates (🟠, skipped by choice), and real server-side abuse
+protection on the contact form (CAPTCHA or IP-based rate limiting — the
+user wants this eventually but not yet). Don't assume any of these are
+done without checking this entry first.
 
 ## Conventions to hold the line on
 
