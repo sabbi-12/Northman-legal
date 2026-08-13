@@ -86,7 +86,7 @@ export default async function AboutUsPage({ params }: { params: { lang: string }
       <FirmIdentity dict={dict} />
       <OfficeContact dict={dict} withForm />
       <CorePillars dict={dict} />
-      <FAQ dict={dict} />
+      <FAQ title={dict.aboutPage.faqTitle} items={dict.aboutPage.faqItems} />
     </>
   );
 }

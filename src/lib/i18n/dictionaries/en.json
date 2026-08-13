@@ -238,6 +238,31 @@
     "heading": "Northman Sterling Legal",
     "body": "Northman Sterling Legal is a registered law firm focused on legal services in Saudi Arabia."
   },
+  "homeFaq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What kind of legal matters do you help with?",
+        "answer": "We advise on corporate and commercial law, dispute resolution, real estate, employment, tax, regulatory compliance, and a range of other practice areas for businesses operating in Saudi Arabia. Visit our Services page for the full list."
+      },
+      {
+        "question": "How quickly will you respond if I submit an enquiry?",
+        "answer": "A member of our team will be in touch within one business day of receiving your enquiry."
+      },
+      {
+        "question": "Do I need to be based in Saudi Arabia to work with you?",
+        "answer": "No. We regularly support clients from more than 35 countries on matters connected to Saudi Arabia, coordinating remotely and through our Riyadh office as needed."
+      },
+      {
+        "question": "Is my enquiry confidential?",
+        "answer": "Yes. Any information you share with us through our contact form or directly with our team is treated as confidential and used only to respond to your enquiry."
+      },
+      {
+        "question": "Are you a licensed and certified firm?",
+        "answer": "Yes. We are independently certified to ISO 27001 (Information Security Management), ISO 37001 (Anti-Bribery Management), and ISO 9001 (Quality Management), and are authorized to provide notary and Power of Attorney services."
+      }
+    ]
+  },
   "newsletter": {
     "title": "Subscribe to our Newsletter",
     "placeholder": "Your Email Address",

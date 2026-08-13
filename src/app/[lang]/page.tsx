@@ -12,6 +12,7 @@ import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { LegalAdvisors } from "@/components/sections/LegalAdvisors";
 import { EventGallery } from "@/components/sections/EventGallery";
 import { LatestInsights } from "@/components/sections/LatestInsights";
+import { FAQ } from "@/components/sections/FAQ";
 import { LetsConnect } from "@/components/sections/LetsConnect";
 import { FirmIdentity } from "@/components/sections/FirmIdentity";
 import { Newsletter } from "@/components/sections/Newsletter";
@@ -36,6 +37,7 @@ export default async function HomePage({ params }: { params: { lang: string } })
       <LegalAdvisors dict={dict} lang={lang} />
       <EventGallery dict={dict} lang={lang} />
       <LatestInsights dict={dict} lang={lang} posts={latestPosts} />
+      <FAQ title={dict.homeFaq.title} items={dict.homeFaq.items} />
       <LetsConnect dict={dict} />
       <FirmIdentity dict={dict} />
       <Newsletter dict={dict} />
