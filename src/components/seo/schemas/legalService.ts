@@ -1,7 +1,10 @@
 import { SITE_URL, ORGANIZATION } from "@/lib/seo/constants";
 import type { Locale } from "@/lib/i18n/config";
+import type { Dictionary } from "@/lib/i18n/getDictionary";
 
-export function buildLegalServiceSchema(lang: Locale) {
+export function buildLegalServiceSchema(lang: Locale, serviceDetails: Dictionary["serviceDetails"]) {
+  const serviceType = Object.values(serviceDetails).map((service) => service.title);
+
   return {
     "@context": "https://schema.org",
     "@type": "LegalService",
@@ -21,10 +24,6 @@ export function buildLegalServiceSchema(lang: Locale) {
       { "@type": "Country", name: "Saudi Arabia" },
       { "@type": "AdministrativeArea", name: "Global — clients served from 35+ countries" },
     ],
-    serviceType: [
-      "Global Immigration Solutions",
-      "Commercial Disputes & Court Enforcement",
-      "Authorized Notary & Power of Attorney Issuance",
-    ],
+    serviceType,
   };
 }

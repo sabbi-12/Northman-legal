@@ -161,7 +161,7 @@ export default async function RootLayout({
       <body className={dir === "rtl" ? "font-body-ar" : "font-body-en"}>
         <GoogleTagManagerNoscript />
         <JsonLd data={buildOrganizationSchema(lang)} />
-        <JsonLd data={buildLegalServiceSchema(lang)} />
+        <JsonLd data={buildLegalServiceSchema(lang, dict.serviceDetails)} />
         <JsonLd data={buildAttorneySchema(lang)} />
         <ThemeProvider>
           <TopBar dict={dict} lang={lang} posts={topBarPosts} />
