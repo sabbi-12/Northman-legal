@@ -23,7 +23,6 @@
     "services": "الخدمات",
     "newsUpdates": "الأخبار والتحديثات",
     "contactUs": "اتصل بنا",
-    "clientPortal": "بوابة العملاء",
     "openMenu": "فتح القائمة",
     "closeMenu": "إغلاق القائمة",
     "toggleLight": "التبديل إلى الوضع الفاتح",
@@ -32,7 +31,6 @@
   "topBar": {
     "updatesLabel": "آخر التحديثات",
     "latestNewsLabel": "آخر الأخبار",
-    "clientPortal": "بوابة العملاء",
     "previousUpdate": "التحديث السابق",
     "nextUpdate": "التحديث التالي"
   },

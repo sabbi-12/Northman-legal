@@ -23,7 +23,6 @@
     "services": "Services",
     "newsUpdates": "News & Updates",
     "contactUs": "Contact Us",
-    "clientPortal": "Client Portal",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "toggleLight": "Switch to light mode",
@@ -32,7 +31,6 @@
   "topBar": {
     "updatesLabel": "Current Updates",
     "latestNewsLabel": "Latest News",
-    "clientPortal": "Client Portal",
     "previousUpdate": "Previous update",
     "nextUpdate": "Next update"
   },
