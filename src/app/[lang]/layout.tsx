@@ -12,6 +12,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { ManageConsentButton } from "@/components/ui/ManageConsentButton";
+import { BackToTopButton } from "@/components/ui/BackToTopButton";
 import { GoogleTagManager, GoogleTagManagerNoscript } from "@/components/analytics/GoogleTagManager";
 import { GA4 } from "@/components/analytics/GA4";
 import { MicrosoftClarity } from "@/components/analytics/MicrosoftClarity";
@@ -171,6 +172,7 @@ export default async function RootLayout({
         </ThemeProvider>
         <CookieConsent dict={dict} lang={lang} />
         <ManageConsentButton label={dict.footer.manageConsent} />
+        <BackToTopButton label={dict.backToTop} />
         <EventTracking />
         <GA4 />
         <MicrosoftClarity />
