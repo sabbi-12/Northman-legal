@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
+
+import { locales } from "@/lib/i18n/config";
 
 export const runtime = "nodejs";
 
@@ -10,11 +12,20 @@ export const runtime = "nodejs";
  *   Filter: _type == "post"
  *   HTTP method: POST
  *   HTTP headers: Authorization: Bearer <SANITY_REVALIDATE_SECRET>
+ *   Projection: { "slug": slug.current }
+ *     (Vision/webhook payload must include the post's slug field for the
+ *     revalidatePath call below to pre-build the new article immediately —
+ *     without it, this still refreshes the listing/homepage via
+ *     revalidateTag, but a brand-new post's own page can still 404 on its
+ *     very first visit until Next.js builds it on demand.)
  *
- * All post queries in lib/sanity/posts.ts are tagged "post", so a single
- * revalidateTag call refreshes every cached page that reads post data
- * (homepage News section, listing page, and every article detail page)
- * without needing per-page invalidation logic.
+ * All post queries in lib/sanity/posts.ts are tagged "post", so
+ * revalidateTag refreshes every cached page that reads post data (homepage
+ * News section, listing page). revalidatePath additionally forces the
+ * specific new/changed article's own page to build right now, for both
+ * locales, instead of waiting for its first real visitor to trigger an
+ * on-demand ISR build (which is what caused the "cold" 404 a new post's
+ * first viewer could hit — see CLAUDE.md's 2026-08-13 session note).
  */
 export async function POST(request: Request) {
   const secret = process.env.SANITY_REVALIDATE_SECRET;
@@ -31,5 +42,21 @@ export async function POST(request: Request) {
 
   revalidateTag("post");
 
-  return NextResponse.json({ revalidated: true, now: Date.now() });
+  let slug: string | undefined;
+  try {
+    const body = await request.json();
+    slug = typeof body?.slug === "string" ? body.slug : undefined;
+  } catch {
+    // No JSON body (or the webhook wasn't configured with a slug
+    // projection) — revalidateTag above still ran, just skip the
+    // per-path pre-build below.
+  }
+
+  if (slug) {
+    for (const locale of locales) {
+      revalidatePath(`/${locale}/news-updates/${slug}`);
+    }
+  }
+
+  return NextResponse.json({ revalidated: true, slug: slug ?? null, now: Date.now() });
 }
