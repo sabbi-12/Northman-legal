@@ -10,6 +10,13 @@
     "body": "The page you're looking for doesn't exist or may have moved.",
     "cta": "Back to Home"
   },
+  "errorPage": {
+    "eyebrow": "Error",
+    "title": "Something went wrong",
+    "body": "We're sorry, an unexpected error occurred. Please try again, or return to the homepage.",
+    "retry": "Try Again",
+    "cta": "Back to Home"
+  },
   "nav": {
     "home": "Home",
     "aboutUs": "About Us",
