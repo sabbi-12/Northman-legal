@@ -49,7 +49,6 @@ export function ContactForm({
       phone: formData.get("phone")?.toString() ?? "",
       service: formData.getAll("service").map((value) => value.toString()),
       message: formData.get("message")?.toString() ?? "",
-      website_url: formData.get("website_url")?.toString() ?? "",
     };
 
     try {
@@ -93,14 +92,6 @@ export function ContactForm({
 
   return (
     <form onSubmit={handleSubmit} data-ns-track="contact-form" className="space-y-5">
-      {/* Honeypot — visually hidden, off the tab order. Named `website_url`
-          (not a generic `url`/`website`) so browser autofill doesn't
-          populate it and produce a false-positive spam rejection. */}
-      <div className="absolute left-[-9999px] top-auto h-0 w-0 overflow-hidden" aria-hidden="true">
-        <label htmlFor="website_url">Leave this field empty</label>
-        <input type="text" id="website_url" name="website_url" tabIndex={-1} autoComplete="off" />
-      </div>
-
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelClasses}>

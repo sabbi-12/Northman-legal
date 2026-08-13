@@ -10,11 +10,6 @@ type ContactPayload = {
   phone?: string;
   service?: string[];
   message?: string;
-  // Honeypot field. Named `website_url` deliberately — a plain `url` or
-  // generic `website` field name gets auto-filled by some browsers'
-  // address/profile autofill, which then falsely trips the spam check
-  // (this bit Geosterling's own contact form; same fix applied here).
-  website_url?: string;
 };
 
 function isValidEmail(email: string) {
@@ -30,13 +25,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const { name, email, phone, service, message, website_url } = payload;
-
-  // Honeypot tripped — silently report success so a bot doesn't learn its
-  // submission was rejected, without actually sending anything.
-  if (website_url) {
-    return NextResponse.json({ ok: true });
-  }
+  const { name, email, phone, service, message } = payload;
 
   if (!name || !email || !message || !isValidEmail(email)) {
     return NextResponse.json({ error: "Missing or invalid required fields." }, { status: 400 });

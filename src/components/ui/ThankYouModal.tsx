@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, X } from "lucide-react";
 
@@ -17,6 +18,14 @@ export function ThankYouModal({
   body: string;
   closeLabel: string;
 }) {
+  // Rendered via a portal straight onto document.body, not in place — a
+  // fixed-position element stays trapped inside whatever ancestor's
+  // transform is active (every whileInView section here animates via
+  // transform) instead of centering on the real viewport. Same fix as
+  // Navbar.tsx's mobile drawer portal, for the same underlying CSS reason.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   // Lock page scroll while the modal is open, restore on close/unmount.
   useEffect(() => {
     if (!open) return;
@@ -35,7 +44,9 @@ export function ThankYouModal({
     };
   }, [open, onClose]);
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
@@ -92,6 +103,7 @@ export function ThankYouModal({
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }
