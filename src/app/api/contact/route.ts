@@ -8,7 +8,7 @@ type ContactPayload = {
   name?: string;
   email?: string;
   phone?: string;
-  service?: string;
+  service?: string[];
   message?: string;
   // Honeypot field. Named `website_url` deliberately — a plain `url` or
   // generic `website` field name gets auto-filled by some browsers'
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
         `Name: ${name}`,
         `Email: ${email}`,
         phone ? `Phone: ${phone}` : null,
-        service ? `Area of interest: ${service}` : null,
+        service && service.length > 0 ? `Area(s) of interest: ${service.join(", ")}` : null,
         "",
         "Message:",
         message,

@@ -1,11 +1,14 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 
 import type { Dictionary } from "@/lib/i18n/getDictionary";
+import { ThankYouModal } from "@/components/ui/ThankYouModal";
 
 type Status = "idle" | "submitting" | "success" | "error";
+
+const RESUBMIT_COOLDOWN_SECONDS = 30;
 
 export function ContactForm({
   dict,
@@ -21,9 +24,20 @@ export function ContactForm({
   variant?: "light" | "dark";
 }) {
   const [status, setStatus] = useState<Status>("idle");
+  const [cooldown, setCooldown] = useState(0);
+  const [thankYouOpen, setThankYouOpen] = useState(false);
+  const [submittedName, setSubmittedName] = useState("");
+  const cooldownIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (cooldownIntervalRef.current) clearInterval(cooldownIntervalRef.current);
+    };
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (status === "submitting" || cooldown > 0) return;
     setStatus("submitting");
 
     const form = event.currentTarget;
@@ -33,7 +47,7 @@ export function ContactForm({
       name: formData.get("name")?.toString() ?? "",
       email: formData.get("email")?.toString() ?? "",
       phone: formData.get("phone")?.toString() ?? "",
-      service: formData.get("service")?.toString() ?? "",
+      service: formData.getAll("service").map((value) => value.toString()),
       message: formData.get("message")?.toString() ?? "",
       website_url: formData.get("website_url")?.toString() ?? "",
     };
@@ -48,7 +62,20 @@ export function ContactForm({
       if (!res.ok) throw new Error("Request failed");
 
       setStatus("success");
+      setSubmittedName(payload.name);
+      setThankYouOpen(true);
       form.reset();
+
+      setCooldown(RESUBMIT_COOLDOWN_SECONDS);
+      cooldownIntervalRef.current = setInterval(() => {
+        setCooldown((seconds) => {
+          if (seconds <= 1) {
+            if (cooldownIntervalRef.current) clearInterval(cooldownIntervalRef.current);
+            return 0;
+          }
+          return seconds - 1;
+        });
+      }, 1000);
     } catch {
       setStatus("error");
     }
@@ -116,21 +143,40 @@ export function ContactForm({
         />
       </div>
 
-      <div>
-        <label htmlFor="service" className={labelClasses}>
+      <fieldset>
+        <legend className={isDark ? "sr-only" : "mb-1.5 block text-sm font-medium text-slate-dark dark:text-cream"}>
           {dict.contactPage.formService}
-        </label>
-        <select id="service" name="service" required defaultValue="" className={fieldClasses}>
-          <option value="" disabled hidden>
-            {dict.contactPage.formServicePlaceholder}
-          </option>
+          <span className="ml-1 font-normal text-slate-mid dark:text-cream/50">
+            ({dict.contactPage.formServicePlaceholder})
+          </span>
+        </legend>
+        <div
+          className={
+            isDark
+              ? "grid gap-2 rounded-institutional border border-navy/15 bg-white p-4 sm:grid-cols-2"
+              : "grid gap-2 rounded-institutional border border-navy/15 bg-white p-4 sm:grid-cols-2 dark:border-cream/15 dark:bg-navy/40"
+          }
+        >
           {dict.contactPage.formServiceOptions.map((option: string) => (
-            <option key={option} value={option}>
+            <label
+              key={option}
+              className={
+                isDark
+                  ? "flex items-center gap-2 text-sm text-slate-dark"
+                  : "flex items-center gap-2 text-sm text-slate-dark dark:text-cream/80"
+              }
+            >
+              <input
+                type="checkbox"
+                name="service"
+                value={option}
+                className="h-4 w-4 rounded border-navy/30 text-button focus:ring-button"
+              />
               {option}
-            </option>
+            </label>
           ))}
-        </select>
-      </div>
+        </div>
+      </fieldset>
 
       <div>
         <label htmlFor="message" className={labelClasses}>
@@ -148,11 +194,15 @@ export function ContactForm({
 
       <button
         type="submit"
-        disabled={status === "submitting"}
+        disabled={status === "submitting" || cooldown > 0}
         className="flex w-full items-center justify-center gap-2 rounded-institutional bg-button px-7 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-button-hover disabled:cursor-not-allowed disabled:opacity-60"
       >
         <Send size={16} strokeWidth={2} />
-        {status === "submitting" ? dict.contactPage.formSubmitting : submitLabel ?? dict.contactPage.formSubmit}
+        {status === "submitting"
+          ? dict.contactPage.formSubmitting
+          : cooldown > 0
+            ? `${dict.contactPage.formSubmit} (${cooldown}s)`
+            : submitLabel ?? dict.contactPage.formSubmit}
       </button>
 
       {status === "success" && (
@@ -168,6 +218,14 @@ export function ContactForm({
           {dict.contactPage.formError}
         </p>
       )}
+
+      <ThankYouModal
+        open={thankYouOpen}
+        onClose={() => setThankYouOpen(false)}
+        title={dict.contactPage.formThankYouTitle.replace("{{name}}", submittedName)}
+        body={dict.contactPage.formThankYouBody}
+        closeLabel={dict.contactPage.formThankYouClose}
+      />
     </form>
   );
 }

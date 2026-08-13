@@ -1269,7 +1269,7 @@
     "formEmail": "البريد الإلكتروني للعمل",
     "formPhone": "رقم الهاتف",
     "formService": "الخدمة",
-    "formServicePlaceholder": "اختر الخدمة",
+    "formServicePlaceholder": "حدد كل ما ينطبق",
     "formNamePlaceholder": "أدخل اسمك",
     "formEmailPlaceholder": "أدخل بريدك الإلكتروني للعمل",
     "formPhonePlaceholder": "أدخل رقم هاتفك",
@@ -1297,6 +1297,9 @@
     "formSubmitting": "جاري الإرسال…",
     "formSuccess": "شكراً لك — تم إرسال رسالتك. سيتواصل معك فريقنا قريباً.",
     "formError": "حدث خطأ أثناء إرسال رسالتك. يرجى المحاولة مرة أخرى أو التواصل معنا مباشرة عبر البريد الإلكتروني.",
+    "formThankYouTitle": "شكراً لك، {{name}}.",
+    "formThankYouBody": "لقد استلمنا استفسارك، وسيتواصل معك أحد أعضاء فريقنا في غضون يوم عمل واحد.",
+    "formThankYouClose": "إغلاق",
     "offices": {
       "heading": "مكتبنا",
       "items": [

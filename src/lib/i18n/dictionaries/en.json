@@ -1269,7 +1269,7 @@
     "formEmail": "Business Email",
     "formPhone": "Phone Number",
     "formService": "Service",
-    "formServicePlaceholder": "Choose Service",
+    "formServicePlaceholder": "Select all that apply",
     "formNamePlaceholder": "Enter Your Name",
     "formEmailPlaceholder": "Enter Your Business Email",
     "formPhonePlaceholder": "Enter Your Phone Number",
@@ -1297,6 +1297,9 @@
     "formSubmitting": "Sending…",
     "formSuccess": "Thank you — your message has been sent. Our team will be in touch shortly.",
     "formError": "Something went wrong sending your message. Please try again or email us directly.",
+    "formThankYouTitle": "Thank you, {{name}}.",
+    "formThankYouBody": "We've received your enquiry and a member of our team will be in touch within one business day.",
+    "formThankYouClose": "Close",
     "offices": {
       "heading": "Our Office",
       "items": [
