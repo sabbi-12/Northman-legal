@@ -74,6 +74,13 @@ pre-launch migration data (full WP crawl, real OG images, credentials).
 
 ## Page log
 
+⚠️ **This table is stale in multiple rows** (Services detail rows still
+describe the retired immigration-era pages/layouts; Privacy Policy and
+Disclaimer show "—" but actually have real content — see "Session
+2026-08-13" and the go-live audit referenced there). Treat this table as
+historical, not current — check the dictionaries and the dated session
+notes below before trusting any specific row.
+
 | Page | Content received | Metadata finalized | Schema wired | Notes |
 |---|---|---|---|---|
 | Home | ✅ 2026-08-04, full 10-section brief | ✅ (existing root layout metadata covers it) | Org/LegalService/Attorney (sitewide) | See "Home page build" + "Home page bolder pass" below |
@@ -1578,6 +1585,81 @@ legal page templates (🟠, skipped by choice), and real server-side abuse
 protection on the contact form (CAPTCHA or IP-based rate limiting — the
 user wants this eventually but not yet). Don't assume any of these are
 done without checking this entry first.
+
+**Later the same day — small feature adds + a real Sanity content bug
+found while testing:**
+
+- **Services page now has the small contact form too.** `OfficeContact`
+  (already a `withForm`-capable shared component, previously only used on
+  About Us) is now called with `withForm` on
+  `src/app/[lang]/services/page.tsx` as well — no new component, same
+  form, same behavior everywhere it appears.
+- **Home page got its own FAQ section, with its own distinct questions.**
+  `FAQ.tsx` was generic-ized — it now takes `title`/`items` as props
+  instead of always reading `dict.aboutPage.faqItems` — so About Us and
+  Home can each show different questions without duplicating the
+  component. About Us's `page.tsx` was updated to pass its existing
+  content explicitly (`<FAQ title={dict.aboutPage.faqTitle} items={dict.aboutPage.faqItems} />`),
+  unchanged for visitors. Home's new questions live under a new
+  `homeFaq.{title,items}` dictionary key (EN+AR) — 5 questions distinct
+  from About Us's (what we handle / response time / international clients
+  / confidentiality / ISO certifications), placed right before "Let's
+  Connect."
+- **New sitewide "back to top" button.** `src/components/ui/BackToTopButton.tsx`,
+  same visual pattern as the existing `ManageConsentButton` (small fixed
+  circular button, `bottom-5`), appears only after scrolling ~400px, uses
+  the RTL-aware `end-5` positioning so it sits bottom-right in English and
+  correctly mirrors to bottom-left in Arabic — deliberately opposite side
+  from `ManageConsentButton`'s `start-5` so the two never overlap. Wired
+  into `[lang]/layout.tsx` alongside it. New `backToTop` dictionary key
+  (EN+AR, sitewide root level, not nested under any page section).
+- **`FirmIdentity.tsx`'s background redesigned** — the user flagged the
+  old flat CSS grid pattern + corner circle/square SVG outlines as reading
+  generic/"AI-made," not matching the site's warmer institutional register.
+  Replaced with a single soft blurred `bg-accent/25 blur-[110px]` glow
+  centered behind the text — same technique `ComplianceHighlights.tsx`
+  already uses elsewhere on the site (soft colored blur circles, not hard
+  geometric lines), so this isn't a new one-off style. Affects both Home
+  and About Us, since both render this shared component.
+- **Real bug found while testing, NOT caused by anything above**: a live
+  post ("What Should Foreign Investors Check Before Acquiring Saudi Real
+  Estate") 404s because its Sanity `slug` field is malformed — capital
+  letters, no hyphens, doesn't match a real URL pattern at all (neither
+  the raw title-as-slug nor its lowercase-hyphenated equivalent resolve).
+  **This is the exact same recurring failure mode already documented
+  under "Session 2026-08-11" below** ("if posts keep getting added
+  directly in Studio without using the auto-generate-slug button, this
+  will recur" — it recurred). Fix is Sanity-side only, not code: open the
+  post in Studio, use the Slug field's "Generate" button instead of typing
+  one, republish. **Not yet fixed as of this session's end — flag this
+  specific post to the user next session if it hasn't been done.**
+- **Real, separate fix shipped: `/api/revalidate` now also pre-builds the
+  specific new/changed post's page immediately**, instead of only calling
+  `revalidateTag("post")` (which refreshes listing/homepage caches but
+  does nothing for a post that has never been built at all — a genuinely
+  new post's very first visitor could hit a "cold" 404 for a moment before
+  this fix). `src/app/api/revalidate/route.ts` now optionally reads a
+  `slug` field from the webhook's JSON body and calls `revalidatePath` for
+  that post's URL in every locale. **This requires a matching Sanity-side
+  change to actually activate**: the webhook's "Projection" field
+  (sanity.io/manage → API → Webhooks → the existing webhook → Projection)
+  needed `{"slug": slug.current}` added — **the user has already done
+  this, confirmed via screenshot, live now.** Verified locally with curl
+  that the endpoint still works with no body too (backward compatible if
+  the projection is ever removed) and correctly still rejects a wrong
+  secret with 401.
+- **Explicitly clarified with the user**: the Projection/webhook fix and
+  the malformed-slug bug are two unrelated things that surfaced in the
+  same conversation — fixing one does not fix the other. The webhook
+  change is worth keeping regardless (closes a real, separate cold-start
+  gap for correctly-slugged future posts); it was not, and could never
+  have been, the cause of the real-estate post's 404.
+- Session ended here per the user ("that's all for today, we will continue
+  from tomorrow"). **Next session should start by checking**: (1) whether
+  the real-estate post's slug was actually fixed in Sanity, (2) whether a
+  fresh post published after today actually skips the cold-start 404 now
+  that the webhook projection is live, (3) the still-open items list right
+  above this entry.
 
 ## Conventions to hold the line on
 
